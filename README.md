@@ -1,4 +1,4 @@
-# Personal-Website
+# Website Portfolio
 
 I've decided to create a personal website to learn new fullstack skills and showcase my existing skills to potential employers.  
 It is my passion project, and I went into it with some backend and zero frontend experience.
