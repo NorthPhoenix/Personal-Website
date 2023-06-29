@@ -1,0 +1,15 @@
+<svg width="78" height="27" viewBox="0 0 78 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="border" clip-path="url(#clip0_7_2)">
+<line id="lign-top" x1="8.74228e-08" y1="1" x2="78" y2="1.00001" stroke="currentcolor" stroke-width="2"/>
+<line id="line-left" y1="3" x2="5" y2="3" stroke="currentcolor" stroke-width="6"/>
+<line id="line-right" x1="73" y1="3" x2="78" y2="3" stroke="currentcolor" stroke-width="6"/>
+<circle id="dot-left" cx="31" cy="12" r="2.5" fill="currentcolor" stroke="currentcolor"/>
+<circle id="dot-right" cx="47" cy="12" r="2.5" fill="currentcolor" stroke="currentcolor"/>
+<circle id="dot-bot" cx="39" cy="24" r="2.5" fill="currentcolor" stroke="currentcolor"/>
+</g>
+<defs>
+<clipPath id="clip0_7_2">
+<rect width="78" height="27" fill="white"/>
+</clipPath>
+</defs>
+</svg>
