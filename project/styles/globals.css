@@ -4,6 +4,19 @@
 
 @layer base {
     body {
-        @apply bg-gray-900 text-gray-100;
+        /* @apply bg-gray-900 text-gray-100; */
+        @apply bg-nier-300 text-nier-700;
+    }
+}
+
+@layer utilities {
+    .nier-grate {
+        background-size: 0.5rem 0.5rem;
+        background-image: linear-gradient(
+                to right,
+                #ccc8b1 1px,
+                transparent 1px
+            ),
+            linear-gradient(to bottom, #ccc8b1 1px, transparent 1px);
     }
 }

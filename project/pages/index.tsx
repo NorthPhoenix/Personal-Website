@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import Header from "components/header";
+import Navbar from "components/header";
 import Link from "next/link";
 import LoadingScreen from "components/loadingScreen";
 import { useState } from "react";
@@ -13,17 +13,17 @@ const Home: NextPage = () => {
             {loading ? (
                 <LoadingScreen />
             ) : (
-                <div className='flex h-screen w-full flex-col'>
+                <div className='nier-grate flex h-screen w-full flex-col'>
                     <Head>
                         <title>Nikta Istomin</title>
                         <link rel='icon' href='/favicon.ico' />
                     </Head>
-                    <Header />
+                    <Navbar />
                     <div className='m-auto my-4 w-full max-w-7xl grow'>
                         <ul className='flex flex-col gap-6 text-center'>
                             <li>
                                 <Link href='/test1'>
-                                    <button className='w-full rounded-full border border-transparent bg-gray-700'>
+                                    <button className='w-full rounded-full border border-transparent bg-nier-400'>
                                         <span className='text-5xl'>
                                             Test Animation
                                         </span>
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
                             </li>
                             <li>
                                 <Link href='/test2'>
-                                    <button className=' w-full rounded-full border border-transparent bg-gray-700'>
+                                    <button className=' w-full rounded-full border border-transparent bg-nier-400'>
                                         <span className='text-5xl'>
                                             Test Nier Border
                                         </span>
