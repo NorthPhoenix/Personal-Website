@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 
-const Test: NextPage = () => {
+const waveAnimation: NextPage = () => {
     return (
         <div className='h-screen w-screen overflow-hidden bg-neutral-500'>
             <div
@@ -15,4 +15,4 @@ const Test: NextPage = () => {
     );
 };
 
-export default Test;
+export default waveAnimation;

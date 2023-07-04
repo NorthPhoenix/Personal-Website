@@ -4,8 +4,10 @@
 
 @layer base {
     body {
-        /* @apply bg-gray-900 text-gray-100; */
-        @apply bg-nier-300 text-nier-700;
+        @apply nier-grate bg-nier-300 text-nier-700;
+    }
+    svg {
+        @apply fill-current;
     }
 }
 

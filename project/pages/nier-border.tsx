@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 
-const Test: NextPage = () => {
+const nierBorder: NextPage = () => {
     return (
-        <div className='h-screen w-screen overflow-hidden bg-nier-300'>
+        <div className='h-screen w-screen overflow-hidden'>
             <div className='absolute top-3 left-0 h-[2px] w-full bg-nier-700' />{" "}
             {/* Top line */}
             <div className=' my-3 grid grid-flow-col-dense justify-center stroke-nier-700'>
@@ -73,4 +73,4 @@ const Test: NextPage = () => {
     );
 };
 
-export default Test;
+export default nierBorder;
