@@ -17,12 +17,6 @@ import Hero from "./Hero";
 import Navbar from "./Navbar";
 import StarsBackground from "./StarsBackground";
 
-export const metadata = {
-    title: "Nikta Istomin | Portfolio",
-    description: "Nikta Istomin's portfolio website",
-    image: "/design/logo.svg",
-};
-
 const Home: NextPage = () => {
     const [loading, setLoading] = useState(true);
     const [particlesLoaded, setParticlesLoaded] = useState(false);
