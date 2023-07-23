@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
     content: [
         './pages/**/*.{js,ts,jsx,tsx}',
@@ -38,6 +39,14 @@ module.exports = {
                     700: '#454138',
                 },
             },
+            fontFamily: {
+                'helvetica': ['Helvetica', 'Arial', 'sans-serif'],
+                'exodus-regular': ['"Exodus Regular"', 'serif'],
+                'exodus-sharpen': ['"Exodus Sharpen"', 'serif'],
+                'exodus-shino': ['"Exodus Shino"', 'serif'],
+                'exodus-stencil': ['"Exodus Stencil"', 'serif'],
+                'exodus-striped': ['"Exodus Striped"', 'serif'],
+            }
         },
     },
     plugins: [],

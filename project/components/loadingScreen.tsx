@@ -1,9 +1,11 @@
+"use client";
+
 import Logo from "./design/Logo";
 
 const LoadingScreen = () => {
     return (
-        <div className=' absolute h-screen w-screen overflow-hidden bg-nier-700'>
-            <Logo className='absolute top-1/2 left-1/2 z-30 h-1/6 -translate-x-1/2 -translate-y-1/2 fill-gray-300' />
+        <div className='z-[500] fixed inset-0 h-screen w-screen overflow-hidden bg-nier-700'>
+            <Logo className='absolute top-1/2 left-1/2 z-30 h-1/6 -translate-x-1/2 -translate-y-1/2 fill-nier-300 brightness-75' />
             <div
                 id='line-grid'
                 className='absolute z-20 h-full w-full bg-transparent bg-lines-inverted bg-120 bg-repeat'

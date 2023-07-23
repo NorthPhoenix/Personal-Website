@@ -1,7 +1,8 @@
-const DownArrow = ({ className = "" }) => {
+const DownArrow: React.FC<{ className?: string }> = ({ className }) => {
     return (
         <svg
             className={className}
+            href='#about'
             preserveAspectRatio='none'
             viewBox='0 0 104 36'
             xmlns='http://www.w3.org/2000/svg'>

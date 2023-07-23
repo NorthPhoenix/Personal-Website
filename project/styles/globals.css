@@ -3,22 +3,56 @@
 @tailwind utilities;
 
 @layer base {
+    @font-face {
+        font-family: "Exodus Regular";
+        src: url("../public/fonts/ExodusDemo-Regular.otf") format("opentype");
+    }
+    @font-face {
+        font-family: "Exodus Sharpen";
+        src: url("../public/fonts/ExodusDemo-Sharpen.otf") format("opentype");
+    }
+    @font-face {
+        font-family: "Exodus Shino";
+        src: url("../public/fonts/ExodusDemo-Shino.otf") format("opentype");
+    }
+    @font-face {
+        font-family: "Exodus Stencil";
+        src: url("../public/fonts/ExodusDemo-Stencil.otf") format("opentype");
+    }
+    @font-face {
+        font-family: "Exodus Striped";
+        src: url("../public/fonts/ExodusDemo-Striped.otf") format("opentype");
+    }
     body {
-        @apply nier-grate bg-nier-300 text-nier-700;
+        @apply nier-grate bg-nier-200 text-nier-700;
     }
     svg {
         @apply fill-current;
     }
+    html {
+        @apply scroll-smooth no-scrollbar;
+    }
 }
 
 @layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
     .nier-grate {
-        background-size: 0.5rem 0.5rem;
+        background-size: 0.3rem 0.3rem;
         background-image: linear-gradient(
                 to right,
-                #ccc8b1 1px,
+                theme(textColor.nier.300) 1px,
                 transparent 1px
             ),
-            linear-gradient(to bottom, #ccc8b1 1px, transparent 1px);
+            linear-gradient(
+                to bottom,
+                theme(textColor.nier.300) 1px,
+                transparent 1px
+            );
     }
 }

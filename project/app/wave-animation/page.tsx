@@ -2,7 +2,7 @@ import { NextPage } from "next";
 
 const waveAnimation: NextPage = () => {
     return (
-        <div className='h-screen w-screen overflow-hidden bg-neutral-500'>
+        <div className='h-screen w-screen overflow-hidden bg-nier-700'>
             <div
                 id='line-grid'
                 className='absolute z-20 h-full w-full bg-transparent bg-lines-inverted bg-120 bg-repeat'
