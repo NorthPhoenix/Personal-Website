@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "../components/design/Logo";
+import Logo from "app/_components/design/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { twMerge } from "tailwind-merge";

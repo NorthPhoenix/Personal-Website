@@ -11,7 +11,7 @@ import About from "./About";
 import Projects from "./Projects";
 import ContactMe from "./ContactMe";
 import { useState, useEffect } from "react";
-import LoadingScreen from "components/LoadingScreen";
+import LoadingScreen from "app/_components/LoadingScreen";
 import Cubes3D from "./Cubes3D";
 import Hero from "./Hero";
 import Navbar from "./Navbar";

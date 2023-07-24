@@ -12,7 +12,7 @@ const nierBorder: NextPage = () => {
                     height='6'
                     viewBox='0 0 5 6'
                     xmlns='http://www.w3.org/2000/svg'>
-                    <line y1='3' x2='5' y2='3' stroke-width='6' />
+                    <line y1='3' x2='5' y2='3' strokeWidth='6' />
                 </svg>
                 {/* Repeats the pattern */}
                 {[...Array(10)].map((_, i) => {
@@ -24,21 +24,21 @@ const nierBorder: NextPage = () => {
                             height='27'
                             viewBox='0 0 78 27'
                             xmlns='http://www.w3.org/2000/svg'>
-                            <g id='border' clip-path='url(#clip0_7_2)'>
+                            <g id='border' clipPath='url(#clip0_7_2)'>
                                 <line
                                     id='lign-top'
                                     x1='8.74228e-08'
                                     y1='1'
                                     x2='78'
                                     y2='1.00001'
-                                    stroke-width='2'
+                                    strokeWidth='2'
                                 />
                                 <line
                                     id='line-left'
                                     y1='3'
                                     x2='5'
                                     y2='3'
-                                    stroke-width='6'
+                                    strokeWidth='6'
                                 />
                                 <line
                                     id='line-right'
@@ -46,7 +46,7 @@ const nierBorder: NextPage = () => {
                                     y1='3'
                                     x2='78'
                                     y2='3'
-                                    stroke-width='6'
+                                    strokeWidth='6'
                                 />
                                 <circle id='dot-left' cx='31' cy='12' r='2.5' />
                                 <circle
@@ -66,7 +66,7 @@ const nierBorder: NextPage = () => {
                     height='6'
                     viewBox='0 0 5 6'
                     xmlns='http://www.w3.org/2000/svg'>
-                    <line y1='3' x2='5' y2='3' stroke-width='6' />
+                    <line y1='3' x2='5' y2='3' strokeWidth='6' />
                 </svg>
             </div>
         </div>

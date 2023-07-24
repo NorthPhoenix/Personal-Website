@@ -1,4 +1,4 @@
-import DownArrow from "../components/design/DownArrow";
+import DownArrow from "./_components/design/DownArrow";
 import { twMerge } from "tailwind-merge";
 
 const Hero: React.FC<{ className?: string }> = ({ className }) => {
