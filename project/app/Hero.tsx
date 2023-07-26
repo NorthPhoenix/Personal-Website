@@ -5,7 +5,7 @@ const Hero: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div
       className={twMerge(
-        "flex flex-col items-center overflow-hidden",
+        "flex flex-col grow items-center overflow-hidden",
         className
       )}>
       <section className='flex flex-col items-center justify-center w-full space-y-5 text-center grow '>

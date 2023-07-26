@@ -50,9 +50,9 @@ const Home: NextPage = () => {
     <>
       {loading && <LoadingScreen />}
       {/* Front screen of the website */}
-      <section className='flex flex-col min-h-screen sm:h-screen'>
+      <section className='flex flex-col h-[100svh]'>
         <Navbar />
-        <Hero className='grow' />
+        <Hero />
         <StarsBackground
           onLoad={onParticleLoad}
           className='absolute top-0 left-0 w-full h-full -z-50'
