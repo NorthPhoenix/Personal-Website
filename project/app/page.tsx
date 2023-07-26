@@ -1,8 +1,8 @@
 "use client";
 
 import type { NextPage } from "next";
-// import { useEffect, useState, Suspense } from "react";
-// import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 // My components
 import Footer from "./Footer";
@@ -10,7 +10,6 @@ import Test from "./Test";
 import About from "./About";
 import Projects from "./Projects";
 import ContactMe from "./ContactMe";
-import { useState, useEffect } from "react";
 import LoadingScreen from "app/_components/LoadingScreen";
 import Cubes3D from "./Cubes3D";
 import Hero from "./Hero";
@@ -48,7 +47,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      {loading && <LoadingScreen />}
+      <AnimatePresence>{loading && <LoadingScreen />}</AnimatePresence>
       {/* Front screen of the website */}
       <section className='flex flex-col h-[100svh]'>
         <Navbar />
