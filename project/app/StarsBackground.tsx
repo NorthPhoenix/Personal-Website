@@ -32,13 +32,16 @@ const StarsBackground: React.FC<StarsBackgroundProps> = ({
         []
     );
     return (
-        <Particles
-            className={twMerge("bg-black", className)}
-            id='tsparticles'
-            init={particlesInit}
-            loaded={particlesLoaded}
-            options={options as unknown as ParticlesOptions}
-        />
+        <>
+            <Particles
+                className={twMerge("bg-black", className)}
+                id='tsparticles'
+                init={particlesInit}
+                loaded={particlesLoaded}
+                options={options as unknown as ParticlesOptions}
+            />
+            <div className={twMerge("bg-radial-gradient", className)}></div>
+        </>
     );
 };
 

@@ -39,7 +39,7 @@ export default function RootLayout({
     return (
         <html lang='en'>
             {/* <IntroTransition> */}
-            <body>{children}</body>
+            <body className="debug-screens">{children}</body>
             {/* </IntroTransition> */}
         </html>
     );
