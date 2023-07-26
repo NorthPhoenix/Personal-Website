@@ -9,14 +9,14 @@ const Hero: React.FC<{ className?: string }> = ({ className }) => {
         className
       )}>
       <section className='flex flex-col items-center justify-center w-full space-y-5 text-center grow '>
-        <h1 className='text-[17vw] md:text-8xl lg:text-9xl xl:text-[9rem] mix-blend-difference font-exodus-striped h-full flex flex-col justify-around grow'>
-          <span className='md:-translate-x-[20%] text-transparent bg-gradient-to-t from-neutral-600 select-none to-nier-300 bg-clip-text'>
+        <h1 className='text-[17vw] md:text-8xl lg:text-9xl xl:text-[9rem] mix-blend-difference font-exodus-striped h-full flex flex-col justify-around grow w-full'>
+          <span className='md:-translate-x-[17%] text-transparent bg-gradient-to-t from-neutral-600 select-none to-nier-300 bg-clip-text'>
             DESIGN
           </span>
           <span className='md:translate-x-[0%] text-transparent bg-gradient-to-t from-neutral-600 select-none to-nier-300 bg-clip-text'>
             DEVELOP
           </span>
-          <span className='md:translate-x-[20%] text-transparent bg-gradient-to-t from-neutral-600 select-none to-nier-300 bg-clip-text'>
+          <span className='md:translate-x-[17%] text-transparent bg-gradient-to-t from-neutral-600 select-none to-nier-300 bg-clip-text'>
             DELIVER
           </span>
         </h1>
