@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -41,12 +43,11 @@ module.exports = {
         },
       },
       fontFamily: {
-        'helvetica': ['Helvetica', 'Arial', 'sans-serif'],
-        'exodus-regular': ['"Exodus Regular"', 'serif'],
-        'exodus-sharpen': ['"Exodus Sharpen"', 'serif'],
-        'exodus-shino': ['"Exodus Shino"', 'serif'],
-        'exodus-stencil': ['"Exodus Stencil"', 'serif'],
-        'exodus-striped': ['"Exodus Striped"', 'serif'],
+        'helvetica': ['Helvetica', 'Arial', defaultTheme.fontFamily.sans],
+        'exodus-regular': ['"Exodus Regular"', defaultTheme.fontFamily.serif],
+        'exodus-sharpen': ['"Exodus Sharpen"', defaultTheme.fontFamily.serif],
+        'exodus-stencil': ['"Exodus Stencil"', defaultTheme.fontFamily.serif],
+        'exodus-striped': ['"Exodus Striped"', defaultTheme.fontFamily.serif],
       }
     },
   },
