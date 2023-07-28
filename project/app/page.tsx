@@ -5,16 +5,17 @@ import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 // My components
-import Footer from "./Footer";
-import Test from "./Test";
-import About from "./About";
-import Projects from "./Projects";
-import ContactMe from "./ContactMe";
-import LoadingScreen from "app/_components/LoadingScreen";
-import Cubes3D from "./Cubes3D";
-import Hero from "./Hero";
-import Navbar from "./Navbar";
-import StarsBackground from "./StarsBackground";
+import Footer from "./_localComponents/Footer";
+import Test from "./_localComponents/Test";
+import About from "./_localComponents/About";
+import Projects from "./_localComponents/Projects";
+import ContactMe from "./_localComponents/ContactMe";
+import LoadingScreen from "app/_globalComponents/LoadingScreen";
+import Cubes3D from "./_localComponents/Cubes3D";
+import Hero from "./_localComponents/Hero";
+import Navbar from "./_localComponents/Navbar";
+import StarsBackground from "./_localComponents/StarsBackground";
+import DiamondTransition from "./_globalComponents/design/DiamondTransition";
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(true);
@@ -49,7 +50,7 @@ const Home: NextPage = () => {
     <>
       <AnimatePresence>{loading && <LoadingScreen />}</AnimatePresence>
       {/* Front screen of the website */}
-      <section className='flex flex-col h-[100svh]'>
+      <section id='hero' className='flex flex-col h-[100svh]'>
         <Navbar />
         <Hero />
         <StarsBackground
@@ -61,6 +62,11 @@ const Home: NextPage = () => {
           className='absolute top-0 left-0 w-full h-full -z-40'
         />
       </section>
+      <DiamondTransition
+        twTransitionFill='fill-black'
+        twTransitionStroke='stroke-nier-700'
+        unitWidth={150}
+      />
       <About />
       <Projects />
       <ContactMe />

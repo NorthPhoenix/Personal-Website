@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "app/_components/design/Logo";
+import Logo from "app/_globalComponents/design/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { twMerge } from "tailwind-merge";
@@ -9,7 +9,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import SideOverMenu from "./SideOverMenu";
 
 const navigationLinks = [
-  { href: "#about", label: "About", id: "about" },
+  { href: "#about", label: "About Me", id: "about" },
   { href: "#projects", label: "Projects", id: "projects" },
   { href: "#contact", label: "Get in touch", id: "contact" },
 ];
