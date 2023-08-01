@@ -12,7 +12,7 @@ module.exports = {
     'bg-white',
     'bg-black',
     'bg-transparent',
-    { pattern: /^bg-*-(50|100|200|300|400|500|600|700|800|900)/, }
+    { pattern: /^bg-.*-(50|100|200|300|400|500|600|700|800|900)/, }
   ],
   theme: {
     extend: {
