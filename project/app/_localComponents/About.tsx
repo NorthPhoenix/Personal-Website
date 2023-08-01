@@ -4,7 +4,7 @@ const About = () => {
   return (
     <section
       id='about'
-      className='flex items-center justify-center w-full mb-20 mt-[550px] font-helvetica'>
+      className='flex items-center justify-center w-full mb-20 mt-[550px] font-helvetica overflow-hidden'>
       <div className='flex flex-row items-center justify-center w-full max-w-7xl'>
         <div className='bg-gray-200 bg-opacity-70 rounded-xl shadow-xl  basis-2/5 min-h-[40vmin] m-4 flex items-center justify-center'>
           <span className='text-3xl'>Rotating 3D model</span>
