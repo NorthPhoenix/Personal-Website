@@ -20,13 +20,13 @@
     src: url("../public/fonts/ExodusDemo-Striped.otf") format("opentype");
   }
   body {
-    @apply nier-grate bg-nier-200 text-nier-700;
+    @apply overflow-hidden nier-grate bg-nier-200 text-nier-700;
   }
   svg {
     @apply fill-current;
   }
   html {
-    @apply scroll-smooth no-scrollbar;
+    @apply scroll-smooth;
   }
 }
 

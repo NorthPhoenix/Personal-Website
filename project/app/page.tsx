@@ -11,61 +11,34 @@ import About from "./_localComponents/About";
 import Projects from "./_localComponents/Projects";
 import ContactMe from "./_localComponents/ContactMe";
 import LoadingScreen from "app/_globalComponents/LoadingScreen";
-import Cubes3D from "./_localComponents/Cubes3D";
-import Hero from "./_localComponents/Hero";
-import Navbar from "./_localComponents/Navbar";
-import StarsBackground from "./_localComponents/StarsBackground";
+import Hero from "./_localComponents/heroSection/Hero";
+import Navbar from "./_localComponents/heroSection/Navbar";
 import DiamondTransition from "./_globalComponents/design/DiamondTransition";
 
 const Home: NextPage = () => {
-  const [loading, setLoading] = useState(true);
-  const [particlesLoaded, setParticlesLoaded] = useState(false);
-  const [cubesLoaded, setcubesLoaded] = useState(false);
-
-  const onParticleLoad = () => {
-    console.log("onParticleLoad");
-    setParticlesLoaded(true);
-  };
-
-  const onCubesLoad = () => {
-    console.log("onCubesLoad");
-    setcubesLoaded(true);
-  };
+  const [loaded, setLoaded] = useState(false);
+  const [heroLoaded, setHeroLoaded] = useState(false);
 
   useEffect(() => {
-    // prevent scrolling while loading
-    document.body.style.overflow = "hidden";
-
-    if (particlesLoaded && cubesLoaded) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
-
-      // allow scrolling after loading
+    if (heroLoaded) {
+      console.log("Page loaded");
+      setLoaded(true);
+      // Allow scrolling after loading (scrolling is prevented by default, see global.css)
       document.body.style.overflow = "auto";
     }
-  }, [particlesLoaded, cubesLoaded]);
+  }, [heroLoaded]);
 
   return (
     <>
-      <AnimatePresence>{loading && <LoadingScreen />}</AnimatePresence>
+      <AnimatePresence>{!loaded && <LoadingScreen />}</AnimatePresence>
       {/* Front screen of the website */}
-      <section id='hero' className='flex flex-col h-[100svh]'>
-        <Navbar />
-        <Hero />
-        <StarsBackground
-          onLoad={onParticleLoad}
-          className='absolute top-0 left-0 w-full h-full -z-50'
-        />
-        <Cubes3D
-          onLoad={onCubesLoad}
-          className='absolute top-0 left-0 w-full h-full -z-40'
-        />
-      </section>
+      <Navbar />
+      <Hero setLoaded={setHeroLoaded} />
       <DiamondTransition
         twTransitionFill='fill-black'
         twTransitionStroke='stroke-nier-700'
         unitWidth={150}
+        padding={"50px"}
       />
       <About />
       <Projects />

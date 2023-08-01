@@ -8,6 +8,12 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
   ],
+  safelist: [
+    'bg-white',
+    'bg-black',
+    'bg-transparent',
+    { pattern: /^bg-*-(50|100|200|300|400|500|600|700|800|900)/, }
+  ],
   theme: {
     extend: {
       animation: {
@@ -26,13 +32,13 @@ module.exports = {
         'nier-border': 'url("../public/design/border-nier.svg")',
       },
       backgroundSize: {
-        80: '80px',
-        100: '100px',
-        120: '120px',
-        140: '140px',
-        160: '160px',
-        180: '180px',
-        200: '200px',
+        "size-80": '80px',
+        "size-100": '100px',
+        "size-120": '120px',
+        "size-140": '140px',
+        "size-160": '160px',
+        "size-180": '180px',
+        "size-200": '200px',
       },
       colors: {
         nier: {
@@ -53,6 +59,7 @@ module.exports = {
   },
   plugins: [
     require('tailwindcss-debug-screens'),
+    require('tailwindcss-animated')
   ],
 }
 

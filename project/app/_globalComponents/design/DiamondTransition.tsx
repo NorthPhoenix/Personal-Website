@@ -6,15 +6,20 @@ type DiamondTransitionProps = {
   twTransitionFill?: string;
   twTransitionStroke?: string;
   unitWidth?: number;
+  padding?: string;
 };
 
 const DiamondTransition: React.FC<DiamondTransitionProps> = ({
   twTransitionFill = "fill-black",
   twTransitionStroke = "stroke-white",
   unitWidth = 200,
+  padding = "0px",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [numberOfTransitions, setNumberOfTransitions] = useState(0);
+  const paddingColor = twTransitionFill.slice(
+    twTransitionFill.indexOf("-") + 1
+  );
 
   // useLayoutEffect for calculating number of units of transitions to render
   useLayoutEffect(() => {
@@ -43,18 +48,25 @@ const DiamondTransition: React.FC<DiamondTransitionProps> = ({
   return (
     <>
       <div className='relative -z-10'>
-        <div
-          ref={containerRef}
-          className='absolute flex flex-row items-start justify-center w-screen overflow-hidden top-full'>
-          {[...Array(numberOfTransitions)].map((_, index) => {
-            return (
-              <DiamondTransitionImage
-                key={index}
-                className={`shrink-0 ${twTransitionFill} ${twTransitionStroke}`}
-                width={`${unitWidth}px`}
-              />
-            );
-          })}
+        <div className='absolute left-0 w-full top-full'>
+          <div
+            className={`bg-${paddingColor} w-full`}
+            style={{ height: padding }}
+          />
+          <div
+            ref={containerRef}
+            className='flex flex-row items-start justify-center w-full overflow-hidden'>
+            {[...Array(numberOfTransitions)].map((_, index) => {
+              return (
+                <DiamondTransitionImage
+                  key={index}
+                  className={`shrink-0 ${twTransitionFill} ${twTransitionStroke}`}
+                  width={`${unitWidth}px`}
+                />
+              );
+            })}
+            d
+          </div>
         </div>
       </div>
     </>

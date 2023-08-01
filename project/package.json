@@ -26,6 +26,7 @@
         "react-pdf": "^7.1.2",
         "styled-components": "^6.0.3",
         "tailwind-merge": "^1.13.2",
+        "tailwindcss-animated": "^1.0.1",
         "three": "^0.154.0",
         "tsparticles": "^2.10.1",
         "tsparticles-engine": "^2.10.1"
