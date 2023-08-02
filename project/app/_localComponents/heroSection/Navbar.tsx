@@ -38,10 +38,10 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
       const navbar = navRef.current;
       if (navbar) {
         if (window.scrollY > prevScrollpos) {
-          navbar.classList.add("-translate-y-full");
+          navbar.classList.add("-translate-y-[105%]");
         }
         if (window.scrollY < prevScrollpos) {
-          navbar.classList.remove("-translate-y-full");
+          navbar.classList.remove("-translate-y-[105%]");
         }
         prevScrollpos = window.scrollY;
       }
@@ -59,7 +59,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
       <header
         ref={navRef}
         className={twMerge(
-          "fixed left-0 top-0 right-0 flex flex-col items-center transition-transform duration-500 mix-blend-difference",
+          "fixed left-0 top-0 right-0 flex z-50 flex-col items-center transition-transform duration-500 mix-blend-difference",
           className
         )}>
         <nav className='flex flex-row items-center justify-between w-full h-20 px-12 bg-transparent sm:px-10 md:px-9 md:h-24 max-w-7xl'>

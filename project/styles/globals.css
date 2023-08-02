@@ -47,4 +47,7 @@
       ),
       linear-gradient(to bottom, theme(textColor.nier.300) 1px, transparent 1px);
   }
+  .text-shadow {
+    text-shadow: 0.3rem 0.3rem 0 theme(textColor.nier.400);
+  }
 }
