@@ -5,9 +5,9 @@ const About = () => {
   return (
     <section
       id='about'
-      className='flex items-center justify-center w-full mb-20 mt-[600px] p-6 pt-[100px] font-helvetica overflow-hidden'>
-      <div className='flex flex-row items-center justify-center w-full max-w-7xl 2xl:max-w-[80%]'>
-        <article className='relative basis-3/5 min-h-[40vmin] m-4 flex flex-col items-start justify-center p-8 before:box-content before:border-nier-400 before:border-y-0 before:content-[""] before:absolute before:top-0 before:-left-6 before:h-full before:w-[0.3rem] before:border-solid before:border before:border-l-[0.6rem] before:border-r-[0.2rem]'>
+      className='relative flex items-center justify-center w-full p-6 py-12 mb-20 overflow-hidden font-helvetica selection:bg-nier-700 selection:text-nier-200'>
+      <div className='relative w-full max-w-7xl 2xl:max-w-[80%]'>
+        <article className='relative w-3/5 min-h-[40vmin] m-4 flex flex-col items-start justify-center p-8 nier-block'>
           <div className='p-4 mb-8 shadow-md bg-nier-200 '>
             <header className='w-full pb-4 mb-4 border-b border-nier-700'>
               <h2 className='mb-3 text-4xl font-normal tracking-[0.5rem] uppercase text-shadow whitespace-nowrap'>
@@ -17,7 +17,7 @@ const About = () => {
                 Software developer. Deep thinker. Life enjoyer.
               </h3>
             </header>
-            <p className='text-lg'>
+            <p className='text-lg '>
               I'm a software developer with a passion for creating beautiful and
               useful things. I was introduced to programming in 2015 and since
               then I was dragged into the world of technology. I'm a recent
@@ -75,9 +75,9 @@ const About = () => {
             </div>
           </div>
         </article>
-        <div className='bg-nier-300 bg-opacity-30 rounded-xl shadow-xl basis-2/5 min-h-[40vmin] m-4 flex items-center justify-center'>
-          <About3D />
-        </div>
+      </div>
+      <div className='absolute right-0 w-[800px] h-[1000px] origin-center -translate-y-1/2 top-1/2 -z-10'>
+        <About3D />
       </div>
     </section>
   );

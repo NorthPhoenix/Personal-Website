@@ -42,6 +42,13 @@ const Home: NextPage = () => {
       />
       <About />
       <Projects />
+      <DiamondTransition
+        twTransitionFill='fill-black'
+        twTransitionStroke='stroke-nier-700'
+        unitWidth={150}
+        padding={"50px"}
+        reverse
+      />
       <ContactMe />
       <Test />
       <Footer />

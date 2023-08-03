@@ -7,6 +7,8 @@ type DiamondTransitionProps = {
   twTransitionStroke?: string;
   unitWidth?: number;
   padding?: string;
+  reverse?: boolean;
+  absolute?: boolean;
 };
 
 const DiamondTransition: React.FC<DiamondTransitionProps> = ({
@@ -14,6 +16,8 @@ const DiamondTransition: React.FC<DiamondTransitionProps> = ({
   twTransitionStroke = "stroke-white",
   unitWidth = 200,
   padding = "0px",
+  reverse = false,
+  absolute = false,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [numberOfTransitions, setNumberOfTransitions] = useState(0);
@@ -48,7 +52,9 @@ const DiamondTransition: React.FC<DiamondTransitionProps> = ({
   return (
     <>
       <div className='relative -z-10'>
-        <div className='absolute left-0 w-full top-full'>
+        <div
+          className={`w-full flex ${absolute ? "absolute left-0 top-full" : ""}
+          ${reverse ? "flex-col-reverse" : "flex-col"}`}>
           <div
             className={`bg-${paddingColor} w-full`}
             style={{ height: padding }}
@@ -60,7 +66,9 @@ const DiamondTransition: React.FC<DiamondTransitionProps> = ({
               return (
                 <DiamondTransitionImage
                   key={index}
-                  className={`shrink-0 ${twTransitionFill} ${twTransitionStroke}`}
+                  className={`shrink-0 ${twTransitionFill} ${twTransitionStroke} ${
+                    reverse ? "rotate-[180deg] translate-y-px" : ""
+                  }`}
                   width={`${unitWidth}px`}
                 />
               );
@@ -77,7 +85,7 @@ const DiamondTransitionImage = ({ className = "", width = "200px" }) => {
   return (
     <>
       <svg
-        viewBox='1 0 248 772'
+        viewBox='1 2 248 772'
         xmlns='http://www.w3.org/2000/svg'
         preserveAspectRatio='none'
         shapeRendering='geometricPrecision'
