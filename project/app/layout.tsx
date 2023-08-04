@@ -3,8 +3,12 @@ import "../styles/globals.css";
 // import Font Awesome CSS
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { Metadata } from "next";
 config.autoAddCss = false;
+
+// import Devicon CSS
+import "devicon/devicon.min.css";
+
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Nikta Istomin | Portfolio",

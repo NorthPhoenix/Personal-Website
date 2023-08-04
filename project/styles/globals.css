@@ -20,7 +20,7 @@
     src: url("../public/fonts/ExodusDemo-Striped.otf") format("opentype");
   }
   body {
-    @apply overflow-hidden nier-grate bg-nier-200 text-nier-700;
+    @apply overflow-hidden nier-grate bg-nier-300 text-nier-700;
   }
   svg {
     @apply fill-current;
@@ -42,10 +42,10 @@
     background-size: 0.3rem 0.3rem;
     background-image: linear-gradient(
         to right,
-        theme(textColor.nier.300) 1px,
+        theme(textColor.nier.350) 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, theme(textColor.nier.300) 1px, transparent 1px);
+      linear-gradient(to bottom, theme(textColor.nier.350) 1px, transparent 1px);
   }
   .text-shadow {
     text-shadow: 0.3rem 0.3rem 0 theme(textColor.nier.400);
