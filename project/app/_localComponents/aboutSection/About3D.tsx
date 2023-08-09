@@ -35,8 +35,8 @@ const About3D: React.FC<About3DProps> = ({ className, onLoad }) => {
   return (
     <Canvas shadows frameloop='always' camera={{ position: [0, 2, 8] }}>
       <Suspense fallback={null}>
-        <OrbitControls enableZoom={false} />
         <axesHelper args={[5]} />
+        <Model />
         {/* ####################### Lights ####################### */}
         {/* Key light */}
         <directionalLight position={[10, 15, 5]} intensity={0.5} />
@@ -47,7 +47,7 @@ const About3D: React.FC<About3DProps> = ({ className, onLoad }) => {
         {/* ambient light */}
         <ambientLight intensity={0.1} />
         {/* ####################### Models ####################### */}
-        <Model />
+        <OrbitControls enableZoom={false} />
         <Preload all />
       </Suspense>
     </Canvas>

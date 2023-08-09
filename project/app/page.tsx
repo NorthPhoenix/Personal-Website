@@ -7,7 +7,7 @@ import { AnimatePresence } from "framer-motion";
 // My components
 import Footer from "./_localComponents/Footer";
 import Test from "./_localComponents/Test";
-import About from "./_localComponents/About";
+import About from "./_localComponents/aboutSection/About";
 import Projects from "./_localComponents/Projects";
 import ContactMe from "./_localComponents/ContactMe";
 import LoadingScreen from "app/_globalComponents/LoadingScreen";
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
         padding={"50px"}
         reverse
       />
-      <ContactMe />
+      {/* <ContactMe /> */}
       <Footer />
       <Test />
     </>

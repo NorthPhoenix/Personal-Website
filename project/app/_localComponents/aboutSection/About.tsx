@@ -1,5 +1,5 @@
 import React from "react";
-import About3D from "./aboutSection/About3D";
+import About3D from "./About3D";
 
 const About = () => {
   return (

@@ -57,7 +57,9 @@ const ContactMe = () => {
               </div>
             </div>
             <div className='w-full p-2'>
-              <button className='flex px-8 py-2 mx-auto text-lg transition-colors duration-100 border-0 rounded text-nier-200 bg-nier-700 focus:outline-none hover:bg-nier-300 hover:text-black'>
+              <button
+                className='flex px-8 py-2 mx-auto text-lg transition-colors duration-100 border-0 rounded text-nier-200 bg-nier-700 focus:outline-none hover:bg-nier-300 hover:text-black'
+                type='submit'>
                 Send
               </button>
             </div>
