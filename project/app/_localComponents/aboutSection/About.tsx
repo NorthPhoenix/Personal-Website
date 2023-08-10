@@ -7,7 +7,7 @@ const About = () => {
       id='about'
       className='relative flex items-center justify-center w-full p-6 py-12 mb-20 overflow-hidden font-helvetica selection:bg-nier-700 selection:text-nier-200'>
       <div className='relative w-full max-w-7xl 2xl:max-w-[80%]'>
-        <article className='relative w-3/5 min-h-[40vmin] m-4 flex flex-col items-start justify-center p-8 nier-block'>
+        <article className='relative w-3/5 min-h-[40vmin] m-4 flex flex-col items-start justify-center p-8 nier-block-left'>
           <div className='p-4 mb-8 shadow-md bg-nier-200 '>
             <header className='w-full pb-4 mb-4 border-b border-nier-700'>
               <h2 className='mb-3 text-4xl font-normal tracking-[0.5rem] uppercase text-shadow whitespace-nowrap'>

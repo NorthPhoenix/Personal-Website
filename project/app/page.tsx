@@ -15,7 +15,7 @@ import Hero from "./_localComponents/heroSection/Hero";
 import Navbar from "./_localComponents/heroSection/Navbar";
 import DiamondTransition from "./_globalComponents/design/DiamondTransition";
 import LinesThroughCircleDesign from "./_globalComponents/design/LinesThroughCircleDesign";
-import Skills from "./_localComponents/Skills";
+import Skills from "./_localComponents/skillsSection/Skills";
 
 const Home: NextPage = () => {
   const [loaded, setLoaded] = useState(false);
