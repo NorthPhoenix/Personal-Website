@@ -10,6 +10,7 @@ import SideOverMenu from "./SideOverMenu";
 
 const navigationLinks = [
   { href: "#about", label: "About Me", id: "about" },
+  { href: "#skills", label: "Skills", id: "skills" },
   { href: "#projects", label: "Projects", id: "projects" },
   { href: "#contact", label: "Get in touch", id: "contact" },
 ];

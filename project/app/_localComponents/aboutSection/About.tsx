@@ -18,11 +18,11 @@ const About = () => {
               </h3>
             </header>
             <p className='text-lg '>
-              I'm a software developer with a passion for creating beautiful and
-              useful things. I was introduced to programming in 2015 and since
-              then I was dragged into the world of technology. I'm a recent
-              computer science grad from the University of Texas at Dallas, and
-              I'm exited to start my career in the industry.
+              I'm a frontend web developer with a passion for creating beautiful
+              and useful things. I was introduced to programming in 2015 and
+              since then I was dragged into the world of technology. I'm a
+              recent computer science grad from the University of Texas at
+              Dallas, and I'm exited to start my career in the industry.
             </p>
           </div>
           <div className='grid grid-cols-2 grid-rows-2 gap-6 shrink'>

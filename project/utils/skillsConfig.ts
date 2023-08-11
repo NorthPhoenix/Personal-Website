@@ -1,33 +1,37 @@
-type Tag =
-  | "Frontend"
-  | "Backend"
-  | "Database"
-  | "Programming Language"
-  | "3D Modeling"
-  | "Game Engine"
-  | "Version Control"
-  | "Design"
-  | "DevOps"
-  | "Testing"
-  | "Cloud"
-  | "Mobile"
-  | "Web"
-  | "AI/ML"
-  | "UI/UX"
-  | "Game Development"
-  | "Soft"
-  | "Other";
-
 declare type Skill = {
   name: string;
   icon: {
     devicon?: string;
     svg?: string;
   };
-  tags?: Tag[];
+  tags?: AllKeys<SkillTag>[];
   description?: string;
   link?: string;
 };
+
+type AllKeys<T> = T extends any ? keyof T : never;
+
+declare type SkillTag = (typeof Tags)[number];
+
+const Tags = [
+  { Frontend: { color: "#61DAFB" } },
+  { Backend: { color: "#000000" } },
+  { Database: { color: "#4479A1" } },
+  { "Programming Language": { color: "#F7DF1E" } },
+  { "3D": { color: "#F7DF1E" } },
+  { "Game Engine": { color: "#F7DF1E" } },
+  { "Version Control": { color: "#F7DF1E" } },
+  { Design: { color: "#F7DF1E" } },
+  { Testing: { color: "#F7DF1E" } },
+  { Cloud: { color: "#F7DF1E" } },
+  { Mobile: { color: "#F7DF1E" } },
+  { Web: { color: "#F7DF1E" } },
+  { "AI/ML": { color: "#F7DF1E" } },
+  { "UI/UX": { color: "#F7DF1E" } },
+  { "Game Development": { color: "#F7DF1E" } },
+  { Soft: { color: "#F7DF1E" } },
+  { Other: { color: "#F7DF1E" } },
+] as const;
 
 const skills: Skill[] = [
   {
@@ -38,6 +42,7 @@ const skills: Skill[] = [
     },
     description:
       "HTML5 is the latest version of the Hypertext Markup Language, used for structuring and presenting content on the web. It introduces new semantic elements and features that enable enhanced multimedia and interactive capabilities.",
+    tags: ["Frontend", "Web", "Programming Language"],
   },
   {
     name: "CSS3",
@@ -458,5 +463,5 @@ const skills: Skill[] = [
   },
 ];
 
-export { skills };
-export type { Skill };
+export { skills, Tags };
+export type { Skill, SkillTag };
