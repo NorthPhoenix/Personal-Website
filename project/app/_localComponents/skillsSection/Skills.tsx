@@ -1,58 +1,66 @@
 "use client";
 
 import Image from "next/image";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Skill, SkillTag, Tags } from "utils/skillsConfig";
-import Skills3D from "./Skills3D";
-import { motion, AnimatePresence, delay } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/24/outline";
+import { atom, useAtom } from "jotai";
+import Skills3D from "./Skills3D";
+import NierButton from "app/_globalComponents/NierButton";
+
+export const activeSkillAtom = atom<Skill | null>(null);
+export const selectedTagsAtom = atom<SkillTag[]>([]);
 
 const Skills = () => {
-  const [activeSkill, setActiveSkill] = useState<Skill>(null!);
-  const [selectedTags, setSelectedTags] = useState<SkillTag[]>([]);
-
-  const activateSkill = (skill: Skill) => {
-    setActiveSkill(skill);
-  };
+  const [activeSkill, setActiveSkill] = useAtom(activeSkillAtom);
+  const [selectedTags, setSelectedTags] = useAtom(selectedTagsAtom);
 
   return (
     <section
       id='skills'
       className='flex flex-col items-center justify-start w-full'>
-      <div className='flex flex-col items-center justify-center w-full'>
-        <div className='flex flex-row items-center justify-center w-full gap-2 p-4 max-w-7xl'>
+      <div className='flex flex-col items-center justify-center w-full gap-4 mb-6'>
+        <div className='flex flex-row items-center justify-center w-full gap-2 max-w-7xl'>
           <span className='h-[2px] grow-0 w-5 bg-nier-700' />
           <span className='h-[2px] grow bg-nier-700' />
           <span className='h-[2px] grow-0 w-5 bg-nier-700' />
         </div>
-        <h2 className='p-6  text-6xl font-exodus-striped uppercase tracking-[0.5rem] text-shadow text-center align-middle'>
+        <h2 className='px-4 text-6xl font-exodus-striped uppercase tracking-[0.5rem] text-shadow text-center -translate-y-[2px]'>
           Skills
         </h2>
-        <div className='flex flex-row items-center justify-center w-full gap-2 p-4 max-w-7xl'>
+        <div className='flex flex-row items-center justify-center w-full gap-2 max-w-7xl'>
           <span className='h-[2px] grow-0 w-5 bg-nier-700' />
           <span className='h-[2px] grow bg-nier-700' />
           <span className='h-[2px] grow-0 w-5 bg-nier-700' />
         </div>
       </div>
-      <div className='relative shadow-md bg-nier-200'>
-        <p className='p-2 mt-2 text-center shadow-md bg-nier-200 font-helvetica'>
+      <div className='relative px-4 text-lg shadow-md bg-nier-200 font-helvetica'>
+        <p className='p-2 mt-2 text-center'>
           I've had experience with many different technologies over the years
-          and I always strife to learn more and gain new experiences. Here are
-          some of the technologies know:
+          and I'm always eager to learn more and gain new experiences. <br />
+          Here are some of the technologies I know:
         </p>
-        <div className='absolute z-20 -translate-x-1/2 top-full left-1/2'>
+        <p className='p-2 my-2 text-center'>
+          I specialize in{" "}
+          <span className='font-semibold underline'>React.js</span>,{" "}
+          <span className='font-semibold underline'>Next.js</span>,{" "}
+          <span className='font-semibold underline'>TypeScript</span>, and{" "}
+          <span className='font-semibold underline'>Unity</span>.
+        </p>
+        <div className='absolute z-20 flex flex-row items-center gap-4 -translate-x-1/2 translate-y-2 top-full left-1/2'>
           <Listbox
             value={selectedTags}
             onChange={setSelectedTags}
             multiple
             horizontal>
-            <div className='relative w-64 mt-1'>
-              <Listbox.Button className='relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm'>
+            <div className='relative w-80'>
+              <Listbox.Button className='relative w-full py-2 pl-3 pr-10 text-left shadow-md cursor-default bg-nier-200 focus:outline-none focus-visible:border-nier-400 focus-visible:ring-2 focus-visible:ring-nier-700 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-nier-200 sm:text-sm'>
                 {selectedTags.length === 0 ? (
-                  <span className='block truncate'>Select tags</span>
+                  <span className='block truncate'>Filter</span>
                 ) : (
-                  <span className='block truncate'>
+                  <span className='block'>
                     {selectedTags.map((tag) => Object.keys(tag)[0]).join(", ")}
                   </span>
                 )}
@@ -65,10 +73,13 @@ const Skills = () => {
               </Listbox.Button>
               <Transition
                 as={Fragment}
-                leave='transition ease-in duration-100'
-                leaveFrom='opacity-100'
-                leaveTo='opacity-0'>
-                <Listbox.Options className='absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
+                leave='transition ease-in duration-150 origin-top'
+                leaveFrom='opacity-100 scale-y-100'
+                leaveTo='opacity-0 scale-y-0'
+                enter=' trasition ease-in duration-150 origin-top'
+                enterFrom='opacity-0 scale-y-0'
+                enterTo='opacity-100 scale-y-100'>
+                <Listbox.Options className='absolute w-full py-1 mt-1 overflow-auto text-base shadow-lg bg-nier-200 max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
                   {Tags.map((tag, tagIdx) => (
                     <Listbox.Option
                       key={tagIdx}
@@ -76,7 +87,7 @@ const Skills = () => {
                         `relative cursor-default select-none py-2 pl-10 pr-4 ${
                           active
                             ? "bg-amber-100 text-amber-900"
-                            : "text-gray-900"
+                            : "text-nier-700"
                         }`
                       }
                       value={tag}>
@@ -104,13 +115,15 @@ const Skills = () => {
               </Transition>
             </div>
           </Listbox>
+          <NierButton
+            className='min-w-[10rem] py-1 font-normal'
+            onClick={() => setSelectedTags([])}
+            label='Clear'
+          />
         </div>
       </div>
-      <div className='relative flex flex-row items-center justify-end w-full max-w-7xl min-h-[800px] my-12 font-helvetica'>
-        <Skills3D
-          activateSkill={activateSkill}
-          className='absolute left-0 z-10 p-4 -translate-x-[15%] -translate-y-1/2 top-1/2 aspect-square h-[120%] '
-        />
+      <div className='relative flex flex-row items-center justify-end w-full max-w-7xl min-h-[800px] my-16 font-helvetica'>
+        <Skills3D className='absolute left-0 z-10 p-4 -translate-x-[15%] -translate-y-1/2 top-1/2 aspect-square h-[120%] ' />
         <AnimatePresence mode='popLayout'>
           {activeSkill === null ? (
             <motion.div
@@ -128,7 +141,7 @@ const Skills = () => {
           ) : (
             <motion.div
               className='relative flex flex-col items-center justify-center max-w-lg p-10 nier-block-right'
-              key={activeSkill.name}
+              key={activeSkill.uuid}
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ opacity: 0, scale: 0.7 }}

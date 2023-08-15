@@ -26,7 +26,7 @@
     @apply fill-current;
   }
   html {
-    @apply scroll-smooth;
+    @apply antialiased scroll-smooth;
   }
 }
 

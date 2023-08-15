@@ -13,8 +13,10 @@ const About = () => {
               <h2 className='mb-3 text-4xl font-normal tracking-[0.5rem] uppercase text-shadow whitespace-nowrap'>
                 Nikita Istomin
               </h2>
-              <h3 className='flex flex-row items-center justify-start w-full gap-2 text-xl uppercase '>
-                Software developer. Deep thinker. Life enjoyer.
+              <h3 className='flex flex-row items-center justify-start w-full gap-4 text-xl uppercase '>
+                <span>Software developer.</span>
+                <span>Deep thinker.</span>
+                <span>Life enjoyer.</span>
               </h3>
             </header>
             <p className='text-lg '>
