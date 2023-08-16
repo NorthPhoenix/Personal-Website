@@ -7,13 +7,13 @@ const About = () => {
       id='about'
       className='relative flex items-center justify-center w-full p-6 py-12 mb-20 overflow-hidden font-helvetica selection:bg-nier-700 selection:text-nier-200'>
       <div className='relative w-full max-w-7xl 2xl:max-w-[80%]'>
-        <article className='relative w-3/5 min-h-[40vmin] m-4 flex flex-col items-start justify-center p-8 nier-block-left'>
+        <article className='relative w-full lg:w-3/5 min-h-[40vmin] m-4 flex flex-col items-start justify-center p-8 nier-block-left'>
           <div className='p-4 mb-8 shadow-md bg-nier-200 '>
             <header className='w-full pb-4 mb-4 border-b border-nier-700'>
               <h2 className='mb-3 text-4xl font-normal tracking-[0.5rem] uppercase text-shadow whitespace-nowrap'>
                 Nikita Istomin
               </h2>
-              <h3 className='flex flex-row items-center justify-start w-full gap-4 text-xl uppercase '>
+              <h3 className='flex flex-col items-start justify-start w-full gap-2 text-xl uppercase xl:gap-4 xl:flex-row xl:items-center '>
                 <span>Software developer.</span>
                 <span>Deep thinker.</span>
                 <span>Life enjoyer.</span>
@@ -78,7 +78,7 @@ const About = () => {
           </div>
         </article>
       </div>
-      <div className='absolute right-0 w-[800px] h-[1000px] origin-center -translate-y-1/2 top-1/2 -z-10'>
+      <div className='absolute right-0 left-0 lg:left-[unset] -top-1/3 bottom-0 lg:bottom-[unset] lg:w-[800px] lg:h-[1000px] lg:origin-center lg:-translate-y-1/2 lg:top-1/2 -z-10'>
         <About3D />
       </div>
     </section>
