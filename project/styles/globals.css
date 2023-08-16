@@ -53,7 +53,13 @@
   .nier-block-left {
     @apply before:box-content before:border-nier-400 before:border-y-0 before:content-[""] before:absolute before:top-0 before:-left-6 before:h-full before:w-[0.3rem] before:border-solid before:border before:border-l-[0.6rem] before:border-r-[0.2rem];
   }
+  .nier-block-left-sm {
+    @apply before:box-content before:border-nier-400 before:border-y-0 before:content-[""] before:absolute before:top-0 before:-left-4 before:h-full before:w-[0.15rem] before:border-solid before:border before:border-l-[0.3rem] before:border-r-[0.1rem];
+  }
   .nier-block-right {
     @apply after:box-content after:border-nier-400 after:border-y-0 after:content-[""] after:absolute after:top-0 after:-right-6 after:h-full after:w-[0.3rem] after:border-solid after:border after:border-l-[0.2rem] after:border-r-[0.6rem];
+  }
+  .nier-block-right-sm {
+    @apply after:box-content after:border-nier-400 after:border-y-0 after:content-[""] after:absolute after:top-0 after:-right-4 after:h-full after:w-[0.15rem] after:border-solid after:border after:border-l-[0.1rem] after:border-r-[0.3rem];
   }
 }

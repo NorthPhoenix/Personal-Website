@@ -5,15 +5,15 @@ const About = () => {
   return (
     <section
       id='about'
-      className='relative flex items-center justify-center w-full p-6 py-12 mb-20 overflow-hidden font-helvetica selection:bg-nier-700 selection:text-nier-200'>
-      <div className='relative w-full max-w-7xl 2xl:max-w-[80%]'>
-        <article className='relative w-full lg:w-3/5 min-h-[40vmin] m-4 flex flex-col items-start justify-center p-8 nier-block-left'>
+      className='relative flex items-center justify-center w-full p-2 py-12 mb-16 overflow-x-hidden md:p-6 md:mb-20 font-helvetica selection:bg-nier-700 selection:text-nier-200'>
+      <div className='relative w-full max-w-7xl 2xl:max-w-[80%] shrink'>
+        <article className='relative w-auto lg:w-3/5 min-h-[40vmin] m-0 sm:m-4 flex flex-col items-start justify-center ml-4 p-0 sm:p-2 py-5 md:p-8 nier-block-left-sm md:nier-block-left'>
           <div className='p-4 mb-8 shadow-md bg-nier-200 '>
             <header className='w-full pb-4 mb-4 border-b border-nier-700'>
-              <h2 className='mb-3 text-4xl font-normal tracking-[0.5rem] uppercase text-shadow whitespace-nowrap'>
+              <h2 className='mb-3 text-3xl md:text-4xl font-normal tracking-[0.5rem] uppercase text-shadow md:whitespace-nowrap'>
                 Nikita Istomin
               </h2>
-              <h3 className='flex flex-col items-start justify-start w-full gap-2 text-xl uppercase xl:gap-4 xl:flex-row xl:items-center '>
+              <h3 className='flex flex-col items-start justify-start w-full gap-2 text-lg uppercase md:text-xl xl:gap-4 xl:flex-row xl:items-center '>
                 <span>Software developer.</span>
                 <span>Deep thinker.</span>
                 <span>Life enjoyer.</span>
@@ -27,9 +27,9 @@ const About = () => {
               Dallas, and I'm exited to start my career in the industry.
             </p>
           </div>
-          <div className='grid grid-cols-2 grid-rows-2 gap-6 shrink'>
+          <div className='grid grid-cols-1 grid-rows-1 gap-6 sm:grid-cols-2 sm:grid-rows-2 shrink'>
             <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-nier-200 '>
-              <h4 className='mt-2 text-xl font-semibold tracking-widest uppercase text-shadow'>
+              <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
                 Motivated
               </h4>
               <hr className='w-1/3 h-px border-nier-700' />
@@ -41,7 +41,7 @@ const About = () => {
               </p>
             </div>
             <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-nier-200'>
-              <h4 className='mt-2 text-xl font-semibold tracking-widest uppercase text-shadow'>
+              <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
                 Effective
               </h4>
               <hr className='w-1/3 h-px border-nier-700' />
@@ -52,7 +52,7 @@ const About = () => {
               </p>
             </div>
             <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-nier-200'>
-              <h4 className='mt-2 text-xl font-semibold tracking-widest uppercase text-shadow'>
+              <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
                 Consistent
               </h4>
               <hr className='w-1/3 h-px border-nier-700' />
@@ -64,7 +64,7 @@ const About = () => {
               </p>
             </div>
             <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-nier-200'>
-              <h4 className='mt-2 text-xl font-semibold tracking-widest uppercase text-shadow'>
+              <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
                 Collaborative
               </h4>
               <hr className='w-1/3 h-px border-nier-700' />
