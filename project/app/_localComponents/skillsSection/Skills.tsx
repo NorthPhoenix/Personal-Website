@@ -6,6 +6,8 @@ import { Skill, SkillTag, Tags } from "utils/skillsConfig";
 import { motion, AnimatePresence } from "framer-motion";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/24/outline";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { atom, useAtom } from "jotai";
 import Skills3D from "./Skills3D";
 import NierButton from "app/_globalComponents/NierButton";
@@ -117,9 +119,9 @@ const Skills = () => {
           </Listbox>
           <NierButton
             className='min-w-[10rem] py-1 font-normal'
-            onClick={() => setSelectedTags([])}
-            label='Clear'
-          />
+            onClick={() => setSelectedTags([])}>
+            Clear
+          </NierButton>
         </div>
       </div>
       <div className='relative flex flex-row items-center justify-end w-full max-w-7xl min-h-[800px] my-16 font-helvetica'>
@@ -155,16 +157,32 @@ const Skills = () => {
                   width={256}
                 />
               </p>
-              <div className='flex flex-col items-center justify-start gap-2 p-2 mt-2 text-center shadow-md bg-nier-200'>
+              <div className='flex flex-col items-center justify-start gap-2 px-2 py-4 mt-2 text-center shadow-md bg-nier-200'>
                 <h3 className='text-xl font-semibold tracking-widest uppercase text-shadow'>
                   {activeSkill.name}
                 </h3>
                 <hr className='w-1/3 h-px border-nier-700' />
                 <p className='text-xl text-center'>
-                  {activeSkill.description !== undefined
+                  {activeSkill.description !== undefined ||
+                  activeSkill.description !== ""
                     ? activeSkill.description
                     : "No description available"}
                 </p>
+                {!!activeSkill.link && (
+                  <NierButton
+                    className='z-10 flex flex-row items-center justify-start px-3 group'
+                    as='a'
+                    target='_blank'
+                    href={activeSkill.link}>
+                    <FontAwesomeIcon
+                      icon={faLink}
+                      className='h-16 transition-all duration-200 ease-in-out text-nier-700 group-hover:text-nier-200 group-active:text-nier-700'
+                    />
+                    <span className='w-0 ml-0 overflow-hidden text-left transition-all duration-200 ease-in-out text-nier-700 group-hover:text-nier-200 group-active:text-nier-700 group-hover:ml-4 whitespace-nowrap group-hover:w-24'>
+                      Learn More
+                    </span>
+                  </NierButton>
+                )}
               </div>
             </motion.div>
           )}
