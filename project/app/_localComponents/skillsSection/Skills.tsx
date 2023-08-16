@@ -24,7 +24,7 @@ const Skills = () => {
       id='skills'
       className='flex flex-col items-center justify-start w-full'>
       <div className='flex flex-col items-center justify-center w-full gap-4 mb-6'>
-        <div className='flex flex-row items-center justify-center w-full gap-2 max-w-7xl'>
+        <div className='flex flex-row items-center justify-center w-full gap-2 px-4 max-w-7xl'>
           <span className='h-[2px] grow-0 w-5 bg-nier-700' />
           <span className='h-[2px] grow bg-nier-700' />
           <span className='h-[2px] grow-0 w-5 bg-nier-700' />
@@ -32,16 +32,21 @@ const Skills = () => {
         <h2 className='px-4 text-6xl font-exodus-striped uppercase tracking-[0.5rem] text-shadow text-center -translate-y-[2px]'>
           Skills
         </h2>
-        <div className='flex flex-row items-center justify-center w-full gap-2 max-w-7xl'>
+        <div className='flex flex-row items-center justify-center w-full gap-2 px-4 max-w-7xl'>
           <span className='h-[2px] grow-0 w-5 bg-nier-700' />
           <span className='h-[2px] grow bg-nier-700' />
           <span className='h-[2px] grow-0 w-5 bg-nier-700' />
         </div>
       </div>
-      <div className='relative px-4 text-lg shadow-md bg-nier-200 font-helvetica'>
+      <div className='relative px-4 mx-6 text-lg shadow-md bg-nier-200 font-helvetica'>
         <p className='p-2 mt-2 text-center'>
-          I've had experience with many different technologies over the years
-          and I'm always eager to learn more and gain new experiences. <br />
+          <span className='inline-block'>
+            I've had experience with many different technologies over the years
+          </span>
+          <span className='inline-block'>
+            and I'm always eager to learn more and gain new experiences.
+          </span>{" "}
+          <br />
           Here are some of the technologies I know:
         </p>
         <p className='p-2 my-2 text-center'>
@@ -51,7 +56,7 @@ const Skills = () => {
           <span className='font-semibold underline'>TypeScript</span>, and{" "}
           <span className='font-semibold underline'>Unity</span>.
         </p>
-        <div className='absolute z-20 flex flex-row items-center gap-4 -translate-x-1/2 translate-y-2 top-full left-1/2'>
+        <div className='absolute z-20 flex flex-col items-center gap-2 mx-4 -translate-x-1/2 translate-y-2 sm:flex-row sm:gap-4 top-full left-1/2'>
           <Listbox
             value={selectedTags}
             onChange={setSelectedTags}
@@ -118,18 +123,18 @@ const Skills = () => {
             </div>
           </Listbox>
           <NierButton
-            className='min-w-[10rem] py-1 font-normal'
+            className='w-40 font-normal'
             onClick={() => setSelectedTags([])}>
             Clear
           </NierButton>
         </div>
       </div>
       <div className='relative flex flex-row items-center justify-end w-full max-w-7xl min-h-[800px] my-16 font-helvetica'>
-        <Skills3D className='absolute left-0 z-10 p-4 -translate-x-[15%] -translate-y-1/2 top-1/2 aspect-square h-[120%] ' />
+        <Skills3D className='absolute left-0 z-10 -translate-x-[30%] xl:-translate-x-[15%] -translate-y-1/2 top-1/2 aspect-square w-[75%] max-h-[120%] ' />
         <AnimatePresence mode='popLayout'>
           {activeSkill === null ? (
             <motion.div
-              className='relative flex flex-col items-center justify-center max-w-lg p-10 nier-block-right'
+              className='relative flex flex-col items-center justify-center max-w-lg px-4 py-10 mr-10 nier-block-right'
               key={0}
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -142,7 +147,7 @@ const Skills = () => {
             </motion.div>
           ) : (
             <motion.div
-              className='relative flex flex-col items-center justify-center max-w-lg p-10 nier-block-right'
+              className='relative flex flex-col items-center justify-center max-w-[26rem] px-4 py-10 mr-10 lg:max-w-lg nier-block-right'
               key={activeSkill.uuid}
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
