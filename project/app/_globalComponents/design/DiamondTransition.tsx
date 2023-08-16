@@ -53,10 +53,12 @@ const DiamondTransition: React.FC<DiamondTransitionProps> = ({
     <>
       <div className='relative -z-10'>
         <div
-          className={`w-full flex ${absolute ? "absolute left-0 top-full" : ""}
+          className={`w-full overflow-hidden flex ${
+            absolute ? "absolute left-0 top-full" : ""
+          }
           ${reverse ? "flex-col-reverse" : "flex-col"}`}>
           <div
-            className={`bg-${paddingColor} w-full`}
+            className={`bg-${paddingColor} scale-[105%] w-full`}
             style={{ height: padding }}
           />
           <div
@@ -66,7 +68,7 @@ const DiamondTransition: React.FC<DiamondTransitionProps> = ({
               return (
                 <DiamondTransitionImage
                   key={index}
-                  className={`shrink-0 ${twTransitionFill} ${twTransitionStroke} ${
+                  className={`shrink-0 scale-[101%] ${twTransitionFill} ${twTransitionStroke} ${
                     reverse ? "rotate-[180deg] translate-y-px" : ""
                   }`}
                   width={`${unitWidth}px`}
