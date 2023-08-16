@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import JotaiProvider from "./_globalComponents/JotaiProvider";
+import GlobalStateProvider from "./_globalComponents/GlobalStateProvider";
 
 // import Font Awesome CSS
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -43,7 +44,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className='debug-screens'>
-        <JotaiProvider>{children}</JotaiProvider>
+        <JotaiProvider>
+          <GlobalStateProvider>{children}</GlobalStateProvider>
+        </JotaiProvider>
       </body>
     </html>
   );
