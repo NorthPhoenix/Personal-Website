@@ -17,6 +17,7 @@ import { skills as skillList, Skill } from "utils/skillsConfig";
 import { selectedTagsAtom, activeSkillAtom } from "./Skills";
 import { useAtomValue, useSetAtom } from "jotai";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
+import { skillsLoadedAtom } from "app/home/page";
 
 const SVGMaterial = new THREE.MeshPhongMaterial({
   vertexColors: true,
@@ -25,6 +26,7 @@ const SVGMaterial = new THREE.MeshPhongMaterial({
 });
 
 const Skills3D = ({ className }: { className: string }) => {
+  const setSkillsLoaded = useSetAtom(skillsLoadedAtom);
   return (
     <div className={className !== undefined ? className : ""}>
       <Image
@@ -34,10 +36,14 @@ const Skills3D = ({ className }: { className: string }) => {
         height={48}
         className='absolute bottom-[5%] left-[20%]'
       />
-      <Canvas shadows={false} frameloop='always'>
+      <Canvas
+        onCreated={() => setSkillsLoaded(true)}
+        shadows={false}
+        frameloop='always'
+        gl={{ precision: "lowp", powerPreference: "high-performance" }}>
         <Suspense fallback={null}>
           <SkillsGroup />
-          <PerspectiveCamera makeDefault position={[0, 0, 70]}>
+          <PerspectiveCamera makeDefault position={[0, 0, 70]} far={300}>
             <directionalLight
               position={[10, 15, 7]}
               intensity={0.3}

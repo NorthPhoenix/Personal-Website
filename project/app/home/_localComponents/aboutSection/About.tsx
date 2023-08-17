@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section
       id='about'
-      className='relative flex items-center justify-center w-full p-2 py-12 mb-16 overflow-x-hidden md:p-6 md:mb-20 font-helvetica selection:bg-nier-700 selection:text-nier-200'>
+      className='relative flex items-center justify-center w-full p-2 py-12 mb-16 overflow-y-visible md:p-6 md:mb-20 font-helvetica selection:bg-nier-700 selection:text-nier-200'>
       <div className='relative w-full max-w-7xl 2xl:max-w-[80%] shrink'>
         <article className='relative w-auto lg:w-3/5 min-h-[40vmin] m-0 sm:m-4 flex flex-col items-start justify-center ml-4 p-0 sm:p-2 py-5 md:p-8 nier-block-left-sm md:nier-block-left'>
           <div className='p-4 mb-8 shadow-md bg-nier-200 '>
@@ -78,8 +78,8 @@ const About = () => {
           </div>
         </article>
       </div>
-      <div className='absolute right-0 left-0 lg:left-[unset] -top-1/3 bottom-0 lg:bottom-[unset] lg:w-[800px] lg:h-[1000px] lg:origin-center lg:-translate-y-1/2 lg:top-1/2 -z-10'>
-        <About3D />
+      <div className='absolute left-0 right-0 h-0 top-1/2 -z-10 '>
+        <About3D className='!absolute right-0 left-0 md:left-[unset] md:!w-[800px] !h-[1000px] !overflow-visible -translate-y-1/2' />
       </div>
     </section>
   );

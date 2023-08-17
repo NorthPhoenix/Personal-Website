@@ -3,7 +3,7 @@
 import { atom, useSetAtom } from "jotai";
 import { ReactNode, useLayoutEffect } from "react";
 
-const isMobileAtom = atom(false);
+export const isMobileAtom = atom(false);
 
 const GlobalStateProvider = ({ children }: { children: ReactNode }) => {
   const isMobileSet = useSetAtom(isMobileAtom);

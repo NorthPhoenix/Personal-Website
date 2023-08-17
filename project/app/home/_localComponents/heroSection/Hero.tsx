@@ -4,34 +4,36 @@ import { twMerge } from "tailwind-merge";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-import DownArrow from "../../_globalComponents/design/DownArrow";
+import DownArrow from "app/_globalComponents/design/DownArrow";
 import StarsBackground from "./StarsBackground";
 import Cubes3D from "./Cubes3D";
-import tailwindTheme from "tailwindcss/defaultTheme";
+import { useSetAtom } from "jotai";
+import { heroLoadedAtom } from "app/home/page";
 
 type HeroProps = {
   className?: string;
-  setLoaded?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Hero: React.FC<HeroProps> = ({ className, setLoaded }) => {
+const Hero: React.FC<HeroProps> = ({ className }) => {
+  const setHeroLoaded = useSetAtom(heroLoadedAtom);
+
   const [particlesLoaded, setParticlesLoaded] = useState(false);
   const [cubesLoaded, setcubesLoaded] = useState(false);
 
   const onParticleLoad = () => {
-    console.log("onParticleLoad");
+    // console.log("onParticleLoad");
     setParticlesLoaded(true);
   };
 
   const onCubesLoad = () => {
-    console.log("onCubesLoad");
+    // console.log("onCubesLoad");
     setcubesLoaded(true);
   };
 
   useEffect(() => {
     if (particlesLoaded && cubesLoaded) {
       console.log("Hero loaded");
-      setLoaded?.(true);
+      setHeroLoaded(true);
     }
   }, [particlesLoaded, cubesLoaded]);
 

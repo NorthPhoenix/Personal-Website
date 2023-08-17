@@ -1,6 +1,6 @@
-import "../styles/globals.css";
-import JotaiProvider from "./_globalComponents/JotaiProvider";
-import GlobalStateProvider from "./_globalComponents/GlobalStateProvider";
+import "styles/globals.css";
+import JotaiProvider from "app/_globalComponents/JotaiProvider";
+import GlobalStateProvider from "app/_globalComponents/GlobalStateProvider";
 
 // import Font Awesome CSS
 import "@fortawesome/fontawesome-svg-core/styles.css";

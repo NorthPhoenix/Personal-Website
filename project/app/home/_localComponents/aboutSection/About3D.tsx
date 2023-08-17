@@ -4,10 +4,11 @@ import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload } from "@react-three/drei";
 import { Suspense, useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { aboutLoadedAtom } from "app/home/page";
+import { useSetAtom } from "jotai";
 
 type About3DProps = {
   className?: string;
-  onLoad?: () => void;
 };
 
 const Model: React.FC = () => {
@@ -26,14 +27,16 @@ const Model: React.FC = () => {
   );
 };
 
-const About3D: React.FC<About3DProps> = ({ className, onLoad }) => {
-  useEffect(() => {
-    // console.log("About3D useEffect");
-    onLoad?.();
-  }, []);
+const About3D: React.FC<About3DProps> = ({ className }) => {
+  const setAboutLoaded = useSetAtom(aboutLoadedAtom);
 
   return (
-    <Canvas shadows frameloop='always' camera={{ position: [0, 2, 8] }}>
+    <Canvas
+      className={className}
+      shadows
+      frameloop='always'
+      camera={{ position: [0, 2, 8] }}
+      onCreated={() => setAboutLoaded(true)}>
       <Suspense fallback={null}>
         <axesHelper args={[5]} />
         <Model />
