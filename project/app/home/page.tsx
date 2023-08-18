@@ -9,10 +9,11 @@ import { atom, useAtom, useAtomValue } from "jotai";
 const HomeComponent = dynamic(() => import("./_localComponents/Home"));
 import LoadingScreen from "app/_globalComponents/LoadingScreen";
 
-export const pageLoadedAtom = atom(false);
-export const heroLoadedAtom = atom(false);
-export const aboutLoadedAtom = atom(false);
-export const skillsLoadedAtom = atom(false);
+import { pageLoadedAtom } from "./layout";
+
+const heroLoadedAtom = atom(false);
+const aboutLoadedAtom = atom(false);
+const skillsLoadedAtom = atom(false);
 
 const Home: NextPage = () => {
   const [pageLoaded, setPageLoaded] = useAtom(pageLoadedAtom);
@@ -40,3 +41,4 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+export { pageLoadedAtom, heroLoadedAtom, aboutLoadedAtom, skillsLoadedAtom };

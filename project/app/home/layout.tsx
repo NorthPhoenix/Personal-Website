@@ -1,3 +1,7 @@
+import { atom } from "jotai";
+
+const pageLoadedAtom = atom(false);
+
 export default function HomeLayout({
   children,
 }: {
@@ -5,3 +9,5 @@ export default function HomeLayout({
 }) {
   return children;
 }
+
+export { pageLoadedAtom };

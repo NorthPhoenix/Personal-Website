@@ -78,10 +78,11 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
           <Link href={"/"} className='object-scale-down h-12 group md:h-14'>
             <Logo className='w-auto h-full transition-transform fill-nier-200 group-hover:scale-105' />
           </Link>
+          {/* hamburger menu on small screens */}
           <div className='relative md:hidden'>
             <button
               type='button'
-              className='p-1'
+              className='p-1 text-nier-400'
               onClick={() => {
                 hideNav();
                 setSideMenuOpen((state: Boolean) => {
@@ -114,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
             })}
           </ul>
         </nav>
-        <div className='bg-nier-700 w-3/4  h-[2px] relative before:w-[15px] before:h-[3px] before:absolute before:top-px before:-left-[25px] before:-translate-y-1/2 before:bg-nier-700 after:w-[15px] after:h-[3px] after:absolute after:top-px after:-right-[25px] after:-translate-y-1/2 after:bg-nier-700' />
+        <div className='bg-nier-400 w-3/4 h-[2px] relative before:w-[15px] before:h-[3px] before:absolute before:top-px before:-left-[25px] before:-translate-y-1/2 before:bg-nier-400 after:w-[15px] after:h-[3px] after:absolute after:top-px after:-right-[25px] after:-translate-y-1/2 after:bg-nier-400' />
       </header>
       <SideOverMenu
         open={sideMenuOpen}
