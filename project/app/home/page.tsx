@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         setPageLoaded(true);
         // Allow scrolling after loading (scrolling is prevented by default, see global.css)
         document.body.style.overflow = "auto";
-      }, 2000);
+      }, 2);
     }
   }, [heroLoaded, aboutLoaded, skillsLoaded]);
 

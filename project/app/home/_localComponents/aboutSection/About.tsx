@@ -7,8 +7,8 @@ const About = () => {
       id='about'
       className='relative flex items-center justify-center w-full p-2 py-12 mb-16 overflow-y-visible md:p-6 md:mb-20 font-helvetica selection:bg-nier-700 selection:text-nier-200'>
       <div className='relative w-full max-w-7xl 2xl:max-w-[80%] shrink'>
-        <article className='relative w-auto lg:w-3/5 min-h-[40vmin] m-0 sm:m-4 flex flex-col items-start justify-center ml-4 p-0 sm:p-2 py-5 md:p-8 nier-block-left-sm md:nier-block-left'>
-          <div className='p-4 mb-8 shadow-md bg-nier-200 '>
+        <article className='mr-2 relative w-auto lg:w-3/5 min-h-[40vmin] m-0 sm:m-4 flex flex-col items-start justify-center ml-4 p-0 sm:p-2 py-5 md:p-8 nier-block-left-sm md:nier-block-left'>
+          <div className='p-4 mb-8 shadow-md bg-opacity-80 bg-nier-200 md:bg-opacity-100 '>
             <header className='w-full pb-4 mb-4 border-b border-nier-700'>
               <h2 className='mb-3 text-3xl md:text-4xl font-normal tracking-[0.5rem] uppercase text-shadow md:whitespace-nowrap'>
                 Nikita Istomin
@@ -28,7 +28,7 @@ const About = () => {
             </p>
           </div>
           <div className='grid grid-cols-1 grid-rows-1 gap-6 sm:grid-cols-2 sm:grid-rows-2 shrink'>
-            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-nier-200 '>
+            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-opacity-80 bg-nier-200 md:bg-opacity-100 '>
               <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
                 Motivated
               </h4>
@@ -40,7 +40,7 @@ const About = () => {
                 ever-evolving field.
               </p>
             </div>
-            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-nier-200'>
+            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-opacity-80 bg-nier-200 md:bg-opacity-100'>
               <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
                 Effective
               </h4>
@@ -51,7 +51,7 @@ const About = () => {
                 agile mindset, I thrive on solving complex challenges.
               </p>
             </div>
-            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-nier-200'>
+            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-opacity-80 bg-nier-200 md:bg-opacity-100'>
               <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
                 Consistent
               </h4>
@@ -63,7 +63,7 @@ const About = () => {
                 and end-users.
               </p>
             </div>
-            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-nier-200'>
+            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-opacity-80 bg-nier-200 md:bg-opacity-100'>
               <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
                 Collaborative
               </h4>
