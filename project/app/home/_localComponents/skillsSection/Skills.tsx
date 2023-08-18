@@ -196,7 +196,7 @@ const Skills = () => {
                     href={activeSkill.link}>
                     <FontAwesomeIcon
                       icon={faLink}
-                      className='h-16 transition-all duration-200 ease-in-out text-nier-700 group-hover:text-nier-200 group-active:text-nier-700'
+                      className='transition-all duration-200 ease-in-out text-nier-700 group-hover:text-nier-200 group-active:text-nier-700'
                     />
                     <span className='overflow-hidden text-center transition-all duration-200 ease-in-out max-md:ml-2 md:w-0 md:ml-0 md:text-left text-nier-700 group-hover:text-nier-200 group-active:text-nier-700 md:group-hover:ml-4 whitespace-nowrap md:group-hover:w-24'>
                       Learn More
