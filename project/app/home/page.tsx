@@ -9,8 +9,7 @@ import { atom, useAtom, useAtomValue } from "jotai";
 const HomeComponent = dynamic(() => import("./_localComponents/Home"));
 import LoadingScreen from "app/_globalComponents/LoadingScreen";
 
-import { pageLoadedAtom } from "./layout";
-
+const pageLoadedAtom = atom(false);
 const heroLoadedAtom = atom(false);
 const aboutLoadedAtom = atom(false);
 const skillsLoadedAtom = atom(false);
