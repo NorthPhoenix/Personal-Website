@@ -5,11 +5,11 @@ import { Suspense, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import { atom, useAtom, useAtomValue } from "jotai";
-import { pageLoadedAtom } from "./layout";
 
 const HomeComponent = dynamic(() => import("./_localComponents/Home"));
 import LoadingScreen from "app/_globalComponents/LoadingScreen";
 
+export const pageLoadedAtom = atom(false);
 export const heroLoadedAtom = atom(false);
 export const aboutLoadedAtom = atom(false);
 export const skillsLoadedAtom = atom(false);

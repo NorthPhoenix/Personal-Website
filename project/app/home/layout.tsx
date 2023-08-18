@@ -1,10 +1,4 @@
-"use client";
-
-import { atom } from "jotai";
-
-export const pageLoadedAtom = atom(false);
-
-export default function RootLayout({
+export default function HomeLayout({
   children,
 }: {
   children: React.ReactNode;
