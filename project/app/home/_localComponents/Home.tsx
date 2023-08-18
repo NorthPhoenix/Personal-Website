@@ -9,7 +9,7 @@ import About from ".//aboutSection/About";
 import Projects from ".//Projects";
 import ContactMe from ".//ContactMe";
 import Hero from ".//heroSection/Hero";
-import Navbar from ".//heroSection/Navbar";
+import Navbar from "./Navbar";
 import DiamondTransition from "app/_globalComponents/design/DiamondTransition";
 import LinesThroughCircleDesign from "app/_globalComponents/design/LinesThroughCircleDesign";
 import Skills from ".//skillsSection/Skills";

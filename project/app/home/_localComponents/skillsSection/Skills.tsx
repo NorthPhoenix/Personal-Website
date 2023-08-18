@@ -22,7 +22,7 @@ const Skills = () => {
   return (
     <section
       id='skills'
-      className='flex flex-col items-center justify-start w-full'>
+      className='flex flex-col items-center justify-start w-full py-6'>
       <div className='flex flex-col items-center justify-center w-full gap-4 mb-6'>
         <div className='flex flex-row items-center justify-center w-full gap-2 px-4 max-w-7xl'>
           <span className='h-[2px] grow-0 w-5 bg-nier-700' />

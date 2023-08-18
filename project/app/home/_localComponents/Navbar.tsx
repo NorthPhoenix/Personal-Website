@@ -23,6 +23,20 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
+  const hideNav = () => {
+    const navbar = navRef.current;
+    if (navbar) {
+      navbar.classList.add("-translate-y-[105%]");
+    }
+  };
+
+  const showNav = () => {
+    const navbar = navRef.current;
+    if (navbar) {
+      navbar.classList.remove("-translate-y-[105%]");
+    }
+  };
+
   useEffect(() => {
     // On resize, check if the screen is tailwind's md breakpoint or larger
     // If so, close the side menu
@@ -36,16 +50,13 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
     // On scroll down - hide the navbar, on scroll up - show it
     let prevScrollpos = window.scrollY;
     const handleScroll = () => {
-      const navbar = navRef.current;
-      if (navbar) {
-        if (window.scrollY > prevScrollpos) {
-          navbar.classList.add("-translate-y-[105%]");
-        }
-        if (window.scrollY < prevScrollpos) {
-          navbar.classList.remove("-translate-y-[105%]");
-        }
-        prevScrollpos = window.scrollY;
+      if (window.scrollY > prevScrollpos) {
+        hideNav();
       }
+      if (window.scrollY < prevScrollpos) {
+        showNav();
+      }
+      prevScrollpos = window.scrollY;
     };
     window.addEventListener("scroll", handleScroll);
 
@@ -72,6 +83,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
               type='button'
               className='p-1'
               onClick={() => {
+                hideNav();
                 setSideMenuOpen((state: Boolean) => {
                   return !state;
                 });
