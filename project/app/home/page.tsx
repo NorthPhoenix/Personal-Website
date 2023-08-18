@@ -8,30 +8,33 @@ import { atom, useAtom, useAtomValue } from "jotai";
 
 const HomeComponent = dynamic(() => import("./_localComponents/Home"));
 import LoadingScreen from "app/_globalComponents/LoadingScreen";
-
-const pageLoadedAtom = atom(false);
-const heroLoadedAtom = atom(false);
-const aboutLoadedAtom = atom(false);
-const skillsLoadedAtom = atom(false);
+import {
+  aboutLoadedAtom,
+  heroLoadedAtom,
+  homeLoadedAtom,
+  skillsLoadedAtom,
+} from "utils/state";
 
 const Home: NextPage = () => {
-  const [pageLoaded, setPageLoaded] = useAtom(pageLoadedAtom);
+  const [homeLoaded, setPageLoaded] = useAtom(homeLoadedAtom);
   const heroLoaded = useAtomValue(heroLoadedAtom);
   const aboutLoaded = useAtomValue(aboutLoadedAtom);
   const skillsLoaded = useAtomValue(skillsLoadedAtom);
 
   useEffect(() => {
     if (heroLoaded && aboutLoaded && skillsLoaded) {
-      // console.log("Page loaded");
-      setPageLoaded(true);
-      // Allow scrolling after loading (scrolling is prevented by default, see global.css)
-      document.body.style.overflow = "auto";
+      setTimeout(() => {
+        // console.log("Page loaded");
+        setPageLoaded(true);
+        // Allow scrolling after loading (scrolling is prevented by default, see global.css)
+        document.body.style.overflow = "auto";
+      }, 2000);
     }
   }, [heroLoaded, aboutLoaded, skillsLoaded]);
 
   return (
     <>
-      <AnimatePresence>{!pageLoaded && <LoadingScreen />}</AnimatePresence>
+      <AnimatePresence>{!homeLoaded && <LoadingScreen />}</AnimatePresence>
       <Suspense fallback={null}>
         <HomeComponent />
       </Suspense>
@@ -40,4 +43,3 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-export { pageLoadedAtom, heroLoadedAtom, aboutLoadedAtom, skillsLoadedAtom };

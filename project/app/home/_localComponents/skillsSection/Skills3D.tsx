@@ -17,7 +17,7 @@ import { skills as skillList, Skill } from "utils/skillsConfig";
 import { selectedTagsAtom, activeSkillAtom } from "./Skills";
 import { useAtomValue, useSetAtom } from "jotai";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
-import { skillsLoadedAtom } from "app/home/page";
+import { skillsLoadedAtom } from "utils/state";
 
 const SVGMaterial = new THREE.MeshPhongMaterial({
   vertexColors: true,

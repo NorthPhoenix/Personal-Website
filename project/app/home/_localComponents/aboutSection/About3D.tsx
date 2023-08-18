@@ -4,8 +4,8 @@ import { Canvas, useLoader, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload } from "@react-three/drei";
 import { Suspense, useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { aboutLoadedAtom } from "app/home/page";
 import { useSetAtom } from "jotai";
+import { aboutLoadedAtom } from "utils/state";
 
 type About3DProps = {
   className?: string;

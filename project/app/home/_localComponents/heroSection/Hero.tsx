@@ -8,7 +8,7 @@ import DownArrow from "app/_globalComponents/design/DownArrow";
 import StarsBackground from "./StarsBackground";
 import Cubes3D from "./Cubes3D";
 import { useSetAtom } from "jotai";
-import { heroLoadedAtom } from "app/home/page";
+import { heroLoadedAtom } from "utils/state";
 
 type HeroProps = {
   className?: string;
