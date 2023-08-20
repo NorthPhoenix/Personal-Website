@@ -28,13 +28,13 @@ const SVGMaterial = new THREE.MeshPhongMaterial({
 const Skills3D = ({ className }: { className: string }) => {
   const setSkillsLoaded = useSetAtom(skillsLoadedAtom);
   return (
-    <div className={className !== undefined ? className : ""}>
+    <div className={className !== undefined ? className : "relative"}>
       <Image
         src='/images/drag-and-drop.png'
         alt='drag and drop'
         width={48}
         height={48}
-        className='absolute bottom-[5%] left-[20%]'
+        className='absolute h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-10 lg:w-10 bottom-[10%] left-[10%] md:left-[unset] md:right-[15%] lg:right-[15%] xl:left-[20%] animate-wiggle animate-infinite opacity-75'
       />
       <Canvas
         onCreated={() => setSkillsLoaded(true)}
