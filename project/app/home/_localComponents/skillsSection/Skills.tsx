@@ -159,6 +159,7 @@ const Skills = () => {
               animate={{ x: 0, opacity: 1 }}
               exit={{ opacity: 0, scale: 0.7 }}
               transition={{ type: "tween", duration: 0.6, ease: "easeOut" }}>
+              {/* image layout for medium+ size screens */}
               <p className='hidden h-64 p-4 aspect-square md:block'>
                 <Image
                   loading='eager'
@@ -168,8 +169,9 @@ const Skills = () => {
                   width={256}
                 />
               </p>
-              <div className='p-4 text-center shadow-md md:px-2 md:py-4 md:mt-2 md:flex md:flex-col md:items-center md:justify-start md:gap-2 bg-nier-200'>
-                <p className='float-left mr-3 -mb-2 h-28 md:hidden aspect-square'>
+              <div className='p-4 text-center shadow-md md:px-2 md:py-4 md:mt-2 sm:flex sm:flex-row sm:items-center sm:justify-start md:flex-col md:gap-2 bg-nier-200'>
+                {/* image layout for up to medium screens */}
+                <p className='mr-3 max-sm:float-left max-sm:-mb-2 h-28 md:hidden aspect-square'>
                   <Image
                     loading='eager'
                     src={activeSkill.icon.svg!}
@@ -178,31 +180,33 @@ const Skills = () => {
                     width={256}
                   />
                 </p>
-                <h3 className='text-xl font-semibold tracking-widest uppercase text-shadow'>
-                  {activeSkill.name}
-                </h3>
-                <hr className='w-auto h-px my-2 md:w-1/3 md:px-0 md:my-0 border-nier-700' />
-                <p className='text-base text-left max-md:mb-2 md:text-center '>
-                  {activeSkill.description !== undefined ||
-                  activeSkill.description !== ""
-                    ? activeSkill.description
-                    : "No description available"}
-                </p>
-                {!!activeSkill.link && (
-                  <NierButton
-                    className='z-10 flex flex-row items-center justify-start px-3 max-md:w-fit max-md:block group max-md:mx-auto'
-                    as='a'
-                    target='_blank'
-                    href={activeSkill.link}>
-                    <FontAwesomeIcon
-                      icon={faLink}
-                      className='transition-all duration-200 ease-in-out text-nier-700 group-hover:text-nier-200 group-active:text-nier-700'
-                    />
-                    <span className='overflow-hidden text-center transition-all duration-200 ease-in-out max-md:ml-2 md:w-0 md:ml-0 md:text-left text-nier-700 group-hover:text-nier-200 group-active:text-nier-700 md:group-hover:ml-4 whitespace-nowrap md:group-hover:w-24'>
-                      Learn More
-                    </span>
-                  </NierButton>
-                )}
+                <div className='contents sm:block md:contents sm:ml-2 md:ml-0'>
+                  <h3 className='text-xl font-semibold tracking-widest uppercase text-shadow'>
+                    {activeSkill.name}
+                  </h3>
+                  <hr className='w-auto h-px my-2 md:w-1/3 md:px-0 md:my-0 border-nier-700' />
+                  <p className='text-base text-left max-md:mb-2 md:text-center '>
+                    {activeSkill.description !== undefined ||
+                    activeSkill.description !== ""
+                      ? activeSkill.description
+                      : "No description available"}
+                  </p>
+                  {!!activeSkill.link && (
+                    <NierButton
+                      className='z-10 flex flex-row items-center justify-start px-3 max-md:w-fit max-md:block group max-md:mx-auto'
+                      as='a'
+                      target='_blank'
+                      href={activeSkill.link}>
+                      <FontAwesomeIcon
+                        icon={faLink}
+                        className='transition-all duration-200 ease-in-out text-nier-700 group-hover:text-nier-200 group-active:text-nier-700'
+                      />
+                      <span className='overflow-hidden text-center transition-all duration-200 ease-in-out max-md:ml-2 md:w-0 md:ml-0 md:text-left text-nier-700 group-hover:text-nier-200 group-active:text-nier-700 md:group-hover:ml-4 whitespace-nowrap md:group-hover:w-24'>
+                        Learn More
+                      </span>
+                    </NierButton>
+                  )}
+                </div>
               </div>
             </motion.div>
           )}
