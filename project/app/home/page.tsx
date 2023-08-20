@@ -1,43 +1,43 @@
-"use client";
-
-import type { NextPage } from "next";
-import { Suspense, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
-import dynamic from "next/dynamic";
-import { atom, useAtom, useAtomValue } from "jotai";
-
-const HomeComponent = dynamic(() => import("./_localComponents/Home"));
-import LoadingScreen from "app/_globalComponents/LoadingScreen";
-import {
-  aboutLoadedAtom,
-  heroLoadedAtom,
-  homeLoadedAtom,
-  skillsLoadedAtom,
-} from "utils/state";
-
-const Home: NextPage = () => {
-  const [homeLoaded, setPageLoaded] = useAtom(homeLoadedAtom);
-  const heroLoaded = useAtomValue(heroLoadedAtom);
-  const aboutLoaded = useAtomValue(aboutLoadedAtom);
-  const skillsLoaded = useAtomValue(skillsLoadedAtom);
-
-  useEffect(() => {
-    if (heroLoaded && aboutLoaded && skillsLoaded) {
-      setTimeout(() => {
-        // console.log("Page loaded");
-        setPageLoaded(true);
-        // Allow scrolling after loading (scrolling is prevented by default, see global.css)
-        document.body.style.overflow = "auto";
-      }, 2);
-    }
-  }, [heroLoaded, aboutLoaded, skillsLoaded]);
-
+// My components
+import Footer from "./_localComponents/Footer";
+import Test from "./_localComponents/Test";
+import About from "./_localComponents/aboutSection/About";
+import Projects from "./_localComponents/Projects";
+import ContactMe from "./_localComponents/ContactMe";
+import Hero from "./_localComponents/heroSection/Hero";
+import Navbar from "./_localComponents/Navbar";
+import DiamondTransition from "app/_globalComponents/design/DiamondTransition";
+import LinesThroughCircleDesign from "app/_globalComponents/design/LinesThroughCircleDesign";
+import Skills from "./_localComponents/skillsSection/Skills";
+const Home = () => {
   return (
     <>
-      <AnimatePresence>{!homeLoaded && <LoadingScreen />}</AnimatePresence>
-      <Suspense fallback={null}>
-        <HomeComponent />
-      </Suspense>
+      {/* Home page of the website */}
+      <Navbar />
+      <Hero />
+      <div className='relative overflow-hidden'>
+        <LinesThroughCircleDesign className='absolute top-0 left-0 h-[90vw] -translate-x-[40%] -translate-y-48 -z-20 fill-none stroke-nier-400 opacity-60' />
+        <LinesThroughCircleDesign className='absolute top-[800px] right-0 h-[90vw] rotate-180 translate-x-[40%] -translate-y-[400px] -z-20 fill-none stroke-nier-400 opacity-60' />
+        <DiamondTransition
+          twTransitionFill='fill-black'
+          twTransitionStroke='stroke-nier-700'
+          unitWidth={150}
+          padding={"50px"}
+        />
+        <About />
+        <Skills />
+        <Projects />
+      </div>
+      <DiamondTransition
+        twTransitionFill='fill-black'
+        twTransitionStroke='stroke-nier-700'
+        unitWidth={150}
+        padding={"50px"}
+        reverse
+      />
+      {/* <ContactMe /> */}
+      <Footer />
+      {/* <Test /> */}
     </>
   );
 };
