@@ -11,7 +11,7 @@ import {
   heroLoadedAtom,
   homeLoadedAtom,
   skillsLoadedAtom,
-} from "utils/state";
+} from "lib/state";
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   const [homeLoaded, setPageLoaded] = useAtom(homeLoadedAtom);

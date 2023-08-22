@@ -13,11 +13,11 @@ import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader";
 import { ArcballControls, PerspectiveCamera } from "@react-three/drei";
 import { useState, Suspense, useEffect, useMemo } from "react";
 import Image from "next/image";
-import { skills as skillList, Skill } from "utils/skillsConfig";
+import { skills as skillList, Skill } from "lib/utils/skillsConfig";
 import { selectedTagsAtom, activeSkillAtom } from "./Skills";
 import { useAtomValue, useSetAtom } from "jotai";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
-import { skillsLoadedAtom } from "utils/state";
+import { skillsLoadedAtom } from "lib/state";
 
 const SVGMaterial = new THREE.MeshPhongMaterial({
   vertexColors: true,

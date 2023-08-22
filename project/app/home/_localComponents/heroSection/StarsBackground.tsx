@@ -5,7 +5,7 @@ import { useCallback } from "react";
 import type { Container, Engine, ParticlesOptions } from "tsparticles-engine";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
-import options from "utils/particles-options.js";
+import options from "lib/utils/particles-options.js";
 
 type StarsBackgroundProps = {
   className?: string;

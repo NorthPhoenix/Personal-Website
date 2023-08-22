@@ -5,7 +5,7 @@ import { OrbitControls, Preload } from "@react-three/drei";
 import { Suspense, useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useSetAtom } from "jotai";
-import { aboutLoadedAtom } from "utils/state";
+import { aboutLoadedAtom } from "lib/state";
 
 type About3DProps = {
   className?: string;

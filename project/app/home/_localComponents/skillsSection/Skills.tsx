@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Fragment } from "react";
-import { Skill, SkillTag, Tags } from "utils/skillsConfig";
+import { Skill, SkillTag, Tags } from "lib/utils/skillsConfig";
 import { motion, AnimatePresence } from "framer-motion";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/24/outline";
