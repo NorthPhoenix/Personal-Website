@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+type ProjectsLinks {
+  deployedProject String
+  sourceCode      String
+  other           String[]
+}
+
+type ProjectsThumbnailS3Image {
+  bucket String
+  region String
+  path   String
+}
+
+model projects {
+  id               String                   @id @default(auto()) @map("_id") @db.ObjectId
+  title            String
+  description      String
+  startDate        DateTime                 @db.Date
+  completeDate     DateTime                 @db.Date
+  thumbnailS3Image ProjectsThumbnailS3Image
+  links            ProjectsLinks
+  skills           String[]
+}
