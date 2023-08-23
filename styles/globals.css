@@ -3,22 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: "Exodus Regular";
-    src: url("../public/fonts/ExodusDemo-Regular.otf") format("opentype");
-  }
-  @font-face {
-    font-family: "Exodus Sharpen";
-    src: url("../public/fonts/ExodusDemo-Sharpen.otf") format("opentype");
-  }
-  @font-face {
-    font-family: "Exodus Stencil";
-    src: url("../public/fonts/ExodusDemo-Stencil.otf") format("opentype");
-  }
-  @font-face {
-    font-family: "Exodus Striped";
-    src: url("../public/fonts/ExodusDemo-Striped.otf") format("opentype");
-  }
   body {
     @apply overflow-hidden nier-grate bg-nier-300 text-nier-700;
   }

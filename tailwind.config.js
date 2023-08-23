@@ -51,10 +51,10 @@ module.exports = {
       },
       fontFamily: {
         'helvetica': ['Helvetica', 'Arial', defaultTheme.fontFamily.sans],
-        'exodus-regular': ['"Exodus Regular"', defaultTheme.fontFamily.serif],
-        'exodus-sharpen': ['"Exodus Sharpen"', defaultTheme.fontFamily.serif],
-        'exodus-stencil': ['"Exodus Stencil"', defaultTheme.fontFamily.serif],
-        'exodus-striped': ['"Exodus Striped"', defaultTheme.fontFamily.serif],
+        'exodus-regular': ['var(--font-exodus-regular)', defaultTheme.fontFamily.serif],
+        'exodus-sharpen': ['var(--font-exodus-sharpen)', defaultTheme.fontFamily.serif],
+        'exodus-stencil': ['var(--font-exodus-stencil)', defaultTheme.fontFamily.serif],
+        'exodus-striped': ['var(--font-exodus-striped)', defaultTheme.fontFamily.serif],
       }
     },
   },
