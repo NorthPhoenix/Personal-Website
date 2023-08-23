@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import Logo from "./design/Logo";
-import { motion } from "framer-motion";
+import Logo from "./design/Logo"
+import { motion } from "framer-motion"
 
 // Needs to be wrapped in a percistent AnimatePresence component in order to play the exit animation
 const LoadingScreen = () => {
@@ -31,7 +31,7 @@ const LoadingScreen = () => {
         />
       </motion.div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default LoadingScreen;
+export default LoadingScreen

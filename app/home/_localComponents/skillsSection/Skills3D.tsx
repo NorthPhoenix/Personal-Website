@@ -1,32 +1,32 @@
-"use client";
+"use client"
 
-import * as THREE from "three";
-import { motion } from "framer-motion-3d";
+import * as THREE from "three"
+import { motion } from "framer-motion-3d"
 import {
   MotionProps,
   useAnimate,
   useMotionValue,
   useSpring,
-} from "framer-motion";
-import { Canvas, useLoader } from "@react-three/fiber";
-import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader";
-import { ArcballControls, PerspectiveCamera } from "@react-three/drei";
-import { useState, Suspense, useEffect, useMemo } from "react";
-import Image from "next/image";
-import { skills as skillList, Skill } from "lib/utils/skillsConfig";
-import { selectedTagsAtom, activeSkillAtom } from "./Skills";
-import { useAtomValue, useSetAtom } from "jotai";
-import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
-import { skillsLoadedAtom } from "lib/state";
+} from "framer-motion"
+import { Canvas, useLoader } from "@react-three/fiber"
+import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader"
+import { ArcballControls, PerspectiveCamera } from "@react-three/drei"
+import { useState, Suspense, useEffect, useMemo } from "react"
+import Image from "next/image"
+import { skills as skillList, Skill } from "lib/utils/skillsConfig"
+import { selectedTagsAtom, activeSkillAtom } from "./Skills"
+import { useAtomValue, useSetAtom } from "jotai"
+import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js"
+import { skillsLoadedAtom } from "lib/state"
 
 const SVGMaterial = new THREE.MeshPhongMaterial({
   vertexColors: true,
   side: THREE.DoubleSide,
   depthWrite: false,
-});
+})
 
 const Skills3D = ({ className }: { className: string }) => {
-  const setSkillsLoaded = useSetAtom(skillsLoadedAtom);
+  const setSkillsLoaded = useSetAtom(skillsLoadedAtom)
   return (
     <div className={className !== undefined ? className : "relative"}>
       <Image
@@ -70,37 +70,37 @@ const Skills3D = ({ className }: { className: string }) => {
         </Suspense>
       </Canvas>
     </div>
-  );
-};
+  )
+}
 
 const SkillsGroup = () => {
   const calculateSphereRadius = (numberOfSkills: number) => {
-    return Math.sqrt(numberOfSkills) * Math.PI;
-  };
+    return Math.sqrt(numberOfSkills) * Math.PI
+  }
   const [sphereRadius, setSphereRadius] = useState(
     calculateSphereRadius(skillList.length)
-  );
-  const selectedTags = useAtomValue(selectedTagsAtom);
-  const [skills, setSkills] = useState(skillList);
+  )
+  const selectedTags = useAtomValue(selectedTagsAtom)
+  const [skills, setSkills] = useState(skillList)
 
   useEffect(() => {
     // filter skills based on selected tags
     if (selectedTags.length === 0) {
       // no filter selected, render all skills. sphere radius is based on the number of skills total
-      setSphereRadius(calculateSphereRadius(skillList.length));
-      setSkills(skillList);
-      return;
+      setSphereRadius(calculateSphereRadius(skillList.length))
+      setSkills(skillList)
+      return
     }
     const filteredSkills = skillList.filter((skill) => {
       return skill.tags.some((tag) =>
         selectedTags.some((selectedTag) => Object.keys(selectedTag)[0] === tag)
-      );
-    });
-    setSkills(filteredSkills);
+      )
+    })
+    setSkills(filteredSkills)
 
     // calculate an aproximate radius for the sphere based on the number of skills to be rendered
-    setSphereRadius(calculateSphereRadius(filteredSkills.length));
-  }, [selectedTags]);
+    setSphereRadius(calculateSphereRadius(filteredSkills.length))
+  }, [selectedTags])
 
   return (
     <motion.group
@@ -123,11 +123,11 @@ const SkillsGroup = () => {
           /* https://stackoverflow.com/questions/9600801/evenly-distributing-n-points-on-a-sphere
            * Calculate the position of each skill cube on the sphere
            */
-          const phi = Math.acos(1 - (2 * (index + 0.5)) / list.length);
-          const theta = Math.PI * (1 + Math.sqrt(5)) * index;
-          const x = Math.cos(theta) * Math.sin(phi);
-          const y = Math.sin(theta) * Math.sin(phi);
-          const z = Math.cos(phi);
+          const phi = Math.acos(1 - (2 * (index + 0.5)) / list.length)
+          const theta = Math.PI * (1 + Math.sqrt(5)) * index
+          const x = Math.cos(theta) * Math.sin(phi)
+          const y = Math.sin(theta) * Math.sin(phi)
+          const z = Math.cos(phi)
           return (
             <SkillCube
               animate={{
@@ -138,28 +138,28 @@ const SkillsGroup = () => {
               skill={skill}
               key={skill.uuid}
             />
-          );
+          )
         })}
     </motion.group>
-  );
-};
+  )
+}
 
 type SkillSVGProps = MotionProps & {
-  skill: Skill;
-};
+  skill: Skill
+}
 const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
-  const setActiveSkill = useSetAtom(activeSkillAtom);
+  const setActiveSkill = useSetAtom(activeSkillAtom)
 
   const SVGGeometry: THREE.BufferGeometry = useMemo(() => {
-    const svg = useLoader(SVGLoader, skill.icon.svg!);
+    const svg = useLoader(SVGLoader, skill.icon.svg!)
     let geometriesToMerge = svg.paths
       .map((path) => {
-        const fillColor = path.userData!.style.fill as string;
-        const strokeColor = path.userData!.style.stroke as string;
+        const fillColor = path.userData!.style.fill as string
+        const strokeColor = path.userData!.style.stroke as string
 
         // decide if current fill path should be rendered based on the fill color
-        const urlRegEx = /url\((.*)\)/;
-        let THREEFillColor: THREE.Color | undefined = undefined;
+        const urlRegEx = /url\((.*)\)/
+        let THREEFillColor: THREE.Color | undefined = undefined
         if (
           !(
             fillColor === "none" ||
@@ -171,7 +171,7 @@ const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
             urlRegEx.test(fillColor)
           )
         ) {
-          THREEFillColor = new THREE.Color(fillColor);
+          THREEFillColor = new THREE.Color(fillColor)
         }
         // extract fill geometry
         const fillGeometry: THREE.BufferGeometry | null =
@@ -179,26 +179,26 @@ const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
             ? mergeGeometries(
                 SVGLoader.createShapes(path).map((shape) => {
                   // Create the geometry thanks to the shape
-                  const geom = new THREE.ShapeGeometry(shape);
+                  const geom = new THREE.ShapeGeometry(shape)
                   // Create an attributes (same length that the indices) that will store the color state
-                  const indicesLength = geom.attributes.position.count;
-                  const aColor = new Float32Array(indicesLength * 3);
+                  const indicesLength = geom.attributes.position.count
+                  const aColor = new Float32Array(indicesLength * 3)
                   for (let k = 0; k < aColor.length; k += 3) {
-                    aColor[k] = THREEFillColor!.r;
-                    aColor[k + 1] = THREEFillColor!.g;
-                    aColor[k + 2] = THREEFillColor!.b;
+                    aColor[k] = THREEFillColor!.r
+                    aColor[k + 1] = THREEFillColor!.g
+                    aColor[k + 2] = THREEFillColor!.b
                   }
                   geom.setAttribute(
                     "color",
                     new THREE.BufferAttribute(aColor, 3)
-                  );
-                  return geom.toNonIndexed(); // Get rid of potential index attribute to not interfere with mergeGeometries
+                  )
+                  return geom.toNonIndexed() // Get rid of potential index attribute to not interfere with mergeGeometries
                 })
               )
-            : null;
+            : null
 
         // decide if current stroke path should be rendered based on the stroke color
-        let THREEStrokeColor: THREE.Color | undefined = undefined;
+        let THREEStrokeColor: THREE.Color | undefined = undefined
         if (
           !(
             strokeColor === "none" ||
@@ -210,7 +210,7 @@ const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
             urlRegEx.test(strokeColor)
           )
         ) {
-          THREEStrokeColor = new THREE.Color(strokeColor);
+          THREEStrokeColor = new THREE.Color(strokeColor)
         }
         // extract stroke geometry
         const strokeGeometry: THREE.BufferGeometry | null =
@@ -221,49 +221,47 @@ const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
                     const geom = SVGLoader.pointsToStroke(
                       subPath.getPoints(),
                       path.userData!.style
-                    );
-                    if (!geom) return null!;
+                    )
+                    if (!geom) return null!
                     // Create an attributes (same length that the indices) that will store the color state
-                    const indicesLength = geom.attributes.position.count;
-                    const aColor = new Float32Array(indicesLength * 3);
+                    const indicesLength = geom.attributes.position.count
+                    const aColor = new Float32Array(indicesLength * 3)
                     for (let k = 0; k < aColor.length; k += 3) {
-                      aColor[k] = THREEStrokeColor!.r;
-                      aColor[k + 1] = THREEStrokeColor!.g;
-                      aColor[k + 2] = THREEStrokeColor!.b;
+                      aColor[k] = THREEStrokeColor!.r
+                      aColor[k + 1] = THREEStrokeColor!.g
+                      aColor[k + 2] = THREEStrokeColor!.b
                     }
                     geom.setAttribute(
                       "color",
                       new THREE.BufferAttribute(aColor, 3)
-                    );
-                    return geom.toNonIndexed(); // Get rid of potential index attribute to not interfere with mergeGeometries
+                    )
+                    return geom.toNonIndexed() // Get rid of potential index attribute to not interfere with mergeGeometries
                   })
                   .filter((geometry) => geometry !== null)
               )
-            : null;
-        let geometriesToMerge = [];
-        if (fillGeometry !== null) geometriesToMerge.push(fillGeometry);
-        if (strokeGeometry !== null) geometriesToMerge.push(strokeGeometry);
-        const mergedGeometries = mergeGeometries(geometriesToMerge);
-        return geometriesToMerge.length === 0 ? null : mergedGeometries;
+            : null
+        let geometriesToMerge = []
+        if (fillGeometry !== null) geometriesToMerge.push(fillGeometry)
+        if (strokeGeometry !== null) geometriesToMerge.push(strokeGeometry)
+        const mergedGeometries = mergeGeometries(geometriesToMerge)
+        return geometriesToMerge.length === 0 ? null : mergedGeometries
       })
-      .filter((geometry) => geometry !== null);
-    return mergeGeometries(
-      geometriesToMerge as THREE.BufferGeometry[]
-    ).center();
-  }, []);
+      .filter((geometry) => geometry !== null)
+    return mergeGeometries(geometriesToMerge as THREE.BufferGeometry[]).center()
+  }, [])
 
-  const cubeColor = useMotionValue("#a09b85");
-  const groupScale = useMotionValue(1);
+  const cubeColor = useMotionValue("#a09b85")
+  const groupScale = useMotionValue(1)
   const cubeColorSpring = useSpring(cubeColor, {
     stiffness: 1000,
     damping: 100,
-  });
+  })
   const groupScaleSpring = useSpring(groupScale, {
     stiffness: 1000,
     damping: 50,
-  });
+  })
 
-  const [state, animate] = useAnimate();
+  const [state, animate] = useAnimate()
 
   return (
     <Suspense fallback={null}>
@@ -272,14 +270,14 @@ const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
         scale={groupScaleSpring}
         {...motionProps}
         onClick={(e) => {
-          setActiveSkill(skill);
-          e.stopPropagation();
+          setActiveSkill(skill)
+          e.stopPropagation()
           animate([
             [groupScaleSpring, 0.8, { duration: 0.1 }],
             [cubeColorSpring, "#000", { duration: 0.1, at: 0 }],
             [groupScaleSpring, 1, { duration: 0.1 }],
             [cubeColorSpring, "#a09b85", { duration: 0.1, at: 0.1 }],
-          ]);
+          ])
         }}>
         <mesh position={[0, 0, 0]}>
           <boxGeometry args={[5.9, 5.9, 5.9]} />
@@ -334,7 +332,7 @@ const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
         />
       </motion.group>
     </Suspense>
-  );
-};
+  )
+}
 
-export default Skills3D;
+export default Skills3D

@@ -1,70 +1,70 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import Logo from "app/_globalComponents/design/Logo";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { twMerge } from "tailwind-merge";
-import { useState, useEffect, useRef } from "react";
-import SideOverMenu from "./SideOverMenu";
+import Link from "next/link"
+import Logo from "app/_globalComponents/design/Logo"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBars } from "@fortawesome/free-solid-svg-icons"
+import { twMerge } from "tailwind-merge"
+import { useState, useEffect, useRef } from "react"
+import SideOverMenu from "./SideOverMenu"
 
 const navigationLinks = [
   { href: "#about", label: "About Me", id: "about" },
   { href: "#skills", label: "Skills", id: "skills" },
   { href: "#projects", label: "Projects", id: "projects" },
   { href: "#contact", label: "Get in touch", id: "contact" },
-];
+]
 
 type NavbarProps = {
-  className?: string;
-};
+  className?: string
+}
 
 const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
-  const [sideMenuOpen, setSideMenuOpen] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
+  const [sideMenuOpen, setSideMenuOpen] = useState(false)
+  const navRef = useRef<HTMLElement>(null)
 
   const hideNav = () => {
-    const navbar = navRef.current;
+    const navbar = navRef.current
     if (navbar) {
-      navbar.classList.add("-translate-y-[105%]");
+      navbar.classList.add("-translate-y-[105%]")
     }
-  };
+  }
 
   const showNav = () => {
-    const navbar = navRef.current;
+    const navbar = navRef.current
     if (navbar) {
-      navbar.classList.remove("-translate-y-[105%]");
+      navbar.classList.remove("-translate-y-[105%]")
     }
-  };
+  }
 
   useEffect(() => {
     // On resize, check if the screen is tailwind's md breakpoint or larger
     // If so, close the side menu
     const handleResize = () => {
       if (window.innerWidth >= 768) {
-        setSideMenuOpen(false);
+        setSideMenuOpen(false)
       }
-    };
-    window.addEventListener("resize", handleResize);
+    }
+    window.addEventListener("resize", handleResize)
 
     // On scroll down - hide the navbar, on scroll up - show it
-    let prevScrollpos = window.scrollY;
+    let prevScrollpos = window.scrollY
     const handleScroll = () => {
       if (window.scrollY > prevScrollpos) {
-        hideNav();
+        hideNav()
       }
       if (window.scrollY < prevScrollpos) {
-        showNav();
+        showNav()
       }
-      prevScrollpos = window.scrollY;
-    };
-    window.addEventListener("scroll", handleScroll);
+      prevScrollpos = window.scrollY
+    }
+    window.addEventListener("scroll", handleScroll)
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener("resize", handleResize)
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   return (
     <>
@@ -84,10 +84,10 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
               type='button'
               className='p-1 text-nier-400'
               onClick={() => {
-                hideNav();
+                hideNav()
                 setSideMenuOpen((state: Boolean) => {
-                  return !state;
-                });
+                  return !state
+                })
               }}>
               <FontAwesomeIcon
                 icon={faBars}
@@ -111,7 +111,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
                     {label}
                   </a>
                 </li>
-              );
+              )
             })}
           </ul>
         </nav>
@@ -123,7 +123,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
         links={navigationLinks}
       />
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

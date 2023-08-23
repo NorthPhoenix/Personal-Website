@@ -1,41 +1,41 @@
-"use client";
+"use client"
 
-import { twMerge } from "tailwind-merge";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge"
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 
-import DownArrow from "app/_globalComponents/design/DownArrow";
-import StarsBackground from "./StarsBackground";
-import Cubes3D from "./Cubes3D";
-import { useSetAtom } from "jotai";
-import { heroLoadedAtom } from "lib/state";
+import DownArrow from "app/_globalComponents/design/DownArrow"
+import StarsBackground from "./StarsBackground"
+import Cubes3D from "./Cubes3D"
+import { useSetAtom } from "jotai"
+import { heroLoadedAtom } from "lib/state"
 
 type HeroProps = {
-  className?: string;
-};
+  className?: string
+}
 
 const Hero: React.FC<HeroProps> = ({ className }) => {
-  const setHeroLoaded = useSetAtom(heroLoadedAtom);
+  const setHeroLoaded = useSetAtom(heroLoadedAtom)
 
-  const [particlesLoaded, setParticlesLoaded] = useState(false);
-  const [cubesLoaded, setcubesLoaded] = useState(false);
+  const [particlesLoaded, setParticlesLoaded] = useState(false)
+  const [cubesLoaded, setcubesLoaded] = useState(false)
 
   const onParticleLoad = () => {
     // console.log("onParticleLoad");
-    setParticlesLoaded(true);
-  };
+    setParticlesLoaded(true)
+  }
 
   const onCubesLoad = () => {
     // console.log("onCubesLoad");
-    setcubesLoaded(true);
-  };
+    setcubesLoaded(true)
+  }
 
   useEffect(() => {
     if (particlesLoaded && cubesLoaded) {
-      console.log("Hero loaded");
-      setHeroLoaded(true);
+      console.log("Hero loaded")
+      setHeroLoaded(true)
     }
-  }, [particlesLoaded, cubesLoaded]);
+  }, [particlesLoaded, cubesLoaded])
 
   return (
     <section id='hero' className='flex flex-col h-[100svh]'>
@@ -74,7 +74,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         className='absolute top-0 left-0 w-full h-full -z-40'
       />
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

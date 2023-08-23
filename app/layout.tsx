@@ -1,40 +1,40 @@
-import "styles/globals.css";
-import JotaiProvider from "app/_globalComponents/JotaiProvider";
-import GlobalStateProvider from "app/_globalComponents/GlobalStateProvider";
+import "styles/globals.css"
+import JotaiProvider from "app/_globalComponents/JotaiProvider"
+import GlobalStateProvider from "app/_globalComponents/GlobalStateProvider"
 
 // import Font Awesome CSS
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-config.autoAddCss = false;
+import "@fortawesome/fontawesome-svg-core/styles.css"
+import { config } from "@fortawesome/fontawesome-svg-core"
+config.autoAddCss = false
 
 // load fonts
-import localFont from "next/font/local";
+import localFont from "next/font/local"
 
 const exodus_regular = localFont({
   src: "../public/fonts/ExodusDemo-Regular.otf",
   display: "swap",
   variable: "--font-exodus-regular",
-});
+})
 const exodus_sharpen = localFont({
   src: "../public/fonts/ExodusDemo-Sharpen.otf",
   display: "swap",
   variable: "--font-exodus-sharpen",
-});
+})
 const exodus_stencil = localFont({
   src: "../public/fonts/ExodusDemo-Stencil.otf",
   display: "swap",
   variable: "--font-exodus-stencil",
-});
+})
 const exodus_striped = localFont({
   src: "../public/fonts/ExodusDemo-Striped.otf",
   display: "swap",
   variable: "--font-exodus-striped",
-});
+})
 
 // import Devicon CSS
-import "devicon/devicon.min.css";
+import "devicon/devicon.min.css"
 
-import { Metadata } from "next";
+import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Nikta Istomin | Portfolio",
@@ -68,12 +68,12 @@ export const metadata: Metadata = {
     "Personal Website",
   ],
   creator: "Nikita Istomin",
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html
@@ -85,5 +85,5 @@ export default function RootLayout({
         </JotaiProvider>
       </body>
     </html>
-  );
+  )
 }

@@ -1,18 +1,18 @@
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "tailwind-merge"
 
-type ValidTag = "button" | "a";
+type ValidTag = "button" | "a"
 
 type Props<Tag extends keyof JSX.IntrinsicElements> = {
-  as?: ValidTag;
-  children?: React.ReactNode;
-  className?: string;
-} & JSX.IntrinsicElements[Tag];
+  as?: ValidTag
+  children?: React.ReactNode
+  className?: string
+} & JSX.IntrinsicElements[Tag]
 
 /**
  * Make the default tag a constant to make it easy to infer both the default
  * generic parameter and the `tag` prop
  */
-const DEFAULT_TAG = "button" as const;
+const DEFAULT_TAG = "button" as const
 
 // Use the default `div` tag for both the generic parameter and `tag` prop
 const NierButton = <T extends keyof JSX.IntrinsicElements>({
@@ -21,7 +21,7 @@ const NierButton = <T extends keyof JSX.IntrinsicElements>({
   className,
   ...args
 }: Props<T>) => {
-  const Wraper = as;
+  const Wraper = as
   return (
     <Wraper
       className={twMerge(
@@ -31,7 +31,7 @@ const NierButton = <T extends keyof JSX.IntrinsicElements>({
       {...args}>
       {children}
     </Wraper>
-  );
-};
+  )
+}
 
-export default NierButton;
+export default NierButton

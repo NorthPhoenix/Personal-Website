@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import { Fragment } from "react";
-import { Skill, SkillTag, Tags } from "lib/utils/skillsConfig";
-import { motion, AnimatePresence } from "framer-motion";
-import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/24/outline";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { atom, useAtom } from "jotai";
-import Skills3D from "./Skills3D";
-import NierButton from "app/_globalComponents/NierButton";
+import Image from "next/image"
+import { Fragment } from "react"
+import { Skill, SkillTag, Tags } from "lib/utils/skillsConfig"
+import { motion, AnimatePresence } from "framer-motion"
+import { Listbox, Transition } from "@headlessui/react"
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/24/outline"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faLink } from "@fortawesome/free-solid-svg-icons"
+import { atom, useAtom } from "jotai"
+import Skills3D from "./Skills3D"
+import NierButton from "app/_globalComponents/NierButton"
 
-export const activeSkillAtom = atom<Skill | null>(null);
-export const selectedTagsAtom = atom<SkillTag[]>([]);
+export const activeSkillAtom = atom<Skill | null>(null)
+export const selectedTagsAtom = atom<SkillTag[]>([])
 
 const Skills = () => {
-  const [activeSkill, setActiveSkill] = useAtom(activeSkillAtom);
-  const [selectedTags, setSelectedTags] = useAtom(selectedTagsAtom);
+  const [activeSkill, setActiveSkill] = useAtom(activeSkillAtom)
+  const [selectedTags, setSelectedTags] = useAtom(selectedTagsAtom)
 
   return (
     <section
@@ -124,10 +124,10 @@ const Skills = () => {
         <NierButton
           className='w-40 font-normal shrink basis-auto'
           onClick={(e: MouseEvent) => {
-            setSelectedTags([]);
+            setSelectedTags([])
             // unselect button
-            const target = e.currentTarget as HTMLButtonElement;
-            target.blur();
+            const target = e.currentTarget as HTMLButtonElement
+            target.blur()
           }}>
           Clear
         </NierButton>
@@ -213,7 +213,7 @@ const Skills = () => {
         </AnimatePresence>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills

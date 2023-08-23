@@ -1,22 +1,22 @@
-"use client";
+"use client"
 
-import { Canvas, useLoader, useFrame } from "@react-three/fiber";
-import { OrbitControls, Preload } from "@react-three/drei";
-import { Suspense, useEffect, useRef } from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { useSetAtom } from "jotai";
-import { aboutLoadedAtom } from "lib/state";
+import { Canvas, useLoader, useFrame } from "@react-three/fiber"
+import { OrbitControls, Preload } from "@react-three/drei"
+import { Suspense, useEffect, useRef } from "react"
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
+import { useSetAtom } from "jotai"
+import { aboutLoadedAtom } from "lib/state"
 
 type About3DProps = {
-  className?: string;
-};
+  className?: string
+}
 
 const Model: React.FC = () => {
-  const model = useLoader(GLTFLoader, "/models/Laiky.glb");
-  const meshRef = useRef<THREE.Mesh>(null!);
+  const model = useLoader(GLTFLoader, "/models/Laiky.glb")
+  const meshRef = useRef<THREE.Mesh>(null!)
   useFrame(({ clock }) => {
-    meshRef.current.rotation.y = clock.getElapsedTime() * 0.1;
-  });
+    meshRef.current.rotation.y = clock.getElapsedTime() * 0.1
+  })
   return (
     <primitive
       ref={meshRef}
@@ -24,11 +24,11 @@ const Model: React.FC = () => {
       scale={5}
       position={[0, 0, 0]}
     />
-  );
-};
+  )
+}
 
 const About3D: React.FC<About3DProps> = ({ className }) => {
-  const setAboutLoaded = useSetAtom(aboutLoadedAtom);
+  const setAboutLoaded = useSetAtom(aboutLoadedAtom)
 
   return (
     <Canvas
@@ -54,7 +54,7 @@ const About3D: React.FC<About3DProps> = ({ className }) => {
         <Preload all />
       </Suspense>
     </Canvas>
-  );
-};
+  )
+}
 
-export default About3D;
+export default About3D

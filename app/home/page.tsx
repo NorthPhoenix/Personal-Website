@@ -1,14 +1,14 @@
 // My components
-import Footer from "./_localComponents/Footer";
-import Test from "./_localComponents/Test";
-import About from "./_localComponents/aboutSection/About";
-import Projects from "./_localComponents/Projects";
-import ContactMe from "./_localComponents/ContactMe";
-import Hero from "./_localComponents/heroSection/Hero";
-import Navbar from "./_localComponents/Navbar";
-import DiamondTransition from "app/_globalComponents/design/DiamondTransition";
-import LinesThroughCircleDesign from "app/_globalComponents/design/LinesThroughCircleDesign";
-import Skills from "./_localComponents/skillsSection/Skills";
+import Footer from "./_localComponents/Footer"
+import Test from "./_localComponents/Test"
+import About from "./_localComponents/aboutSection/About"
+import Projects from "./_localComponents/Projects"
+import ContactMe from "./_localComponents/ContactMe"
+import Hero from "./_localComponents/heroSection/Hero"
+import Navbar from "./_localComponents/Navbar"
+import DiamondTransition from "app/_globalComponents/design/DiamondTransition"
+import LinesThroughCircleDesign from "app/_globalComponents/design/LinesThroughCircleDesign"
+import Skills from "./_localComponents/skillsSection/Skills"
 const Home = () => {
   return (
     <>
@@ -39,7 +39,7 @@ const Home = () => {
       <Footer />
       <Test />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
