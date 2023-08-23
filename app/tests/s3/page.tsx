@@ -1,17 +1,27 @@
-import React from "react";
-import { getObjectSignedUrl } from "lib/s3";
+import { GetObject, getObjectSignedUrl } from "lib/s3"
 
-const fetchPhoto = async (key: string) => {
-  const photo = await getObjectSignedUrl(key);
-  console.log("Photo URL: ", photo);
-  return photo;
-};
+export const dynamic = "force-dynamic"
+
+const fetchPhotoURL = async (key: string) => {
+  const photo = await getObjectSignedUrl(key)
+  console.log("Photo URL: ", photo)
+  return photo
+}
 
 const S3Test = async () => {
-  const photo = await fetchPhoto(
+  const photoURL = await fetchPhotoURL(
     "projects/support-lists-for-moders/thumbnail.jpg"
-  );
-  return <img alt='' src={photo} />;
-};
+  )
+  return (
+    <main className='p-8 mx-auto'>
+      <div className='flex flex-col items-center justify-start gap-6'>
+        <h1 className='text-4xl font-helvetica'>
+          Photo fetched with signed URL
+        </h1>
+        <img src={photoURL} alt='' />
+      </div>
+    </main>
+  )
+}
 
-export default S3Test;
+export default S3Test
