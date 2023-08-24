@@ -4,13 +4,13 @@ export const dynamic = "force-dynamic"
 
 const fetchPhotoURL = async (key: string) => {
   const photo = await getObjectSignedUrl(key)
-  console.log("Photo URL: ", photo)
+  console.log("Route:/tests/s3 - Photo URL:", photo)
   return photo
 }
 
 const S3Test = async () => {
   const photoURL = await fetchPhotoURL(
-    "projects/support-lists-for-moders/thumbnail.jpg"
+    "projects/support-lists-for-moders-thumbnail.jpg"
   )
   return (
     <main className='p-8 mx-auto'>

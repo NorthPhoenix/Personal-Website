@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React from "react";
+import Link from "next/link"
+import React from "react"
 
 const Test = () => {
   return (
@@ -46,8 +46,15 @@ const Test = () => {
           </button>
         </Link>
       </li>
+      <li>
+        <Link href='/tests/mongodb' prefetch={false}>
+          <button className='px-5 py-1 border-2 border-transparent rounded-full bg-nier-400 hover:bg-nier-700 hover:text-nier-300 hover:transition hover:duration-150'>
+            <span className='text-5xl'>MongoDB</span>
+          </button>
+        </Link>
+      </li>
     </ul>
-  );
-};
+  )
+}
 
-export default Test;
+export default Test

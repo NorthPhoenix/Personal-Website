@@ -8,8 +8,8 @@ datasource db {
 }
 
 type ProjectsLinks {
-  deployedProject String
-  sourceCode      String
+  deployedProject String?
+  sourceCode      String?
   other           String[]
 }
 
@@ -19,13 +19,14 @@ type ProjectsThumbnailS3Image {
   path   String
 }
 
-model projects {
+model Project {
   id               String                   @id @default(auto()) @map("_id") @db.ObjectId
-  title            String
+  title            String                  @unique
   description      String
   startDate        DateTime                 @db.Date
-  completeDate     DateTime                 @db.Date
-  thumbnailS3Image ProjectsThumbnailS3Image
-  links            ProjectsLinks
+  completeDate     DateTime?                 @db.Date
+  thumbnailS3Image ProjectsThumbnailS3Image 
+  links            ProjectsLinks?
   skills           String[]
+  @@map("projects")
 }
