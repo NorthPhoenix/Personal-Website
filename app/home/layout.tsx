@@ -1,6 +1,6 @@
 "use client"
 
-import { Suspense, useEffect, ReactNode } from "react"
+import { Suspense, useEffect, ReactNode, useRef } from "react"
 import { AnimatePresence } from "framer-motion"
 import { useAtom, useAtomValue } from "jotai"
 
@@ -14,6 +14,7 @@ import {
 } from "lib/state"
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {
+  const ref = useRef<HTMLDivElement>(null)
   const [homeLoaded, setPageLoaded] = useAtom(homeLoadedAtom)
   const heroLoaded = useAtomValue(heroLoadedAtom)
   const aboutLoaded = useAtomValue(aboutLoadedAtom)
@@ -24,17 +25,17 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
       setTimeout(() => {
         // console.log("Page loaded");
         setPageLoaded(true)
-        // Allow scrolling after loading (scrolling is prevented by default, see global.css)
-        document.body.style.overflow = "auto"
+        // Allow scrolling after loading
+        ref.current!.style.overflow = "auto"
       }, 2)
     }
   }, [heroLoaded, aboutLoaded, skillsLoaded])
 
   return (
-    <>
+    <div className='overflow-hidden' ref={ref}>
       <AnimatePresence>{!homeLoaded && <LoadingScreen />}</AnimatePresence>
       <Suspense fallback={null}>{children}</Suspense>
-    </>
+    </div>
   )
 }
 
