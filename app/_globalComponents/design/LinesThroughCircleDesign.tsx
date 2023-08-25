@@ -11,7 +11,7 @@ const LinesThroughCircleDesign: React.FC<{ className?: string }> = ({
         strokeWidth='3'
       />
     </svg>
-  );
-};
+  )
+}
 
-export default LinesThroughCircleDesign;
+export default LinesThroughCircleDesign

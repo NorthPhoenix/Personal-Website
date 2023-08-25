@@ -1,16 +1,16 @@
-"use client";
+"use client"
 
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload } from "@react-three/drei";
-import { twMerge } from "tailwind-merge";
-import { Suspense } from "react";
-import { Vector3, Color } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber"
+import { OrbitControls, Preload } from "@react-three/drei"
+import { twMerge } from "tailwind-merge"
+import { Suspense } from "react"
+import { Vector3, Color } from "@react-three/fiber"
 
 type CubeProps = {
-  position?: Vector3;
-  size?: [x: number, y: number, z: number] | number;
-  color?: Color;
-};
+  position?: Vector3
+  size?: [x: number, y: number, z: number] | number
+  color?: Color
+}
 
 const Cube: React.FC<CubeProps> = ({
   position = [0, 0, 0],
@@ -24,13 +24,13 @@ const Cube: React.FC<CubeProps> = ({
       />
       <meshLambertMaterial color={color} />
     </mesh>
-  );
-};
+  )
+}
 
 type WhiteCubes3DProps = {
-  className?: string;
-  onLoad?: () => void;
-};
+  className?: string
+  onLoad?: () => void
+}
 
 const Cubes3D: React.FC<WhiteCubes3DProps> = ({ className, onLoad }) => {
   return (
@@ -69,7 +69,7 @@ const Cubes3D: React.FC<WhiteCubes3DProps> = ({ className, onLoad }) => {
         </Suspense>
       </Canvas>
     </div>
-  );
-};
+  )
+}
 
-export default Cubes3D;
+export default Cubes3D

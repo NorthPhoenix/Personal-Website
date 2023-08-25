@@ -16,8 +16,8 @@ const Home = () => {
       <Navbar />
       <Hero />
       <div className='relative overflow-hidden'>
-        <LinesThroughCircleDesign className='absolute top-0 left-0 h-[90vw] -translate-x-[40%] -translate-y-48 -z-20 fill-none stroke-nier-400 opacity-60' />
-        <LinesThroughCircleDesign className='absolute top-[800px] right-0 h-[90vw] rotate-180 translate-x-[40%] -translate-y-[400px] -z-20 fill-none stroke-nier-400 opacity-60' />
+        <LinesThroughCircleDesign className='absolute left-0 top-0 -z-20 h-[90vw] -translate-x-[40%] -translate-y-48 fill-none stroke-nier-400 opacity-60' />
+        <LinesThroughCircleDesign className='absolute right-0 top-[800px] -z-20 h-[90vw] -translate-y-[400px] translate-x-[40%] rotate-180 fill-none stroke-nier-400 opacity-60' />
         <DiamondTransition
           twTransitionFill='fill-black'
           twTransitionStroke='stroke-nier-700'

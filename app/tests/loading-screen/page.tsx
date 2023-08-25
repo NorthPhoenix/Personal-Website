@@ -1,7 +1,7 @@
-import LoadingScreen from "app/_globalComponents/LoadingScreen";
+import LoadingScreen from "app/_globalComponents/LoadingScreen"
 
 const loadingScreen = () => {
-  return <LoadingScreen />;
-};
+  return <LoadingScreen />
+}
 
-export default loadingScreen;
+export default loadingScreen

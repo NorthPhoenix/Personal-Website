@@ -1,11 +1,11 @@
-import { NextPage } from "next";
+import { NextPage } from "next"
 
 const nierBorder: NextPage = () => {
   return (
-    <div className='w-screen h-screen overflow-hidden'>
-      <div className='absolute top-3 left-0 h-[2px] w-full bg-nier-700' />{" "}
+    <div className='h-screen w-screen overflow-hidden'>
+      <div className='absolute left-0 top-3 h-[2px] w-full bg-nier-700' />{" "}
       {/* Top line */}
-      <div className='grid justify-center grid-flow-col-dense my-3 stroke-nier-700'>
+      <div className='my-3 grid grid-flow-col-dense justify-center stroke-nier-700'>
         {/* Far left square of the pattern */}
         <svg
           width='5'
@@ -47,7 +47,7 @@ const nierBorder: NextPage = () => {
                 <circle id='dot-bot' cx='39' cy='24' r='2.5' />
               </g>
             </svg>
-          );
+          )
         })}
         {/* Far right square of the pattern */}
         <svg
@@ -59,7 +59,7 @@ const nierBorder: NextPage = () => {
         </svg>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default nierBorder;
+export default nierBorder

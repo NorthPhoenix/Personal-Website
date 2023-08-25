@@ -22,26 +22,26 @@ const Skills = () => {
   return (
     <section
       id='skills'
-      className='flex flex-col items-center justify-start w-full py-6'>
+      className='flex w-full flex-col items-center justify-start py-6'>
       {/* Title */}
-      <div className='flex flex-col items-center justify-center w-full gap-4 mb-6'>
-        <div className='flex flex-row items-center justify-center w-full gap-2 px-4 max-w-7xl'>
-          <span className='h-[2px] grow-0 w-5 bg-nier-700' />
+      <div className='mb-6 flex w-full flex-col items-center justify-center gap-4'>
+        <div className='flex w-full max-w-7xl flex-row items-center justify-center gap-2 px-4'>
+          <span className='h-[2px] w-5 grow-0 bg-nier-700' />
           <span className='h-[2px] grow bg-nier-700' />
-          <span className='h-[2px] grow-0 w-5 bg-nier-700' />
+          <span className='h-[2px] w-5 grow-0 bg-nier-700' />
         </div>
-        <h2 className='px-4 text-6xl font-exodus-striped uppercase tracking-[0.5rem] text-shadow text-center -translate-y-[2px]'>
+        <h2 className='text-shadow -translate-y-[2px] px-4 text-center font-exodus-striped text-6xl uppercase tracking-[0.5rem]'>
           Skills
         </h2>
-        <div className='flex flex-row items-center justify-center w-full gap-2 px-4 max-w-7xl'>
-          <span className='h-[2px] grow-0 w-5 bg-nier-700' />
+        <div className='flex w-full max-w-7xl flex-row items-center justify-center gap-2 px-4'>
+          <span className='h-[2px] w-5 grow-0 bg-nier-700' />
           <span className='h-[2px] grow bg-nier-700' />
-          <span className='h-[2px] grow-0 w-5 bg-nier-700' />
+          <span className='h-[2px] w-5 grow-0 bg-nier-700' />
         </div>
         {/* Intro paragraphs */}
       </div>
-      <div className='relative px-4 mx-4 text-lg shadow-md bg-nier-200 font-helvetica'>
-        <p className='p-2 mt-2 text-center'>
+      <div className='relative mx-4 bg-nier-200 px-4 font-helvetica text-lg shadow-md'>
+        <p className='mt-2 p-2 text-center'>
           <span className='inline-block'>
             I've had experience with many different technologies over the years
           </span>
@@ -51,7 +51,7 @@ const Skills = () => {
           <br />
           Here are some of the technologies I know:
         </p>
-        <p className='p-2 my-2 text-center'>
+        <p className='my-2 p-2 text-center'>
           I specialize in{" "}
           <span className='font-semibold underline'>React.js</span>,{" "}
           <span className='font-semibold underline'>Next.js</span>,{" "}
@@ -60,14 +60,14 @@ const Skills = () => {
         </p>
       </div>
       {/* Filters */}
-      <div className='z-20 flex flex-row items-center justify-center max-w-full gap-2 px-4 mt-6'>
+      <div className='z-20 mt-6 flex max-w-full flex-row items-center justify-center gap-2 px-4'>
         <Listbox
           value={selectedTags}
           onChange={setSelectedTags}
           multiple
           horizontal>
           <div className='relative w-80 shrink basis-auto'>
-            <Listbox.Button className='relative w-full py-2 pl-3 pr-10 text-left shadow-md cursor-default bg-nier-200 focus:outline-none focus-visible:border-nier-400 focus-visible:ring-2 focus-visible:ring-nier-700 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-nier-200 sm:text-sm'>
+            <Listbox.Button className='relative w-full cursor-default bg-nier-200 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-nier-400 focus-visible:ring-2 focus-visible:ring-nier-700 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-nier-200 sm:text-sm'>
               {selectedTags.length === 0 ? (
                 <span className='block truncate'>Filter</span>
               ) : (
@@ -75,9 +75,9 @@ const Skills = () => {
                   {selectedTags.map((tag) => Object.keys(tag)[0]).join(", ")}
                 </span>
               )}
-              <span className='absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'>
+              <span className='pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2'>
                 <ChevronUpDownIcon
-                  className='w-5 h-5 text-gray-400'
+                  className='h-5 w-5 text-gray-400'
                   aria-hidden='true'
                 />
               </span>
@@ -90,7 +90,7 @@ const Skills = () => {
               enter=' trasition ease-in duration-150 origin-top'
               enterFrom='opacity-0 scale-y-0'
               enterTo='opacity-100 scale-y-100'>
-              <Listbox.Options className='absolute w-full py-1 mt-1 overflow-auto text-base shadow-lg bg-nier-200 max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
+              <Listbox.Options className='absolute mt-1 max-h-60 w-full overflow-auto bg-nier-200 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
                 {Tags.map((tag, tagIdx) => (
                   <Listbox.Option
                     key={tagIdx}
@@ -110,7 +110,7 @@ const Skills = () => {
                         </span>
                         {selected ? (
                           <span className='absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600'>
-                            <CheckIcon className='w-5 h-5' aria-hidden='true' />
+                            <CheckIcon className='h-5 w-5' aria-hidden='true' />
                           </span>
                         ) : null}
                       </>
@@ -122,7 +122,7 @@ const Skills = () => {
           </div>
         </Listbox>
         <NierButton
-          className='w-40 font-normal shrink basis-auto'
+          className='w-40 shrink basis-auto font-normal'
           onClick={(e: MouseEvent) => {
             setSelectedTags([])
             // unselect button
@@ -133,34 +133,34 @@ const Skills = () => {
         </NierButton>
       </div>
       {/* Skill description & 3D scene */}
-      <div className='md:relative flex flex-col md:flex-row items-center justify-start md:justify-end w-full max-w-7xl md:min-h-[800px] lg:my-16 font-helvetica'>
-        <Skills3D className='md:absolute relative w-full md:left-0 md:z-10 md:-translate-x-[30%] xl:-translate-x-[15%] md:-translate-y-1/2 md:top-1/2 aspect-square md:w-[75%] md:max-h-[120%] ' />
+      <div className='flex w-full max-w-7xl flex-col items-center justify-start font-helvetica md:relative md:min-h-[800px] md:flex-row md:justify-end lg:my-16'>
+        <Skills3D className='relative aspect-square w-full md:absolute md:left-0 md:top-1/2 md:z-10 md:max-h-[120%] md:w-[75%] md:-translate-x-[30%] md:-translate-y-1/2 xl:-translate-x-[15%] ' />
         <AnimatePresence mode='popLayout'>
           {activeSkill === null ? (
             <motion.div
-              className='relative flex flex-col items-center justify-center px-4 py-5 my-6 mr-5 md:max-w-lg md:py-10 md:mr-10 md:my-0 nier-block-right'
+              className='nier-block-right relative my-6 mr-5 flex flex-col items-center justify-center px-4 py-5 md:my-0 md:mr-10 md:max-w-lg md:py-10'
               key={0}
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ opacity: 0, scale: 0.7 }}
               transition={{ type: "tween", duration: 0.6, ease: "easeOut" }}>
-              <h3 className='text-2xl font-bold text-center md:text-3xl'>
+              <h3 className='text-center text-2xl font-bold md:text-3xl'>
                 Click on a skill
               </h3>
-              <p className='text-lg text-center md:text-xl h-7'>
+              <p className='h-7 text-center text-lg md:text-xl'>
                 to see more information
               </p>
             </motion.div>
           ) : (
             <motion.div
-              className='relative flex flex-col items-center justify-center md:max-w-[26rem] md:px-4 px-0 ml-4 md:ml-0 md:py-10 py-5 md:mr-10 mr-6 lg:max-w-lg md:nier-block-right nier-block-right-sm'
+              className='md:nier-block-right nier-block-right-sm relative ml-4 mr-6 flex flex-col items-center justify-center px-0 py-5 md:ml-0 md:mr-10 md:max-w-[26rem] md:px-4 md:py-10 lg:max-w-lg'
               key={activeSkill.uuid}
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ opacity: 0, scale: 0.7 }}
               transition={{ type: "tween", duration: 0.6, ease: "easeOut" }}>
               {/* image layout for medium+ size screens */}
-              <p className='hidden h-64 p-4 aspect-square md:block'>
+              <p className='hidden aspect-square h-64 p-4 md:block'>
                 <Image
                   loading='eager'
                   src={activeSkill.icon.svg!}
@@ -169,9 +169,9 @@ const Skills = () => {
                   width={256}
                 />
               </p>
-              <div className='p-4 text-center shadow-md md:px-2 md:py-4 md:mt-2 sm:flex sm:flex-row sm:items-center sm:justify-start md:flex-col md:gap-2 bg-nier-200'>
+              <div className='bg-nier-200 p-4 text-center shadow-md sm:flex sm:flex-row sm:items-center sm:justify-start md:mt-2 md:flex-col md:gap-2 md:px-2 md:py-4'>
                 {/* image layout for up to medium screens */}
-                <p className='mr-3 max-sm:float-left max-sm:-mb-2 h-28 md:hidden aspect-square'>
+                <p className='mr-3 aspect-square h-28 max-sm:float-left max-sm:-mb-2 md:hidden'>
                   <Image
                     loading='eager'
                     src={activeSkill.icon.svg!}
@@ -180,12 +180,12 @@ const Skills = () => {
                     width={256}
                   />
                 </p>
-                <div className='contents sm:block md:contents sm:ml-2 md:ml-0'>
-                  <h3 className='text-xl font-semibold tracking-widest uppercase text-shadow'>
+                <div className='contents sm:ml-2 sm:block md:ml-0 md:contents'>
+                  <h3 className='text-shadow text-xl font-semibold uppercase tracking-widest'>
                     {activeSkill.name}
                   </h3>
-                  <hr className='w-auto h-px my-2 md:w-1/3 md:px-0 md:my-0 border-nier-700' />
-                  <p className='text-base text-left max-md:mb-2 md:text-center '>
+                  <hr className='my-2 h-px w-auto border-nier-700 md:my-0 md:w-1/3 md:px-0' />
+                  <p className='text-left text-base max-md:mb-2 md:text-center '>
                     {activeSkill.description !== undefined ||
                     activeSkill.description !== ""
                       ? activeSkill.description
@@ -193,15 +193,15 @@ const Skills = () => {
                   </p>
                   {!!activeSkill.link && (
                     <NierButton
-                      className='z-10 flex flex-row items-center justify-start px-3 max-md:w-fit max-md:block group max-md:mx-auto'
+                      className='group z-10 flex flex-row items-center justify-start px-3 max-md:mx-auto max-md:block max-md:w-fit'
                       as='a'
                       target='_blank'
                       href={activeSkill.link}>
                       <FontAwesomeIcon
                         icon={faLink}
-                        className='transition-all duration-200 ease-in-out text-nier-700 group-hover:text-nier-200 group-active:text-nier-700'
+                        className='text-nier-700 transition-all duration-200 ease-in-out group-hover:text-nier-200 group-active:text-nier-700'
                       />
-                      <span className='overflow-hidden text-center transition-all duration-200 ease-in-out max-md:ml-2 md:w-0 md:ml-0 md:text-left text-nier-700 group-hover:text-nier-200 group-active:text-nier-700 md:group-hover:ml-4 whitespace-nowrap md:group-hover:w-24'>
+                      <span className='overflow-hidden whitespace-nowrap text-center text-nier-700 transition-all duration-200 ease-in-out group-hover:text-nier-200 group-active:text-nier-700 max-md:ml-2 md:ml-0 md:w-0 md:text-left md:group-hover:ml-4 md:group-hover:w-24'>
                         Learn More
                       </span>
                     </NierButton>

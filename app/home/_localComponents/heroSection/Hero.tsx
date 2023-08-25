@@ -38,40 +38,40 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   }, [particlesLoaded, cubesLoaded])
 
   return (
-    <section id='hero' className='flex flex-col h-[100svh]'>
+    <section id='hero' className='flex h-[100svh] flex-col'>
       <div
         className={twMerge(
-          "flex flex-col grow items-center overflow-hidden mt-28",
+          "mt-28 flex grow flex-col items-center overflow-hidden",
           className
         )}>
-        <section className='flex flex-col items-center justify-center w-full space-y-5 text-center grow '>
-          <h1 className='text-[17vw] md:text-8xl lg:text-9xl xl:text-[9rem] mix-blend-difference font-exodus-striped h-full my-4 relative grow w-full'>
-            <span className='absolute md:-translate-x-[67%] w-full top-0 text-transparent -translate-x-1/2 select-none left-1/2 bg-gradient-to-t from-neutral-600 to-nier-300 bg-clip-text'>
+        <section className='flex w-full grow flex-col items-center justify-center space-y-5 text-center '>
+          <h1 className='relative my-4 h-full w-full grow font-exodus-striped text-[17vw] mix-blend-difference md:text-8xl lg:text-9xl xl:text-[9rem]'>
+            <span className='absolute left-1/2 top-0 w-full -translate-x-1/2 select-none bg-gradient-to-t from-neutral-600 to-nier-300 bg-clip-text text-transparent md:-translate-x-[67%]'>
               DESIGN
             </span>
-            <span className='absolute w-full text-transparent -translate-x-1/2 -translate-y-1/2 select-none left-1/2 top-1/2 bg-gradient-to-t from-neutral-600 to-nier-300 bg-clip-text'>
+            <span className='absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 select-none bg-gradient-to-t from-neutral-600 to-nier-300 bg-clip-text text-transparent'>
               DEVELOP
             </span>
-            <span className='absolute md:-translate-x-[33%] w-full bottom-0 text-transparent -translate-x-1/2 select-none left-1/2 bg-gradient-to-t from-neutral-600 to-nier-300 bg-clip-text'>
+            <span className='absolute bottom-0 left-1/2 w-full -translate-x-1/2 select-none bg-gradient-to-t from-neutral-600 to-nier-300 bg-clip-text text-transparent md:-translate-x-[33%]'>
               DELIVER
             </span>
           </h1>
         </section>
 
         <motion.a
-          className='w-40 my-10 opacity-50 h-7'
+          className='my-10 h-7 w-40 opacity-50'
           href='#about'
           whileHover={{ scale: 1.3, opacity: 1 }}>
-          <DownArrow className='w-full h-full fill-nier-400 mix-blend-difference' />
+          <DownArrow className='h-full w-full fill-nier-400 mix-blend-difference' />
         </motion.a>
       </div>
       <StarsBackground
         onLoad={onParticleLoad}
-        className='absolute top-0 left-0 w-full h-full -z-50'
+        className='absolute left-0 top-0 -z-50 h-full w-full'
       />
       <Cubes3D
         onLoad={onCubesLoad}
-        className='absolute top-0 left-0 w-full h-full -z-40'
+        className='absolute left-0 top-0 -z-40 h-full w-full'
       />
     </section>
   )

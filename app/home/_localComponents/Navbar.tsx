@@ -71,12 +71,12 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
       <header
         ref={navRef}
         className={twMerge(
-          "fixed left-0 top-0 right-0 flex z-50 flex-col items-center transition-transform duration-500 mix-blend-difference",
+          "fixed left-0 right-0 top-0 z-50 flex flex-col items-center mix-blend-difference transition-transform duration-500",
           className
         )}>
-        <nav className='flex flex-row items-center justify-between w-full h-20 px-12 bg-transparent sm:px-10 md:px-9 md:h-24 max-w-7xl'>
-          <Link href={"/"} className='object-scale-down h-12 group md:h-14'>
-            <Logo className='w-auto h-full transition-transform fill-nier-200 group-hover:scale-105' />
+        <nav className='flex h-20 w-full max-w-7xl flex-row items-center justify-between bg-transparent px-12 sm:px-10 md:h-24 md:px-9'>
+          <Link href={"/"} className='group h-12 object-scale-down md:h-14'>
+            <Logo className='h-full w-auto fill-nier-200 transition-transform group-hover:scale-105' />
           </Link>
           {/* hamburger menu on small screens */}
           <div className='relative md:hidden'>
@@ -97,7 +97,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
             </button>
           </div>
           {/* flexbox menu on large screens */}
-          <ul className='flex-row items-center hidden w-auto font-exodus-regular gap-x-5 md:flex'>
+          <ul className='hidden w-auto flex-row items-center gap-x-5 font-exodus-regular md:flex'>
             {navigationLinks.map(({ href, label, id }) => {
               return (
                 <li key={id} className='p-3 transition hover:scale-105'>
@@ -105,7 +105,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
                     href={href}
                     className={`text-nier-200  ${
                       id === "contact"
-                        ? "underline underline-offset-4 decoration-1 decoration-solid decoration-nier-200"
+                        ? "underline decoration-nier-200 decoration-solid decoration-1 underline-offset-4"
                         : ""
                     }`}>
                     {label}
@@ -115,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
             })}
           </ul>
         </nav>
-        <div className='bg-nier-400 w-3/4 h-[2px] relative before:w-[15px] before:h-[3px] before:absolute before:top-px before:-left-[25px] before:-translate-y-1/2 before:bg-nier-400 after:w-[15px] after:h-[3px] after:absolute after:top-px after:-right-[25px] after:-translate-y-1/2 after:bg-nier-400' />
+        <div className='relative h-[2px] w-3/4 bg-nier-400 before:absolute before:-left-[25px] before:top-px before:h-[3px] before:w-[15px] before:-translate-y-1/2 before:bg-nier-400 after:absolute after:-right-[25px] after:top-px after:h-[3px] after:w-[15px] after:-translate-y-1/2 after:bg-nier-400' />
       </header>
       <SideOverMenu
         open={sideMenuOpen}

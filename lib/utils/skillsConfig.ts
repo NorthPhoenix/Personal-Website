@@ -1,18 +1,18 @@
 declare type Skill = {
-  uuid: string;
-  name: string;
+  uuid: string
+  name: string
   icon: {
-    devicon?: string;
-    svg?: string;
-  };
-  tags: AllKeys<SkillTag>[];
-  description?: string;
-  link?: string;
-};
+    devicon?: string
+    svg?: string
+  }
+  tags: AllKeys<SkillTag>[]
+  description?: string
+  link?: string
+}
 
-type AllKeys<T> = T extends any ? keyof T : never;
+type AllKeys<T> = T extends any ? keyof T : never
 
-declare type SkillTag = (typeof Tags)[number];
+declare type SkillTag = (typeof Tags)[number]
 
 const Tags = [
   { Frontend: { color: "#000" } },
@@ -32,7 +32,7 @@ const Tags = [
   { "UI/UX": { color: "#000" } },
   { "Game Development": { color: "#000" } },
   { Other: { color: "#000" } },
-] as const;
+] as const
 
 const skills: Skill[] = [
   {
@@ -623,7 +623,7 @@ const skills: Skill[] = [
     tags: ["Frontend", "Web"],
     link: "https://jotai.org/",
   },
-];
+]
 
-export { skills, Tags };
-export type { Skill, SkillTag };
+export { skills, Tags }
+export type { Skill, SkillTag }

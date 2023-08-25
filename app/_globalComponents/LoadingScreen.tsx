@@ -7,20 +7,20 @@ import { motion } from "framer-motion"
 const LoadingScreen = () => {
   return (
     <motion.div
-      className='fixed z-[500] inset-0 overflow-hidden'
+      className='fixed inset-0 z-[500] overflow-hidden'
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}>
       {/* Fallback background */}
-      <div className='absolute inset-0 bg-black -z-10' />
+      <div className='absolute inset-0 -z-10 bg-black' />
       <motion.div
-        className='w-full h-full bg-nier-700 '
+        className='h-full w-full bg-nier-700 '
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.7, when: "beforeChildren" }}>
-        <Logo className='absolute z-30 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 h-1/6 fill-nier-300 brightness-75' />
+        <Logo className='absolute left-1/2 top-1/2 z-30 h-1/6 -translate-x-1/2 -translate-y-1/2 fill-nier-300 brightness-75' />
         <div
           id='line-grid'
-          className='absolute z-20 w-full h-full bg-transparent bg-repeat bg-lines-inverted bg-size-120'
+          className='absolute z-20 h-full w-full bg-transparent bg-lines-inverted bg-size-120 bg-repeat'
         />
         <motion.div
           initial={{ rotateZ: -45, x: -50, y: 50 }}

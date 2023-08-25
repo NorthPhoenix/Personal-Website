@@ -1,19 +1,19 @@
-import React from "react";
-import About3D from "./About3D";
+import React from "react"
+import About3D from "./About3D"
 
 const About = () => {
   return (
     <section
       id='about'
-      className='relative flex items-center justify-center w-full p-2 py-12 mb-16 overflow-y-visible md:p-6 md:mb-20 font-helvetica selection:bg-nier-700 selection:text-nier-200'>
-      <div className='relative w-full max-w-7xl 2xl:max-w-[80%] shrink'>
-        <article className='mr-2 relative w-auto lg:w-3/5 min-h-[40vmin] m-0 sm:m-4 flex flex-col items-start justify-center ml-4 p-0 sm:p-2 py-5 md:p-8 nier-block-left-sm md:nier-block-left'>
-          <div className='p-4 mb-8 shadow-md bg-opacity-80 bg-nier-200 md:bg-opacity-100 '>
-            <header className='w-full pb-4 mb-4 border-b border-nier-700'>
-              <h2 className='mb-3 text-3xl md:text-4xl font-normal tracking-[0.5rem] uppercase text-shadow md:whitespace-nowrap'>
+      className='relative mb-16 flex w-full items-center justify-center overflow-y-visible p-2 py-12 font-helvetica selection:bg-nier-700 selection:text-nier-200 md:mb-20 md:p-6'>
+      <div className='relative w-full max-w-7xl shrink 2xl:max-w-[80%]'>
+        <article className='nier-block-left-sm md:nier-block-left relative m-0 ml-4 mr-2 flex min-h-[40vmin] w-auto flex-col items-start justify-center p-0 py-5 sm:m-4 sm:p-2 md:p-8 lg:w-3/5'>
+          <div className='mb-8 bg-nier-200 bg-opacity-80 p-4 shadow-md md:bg-opacity-100 '>
+            <header className='mb-4 w-full border-b border-nier-700 pb-4'>
+              <h2 className='text-shadow mb-3 text-3xl font-normal uppercase tracking-[0.5rem] md:whitespace-nowrap md:text-4xl'>
                 Nikita Istomin
               </h2>
-              <h3 className='flex flex-col items-start justify-start w-full gap-2 text-lg uppercase md:text-xl xl:gap-4 xl:flex-row xl:items-center '>
+              <h3 className='flex w-full flex-col items-start justify-start gap-2 text-lg uppercase md:text-xl xl:flex-row xl:items-center xl:gap-4 '>
                 <span>Software developer.</span>
                 <span>Deep thinker.</span>
                 <span>Life enjoyer.</span>
@@ -27,12 +27,12 @@ const About = () => {
               Dallas, and I'm exited to start my career in the industry.
             </p>
           </div>
-          <div className='grid grid-cols-1 grid-rows-1 gap-6 sm:grid-cols-2 sm:grid-rows-2 shrink'>
-            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-opacity-80 bg-nier-200 md:bg-opacity-100 '>
-              <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
+          <div className='grid shrink grid-cols-1 grid-rows-1 gap-6 sm:grid-cols-2 sm:grid-rows-2'>
+            <div className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100 '>
+              <h4 className='text-shadow mt-2 text-lg font-semibold uppercase tracking-widest md:text-xl'>
                 Motivated
               </h4>
-              <hr className='w-1/3 h-px border-nier-700' />
+              <hr className='h-px w-1/3 border-nier-700' />
               <p className='text-base'>
                 As a quick-thinking software engineer, I embrace challenges and
                 never shy away from asking questions. Eager to learn, I use my
@@ -40,22 +40,22 @@ const About = () => {
                 ever-evolving field.
               </p>
             </div>
-            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-opacity-80 bg-nier-200 md:bg-opacity-100'>
-              <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
+            <div className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100'>
+              <h4 className='text-shadow mt-2 text-lg font-semibold uppercase tracking-widest md:text-xl'>
                 Effective
               </h4>
-              <hr className='w-1/3 h-px border-nier-700' />
+              <hr className='h-px w-1/3 border-nier-700' />
               <p className='text-base'>
                 I blend passion, precision, and a user-centric approach to craft
                 efficient solutions. Embracing cutting-edge technologies and an
                 agile mindset, I thrive on solving complex challenges.
               </p>
             </div>
-            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-opacity-80 bg-nier-200 md:bg-opacity-100'>
-              <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
+            <div className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100'>
+              <h4 className='text-shadow mt-2 text-lg font-semibold uppercase tracking-widest md:text-xl'>
                 Consistent
               </h4>
-              <hr className='w-1/3 h-px border-nier-700' />
+              <hr className='h-px w-1/3 border-nier-700' />
               <p className='text-base'>
                 I bring unwavering commitment to excellence, ensuring remarkable
                 results on any team. I build projects that adhere to the highest
@@ -63,11 +63,11 @@ const About = () => {
                 and end-users.
               </p>
             </div>
-            <div className='flex flex-col items-center justify-start gap-2 p-2 text-center shadow-md bg-opacity-80 bg-nier-200 md:bg-opacity-100'>
-              <h4 className='mt-2 text-lg font-semibold tracking-widest uppercase md:text-xl text-shadow'>
+            <div className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100'>
+              <h4 className='text-shadow mt-2 text-lg font-semibold uppercase tracking-widest md:text-xl'>
                 Collaborative
               </h4>
-              <hr className='w-1/3 h-px border-nier-700' />
+              <hr className='h-px w-1/3 border-nier-700' />
               <p className='text-base'>
                 I thrive in team environments, valuing open communication and
                 diverse perspectives. I strive to empower and uplift my team,
@@ -78,11 +78,11 @@ const About = () => {
           </div>
         </article>
       </div>
-      <div className='absolute left-0 right-0 h-0 top-1/2 -z-10 '>
-        <About3D className='!absolute right-0 left-0 md:left-[unset] md:!w-[800px] !h-[1000px] !overflow-visible -translate-y-1/2' />
+      <div className='absolute left-0 right-0 top-1/2 -z-10 h-0 '>
+        <About3D className='!absolute left-0 right-0 !h-[1000px] -translate-y-1/2 !overflow-visible md:left-[unset] md:!w-[800px]' />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

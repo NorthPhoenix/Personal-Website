@@ -1,15 +1,15 @@
-"use client";
+"use client"
 
-import { useRef, useState, useLayoutEffect } from "react";
+import { useRef, useState, useLayoutEffect } from "react"
 
 type DiamondTransitionProps = {
-  twTransitionFill?: string;
-  twTransitionStroke?: string;
-  unitWidth?: number;
-  padding?: string;
-  reverse?: boolean;
-  absolute?: boolean;
-};
+  twTransitionFill?: string
+  twTransitionStroke?: string
+  unitWidth?: number
+  padding?: string
+  reverse?: boolean
+  absolute?: boolean
+}
 
 const DiamondTransition: React.FC<DiamondTransitionProps> = ({
   twTransitionFill = "fill-black",
@@ -19,69 +19,67 @@ const DiamondTransition: React.FC<DiamondTransitionProps> = ({
   reverse = false,
   absolute = false,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [numberOfTransitions, setNumberOfTransitions] = useState(0);
-  const paddingColor = twTransitionFill.slice(
-    twTransitionFill.indexOf("-") + 1
-  );
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [numberOfTransitions, setNumberOfTransitions] = useState(0)
+  const paddingColor = twTransitionFill.slice(twTransitionFill.indexOf("-") + 1)
 
   // useLayoutEffect for calculating number of units of transitions to render
   useLayoutEffect(() => {
-    const container = containerRef.current;
+    const container = containerRef.current
     if (container) {
-      const { width } = container.getBoundingClientRect();
-      const numberOfTransitions = Math.ceil(width / unitWidth);
-      setNumberOfTransitions(numberOfTransitions);
-      console.log("Render: ", width, numberOfTransitions);
+      const { width } = container.getBoundingClientRect()
+      const numberOfTransitions = Math.ceil(width / unitWidth)
+      setNumberOfTransitions(numberOfTransitions)
+      console.log("Render: ", width, numberOfTransitions)
 
       // add resize listener to recalculate number of transitions
       const resizeListener = () => {
-        const { width } = container.getBoundingClientRect();
-        const numberOfTransitions = Math.ceil(width / unitWidth);
-        setNumberOfTransitions(numberOfTransitions);
-        console.log("Resize: ", width, numberOfTransitions);
-      };
-      window.addEventListener("resize", resizeListener);
+        const { width } = container.getBoundingClientRect()
+        const numberOfTransitions = Math.ceil(width / unitWidth)
+        setNumberOfTransitions(numberOfTransitions)
+        console.log("Resize: ", width, numberOfTransitions)
+      }
+      window.addEventListener("resize", resizeListener)
 
       return () => {
-        window.removeEventListener("resize", resizeListener);
-      };
+        window.removeEventListener("resize", resizeListener)
+      }
     }
-  }, []);
+  }, [])
 
   return (
     <>
       <div className='relative -z-10'>
         <div
-          className={`w-full overflow-hidden flex ${
+          className={`flex w-full overflow-hidden ${
             absolute ? "absolute left-0 top-full" : ""
           }
           ${reverse ? "flex-col-reverse" : "flex-col"}`}>
           <div
-            className={`bg-${paddingColor} scale-[105%] w-full`}
+            className={`bg-${paddingColor} w-full scale-[105%]`}
             style={{ height: padding }}
           />
           <div
             ref={containerRef}
-            className='flex flex-row items-start justify-center w-full overflow-hidden'>
+            className='flex w-full flex-row items-start justify-center overflow-hidden'>
             {[...Array(numberOfTransitions)].map((_, index) => {
               return (
                 <DiamondTransitionImage
                   key={index}
                   className={`shrink-0 scale-[101%] ${twTransitionFill} ${twTransitionStroke} ${
-                    reverse ? "rotate-[180deg] translate-y-px" : ""
+                    reverse ? "translate-y-px rotate-[180deg]" : ""
                   }`}
                   width={`${unitWidth}px`}
                 />
-              );
+              )
             })}
             d
           </div>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 const DiamondTransitionImage = ({ className = "", width = "200px" }) => {
   return (
@@ -127,7 +125,7 @@ const DiamondTransitionImage = ({ className = "", width = "200px" }) => {
         />
       </svg>
     </>
-  );
-};
+  )
+}
 
-export default DiamondTransition;
+export default DiamondTransition

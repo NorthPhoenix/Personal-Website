@@ -1,4 +1,4 @@
-import DiamondTransition from "app/_globalComponents/design/DiamondTransition";
+import DiamondTransition from "app/_globalComponents/design/DiamondTransition"
 
 export default () => {
   return (
@@ -10,5 +10,5 @@ export default () => {
         padding='200px'
       />
     </>
-  );
-};
+  )
+}
