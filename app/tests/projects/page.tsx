@@ -1,10 +1,9 @@
-import Projects from "./projects"
-import { Suspense } from "react"
+import TestProjects from "./projects"
 
 const ProjectPage = () => {
   return (
     <div className='mx-auto max-w-4xl p-8'>
-      <Projects />
+      <TestProjects />
     </div>
   )
 }

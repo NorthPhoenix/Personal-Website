@@ -12,7 +12,7 @@ const getProjects = async () => {
   return projects
 }
 
-const Projects = async () => {
+const TestProjects = async () => {
   const projects = await getProjects()
   return (
     <div className='flex flex-row flex-wrap items-center justify-start gap-8'>
@@ -51,14 +51,15 @@ const ProjectImage = async ({ s3Path }: { s3Path: string }) => {
   return (
     isURLValid && (
       <Image
+        loading='eager'
         src={imageS3URL}
         width={512}
         height={512}
-        alt='None'
+        alt={imageS3URL}
         className='rounded-2xl object-cover'
       />
     )
   )
 }
 
-export default Projects
+export default TestProjects
