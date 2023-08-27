@@ -6,7 +6,7 @@ import NierButton from "app/_globalComponents/NierButton"
 
 const processDate = (date: Date) => {
   // formate date as follows: "Jan 2021", "Feb 2019", etc.
-  return `${date.toLocaleString("default", {
+  return `${date.toLocaleString("en-US", {
     month: "short",
   })} ${date.getFullYear()}`
 }
