@@ -21,11 +21,11 @@ const Projects = async () => {
       <h2 className='text-shadow m-6 p-10 font-exodus-striped text-6xl uppercase tracking-[0.5rem]'>
         Projects
       </h2>
-      <div
+      {/* <div
         id='projectFilters'
         className='grid h-16 w-full max-w-7xl place-content-center bg-nier-700 text-nier-200 shadow-xl'>
         Project filters Placeholder
-      </div>
+      </div> */}
       <div
         id='projectGrid'
         className='grid max-w-7xl auto-cols-auto auto-rows-auto grid-cols-1 gap-8 px-6 py-10 md:grid-cols-2 xl:grid-cols-3'>
