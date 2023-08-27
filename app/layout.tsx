@@ -79,7 +79,10 @@ export default function RootLayout({
     <html
       lang='en'
       className={`${exodus_regular.variable} ${exodus_sharpen.variable} ${exodus_stencil.variable} ${exodus_striped.variable}`}>
-      <body className='debug-screens'>
+      <body
+        className={
+          process.env.NODE_ENV === "development" ? "debug-screens" : ""
+        }>
         <JotaiProvider>
           <GlobalStateProvider>{children}</GlobalStateProvider>
         </JotaiProvider>
