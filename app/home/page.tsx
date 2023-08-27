@@ -37,7 +37,7 @@ const Home = () => {
       />
       {/* <ContactMe /> */}
       <Footer />
-      <Test />
+      {process.env.NODE_ENV === "development" && <Test />}
     </>
   )
 }
