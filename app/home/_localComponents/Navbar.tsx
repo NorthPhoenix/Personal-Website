@@ -75,9 +75,13 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
           className
         )}>
         <nav className='flex h-20 w-full max-w-7xl flex-row items-center justify-between bg-transparent px-12 sm:px-10 md:h-24 md:px-9'>
-          <Link href={"/"} className='group h-12 object-scale-down md:h-14'>
+          <button
+            onClick={() => {
+              window.scroll({ behavior: "smooth", top: 0 })
+            }}
+            className='group h-12 object-scale-down md:h-14'>
             <Logo className='h-full w-auto fill-nier-200 transition-transform group-hover:scale-105' />
-          </Link>
+          </button>
           {/* hamburger menu on small screens */}
           <div className='relative md:hidden'>
             <button
