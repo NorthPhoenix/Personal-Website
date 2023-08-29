@@ -1,7 +1,7 @@
 "use client"
 
 import { currentProjectDisplayedCountAtom } from "lib/state"
-import { useAtom, useAtomValue } from "jotai"
+import { useAtom } from "jotai"
 import NierButton from "app/_globalComponents/NierButton"
 
 const ShowMoreButton = ({

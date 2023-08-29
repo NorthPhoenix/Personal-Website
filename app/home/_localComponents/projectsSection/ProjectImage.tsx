@@ -32,6 +32,7 @@ export const ProjectImage = async ({ s3Path }: { s3Path: string }) => {
   ) : (
     <Image
       loading='eager'
+      placeholder='blur'
       src={blankImg}
       width={512}
       height={512}
