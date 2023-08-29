@@ -1,16 +1,30 @@
 import { atom } from "jotai"
 
 // loading states
-export const homeLoadedAtom = atom(false)
-export const heroLoadedAtom = atom(false)
-export const aboutLoadedAtom = atom(false)
-export const skillsLoadedAtom = atom(false)
+export const homeLoadedAtom = atom<boolean>(false)
+export const heroLoadedAtom = atom<boolean>(false)
+export const aboutLoadedAtom = atom<boolean>(false)
+export const skillsLoadedAtom = atom<boolean>(false)
 
-// the number of projects displayed in project section on mobile screens
-export const initialProjectDisplayedCount = 4
-export const projectDisplayedCountOnMobileAtom = atom(
-  initialProjectDisplayedCount
-)
+type ScreenSizeType = "small" | "medium" | "large"
+// screen size atom
+export const screenSizeAtom = atom<ScreenSizeType>("large")
 
-// weather the screen is mobile or not
-export const isMobileAtom = atom(false)
+// the number of projects displayed in project section on small/medium/large screens
+const INITIAL_MAX_PROJECT_DISPLAYED_COUNT_ON_SMALL_SCREEN = 3
+const INITIAL_MAX_PROJECT_DISPLAYED_COUNT_ON_MEDIUM_SCREEN = 4
+const INITIAL_MAX_PROJECT_DISPLAYED_COUNT_ON_LARGE_SCREEN = 6
+export const initialProjectDisplayedCountAtom = atom<number>((get) => {
+  const screenSize = get(screenSizeAtom)
+  switch (screenSize) {
+    case "small":
+      return INITIAL_MAX_PROJECT_DISPLAYED_COUNT_ON_SMALL_SCREEN
+    case "medium":
+      return INITIAL_MAX_PROJECT_DISPLAYED_COUNT_ON_MEDIUM_SCREEN
+    case "large":
+      return INITIAL_MAX_PROJECT_DISPLAYED_COUNT_ON_LARGE_SCREEN
+    default:
+      return INITIAL_MAX_PROJECT_DISPLAYED_COUNT_ON_LARGE_SCREEN
+  }
+})
+export const currentProjectDisplayedCountAtom = atom<number | null>(null)

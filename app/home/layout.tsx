@@ -3,7 +3,7 @@
 import { Suspense, useEffect, ReactNode, useRef, useLayoutEffect } from "react"
 import { AnimatePresence } from "framer-motion"
 import { useAtom, useAtomValue, useSetAtom } from "jotai"
-import { isMobileAtom } from "lib/state"
+import { screenSizeAtom } from "lib/state"
 
 // const HomeComponent = dynamic(() => import("./_localComponents/Home"));
 import LoadingScreen from "app/_globalComponents/LoadingScreen"
@@ -33,14 +33,16 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
   }, [heroLoaded, aboutLoaded, skillsLoaded])
 
   // Set isMobile state
-  const setIsMobile = useSetAtom(isMobileAtom)
+  const setScreenSize = useSetAtom(screenSizeAtom)
   useLayoutEffect(() => {
     const handleResize = () => {
       const windowWidth = window.innerWidth
       if (windowWidth < 768) {
-        setIsMobile(true)
+        setScreenSize("small")
+      } else if (windowWidth < 1024) {
+        setScreenSize("medium")
       } else {
-        setIsMobile(false)
+        setScreenSize("large")
       }
     }
     window.addEventListener("resize", handleResize)

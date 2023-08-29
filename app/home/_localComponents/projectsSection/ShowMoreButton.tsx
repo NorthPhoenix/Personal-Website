@@ -1,10 +1,6 @@
 "use client"
 
-import {
-  projectDisplayedCountOnMobileAtom,
-  isMobileAtom,
-  initialProjectDisplayedCount,
-} from "lib/state"
+import { currentProjectDisplayedCountAtom } from "lib/state"
 import { useAtom, useAtomValue } from "jotai"
 import NierButton from "app/_globalComponents/NierButton"
 
@@ -14,19 +10,19 @@ const ShowMoreButton = ({
   projectCount: number
 }) => {
   const [currentProjectCount, setCurrentProjectCount] = useAtom(
-    projectDisplayedCountOnMobileAtom
+    currentProjectDisplayedCountAtom
   )
-  const isMobile = useAtomValue(isMobileAtom)
   return (
     <>
-      {isMobile && currentProjectCount < totalProjectCount && (
-        <NierButton
-          as='button'
-          onClick={() => setCurrentProjectCount(totalProjectCount)}
-          className='m-2'>
-          Show More
-        </NierButton>
-      )}
+      {currentProjectCount !== null &&
+        currentProjectCount < totalProjectCount && (
+          <NierButton
+            as='button'
+            onClick={() => setCurrentProjectCount(totalProjectCount)}
+            className='m-2'>
+            Show More
+          </NierButton>
+        )}
     </>
   )
 }

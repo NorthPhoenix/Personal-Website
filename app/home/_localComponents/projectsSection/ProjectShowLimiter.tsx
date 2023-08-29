@@ -1,25 +1,34 @@
 "use client"
-import { ReactNode } from "react"
-import { projectDisplayedCountOnMobileAtom, isMobileAtom } from "lib/state"
-import { useAtomValue } from "jotai"
+import { ReactNode, useLayoutEffect } from "react"
+import {
+  initialProjectDisplayedCountAtom,
+  currentProjectDisplayedCountAtom,
+} from "lib/state"
+import { useAtom, useAtomValue } from "jotai"
 
 const ProjectShowLimiter = ({
   children,
 }: {
   children: Iterable<ReactNode>
 }) => {
-  const projectDisplayedCountOnMobile = useAtomValue(
-    projectDisplayedCountOnMobileAtom
+  const initialProjectDisplayedCount = useAtomValue(
+    initialProjectDisplayedCountAtom
   )
-  const isMobile = useAtomValue(isMobileAtom)
+  const [currentProjectDisplayedCount, setCurrentProjectDisplayedCount] =
+    useAtom(currentProjectDisplayedCountAtom)
+
+  useLayoutEffect(() => {
+    if (currentProjectDisplayedCount === null) {
+      // need to set initial project count
+      setCurrentProjectDisplayedCount(initialProjectDisplayedCount)
+    }
+  }, [])
 
   return (
     <>
-      {isMobile
-        ? Array.from(children).filter(
-            (_, index) => index < projectDisplayedCountOnMobile
-          )
-        : children}
+      {Array.from(children).filter(
+        (_, index) => index < currentProjectDisplayedCount!
+      )}
     </>
   )
 }
