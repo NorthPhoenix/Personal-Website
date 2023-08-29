@@ -1,8 +1,9 @@
 "use client"
 
-import { Suspense, useEffect, ReactNode, useRef } from "react"
+import { Suspense, useEffect, ReactNode, useRef, useLayoutEffect } from "react"
 import { AnimatePresence } from "framer-motion"
-import { useAtom, useAtomValue } from "jotai"
+import { useAtom, useAtomValue, useSetAtom } from "jotai"
+import { isMobileAtom } from "lib/state"
 
 // const HomeComponent = dynamic(() => import("./_localComponents/Home"));
 import LoadingScreen from "app/_globalComponents/LoadingScreen"
@@ -30,6 +31,21 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
       }, 2)
     }
   }, [heroLoaded, aboutLoaded, skillsLoaded])
+
+  // Set isMobile state
+  const setIsMobile = useSetAtom(isMobileAtom)
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      const windowWidth = window.innerWidth
+      if (windowWidth < 768) {
+        setIsMobile(true)
+      } else {
+        setIsMobile(false)
+      }
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   return (
     <div className='overflow-hidden' ref={ref}>

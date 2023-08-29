@@ -30,7 +30,7 @@ const Skills = () => {
           <span className='h-[2px] grow bg-nier-700' />
           <span className='h-[2px] w-5 grow-0 bg-nier-700' />
         </div>
-        <h2 className='text-shadow -translate-y-[2px] px-4 text-center font-exodus-striped text-6xl uppercase tracking-[0.5rem]'>
+        <h2 className='text-shadow -translate-y-[2px] px-4 text-center font-exodus-striped text-5xl uppercase tracking-[0.5rem] sm:text-6xl'>
           Skills
         </h2>
         <div className='flex w-full max-w-7xl flex-row items-center justify-center gap-2 px-4'>
@@ -38,8 +38,8 @@ const Skills = () => {
           <span className='h-[2px] grow bg-nier-700' />
           <span className='h-[2px] w-5 grow-0 bg-nier-700' />
         </div>
-        {/* Intro paragraphs */}
       </div>
+      {/* Intro paragraphs */}
       <div className='relative mx-4 bg-nier-200 px-4 font-helvetica text-lg shadow-md'>
         <p className='mt-2 p-2 text-center'>
           <span className='inline-block'>
