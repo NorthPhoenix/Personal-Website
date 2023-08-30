@@ -36,7 +36,7 @@ const ProjectEntry = ({ project }: { project: Project }) => {
                   </span>
                 )}
               </h3>
-              <p className='line-clamp-3 text-base'>{project.description}</p>
+              <p className=' text-sm md:text-base'>{project.description}</p>
             </div>
             {(!!project.links?.sourceCode ||
               !!project.links?.deployedProject) && (

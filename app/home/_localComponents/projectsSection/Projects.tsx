@@ -5,8 +5,6 @@ import ProjectEntry from "./ProjectEntry"
 import ProjectShowLimiter from "./ProjectShowLimiter"
 import ShowMoreButton from "./ShowMoreButton"
 
-export const dynamic = "force-dynamic"
-
 const getProjects = async () => {
   const projects = await prismaClient.project.findMany({
     orderBy: { completeDate: "desc" },
