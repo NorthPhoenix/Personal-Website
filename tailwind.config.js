@@ -48,6 +48,9 @@ module.exports = {
           400: '#BAB5A1',
           700: '#454138',
         },
+        utd: {
+          100: '#e87500'
+        },
       },
       fontFamily: {
         'helvetica': ['Helvetica', 'Arial', defaultTheme.fontFamily.sans],

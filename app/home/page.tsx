@@ -9,6 +9,7 @@ import Navbar from "./_localComponents/Navbar"
 import DiamondTransition from "app/_globalComponents/design/DiamondTransition"
 import LinesThroughCircleDesign from "app/_globalComponents/design/LinesThroughCircleDesign"
 import Skills from "./_localComponents/skillsSection/Skills"
+import Education from "./_localComponents/educationSection/Education"
 const Home = () => {
   return (
     <>
@@ -27,6 +28,7 @@ const Home = () => {
         <About />
         <Skills />
         <Projects />
+        <Education />
       </div>
       <DiamondTransition
         twTransitionFill='fill-black'
