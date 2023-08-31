@@ -1,6 +1,7 @@
 import "styles/globals.css"
 import JotaiProvider from "app/_globalComponents/JotaiProvider"
 import GlobalStateProvider from "app/_globalComponents/GlobalStateProvider"
+import { twMerge } from "tailwind-merge"
 
 // import Font Awesome CSS
 import "@fortawesome/fontawesome-svg-core/styles.css"
@@ -80,9 +81,10 @@ export default function RootLayout({
       lang='en'
       className={`${exodus_regular.variable} ${exodus_sharpen.variable} ${exodus_stencil.variable} ${exodus_striped.variable}`}>
       <body
-        className={
+        className={twMerge(
+          "selection:bg-orange-700 selection:text-nier-200",
           process.env.NODE_ENV === "development" ? "debug-screens" : ""
-        }>
+        )}>
         <JotaiProvider>
           <GlobalStateProvider>{children}</GlobalStateProvider>
         </JotaiProvider>
