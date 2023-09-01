@@ -1,7 +1,7 @@
 import Image from "next/image"
 import React from "react"
-import Lerp from "app/_globalComponents/Lerp"
 import CreditsCounter from "./CreditsCounter"
+import Link from "next/link"
 
 const Education = () => {
   return (
@@ -29,7 +29,11 @@ const Education = () => {
         <div className='nier-block-left-sm md:nier-block-left relative my-0 ml-4 mr-2 px-0 py-2 sm:m-4 sm:p-2 md:p-8'>
           <article className=' flex flex-col items-stretch justify-start bg-nier-200 shadow-xl'>
             <div className='-mb-4 flex flex-row items-center justify-between'>
-              <div className='flex flex-row items-center justify-start'>
+              <Link
+                prefetch={false}
+                target='_blank'
+                href='https://www.utdallas.edu/'
+                className='group flex flex-row items-center justify-start'>
                 <Image
                   width={512}
                   height={512}
@@ -38,7 +42,7 @@ const Education = () => {
                   className='ml-4 box-content aspect-square h-24 w-auto p-2'
                 />
                 <div className='ml-2 mt-2 flex flex-col items-start justify-start gap-1 p-2'>
-                  <span className='text-shadow text-xl font-bold tracking-wide'>
+                  <span className='text-shadow text-xl font-bold tracking-wide transition-colors duration-150 group-hover:text-amber-700'>
                     The University of Texas at Dallas
                   </span>
                   <div className='flex flex-col items-start justify-start font-semibold leading-4 opacity-60'>
@@ -46,7 +50,7 @@ const Education = () => {
                     <span>GPA: 3.66</span>
                   </div>
                 </div>
-              </div>
+              </Link>
               <div className='mr-4 flex flex-col items-end justify-start gap-1 p-2'>
                 <span className=' font-semibold opacity-60'>
                   Richardson, TX, USA
