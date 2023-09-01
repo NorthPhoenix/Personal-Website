@@ -34,6 +34,7 @@
     "react-dom": "^18.2.0",
     "react-particles": "^2.10.1",
     "react-pdf": "^7.1.2",
+    "resend": "^1.0.0",
     "styled-components": "^6.0.3",
     "tailwind-merge": "^1.13.2",
     "tailwindcss-animated": "^1.0.1",

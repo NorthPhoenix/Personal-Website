@@ -4,6 +4,12 @@ import { useFormik } from "formik"
 import { useState } from "react"
 import * as Yup from "yup"
 
+export declare type ContactMeData = {
+  name: string
+  email: string
+  message: string
+}
+
 const ContactMe = () => {
   const [submitted, setSubmitted] = useState(false)
 
@@ -68,7 +74,25 @@ const Form = ({ setSubmitted }: FormProps) => {
     onSubmit: (values, { resetForm }) => {
       resetForm()
       setSubmitted(true)
-      alert(JSON.stringify(values, null, 2))
+      // Send email
+      const body: ContactMeData = {
+        name: values.name,
+        email: values.email,
+        message: values.message,
+      }
+      fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      })
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
   })
   return (
