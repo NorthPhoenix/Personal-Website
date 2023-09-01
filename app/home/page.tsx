@@ -37,7 +37,7 @@ const Home = () => {
         padding={"50px"}
         reverse
       />
-      {/* <ContactMe /> */}
+      <ContactMe />
       <Footer />
       {process.env.NODE_ENV === "development" && <Test />}
     </>
