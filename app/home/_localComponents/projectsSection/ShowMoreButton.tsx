@@ -19,7 +19,7 @@ const ShowMoreButton = ({
           <NierButton
             as='button'
             onClick={() => setCurrentProjectCount(totalProjectCount)}
-            className='m-2'>
+            className='m-2 px-6'>
             Show More
           </NierButton>
         )}
