@@ -1,6 +1,10 @@
 "use client"
 
+import ErrorPopup from "app/_globalComponents/ErrorPopup"
 import { useFormik } from "formik"
+import { AnimatePresence } from "framer-motion"
+import { useAtomValue } from "jotai"
+import { screenSizeAtom } from "lib/state"
 import { useState } from "react"
 import * as Yup from "yup"
 
@@ -12,24 +16,13 @@ export declare type ContactMeData = {
 
 const ContactMe = () => {
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(false)
 
   return (
     <section
       className='relative bg-black font-helvetica text-nier-200'
       id='contact'>
-      {!submitted ? (
-        <div className='container mx-auto px-5 py-24'>
-          <div className='mb-12 flex w-full flex-col text-center'>
-            <h1 className='mb-4 font-exodus-striped text-2xl font-medium text-nier-200 sm:text-4xl '>
-              Contact Me
-            </h1>
-            <p className='mx-auto text-base font-semibold leading-relaxed tracking-wide opacity-80 lg:w-2/3'>
-              Let's build your user's next experience together.
-            </p>
-          </div>
-          <Form setSubmitted={setSubmitted} />
-        </div>
-      ) : (
+      {submitted ? (
         <div className='container mx-auto px-5 py-24'>
           <div className='mb-12 flex w-full flex-col text-center'>
             <h1 className='mb-4 font-exodus-striped text-2xl font-medium tracking-wide text-nier-200 sm:text-4xl'>
@@ -45,16 +38,44 @@ const ContactMe = () => {
             </button>
           </div>
         </div>
+      ) : (
+        <div className='container mx-auto px-5 py-24'>
+          <div className='mb-12 flex w-full flex-col text-center'>
+            <h1 className='mb-4 font-exodus-striped text-2xl font-medium text-nier-200 sm:text-4xl '>
+              Contact Me
+            </h1>
+            <p className='mx-auto text-base font-semibold leading-relaxed tracking-wide opacity-80 lg:w-2/3'>
+              Let's build your user's next experience together.
+            </p>
+          </div>
+          <Form setSubmitted={setSubmitted} setError={setError} />
+        </div>
       )}
+      <div className='fixed bottom-0 left-0 right-0 z-50 sm:right-[unset] sm:flex sm:w-80 sm:flex-col sm:gap-2'>
+        <AnimatePresence>
+          {error && (
+            <ErrorPopup
+              header='Error sending message'
+              message='Please try again later.'
+              close={() => {
+                setError(false)
+              }}
+              closeAfter={5000}
+            />
+          )}
+        </AnimatePresence>
+      </div>
     </section>
   )
 }
 
 type FormProps = {
   setSubmitted: (submitted: boolean) => void
+  setError: (error: boolean) => void
 }
 
-const Form = ({ setSubmitted }: FormProps) => {
+const Form = ({ setSubmitted, setError }: FormProps) => {
+  const [sending, setSending] = useState(false)
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -72,8 +93,7 @@ const Form = ({ setSubmitted }: FormProps) => {
       message: Yup.string().required("Message is required"),
     }),
     onSubmit: (values, { resetForm }) => {
-      resetForm()
-      setSubmitted(true)
+      setSending(true)
       // Send email
       const body: ContactMeData = {
         name: values.name,
@@ -88,10 +108,15 @@ const Form = ({ setSubmitted }: FormProps) => {
         body: JSON.stringify(body),
       })
         .then((res) => {
-          console.log(res)
+          resetForm()
+          setSubmitted(true)
+          setSending(false)
+          // console.log(res)
         })
         .catch((err) => {
-          console.log(err)
+          setSending(false)
+          setError(true)
+          // console.log(err)
         })
     },
   })
@@ -164,7 +189,8 @@ const Form = ({ setSubmitted }: FormProps) => {
       </div>
       <div className='w-full p-2'>
         <button
-          className='mx-auto flex rounded border-0 bg-nier-700 px-8 py-2 text-lg text-nier-200 hover:bg-nier-300 hover:text-black focus:outline-none'
+          disabled={sending}
+          className='mx-auto flex rounded border-0 bg-nier-700 px-8 py-2 text-lg text-nier-200 hover:bg-nier-300 hover:text-black focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-nier-700 disabled:hover:text-nier-200'
           type='submit'>
           Send
         </button>

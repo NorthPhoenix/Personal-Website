@@ -6,7 +6,7 @@ export const heroLoadedAtom = atom<boolean>(false)
 export const aboutLoadedAtom = atom<boolean>(false)
 export const skillsLoadedAtom = atom<boolean>(false)
 
-type ScreenSizeType = "small" | "medium" | "large" | null
+type ScreenSizeType = "xm" | "sm" | "md" | "lg" | null
 // screen size atom
 export const screenSizeAtom = atom<ScreenSizeType>(null)
 
@@ -17,11 +17,12 @@ const INITIAL_MAX_PROJECT_DISPLAYED_COUNT_ON_LARGE_SCREEN = 6
 export const initialProjectDisplayedCountAtom = atom<number>((get) => {
   const screenSize = get(screenSizeAtom)
   switch (screenSize) {
-    case "small":
+    case "xm":
+    case "sm":
       return INITIAL_MAX_PROJECT_DISPLAYED_COUNT_ON_SMALL_SCREEN
-    case "medium":
+    case "md":
       return INITIAL_MAX_PROJECT_DISPLAYED_COUNT_ON_MEDIUM_SCREEN
-    case "large":
+    case "lg":
       return INITIAL_MAX_PROJECT_DISPLAYED_COUNT_ON_LARGE_SCREEN
     default:
       return 0

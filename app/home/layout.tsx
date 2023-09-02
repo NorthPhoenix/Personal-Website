@@ -49,12 +49,14 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
   useLayoutEffect(() => {
     const handleResize = () => {
       const windowWidth = window.innerWidth
-      if (windowWidth < 768) {
-        setScreenSize("small")
+      if (windowWidth < 640) {
+        setScreenSize("xm")
+      } else if (windowWidth < 768) {
+        setScreenSize("sm")
       } else if (windowWidth < 1024) {
-        setScreenSize("medium")
+        setScreenSize("md")
       } else {
-        setScreenSize("large")
+        setScreenSize("lg")
       }
     }
     handleResize()

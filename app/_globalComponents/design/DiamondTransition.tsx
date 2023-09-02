@@ -30,14 +30,14 @@ const DiamondTransition: React.FC<DiamondTransitionProps> = ({
       const { width } = container.getBoundingClientRect()
       const numberOfTransitions = Math.ceil(width / unitWidth)
       setNumberOfTransitions(numberOfTransitions)
-      console.log("Render: ", width, numberOfTransitions)
+      // console.log("Render: ", width, numberOfTransitions)
 
       // add resize listener to recalculate number of transitions
       const resizeListener = () => {
         const { width } = container.getBoundingClientRect()
         const numberOfTransitions = Math.ceil(width / unitWidth)
         setNumberOfTransitions(numberOfTransitions)
-        console.log("Resize: ", width, numberOfTransitions)
+        // console.log("Resize: ", width, numberOfTransitions)
       }
       window.addEventListener("resize", resizeListener)
 
