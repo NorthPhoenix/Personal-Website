@@ -3,8 +3,6 @@
 import ErrorPopup from "app/_globalComponents/ErrorPopup"
 import { useFormik } from "formik"
 import { AnimatePresence } from "framer-motion"
-import { useAtomValue } from "jotai"
-import { screenSizeAtom } from "lib/state"
 import { useState } from "react"
 import * as Yup from "yup"
 
