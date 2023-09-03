@@ -1,5 +1,3 @@
-"use client"
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import Logo from "app/_globalComponents/design/Logo"
