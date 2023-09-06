@@ -133,12 +133,12 @@ const Skills = () => {
         </NierButton>
       </div>
       {/* Skill description & 3D scene */}
-      <div className='flex w-full max-w-7xl flex-col items-center justify-start font-helvetica md:relative md:min-h-[800px] md:flex-row md:justify-end lg:my-16'>
-        <Skills3D className='relative aspect-square w-full md:absolute md:left-0 md:top-1/2 md:z-10 md:max-h-[120%] md:w-[75%] md:-translate-x-[30%] md:-translate-y-1/2 xl:-translate-x-[15%] ' />
+      <div className=' relative w-full max-w-7xl font-helvetica md:flex md:min-h-[800px] md:flex-row md:items-center md:justify-end lg:my-16'>
+        <Skills3D className='relative block aspect-square h-auto w-full md:absolute md:left-0 md:top-1/2 md:z-10 md:max-h-[120%] md:w-[75%] md:-translate-x-[30%] md:-translate-y-1/2 xl:-translate-x-[15%] ' />
         <AnimatePresence mode='popLayout'>
           {activeSkill === null ? (
             <motion.div
-              className='nier-block-right relative my-6 mr-5 flex flex-col items-center justify-center px-4 py-5 md:my-0 md:mr-10 md:max-w-lg md:py-10'
+              className='nier-block-right relative mx-auto my-6 mr-5 flex flex-col items-center justify-center px-4 py-5 md:mx-0 md:my-0 md:mr-10 md:max-w-lg md:py-10'
               key={0}
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
