@@ -26,6 +26,11 @@ export async function GetObject(key: string) {
   return response
 }
 
+/**
+ *
+ * @param key - The key of the s3 object ex: "photos/1.jpg"
+ * @returns Promise\<string\> - A signed url that expires in 1 hour
+ */
 export async function getObjectSignedUrl(key: string) {
   const params = {
     Bucket: bucketName,

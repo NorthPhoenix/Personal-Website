@@ -1,22 +1,29 @@
-import { getObjectSignedUrl } from "lib/s3"
-import Image from "next/image"
+"use client"
+
+import Image, { StaticImageData } from "next/image"
 import blankImg from "public/images/blank.jpg"
+import { useEffect, useState } from "react"
 
-const checkURL = async (url: string): Promise<Boolean> => {
-  const res = await fetch(url)
-  if (res.ok) {
-    // console.log("Image found", url.substring(68, 90))
-    return true
-  }
-  // console.log("Error fetching image", url.substring(68, 90))
-  return false
-}
+export const ProjectImage = ({ s3Path }: { s3Path: string }) => {
+  const [imageS3URL, setImageS3URL] = useState<string | StaticImageData>("")
 
-export const ProjectImage = async ({ s3Path }: { s3Path: string }) => {
-  const imageS3URL = await getObjectSignedUrl(s3Path)
-  const isURLValid = await checkURL(imageS3URL)
+  useEffect(() => {
+    fetch(`/api/s3Photo?key=${s3Path}`, {
+      next: { revalidate: 3600 },
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((url) => {
+        console.log(s3Path, url)
+        setImageS3URL(url)
+      })
+      .catch((err) => {
+        setImageS3URL(blankImg)
+        console.log(err)
+      })
+  }, [])
 
-  return isURLValid ? (
+  return imageS3URL ? (
     <Image
       loading='eager'
       src={imageS3URL}
@@ -26,22 +33,11 @@ export const ProjectImage = async ({ s3Path }: { s3Path: string }) => {
         width: "100%",
         height: "auto",
       }}
-      alt={imageS3URL}
+      alt={s3Path}
       className='object-cover'
     />
   ) : (
-    <Image
-      loading='eager'
-      placeholder='blur'
-      src={blankImg}
-      width={512}
-      height={512}
-      style={{
-        width: "100%",
-        height: "auto",
-      }}
-      alt=''
-      className='object-cover'
-    />
+    // loading state
+    <div className='bg-nier-100 aspect-square h-full w-auto' />
   )
 }
