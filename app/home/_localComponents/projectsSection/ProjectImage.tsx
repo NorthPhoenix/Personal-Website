@@ -14,12 +14,12 @@ export const ProjectImage = ({ s3Path }: { s3Path: string }) => {
     })
       .then((res) => res.json())
       .then((url) => {
-        console.log(s3Path, url)
+        // console.log(s3Path, url)
         setImageS3URL(url)
       })
       .catch((err) => {
         setImageS3URL(blankImg)
-        console.log(err)
+        // console.log(err)
       })
   }, [])
 
