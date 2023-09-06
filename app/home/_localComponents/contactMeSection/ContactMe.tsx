@@ -5,6 +5,7 @@ import { useFormik } from "formik"
 import { AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import * as Yup from "yup"
+import { twMerge } from "tailwind-merge"
 
 export declare type ContactMeData = {
   name: string
@@ -12,13 +13,13 @@ export declare type ContactMeData = {
   message: string
 }
 
-const ContactMe = () => {
+const ContactMe = ({ className = "" }: { className?: string }) => {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(false)
 
   return (
     <section
-      className='relative bg-black font-helvetica text-nier-200'
+      className={twMerge("relative font-helvetica text-nier-200", className)}
       id='contact'>
       {submitted ? (
         <div className='container mx-auto px-5 py-24'>

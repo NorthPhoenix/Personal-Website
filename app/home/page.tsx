@@ -37,8 +37,10 @@ const Home = () => {
         padding={"50px"}
         reverse
       />
-      <ContactMe />
-      <Footer />
+      <div className='flex min-h-screen flex-col justify-between bg-black '>
+        <ContactMe className='' />
+        <Footer />
+      </div>
       {process.env.NODE_ENV === "development" && <Test />}
     </>
   )
