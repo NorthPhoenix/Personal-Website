@@ -38,13 +38,13 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   }, [particlesLoaded, cubesLoaded])
 
   return (
-    <section id='hero' className='flex h-[100svh] flex-col'>
+    <section id='hero' className='flex h-[max(100svh,_512px)] flex-col'>
       <div
         className={twMerge(
           "mt-28 flex grow flex-col items-center overflow-hidden",
           className
         )}>
-        <section className='flex w-full grow flex-col items-center justify-center space-y-5 text-center '>
+        <div className='flex w-full grow flex-col items-center justify-center space-y-5 text-center '>
           <h1 className='relative my-4 h-full w-full grow font-exodus-striped text-[17vw] mix-blend-difference md:text-8xl lg:text-9xl xl:text-[9rem]'>
             <span className='absolute left-1/2 top-0 w-full -translate-x-1/2 select-none bg-gradient-to-t from-neutral-600 to-nier-300 bg-clip-text text-transparent md:-translate-x-[67%]'>
               DESIGN
@@ -56,7 +56,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
               DELIVER
             </span>
           </h1>
-        </section>
+        </div>
 
         <motion.a
           className='my-10 h-7 w-40 opacity-50'
