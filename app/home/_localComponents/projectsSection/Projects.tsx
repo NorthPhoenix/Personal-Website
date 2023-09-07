@@ -25,7 +25,7 @@ const Projects = async () => {
           <span className='h-[2px] grow bg-nier-700' />
           <span className='h-[2px] w-5 grow-0 bg-nier-700' />
         </div>
-        <h2 className='text-shadow -translate-y-[2px] px-4 text-center font-exodus-striped text-5xl uppercase tracking-[0.5rem] sm:text-6xl'>
+        <h2 className='text-shadow -translate-y-[2px] px-4 text-center font-exodus-striped text-5xl uppercase tracking-[0.5rem] lg:text-6xl'>
           Projects
         </h2>
         <div className='flex w-full max-w-7xl flex-row items-center justify-center gap-2 px-4'>
