@@ -193,7 +193,7 @@ const Skills = () => {
                   </p>
                   {!!activeSkill.link && (
                     <NierButton
-                      className='group z-10 flex flex-row items-center justify-start px-3 max-md:mx-auto max-md:block max-md:w-fit'
+                      className='group z-10 mx-auto px-3'
                       as='a'
                       target='_blank'
                       href={activeSkill.link}>
@@ -201,7 +201,7 @@ const Skills = () => {
                         icon={faLink}
                         className='text-nier-700 transition-all duration-200 ease-in-out group-hover:text-nier-200 group-active:text-nier-700'
                       />
-                      <span className='overflow-hidden whitespace-nowrap text-center text-nier-700 transition-all duration-200 ease-in-out group-hover:text-nier-200 group-active:text-nier-700 max-md:ml-2 md:ml-0 md:w-0 md:text-left md:group-hover:ml-4 md:group-hover:w-24'>
+                      <span className='ml-2 whitespace-nowrap text-center text-nier-700 group-hover:text-nier-200 group-active:text-nier-700'>
                         Learn More
                       </span>
                     </NierButton>
