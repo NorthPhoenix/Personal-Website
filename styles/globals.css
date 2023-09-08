@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply nier-grate bg-nier-300 text-nier-700;
+    @apply nier-grate styled-scrollbar bg-nier-300 text-nier-700;
   }
   svg {
     @apply fill-current;
@@ -21,6 +21,21 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  .styled-scrollbar::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  .styled-scrollbar::-webkit-scrollbar-track {
+    background: #d1cdb7;
+  }
+  .styled-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #454138;
+    border-radius: 2px;
+    border: 0rem solid #d1cdb7;
+  }
+  .styled-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #454138 #d1cdb7;
   }
   .nier-grate {
     background-size: 0.3rem 0.3rem;
