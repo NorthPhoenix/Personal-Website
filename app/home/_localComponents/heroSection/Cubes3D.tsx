@@ -5,6 +5,8 @@ import { OrbitControls, Preload } from "@react-three/drei"
 import { twMerge } from "tailwind-merge"
 import { Suspense } from "react"
 import { Vector3, Color } from "@react-three/fiber"
+import { useAtomValue } from "jotai"
+import { screenSizeAtom } from "lib/state"
 
 type CubeProps = {
   position?: Vector3
@@ -33,6 +35,8 @@ type WhiteCubes3DProps = {
 }
 
 const Cubes3D: React.FC<WhiteCubes3DProps> = ({ className, onLoad }) => {
+  const screenSize = useAtomValue(screenSizeAtom)
+
   return (
     <div className={twMerge("", className)}>
       <Canvas
@@ -42,7 +46,7 @@ const Cubes3D: React.FC<WhiteCubes3DProps> = ({ className, onLoad }) => {
         onCreated={onLoad}>
         <Suspense fallback={null}>
           <OrbitControls />
-          {/* <axesHelper args={[5]} /> */}
+          <axesHelper args={[5]} />
           {/* ####################### Lights ####################### */}
           {/* Key light */}
           <directionalLight position={[10, 15, 5]} intensity={0.5} />
@@ -56,15 +60,78 @@ const Cubes3D: React.FC<WhiteCubes3DProps> = ({ className, onLoad }) => {
           <pointLight position={[0, 0, 0]} intensity={0.4} />
           {/* ####################### Cubes ####################### */}
           {/* bottom left */}
-          <Cube position={[-8, -2, 1]} size={3.5} />
+          <Cube
+            position={
+              screenSize === "xs"
+                ? [-4, -2, 1]
+                : screenSize === "sm"
+                ? [-5, -2, 1]
+                : screenSize === "md"
+                ? [-6, -2, 1]
+                : screenSize === "lg"
+                ? [-7, -2, 1]
+                : [-8, -2, 1]
+            }
+            size={screenSize === "xs" || screenSize === "sm" ? 3 : 3.5}
+          />
           {/* right */}
-          <Cube position={[6, -2, 0]} />
+          <Cube
+            position={
+              screenSize === "xs"
+                ? [2.5, -2, 0]
+                : screenSize === "sm"
+                ? [3, -2, 0]
+                : screenSize === "md"
+                ? [4, -2, 0]
+                : screenSize === "lg"
+                ? [5, -2, 0]
+                : [6, -2, 0]
+            }
+            size={screenSize === "xs" || screenSize === "sm" ? 0.8 : 1}
+          />
           {/* top left */}
-          <Cube position={[-6, 6.5, -4]} size={0.5} />
+          <Cube
+            position={
+              screenSize === "xs"
+                ? [-2.5, 6.5, -4]
+                : screenSize === "sm"
+                ? [-3, 6.5, -4]
+                : screenSize === "md"
+                ? [-4, 6.2, -4]
+                : screenSize === "lg"
+                ? [-5, 6.2, -4]
+                : [-6, 6.2, -4]
+            }
+            size={0.5}
+          />
           {/* top middle */}
-          <Cube position={[5, 5, -7]} />
+          <Cube
+            position={
+              screenSize === "xs"
+                ? [1.5, 5, -7]
+                : screenSize === "sm"
+                ? [2, 5, -7]
+                : screenSize === "md"
+                ? [3, 5, -7]
+                : screenSize === "lg"
+                ? [4, 5, -7]
+                : [5, 5, -7]
+            }
+          />
           {/* top right */}
-          <Cube position={[18, 5, -10]} />
+          <Cube
+            position={
+              screenSize === "xs"
+                ? [7, 3, -10]
+                : screenSize === "sm"
+                ? [9.5, 3.5, -10]
+                : screenSize === "md"
+                ? [12, 4, -10]
+                : screenSize === "lg"
+                ? [15, 4.3, -10]
+                : [18, 5, -10]
+            }
+          />
           <Preload all />
         </Suspense>
       </Canvas>

@@ -75,7 +75,7 @@ const ErrorPopup = ({
 
   return (
     <motion.div
-      {...(screenSize !== "xm"
+      {...(screenSize !== "xs"
         ? {
             initial: { opacity: 0, x: -100 },
             animate: { opacity: 1, x: 0 },
