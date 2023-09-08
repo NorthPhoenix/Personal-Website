@@ -73,6 +73,11 @@ const Skills3D = ({ className }: { className: string }) => {
   )
 }
 
+type SkillTracking = {
+  active: Skill[]
+  inactive: Skill[]
+}
+
 const SkillsGroup = () => {
   const calculateSphereRadius = (numberOfSkills: number) => {
     return Math.sqrt(numberOfSkills) * Math.PI
@@ -81,14 +86,18 @@ const SkillsGroup = () => {
     calculateSphereRadius(skillList.length)
   )
   const selectedTags = useAtomValue(selectedTagsAtom)
-  const [skills, setSkills] = useState(skillList)
+  // const [skills, setSkills] = useState(skillList)
+  const [skills, setSkills] = useState<SkillTracking>({
+    active: [],
+    inactive: [],
+  })
 
   useEffect(() => {
     // filter skills based on selected tags
     if (selectedTags.length === 0) {
-      // no filter selected, render all skills. sphere radius is based on the number of skills total
+      // no filter selected, show all skills. sphere radius is based on the number of skills total
       setSphereRadius(calculateSphereRadius(skillList.length))
-      setSkills(skillList)
+      setSkills({ active: skillList, inactive: [] })
       return
     }
     const filteredSkills = skillList.filter((skill) => {
@@ -96,11 +105,19 @@ const SkillsGroup = () => {
         selectedTags.some((selectedTag) => Object.keys(selectedTag)[0] === tag)
       )
     })
-    setSkills(filteredSkills)
+    setSkills({
+      active: filteredSkills,
+      inactive: skillList.filter((skill) => !filteredSkills.includes(skill)),
+    })
 
     // calculate an aproximate radius for the sphere based on the number of skills to be rendered
     setSphereRadius(calculateSphereRadius(filteredSkills.length))
   }, [selectedTags])
+
+  // this variable is needed to keep linear track of skills on the sphere
+  // it allows for skill meshes to stay mounted even when they are not visible on the sphere
+  // it is ok that it's not a state because it is designed to be refreshed to 0 with every rerender
+  let sphereIndex = 0
 
   return (
     <motion.group
@@ -117,29 +134,45 @@ const SkillsGroup = () => {
         ease: "linear",
         duration: 80,
       }}>
-      {skills
-        .filter((skill) => skill.icon.svg !== undefined)
-        .map((skill, index, list) => {
-          /* https://stackoverflow.com/questions/9600801/evenly-distributing-n-points-on-a-sphere
-           * Calculate the position of each skill cube on the sphere
-           */
-          const phi = Math.acos(1 - (2 * (index + 0.5)) / list.length)
-          const theta = Math.PI * (1 + Math.sqrt(5)) * index
-          const x = Math.cos(theta) * Math.sin(phi)
-          const y = Math.sin(theta) * Math.sin(phi)
-          const z = Math.cos(phi)
-          return (
-            <SkillCube
-              animate={{
-                x: x * sphereRadius,
-                y: y * sphereRadius,
-                z: z * sphereRadius,
-              }}
-              skill={skill}
-              key={skill.uuid}
-            />
-          )
-        })}
+      <Suspense fallback={null}>
+        {skillList
+          .filter((skill) => skill.icon.svg !== undefined)
+          .map((skill) => {
+            /* https://stackoverflow.com/questions/9600801/evenly-distributing-n-points-on-a-sphere
+             * Calculate the position of each skill cube on the sphere
+             */
+            const skillIsActive = skills.active.includes(skill)
+            let phi, theta, x, y, z, scale
+            if (skillIsActive) {
+              phi = Math.acos(
+                1 - (2 * (sphereIndex + 0.5)) / skills.active.length
+              )
+              theta = Math.PI * (1 + Math.sqrt(5)) * sphereIndex
+              x = Math.cos(theta) * Math.sin(phi) * sphereRadius
+              y = Math.sin(theta) * Math.sin(phi) * sphereRadius
+              z = Math.cos(phi) * sphereRadius
+              scale = 1
+              sphereIndex++
+            } else {
+              x = 0
+              y = 0
+              z = 0
+              scale = 0
+            }
+            return (
+              <SkillCube
+                animate={{
+                  x: x,
+                  y: y,
+                  z: z,
+                  scale: scale,
+                }}
+                skill={skill}
+                key={skill.uuid}
+              />
+            )
+          })}
+      </Suspense>
     </motion.group>
   )
 }
@@ -149,6 +182,12 @@ type SkillSVGProps = MotionProps & {
 }
 const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
   const setActiveSkill = useSetAtom(activeSkillAtom)
+
+  useEffect(() => {
+    return () => {
+      console.log("Unmounting ", skill.name)
+    }
+  }, [])
 
   const SVGGeometry: THREE.BufferGeometry = useMemo(() => {
     const svg = useLoader(SVGLoader, skill.icon.svg!)
@@ -264,74 +303,72 @@ const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
   const [state, animate] = useAnimate()
 
   return (
-    <Suspense fallback={null}>
-      <motion.group
-        ref={state}
-        scale={groupScaleSpring}
-        {...motionProps}
-        onClick={(e) => {
-          setActiveSkill(skill)
-          e.stopPropagation()
-          animate([
-            [groupScaleSpring, 0.8, { duration: 0.1 }],
-            [cubeColorSpring, "#000", { duration: 0.1, at: 0 }],
-            [groupScaleSpring, 1, { duration: 0.1 }],
-            [cubeColorSpring, "#a09b85", { duration: 0.1, at: 0.1 }],
-          ])
-        }}>
-        <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[5.9, 5.9, 5.9]} />
-          <motion.meshPhongMaterial color={cubeColorSpring} />
-        </mesh>
-        <mesh
-          renderOrder={1}
-          geometry={SVGGeometry}
-          material={SVGMaterial}
-          position={[0, 0, 3]}
-          rotation={[Math.PI, 0, 0]}
-          scale={0.04}></mesh>
-        <mesh
-          renderOrder={1}
-          geometry={SVGGeometry}
-          material={SVGMaterial}
-          position={[0, 0, -3]}
-          rotation={[0, 0, Math.PI]}
-          scale={0.04}
-        />
-        <mesh
-          renderOrder={1}
-          geometry={SVGGeometry}
-          material={SVGMaterial}
-          position={[3, 0, 0]}
-          rotation={[0, -Math.PI / 2, 0]}
-          scale={0.04}
-        />
-        <mesh
-          renderOrder={1}
-          geometry={SVGGeometry}
-          material={SVGMaterial}
-          position={[-3, 0, 0]}
-          rotation={[0, Math.PI / 2, 0]}
-          scale={0.04}
-        />
-        <mesh
-          renderOrder={1}
-          geometry={SVGGeometry}
-          material={SVGMaterial}
-          position={[0, 3, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.04}
-        />
-        <mesh
-          renderOrder={1}
-          geometry={SVGGeometry}
-          material={SVGMaterial}
-          position={[0, -3, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          scale={0.04}
-        />
-      </motion.group>
-    </Suspense>
+    <motion.group
+      ref={state}
+      scale={groupScaleSpring}
+      {...motionProps}
+      onClick={(e) => {
+        setActiveSkill(skill)
+        e.stopPropagation()
+        animate([
+          [groupScaleSpring, 0.8, { duration: 0.1 }],
+          [cubeColorSpring, "#000", { duration: 0.1, at: 0 }],
+          [groupScaleSpring, 1, { duration: 0.1 }],
+          [cubeColorSpring, "#a09b85", { duration: 0.1, at: 0.1 }],
+        ])
+      }}>
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[5.9, 5.9, 5.9]} />
+        <motion.meshPhongMaterial color={cubeColorSpring} />
+      </mesh>
+      <mesh
+        renderOrder={1}
+        geometry={SVGGeometry}
+        material={SVGMaterial}
+        position={[0, 0, 3]}
+        rotation={[Math.PI, 0, 0]}
+        scale={0.04}></mesh>
+      <mesh
+        renderOrder={1}
+        geometry={SVGGeometry}
+        material={SVGMaterial}
+        position={[0, 0, -3]}
+        rotation={[0, 0, Math.PI]}
+        scale={0.04}
+      />
+      <mesh
+        renderOrder={1}
+        geometry={SVGGeometry}
+        material={SVGMaterial}
+        position={[3, 0, 0]}
+        rotation={[0, -Math.PI / 2, 0]}
+        scale={0.04}
+      />
+      <mesh
+        renderOrder={1}
+        geometry={SVGGeometry}
+        material={SVGMaterial}
+        position={[-3, 0, 0]}
+        rotation={[0, Math.PI / 2, 0]}
+        scale={0.04}
+      />
+      <mesh
+        renderOrder={1}
+        geometry={SVGGeometry}
+        material={SVGMaterial}
+        position={[0, 3, 0]}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={0.04}
+      />
+      <mesh
+        renderOrder={1}
+        geometry={SVGGeometry}
+        material={SVGMaterial}
+        position={[0, -3, 0]}
+        rotation={[-Math.PI / 2, 0, 0]}
+        scale={0.04}
+      />
+    </motion.group>
   )
 }
 
