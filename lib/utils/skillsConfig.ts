@@ -623,6 +623,24 @@ const skills: Skill[] = [
     tags: ["Frontend", "Web"],
     link: "https://jotai.org/",
   },
+  {
+    uuid: "8ca19bc9-6057-48a9-acc0-8dcc6601a98d",
+    name: "AWS",
+    icon: { svg: "/images/skills/aws.svg" },
+    description:
+      "Amazon Web Services (AWS) is a cloud platform that offers various services for storage, computing, machine learning, and more. It enables scalable and reliable cloud solutions.",
+    tags: ["Cloud", "Backend", "Web", "Database"],
+    link: "https://aws.amazon.com/",
+  },
+  {
+    uuid: "3376f2ba-7c00-4cbb-bb5c-58e7bc63b4b4",
+    name: "Prisma",
+    icon: { svg: "/images/skills/prisma.svg" },
+    description:
+      "Prisma is an ORM for TypeScript, that allows to define a database schema and models, and then generate a type-safe client that can be used to interact with a database from the backend. It provides a type-safe API for building scalable and performant applications.",
+    tags: ["Backend", "Web", "Database"],
+    link: "https://www.prisma.io/",
+  },
 ]
 
 export { skills, Tags }
