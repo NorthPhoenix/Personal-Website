@@ -69,10 +69,10 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         onLoad={onParticleLoad}
         className='absolute left-0 top-0 -z-50 h-full w-full'
       />
-      <Cubes3D
+      {/* <Cubes3D
         onLoad={onCubesLoad}
         className='absolute left-0 top-0 -z-40 h-full w-full'
-      />
+      /> */}
     </section>
   )
 }
