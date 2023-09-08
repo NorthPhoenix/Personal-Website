@@ -18,24 +18,24 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   const setHeroLoaded = useSetAtom(heroLoadedAtom)
 
   const [particlesLoaded, setParticlesLoaded] = useState(false)
-  const [cubesLoaded, setcubesLoaded] = useState(false)
+  // const [cubesLoaded, setcubesLoaded] = useState(false)
 
   const onParticleLoad = () => {
     // console.log("onParticleLoad");
     setParticlesLoaded(true)
   }
 
-  const onCubesLoad = () => {
-    // console.log("onCubesLoad");
-    setcubesLoaded(true)
-  }
+  // const onCubesLoad = () => {
+  //   // console.log("onCubesLoad");
+  //   setcubesLoaded(true)
+  // }
 
   useEffect(() => {
-    if (particlesLoaded && cubesLoaded) {
+    if (particlesLoaded) {
       console.log("Hero loaded")
       setHeroLoaded(true)
     }
-  }, [particlesLoaded, cubesLoaded])
+  }, [particlesLoaded])
 
   return (
     <section id='hero' className='flex h-[max(100svh,_512px)] flex-col'>
