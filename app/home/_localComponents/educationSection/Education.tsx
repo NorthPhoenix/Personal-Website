@@ -7,7 +7,7 @@ const Education = () => {
   return (
     <section
       id='education'
-      className='mb-16 flex w-full flex-col items-center justify-start p-2 py-12 font-helvetica md:mb-20 md:p-6'>
+      className='mb-16 flex w-full flex-col items-center justify-start p-2 py-12 pt-24 font-helvetica md:mb-20 md:p-6 md:pt-32'>
       {/* Title */}
       <div className='mb-6 flex w-full flex-col items-center justify-center gap-4'>
         <div className='flex w-full max-w-7xl flex-row items-center justify-center gap-2 px-4'>

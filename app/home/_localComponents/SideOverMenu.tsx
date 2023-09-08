@@ -9,22 +9,59 @@ type SideOverMenuProps = {
   open: boolean
   setOpen: Dispatch<SetStateAction<boolean>>
   links: { href: string; label: string; id: string }[]
+  showNav: () => void
 }
 
 const SideOverMenu: React.FC<SideOverMenuProps> = ({
   open = false,
   setOpen,
   links,
+  showNav,
 }) => {
   function closeModal() {
     setOpen(false)
+    showNav()
+  }
+
+  /**
+   * Native scroll to element with callback
+   * @param anchor - HTMLElement to scroll to
+   * @param callback - callback function to call after scrolling is done
+   */
+  function scrollToAnchor(anchor: HTMLElement, callback: () => void) {
+    const fixedOffset = (
+      anchor.getBoundingClientRect().top + window.scrollY
+    ).toFixed()
+    const onScroll = function () {
+      // console.log("Goal: ", fixedOffset, "Current: ", window.scrollY.toFixed())
+      if (window.scrollY.toFixed() === fixedOffset) {
+        window.removeEventListener("scroll", onScroll)
+        // Set a small timeout to allow the scroll to finish completely
+        setTimeout(() => {
+          callback()
+        }, 100)
+      }
+    }
+    window.addEventListener("scroll", onScroll)
+    onScroll()
+    anchor.scrollIntoView({
+      behavior: "smooth",
+    })
+  }
+
+  function handleLinkClick(targetID: string) {
+    setOpen(false)
+    const target = document.getElementById(targetID)
+    if (target) {
+      scrollToAnchor(target, showNav)
+    }
   }
 
   const menuContainerVariants = {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
         delayChildren: 0.3,
       },
     },
@@ -37,7 +74,7 @@ const SideOverMenu: React.FC<SideOverMenuProps> = ({
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as='div' className='relative z-10' onClose={closeModal}>
+      <Dialog as='div' className='relative z-50' onClose={closeModal}>
         {/* Backdrop */}
         <Transition.Child
           as={Fragment}
@@ -84,7 +121,7 @@ const SideOverMenu: React.FC<SideOverMenuProps> = ({
                   </Transition.Child>
                   {/* Content */}
                   <motion.ul
-                    className='h-full w-full flex-col items-center justify-start overflow-y-scroll bg-nier-700 py-14 shadow-xl'
+                    className='h-full w-full flex-col items-center justify-start bg-nier-700 py-14 shadow-xl'
                     variants={menuContainerVariants}
                     initial='hidden'
                     animate='show'>
@@ -94,9 +131,12 @@ const SideOverMenu: React.FC<SideOverMenuProps> = ({
                           key={id}
                           className='my-10 text-center font-exodus-regular text-xl text-nier-200 '
                           variants={menuItemVariants}>
-                          <a href={href} onClick={closeModal}>
+                          <button
+                            onClick={() => {
+                              handleLinkClick(href.slice(1))
+                            }}>
                             {label}
-                          </a>
+                          </button>
                         </motion.li>
                       )
                     })}

@@ -17,7 +17,7 @@ const Projects = async () => {
   return (
     <section
       id='projects'
-      className='flex w-full flex-col items-center justify-center py-4 text-xl'>
+      className='flex w-full flex-col items-center justify-center py-4 pt-24 text-xl md:pt-32'>
       {/* Title */}
       <div className='my-4 flex w-full flex-col items-center justify-center gap-4'>
         <div className='flex w-full max-w-7xl flex-row items-center justify-center gap-2 px-4'>

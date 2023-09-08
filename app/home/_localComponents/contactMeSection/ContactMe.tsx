@@ -22,7 +22,7 @@ const ContactMe = ({ className = "" }: { className?: string }) => {
       className={twMerge("relative font-helvetica text-nier-200", className)}
       id='contact'>
       {submitted ? (
-        <div className='container mx-auto px-5 py-24'>
+        <div className='container mx-auto px-5 py-24 pt-36 md:pt-44'>
           <div className='mb-12 flex w-full flex-col text-center'>
             <h1 className='mb-4 font-exodus-striped text-2xl font-medium tracking-wide text-nier-200 sm:text-4xl'>
               Thank you for contacting me!
@@ -38,7 +38,7 @@ const ContactMe = ({ className = "" }: { className?: string }) => {
           </div>
         </div>
       ) : (
-        <div className='container mx-auto px-5 py-24'>
+        <div className='container mx-auto px-5 py-24 pt-28 md:pt-36'>
           <div className='mb-12 flex w-full flex-col text-center'>
             <h1 className='mb-4 font-exodus-striped text-2xl font-medium text-nier-200 sm:text-4xl '>
               Contact Me

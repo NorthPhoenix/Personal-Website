@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section
       id='about'
-      className='relative mb-16 flex w-full items-center justify-center overflow-y-visible p-2 py-12 font-helvetica md:mb-20 md:p-6'>
+      className='relative mb-16 flex w-full items-center justify-center overflow-y-visible p-2 py-12 pt-20 font-helvetica md:mb-20 md:p-6 md:pt-28'>
       <div className='relative w-full max-w-7xl shrink 2xl:max-w-[80%]'>
         <article className='nier-block-left-sm md:nier-block-left relative m-0 ml-4 mr-2 flex min-h-[40vmin] w-auto flex-col items-start justify-center p-0 py-5 sm:m-4 sm:p-2 md:p-8 lg:w-3/5'>
           <div className='mb-8 bg-nier-200 bg-opacity-80 p-4 shadow-md md:bg-opacity-100 '>

@@ -39,12 +39,9 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
   }
 
   useEffect(() => {
-    // On resize, check if the screen is tailwind's md breakpoint or larger
-    // If so, close the side menu
+    // Close the side menu on resize
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setSideMenuOpen(false)
-      }
+      setSideMenuOpen(false)
     }
     window.addEventListener("resize", handleResize)
 
@@ -72,22 +69,29 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
       <header
         ref={navRef}
         className={twMerge(
-          "fixed left-0 right-0 top-0 z-50 flex flex-col items-center mix-blend-difference transition-transform duration-500",
+          "fixed left-0 right-0 top-0 z-40 flex flex-col items-center mix-blend-difference transition-transform duration-500",
           className
         )}>
-        <nav className='flex h-20 w-full max-w-7xl flex-row items-center justify-between bg-transparent px-12 sm:px-10 md:h-24 md:px-9'>
+        <nav className='flex h-20 w-[90%] max-w-7xl flex-row items-center justify-between bg-transparent p-6 md:h-24'>
           <button
             onClick={() => {
               window.scroll({ behavior: "smooth", top: 0 })
             }}
-            className='group h-12 object-scale-down md:h-14'>
+            className='group flex h-12 flex-row items-center gap-4 object-scale-down md:h-14'>
             <Logo className='h-full w-auto fill-nier-200 transition-transform group-hover:scale-105' />
+            <div className='flex flex-col items-start'>
+              <span className='font-exodus-striped text-xl leading-6 text-nier-300'>
+                Nikita Istomin
+              </span>
+              <span className='font-helvetica text-sm leading-3 text-nier-400'>
+                Frontend Developer
+              </span>
+            </div>
           </button>
-          {/* hamburger menu on small screens */}
-          <div className='relative md:hidden'>
+          <div className='relative'>
             <button
               type='button'
-              className='p-1 text-nier-400'
+              className='p-1 text-nier-400 md:p-2'
               onClick={() => {
                 hideNav()
                 setSideMenuOpen((state: Boolean) => {
@@ -101,31 +105,18 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
               />
             </button>
           </div>
-          {/* flexbox menu on large screens */}
-          <ul className='hidden w-auto flex-row items-center gap-x-5 font-exodus-regular md:flex'>
-            {navigationLinks.map(({ href, label, id }) => {
-              return (
-                <li key={id} className='p-3 transition hover:scale-105'>
-                  <a
-                    href={href}
-                    className={`text-nier-200  ${
-                      id === "contact"
-                        ? "underline decoration-nier-200 decoration-solid decoration-1 underline-offset-4"
-                        : ""
-                    }`}>
-                    {label}
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
         </nav>
-        <div className='relative h-[2px] w-3/4 bg-nier-400 before:absolute before:-left-[25px] before:top-px before:h-[3px] before:w-[15px] before:-translate-y-1/2 before:bg-nier-400 after:absolute after:-right-[25px] after:top-px after:h-[3px] after:w-[15px] after:-translate-y-1/2 after:bg-nier-400' />
+        <div className='flex w-[90%] flex-row items-center justify-center gap-2'>
+          <span className='h-[2px] w-[15px] grow-0 bg-nier-400' />
+          <span className='h-[2px] grow bg-nier-400' />
+          <span className='h-[2px] w-[15px] grow-0 bg-nier-400' />
+        </div>
       </header>
       <SideOverMenu
         open={sideMenuOpen}
         setOpen={setSideMenuOpen}
         links={navigationLinks}
+        showNav={showNav}
       />
     </>
   )

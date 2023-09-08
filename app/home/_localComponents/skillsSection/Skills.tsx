@@ -22,7 +22,7 @@ const Skills = () => {
   return (
     <section
       id='skills'
-      className='flex w-full flex-col items-center justify-start py-6'>
+      className='flex w-full flex-col items-center justify-start py-6 pt-24 md:pt-32'>
       {/* Title */}
       <div className='mb-6 flex w-full flex-col items-center justify-center gap-4'>
         <div className='flex w-full max-w-7xl flex-row items-center justify-center gap-2 px-4'>
@@ -54,9 +54,8 @@ const Skills = () => {
         <p className='my-2 p-2 text-center'>
           I specialize in{" "}
           <span className='font-semibold underline'>React.js</span>,{" "}
-          <span className='font-semibold underline'>Next.js</span>,{" "}
-          <span className='font-semibold underline'>TypeScript</span>, and{" "}
-          <span className='font-semibold underline'>Unity</span>.
+          <span className='font-semibold underline'>Next.js</span>, and{" "}
+          <span className='font-semibold underline'>TypeScript</span>.
         </p>
       </div>
       {/* Filters */}
