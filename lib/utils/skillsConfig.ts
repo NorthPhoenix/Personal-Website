@@ -615,9 +615,9 @@ const skills: Skill[] = [
     link: "https://scikit-learn.org/stable/index.html",
   },
   {
-    uuid: "6b85479c-2394-42f3-8b0b-33077ef27942",
+    uuid: "9932ece3-e0f6-4657-917b-6b71fd6aa372",
     name: "Jotai",
-    icon: {},
+    icon: { svg: "/images/skills/jotai.svg" },
     description:
       "Jotai is a state management library for React. It provides a simple and flexible API for managing application state.",
     tags: ["Frontend", "Web"],
