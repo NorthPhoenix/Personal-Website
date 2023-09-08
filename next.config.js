@@ -12,7 +12,7 @@ module.exports = {
       },
     ],
   },
-  experimental: {
-    swcPlugins: [['@swc-jotai/react-refresh', {}]],
-  },
+  // experimental: {
+  //   swcPlugins: [['@swc-jotai/react-refresh', {}]],
+  // },
 }
