@@ -21,7 +21,7 @@ export const dynamic = "force-dynamic"
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   const ref = useRef<HTMLDivElement>(null)
-  const [homeLoaded, setPageLoaded] = useAtom(homeLoadedAtom)
+  const [homeLoaded, setHomeLoaded] = useAtom(homeLoadedAtom)
   const heroLoaded = useAtomValue(heroLoadedAtom)
   const aboutLoaded = useAtomValue(aboutLoadedAtom)
   const skillsLoaded = useAtomValue(skillsLoadedAtom)
@@ -38,10 +38,10 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
     if (heroLoaded && aboutLoaded && skillsLoaded) {
       setTimeout(() => {
         // console.log("Page loaded");
-        setPageLoaded(true)
+        setHomeLoaded(true)
         // Allow scrolling after loading
         ref.current!.style.overflow = "auto"
-      }, 2)
+      }, 1000)
     }
   }, [heroLoaded, aboutLoaded, skillsLoaded])
 

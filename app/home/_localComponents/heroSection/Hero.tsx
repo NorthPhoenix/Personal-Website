@@ -21,7 +21,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   // const [cubesLoaded, setcubesLoaded] = useState(false)
 
   const onParticleLoad = () => {
-    // console.log("onParticleLoad");
+    console.log("onParticleLoad")
     setParticlesLoaded(true)
   }
 

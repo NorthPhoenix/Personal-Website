@@ -1,9 +1,9 @@
 "use client"
 
 import { Canvas, useLoader, useFrame } from "@react-three/fiber"
-import { OrbitControls, Preload } from "@react-three/drei"
-import { Suspense, useEffect, useRef } from "react"
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
+import { OrbitControls, Preload, useGLTF } from "@react-three/drei"
+import { Suspense, useEffect, useRef, useState } from "react"
+import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import { useSetAtom } from "jotai"
 import { aboutLoadedAtom } from "lib/state"
 
@@ -12,31 +12,43 @@ type About3DProps = {
 }
 
 const Model: React.FC = () => {
-  const model = useLoader(GLTFLoader, "/models/Laiky.glb")
+  const setAboutLoaded = useSetAtom(aboutLoadedAtom)
+  const [model, setModel] = useState<GLTF>(null!)
+  useEffect(() => {
+    const loader = new GLTFLoader()
+    loader.loadAsync("/models/Laiky.glb").then((gltf) => {
+      setModel(gltf)
+      setAboutLoaded(true)
+      console.log("About loaded")
+    })
+  }, [])
   const meshRef = useRef<THREE.Mesh>(null!)
   useFrame(({ clock }) => {
-    meshRef.current.rotation.y = clock.getElapsedTime() * 0.1
+    if (meshRef.current) {
+      meshRef.current.rotation.y = clock.getElapsedTime() * 0.1
+    }
   })
   return (
-    <primitive
-      ref={meshRef}
-      object={model.scene}
-      scale={5}
-      position={[0, 0, 0]}
-    />
+    <Suspense fallback={null}>
+      {model !== null && (
+        <primitive
+          ref={meshRef}
+          object={model.scene}
+          scale={5}
+          position={[0, 0, 0]}
+        />
+      )}
+    </Suspense>
   )
 }
 
 const About3D: React.FC<About3DProps> = ({ className }) => {
-  const setAboutLoaded = useSetAtom(aboutLoadedAtom)
-
   return (
     <Canvas
       className={className}
       shadows
       frameloop='always'
-      camera={{ position: [0, 2, 8] }}
-      onCreated={() => setAboutLoaded(true)}>
+      camera={{ position: [0, 2, 8] }}>
       <Suspense fallback={null}>
         <axesHelper args={[5]} />
         <Model />

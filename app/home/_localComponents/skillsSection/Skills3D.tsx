@@ -37,7 +37,10 @@ const Skills3D = ({ className }: { className: string }) => {
         className='absolute bottom-[10%] left-[10%] h-6 w-6 animate-wiggle opacity-75 animate-infinite sm:h-7 sm:w-7 md:left-[unset] md:right-[15%] md:h-8 md:w-8 lg:right-[15%] lg:h-10 lg:w-10 xl:left-[17%]'
       />
       <Canvas
-        onCreated={() => setSkillsLoaded(true)}
+        onCreated={() => {
+          console.log("Canvas OnCreated")
+          setSkillsLoaded(true)
+        }}
         shadows={false}
         frameloop='always'
         gl={{ precision: "lowp", powerPreference: "high-performance" }}>
