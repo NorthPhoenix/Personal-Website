@@ -183,12 +183,6 @@ type SkillSVGProps = MotionProps & {
 const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
   const setActiveSkill = useSetAtom(activeSkillAtom)
 
-  useEffect(() => {
-    return () => {
-      console.log("Unmounting ", skill.name)
-    }
-  }, [])
-
   const SVGGeometry: THREE.BufferGeometry = useMemo(() => {
     const svg = useLoader(SVGLoader, skill.icon.svg!)
     let geometriesToMerge = svg.paths
@@ -231,7 +225,8 @@ const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
                     "color",
                     new THREE.BufferAttribute(aColor, 3)
                   )
-                  return geom.toNonIndexed() // Get rid of potential index attribute to not interfere with mergeGeometries
+                  // Get rid of index attribute to not interfere with mergeGeometries()
+                  return geom.getIndex() !== null ? geom.toNonIndexed() : geom
                 })
               )
             : null
@@ -274,7 +269,8 @@ const SkillCube = ({ skill, ...motionProps }: SkillSVGProps) => {
                       "color",
                       new THREE.BufferAttribute(aColor, 3)
                     )
-                    return geom.toNonIndexed() // Get rid of potential index attribute to not interfere with mergeGeometries
+                    // Get rid of index attribute to not interfere with mergeGeometries()
+                    return geom.getIndex() !== null ? geom.toNonIndexed() : geom
                   })
                   .filter((geometry) => geometry !== null)
               )
