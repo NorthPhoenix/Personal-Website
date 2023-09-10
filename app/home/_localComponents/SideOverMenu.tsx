@@ -4,6 +4,7 @@ import { Dispatch, Fragment, SetStateAction, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import { XMarkIcon } from "@heroicons/react/24/outline"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 type SideOverMenuProps = {
   open: boolean
@@ -49,7 +50,7 @@ const SideOverMenu: React.FC<SideOverMenuProps> = ({
     })
   }
 
-  function handleLinkClick(targetID: string) {
+  function handleAnchorClick(targetID: string) {
     setOpen(false)
     const target = document.getElementById(targetID)
     if (target) {
@@ -131,12 +132,18 @@ const SideOverMenu: React.FC<SideOverMenuProps> = ({
                           key={id}
                           className='my-10 text-center font-exodus-regular text-xl text-nier-200 '
                           variants={menuItemVariants}>
-                          <button
-                            onClick={() => {
-                              handleLinkClick(href.slice(1))
-                            }}>
-                            {label}
-                          </button>
+                          {id === "resume" ? (
+                            <Link href={href} prefetch={false}>
+                              {label}
+                            </Link>
+                          ) : (
+                            <button
+                              onClick={() => {
+                                handleAnchorClick(href.slice(1))
+                              }}>
+                              {label}
+                            </button>
+                          )}
                         </motion.li>
                       )
                     })}

@@ -14,6 +14,7 @@ const navigationLinks = [
   { href: "#projects", label: "Projects", id: "projects" },
   { href: "#education", label: "Education", id: "education" },
   { href: "#contact", label: "Get in touch", id: "contact" },
+  { href: "/resume", label: "Resume", id: "resume"}
 ]
 
 type NavbarProps = {
