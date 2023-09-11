@@ -1,12 +1,19 @@
 "use client"
 
-import Link from "next/link"
 import Logo from "app/_globalComponents/design/Logo"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { twMerge } from "tailwind-merge"
 import { useState, useEffect, useRef } from "react"
 import SideOverMenu from "./SideOverMenu"
+import { useAtomValue } from "jotai"
+import { homeLoadedAtom } from "lib/state"
+import {
+  motion,
+  useMotionValue,
+  AnimationSequence,
+  useAnimate,
+} from "framer-motion"
 
 const navigationLinks = [
   { href: "#about", label: "About Me", id: "about" },
@@ -14,7 +21,7 @@ const navigationLinks = [
   { href: "#projects", label: "Projects", id: "projects" },
   { href: "#education", label: "Education", id: "education" },
   { href: "#contact", label: "Get in touch", id: "contact" },
-  { href: "/resume", label: "Resume", id: "resume"}
+  { href: "/resume", label: "Resume", id: "resume" },
 ]
 
 type NavbarProps = {
@@ -24,6 +31,7 @@ type NavbarProps = {
 const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
   const [sideMenuOpen, setSideMenuOpen] = useState(false)
   const navRef = useRef<HTMLElement>(null)
+  const homeLoaded = useAtomValue(homeLoadedAtom)
 
   const hideNav = () => {
     const navbar = navRef.current
@@ -65,6 +73,34 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
     }
   }, [])
 
+  const [animationScope, animate] = useAnimate()
+  const lineWidth = useMotionValue("0%")
+  const opacity = useMotionValue(0)
+  const animationSequence: AnimationSequence = [
+    [
+      lineWidth,
+      "90%",
+      {
+        duration: 1.3,
+        ease: "easeInOut",
+      },
+    ],
+    [
+      opacity,
+      1,
+      {
+        duration: 0.5,
+        ease: "easeInOut",
+        at: 1.3,
+      },
+    ],
+  ]
+  useEffect(() => {
+    if (homeLoaded) {
+      animate(animationSequence, { delay: 0.5 })
+    }
+  }, [homeLoaded])
+
   return (
     <>
       <header
@@ -73,44 +109,50 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
           "fixed left-0 right-0 top-0 z-40 flex flex-col items-center mix-blend-difference transition-transform duration-500",
           className
         )}>
-        <nav className='flex h-20 w-[90%] max-w-7xl flex-row items-center justify-between bg-transparent p-6 md:h-24'>
-          <button
-            onClick={() => {
-              window.scroll({ behavior: "smooth", top: 0 })
-            }}
-            className='group flex h-12 flex-row items-center gap-4 object-scale-down md:h-14'>
-            <Logo className='h-full w-auto fill-nier-200 transition-transform group-hover:scale-105' />
-            <div className='flex flex-col items-start'>
-              <span className='font-exodus-striped text-xl leading-6 text-nier-300'>
-                Nikita Istomin
-              </span>
-              <span className='font-helvetica text-sm leading-3 text-nier-400'>
-                Frontend Developer
-              </span>
-            </div>
-          </button>
-          <div className='relative'>
+        <div ref={animationScope} className='contents w-full'>
+          <motion.nav
+            className='flex h-20 w-[90%] max-w-7xl flex-row items-center justify-between bg-transparent p-6 md:h-24'
+            style={{ opacity }}>
             <button
-              type='button'
-              className='p-1 text-nier-400 md:p-2'
               onClick={() => {
-                hideNav()
-                setSideMenuOpen((state: Boolean) => {
-                  return !state
-                })
-              }}>
-              <FontAwesomeIcon
-                icon={faBars}
-                size='2xl'
-                style={{ color: "inherit" }}
-              />
+                window.scroll({ behavior: "smooth", top: 0 })
+              }}
+              className='group flex h-12 flex-row items-center gap-4 object-scale-down md:h-14'>
+              <Logo className='h-full w-auto fill-nier-200 transition-transform group-hover:scale-105' />
+              <div className='flex flex-col items-start'>
+                <span className='font-exodus-striped text-xl leading-6 text-nier-300'>
+                  Nikita Istomin
+                </span>
+                <span className='font-helvetica text-sm leading-3 text-nier-400'>
+                  Frontend Developer
+                </span>
+              </div>
             </button>
-          </div>
-        </nav>
-        <div className='flex w-[90%] flex-row items-center justify-center gap-2'>
-          <span className='h-[2px] w-[15px] grow-0 bg-nier-400' />
-          <span className='h-[2px] grow bg-nier-400' />
-          <span className='h-[2px] w-[15px] grow-0 bg-nier-400' />
+            <div className='relative'>
+              <button
+                type='button'
+                className='p-1 text-nier-400 md:p-2'
+                onClick={() => {
+                  hideNav()
+                  setSideMenuOpen((state: Boolean) => {
+                    return !state
+                  })
+                }}>
+                <FontAwesomeIcon
+                  icon={faBars}
+                  size='2xl'
+                  style={{ color: "inherit" }}
+                />
+              </button>
+            </div>
+          </motion.nav>
+          <motion.div
+            className='flex flex-row items-center justify-center gap-2 overflow-hidden'
+            style={{ width: lineWidth }}>
+            <span className='h-[2px] w-[15px] grow-0 bg-nier-400' />
+            <span className='h-[2px] grow bg-nier-400' />
+            <span className='h-[2px] w-[15px] grow-0 bg-nier-400' />
+          </motion.div>
         </div>
       </header>
       <SideOverMenu
