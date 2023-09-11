@@ -1,14 +1,54 @@
+"use client"
+
 import React from "react"
 import About3D from "./About3D"
+import { Variant, VariantLabels, Variants, motion } from "framer-motion"
 
 const About = () => {
+  const articleVariants: Variants = {
+    hidden: {
+      scaleY: 0,
+      y: "-50%",
+    },
+    visible: {
+      scaleY: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeIn",
+        staggerChildren: 0.2,
+        when: "beforeChildren",
+      },
+    },
+  }
+  const blockVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      x: -50,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  }
   return (
     <section
       id='about'
       className='relative mb-16 flex w-full items-center justify-center overflow-y-visible p-2 py-12 pt-20 font-helvetica md:mb-20 md:p-6 md:pt-28'>
       <div className='relative w-full max-w-7xl shrink 2xl:max-w-[80%]'>
-        <article className='nier-block-left-sm md:nier-block-left relative m-0 ml-4 mr-2 flex min-h-[40vmin] w-auto flex-col items-start justify-center p-0 py-5 sm:m-4 sm:p-2 md:p-8 lg:w-3/5'>
-          <div className='mb-8 bg-nier-200 bg-opacity-80 p-4 shadow-md md:bg-opacity-100 '>
+        <motion.article
+          initial='hidden'
+          whileInView='visible'
+          variants={articleVariants}
+          viewport={{ once: true }}
+          className='nier-block-left-sm md:nier-block-left relative m-0 ml-4 mr-2 flex min-h-[40vmin] w-auto flex-col items-start justify-center p-0 py-5 sm:m-4 sm:p-2 md:p-8 lg:w-3/5'>
+          <motion.div
+            variants={blockVariants}
+            className='mb-8 bg-nier-200 bg-opacity-80 p-4 shadow-md md:bg-opacity-100 '>
             <header className='mb-4 w-full border-b border-nier-700 pb-4'>
               <h2 className='text-shadow mb-3 text-3xl font-normal uppercase tracking-[0.5rem] md:whitespace-nowrap md:text-4xl'>
                 Nikita Istomin
@@ -26,9 +66,11 @@ const About = () => {
               recent computer science grad from the University of Texas at
               Dallas, and I'm exited to start my career in the industry.
             </p>
-          </div>
+          </motion.div>
           <div className='grid shrink grid-cols-1 grid-rows-1 gap-6 sm:grid-cols-2 sm:grid-rows-2'>
-            <div className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100 '>
+            <motion.div
+              variants={blockVariants}
+              className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100 '>
               <h4 className='text-shadow mt-2 text-lg font-semibold uppercase tracking-widest md:text-xl'>
                 Motivated
               </h4>
@@ -39,8 +81,10 @@ const About = () => {
                 inquisitive nature to stay at the cutting edge of this
                 ever-evolving field.
               </p>
-            </div>
-            <div className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100'>
+            </motion.div>
+            <motion.div
+              variants={blockVariants}
+              className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100'>
               <h4 className='text-shadow mt-2 text-lg font-semibold uppercase tracking-widest md:text-xl'>
                 Effective
               </h4>
@@ -50,8 +94,10 @@ const About = () => {
                 efficient solutions. Embracing cutting-edge technologies and an
                 agile mindset, I thrive on solving complex challenges.
               </p>
-            </div>
-            <div className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100'>
+            </motion.div>
+            <motion.div
+              variants={blockVariants}
+              className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100'>
               <h4 className='text-shadow mt-2 text-lg font-semibold uppercase tracking-widest md:text-xl'>
                 Consistent
               </h4>
@@ -62,8 +108,10 @@ const About = () => {
                 standards and delivering consistent and lasting value to clients
                 and end-users.
               </p>
-            </div>
-            <div className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100'>
+            </motion.div>
+            <motion.div
+              variants={blockVariants}
+              className='flex flex-col items-center justify-start gap-2 bg-nier-200 bg-opacity-80 p-2 text-center shadow-md md:bg-opacity-100'>
               <h4 className='text-shadow mt-2 text-lg font-semibold uppercase tracking-widest md:text-xl'>
                 Collaborative
               </h4>
@@ -74,9 +122,9 @@ const About = () => {
                 creating an atmosphere where everyone can shine and succeed
                 together.
               </p>
-            </div>
+            </motion.div>
           </div>
-        </article>
+        </motion.article>
       </div>
       <div className='absolute left-0 right-0 top-1/2 -z-10 h-0 '>
         <About3D className='!absolute left-0 right-0 !h-[1000px] -translate-y-1/2 !overflow-visible md:left-[unset] md:!w-[800px]' />
