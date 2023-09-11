@@ -19,28 +19,114 @@ const Skills = () => {
   const [activeSkill, setActiveSkill] = useAtom(activeSkillAtom)
   const [selectedTags, setSelectedTags] = useAtom(selectedTagsAtom)
 
+  const topTitleLineVariants = {
+    hidden: {
+      scaleX: 0,
+      x: "-50%",
+    },
+    visible: {
+      x: 0,
+      scaleX: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeIn",
+      },
+    },
+  }
+  const bottomTitleLineVariants = {
+    hidden: {
+      scaleX: 0,
+      x: "50%",
+    },
+    visible: {
+      x: 0,
+      scaleX: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeIn",
+      },
+    },
+  }
+  const titleVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeIn",
+      },
+    },
+  }
+  const blockVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+    },
+    visible: (i: number) => {
+      const delay = i * 0.2
+      return {
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 1,
+          ease: "easeInOut",
+          delay,
+        },
+      }
+    },
+  }
+  const contentVariants = {
+    hidden: {
+      opacity: 0,
+      y: 100,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.5,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+  }
+
   return (
-    <section
+    <motion.section
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, margin: "-40%" }}
       id='skills'
       className='flex w-full flex-col items-center justify-start py-6 pt-24 md:pt-32'>
       {/* Title */}
       <div className='mb-6 flex w-full flex-col items-center justify-center gap-4'>
-        <div className='flex w-full max-w-7xl flex-row items-center justify-center gap-2 px-4'>
+        <motion.div
+          variants={topTitleLineVariants}
+          className='flex w-full max-w-7xl flex-row items-center justify-center gap-2 px-4'>
           <span className='h-[2px] w-5 grow-0 bg-nier-700' />
           <span className='h-[2px] grow bg-nier-700' />
           <span className='h-[2px] w-5 grow-0 bg-nier-700' />
-        </div>
-        <h2 className='text-shadow -translate-y-[2px] px-4 text-center font-exodus-striped text-5xl uppercase tracking-[0.5rem] lg:text-6xl'>
+        </motion.div>
+        <motion.h2
+          variants={titleVariants}
+          className='text-shadow -translate-y-[2px] px-4 text-center font-exodus-striped text-5xl uppercase tracking-[0.5rem] lg:text-6xl'>
           Skills
-        </h2>
-        <div className='flex w-full max-w-7xl flex-row items-center justify-center gap-2 px-4'>
+        </motion.h2>
+        <motion.div
+          variants={bottomTitleLineVariants}
+          className='flex w-full max-w-7xl flex-row items-center justify-center gap-2 px-4'>
           <span className='h-[2px] w-5 grow-0 bg-nier-700' />
           <span className='h-[2px] grow bg-nier-700' />
           <span className='h-[2px] w-5 grow-0 bg-nier-700' />
-        </div>
+        </motion.div>
       </div>
       {/* Intro paragraphs */}
-      <div className='relative mx-4 bg-nier-200 px-4 font-helvetica text-lg shadow-md'>
+      <motion.div
+        variants={blockVariants}
+        custom={0}
+        className='relative mx-4 bg-nier-200 px-4 font-helvetica text-lg shadow-md'>
         <p className='mt-2 p-2 text-center'>
           <span className='inline-block'>
             I've had experience with many different technologies over the years
@@ -57,9 +143,12 @@ const Skills = () => {
           <span className='font-semibold underline'>Next.js</span>, and{" "}
           <span className='font-semibold underline'>TypeScript</span>.
         </p>
-      </div>
+      </motion.div>
       {/* Filters */}
-      <div className='z-20 mt-6 flex max-w-full flex-row items-center justify-center gap-2 px-4'>
+      <motion.div
+        variants={blockVariants}
+        custom={1}
+        className='z-20 mt-6 flex max-w-full flex-row items-center justify-center gap-2 px-4'>
         <Listbox
           value={selectedTags}
           onChange={setSelectedTags}
@@ -130,9 +219,11 @@ const Skills = () => {
           }}>
           Clear
         </NierButton>
-      </div>
+      </motion.div>
       {/* Skill description & 3D scene */}
-      <div className=' relative w-full max-w-7xl font-helvetica md:flex md:min-h-[800px] md:flex-row md:items-center md:justify-end lg:my-16'>
+      <motion.div
+        variants={contentVariants}
+        className=' relative w-full max-w-7xl font-helvetica md:flex md:min-h-[800px] md:flex-row md:items-center md:justify-end lg:my-16'>
         <Skills3D className='relative block aspect-square h-auto w-full md:absolute md:left-0 md:top-1/2 md:z-10 md:max-h-[120%] md:w-[75%] md:-translate-x-[30%] md:-translate-y-1/2 xl:-translate-x-[15%] ' />
         <AnimatePresence mode='popLayout'>
           {activeSkill === null ? (
@@ -210,8 +301,8 @@ const Skills = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   )
 }
 

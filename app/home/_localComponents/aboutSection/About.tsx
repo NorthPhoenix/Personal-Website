@@ -53,7 +53,7 @@ const About = () => {
     <motion.section
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-40%" }}
       id='about'
       className='relative mb-16 flex w-full items-center justify-center overflow-y-visible p-2 py-12 pt-20 font-helvetica md:mb-20 md:p-6 md:pt-28'>
       <div className='relative w-full max-w-7xl shrink 2xl:max-w-[80%]'>
