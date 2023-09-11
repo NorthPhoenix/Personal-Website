@@ -35,16 +35,30 @@ const About = () => {
       },
     },
   }
+  const modelVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      x: 50,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 2,
+        ease: "easeInOut",
+      },
+    },
+  }
   return (
-    <section
+    <motion.section
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true }}
       id='about'
       className='relative mb-16 flex w-full items-center justify-center overflow-y-visible p-2 py-12 pt-20 font-helvetica md:mb-20 md:p-6 md:pt-28'>
       <div className='relative w-full max-w-7xl shrink 2xl:max-w-[80%]'>
         <motion.article
-          initial='hidden'
-          whileInView='visible'
           variants={articleVariants}
-          viewport={{ once: true }}
           className='nier-block-left-sm md:nier-block-left relative m-0 ml-4 mr-2 flex min-h-[40vmin] w-auto flex-col items-start justify-center p-0 py-5 sm:m-4 sm:p-2 md:p-8 lg:w-3/5'>
           <motion.div
             variants={blockVariants}
@@ -126,10 +140,12 @@ const About = () => {
           </div>
         </motion.article>
       </div>
-      <div className='absolute left-0 right-0 top-1/2 -z-10 h-0 '>
+      <motion.div
+        variants={modelVariants}
+        className='absolute left-0 right-0 top-1/2 -z-10 h-0 '>
         <About3D className='!absolute left-0 right-0 !h-[1000px] -translate-y-1/2 !overflow-visible md:left-[unset] md:!w-[800px]' />
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   )
 }
 
