@@ -49,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             { delay: stagger(1.5), duration: 2.5, ease: "easeIn" },
           ],
         ],
-        { delay: 1.5 }
+        { delay: 1.3 }
       )
     }
   }, [homeLoaded])

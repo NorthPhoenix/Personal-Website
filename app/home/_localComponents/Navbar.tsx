@@ -89,9 +89,9 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
       opacity,
       1,
       {
-        duration: 0.5,
+        duration: 1,
         ease: "easeInOut",
-        at: 1.3,
+        at: 1,
       },
     ],
   ]
