@@ -12,14 +12,14 @@ const Footer = () => {
           <span className='ml-3 text-xl'>Nikita Istomin</span>
         </a>
         <div className=' mt-4 flex flex-col items-center justify-center opacity-70 sm:ml-4 sm:mt-0 sm:items-start sm:border-l-2 sm:border-nier-400'>
-          <p className='text-sm sm:pl-4 sm:text-xs md:text-sm'>
+          <p className='text-xs sm:pl-4 md:text-sm'>
             2023 — Powered by my remaining brain cells :D (and Vercel)
           </p>
-          <p className='text-sm sm:pl-4 sm:text-xs md:text-sm'>
+          <p className='text-xs sm:pl-4 md:text-sm'>
             Created from scratch with Next.js, TailwindCSS, and TypeScript
           </p>
           <a
-            className='text-sm sm:pl-4 sm:text-xs md:text-sm'
+            className='text-xs sm:pl-4 md:text-sm'
             href='https://www.flaticon.com/free-icons/drag-and-drop'
             title='drag and drop icons'>
             Drag and drop icons created by bsd - Flaticon
