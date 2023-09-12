@@ -12,6 +12,15 @@ module.exports = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: true,
+      },
+    ]
+  },
   // experimental: {
   //   swcPlugins: [['@swc-jotai/react-refresh', {}]],
   // },
