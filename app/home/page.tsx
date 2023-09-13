@@ -17,7 +17,7 @@ const Home = () => {
       {/* Home page of the website */}
       <Navbar />
       <Hero />
-      <div className='relative'>
+      <div className='relative overflow-clip'>
         <div className='absolute left-0 right-0 top-[5%] -z-40 h-[100vw] lg:top-0'>
           <LinesThroughCircleDesign className='absolute -top-[10%] left-0 h-[90vw] -translate-x-[40%] fill-none stroke-nier-400 opacity-60' />
           <LinesThroughCircleDesign className='absolute right-0 top-[40%] h-[90vw] translate-x-[40%] rotate-180 fill-none stroke-nier-400 opacity-60' />
