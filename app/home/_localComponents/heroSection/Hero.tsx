@@ -86,7 +86,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       </div>
       <StarsBackground
         onLoad={onParticleLoad}
-        className='absolute left-0 top-0 -z-50 h-full w-full'
+        className='absolute left-0 top-0 -z-30 h-full w-full'
       />
       {/* <Cubes3D
         onLoad={onCubesLoad}
