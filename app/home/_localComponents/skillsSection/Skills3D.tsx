@@ -10,7 +10,11 @@ import {
 } from "framer-motion"
 import { Canvas, useLoader } from "@react-three/fiber"
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader"
-import { ArcballControls, PerspectiveCamera } from "@react-three/drei"
+import {
+  ArcballControls,
+  OrbitControls,
+  PerspectiveCamera,
+} from "@react-three/drei"
 import { useState, Suspense, useEffect, useMemo } from "react"
 import Image from "next/image"
 import { skills as skillList, Skill } from "lib/utils/skillsConfig"
@@ -18,6 +22,7 @@ import { selectedTagsAtom, activeSkillAtom } from "./Skills"
 import { useAtomValue, useSetAtom } from "jotai"
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js"
 import { skillsLoadedAtom } from "lib/state"
+import Bowser from "bowser"
 
 const SVGMaterial = new THREE.MeshPhongMaterial({
   vertexColors: true,
@@ -27,6 +32,19 @@ const SVGMaterial = new THREE.MeshPhongMaterial({
 
 const Skills3D = ({ className }: { className: string }) => {
   const setSkillsLoaded = useSetAtom(skillsLoadedAtom)
+  const [allowArkballControls, setAllowArkballControls] = useState<
+    boolean | null
+  >(null)
+  useEffect(() => {
+    const browser = Bowser.getParser(window.navigator.userAgent)
+    const browserName = browser.getBrowserName()
+    // if browser is safari for mobile, disable arkball controls due to a bug
+    if (browserName === "Safari" && browser.getOSName() === "iOS") {
+      setAllowArkballControls(false)
+    } else {
+      setAllowArkballControls(true)
+    }
+  }, [])
   return (
     <div className={className !== undefined ? className : "relative"}>
       <Image
@@ -69,7 +87,11 @@ const Skills3D = ({ className }: { className: string }) => {
             />
           </PerspectiveCamera>
           <ambientLight intensity={0.1} />
-          <ArcballControls enableZoom={false} enablePan={false} />
+          {allowArkballControls !== null && allowArkballControls ? (
+            <ArcballControls enableZoom={false} enablePan={false} />
+          ) : (
+            <OrbitControls enableZoom={false} enablePan={false} />
+          )}
         </Suspense>
       </Canvas>
     </div>
