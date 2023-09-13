@@ -55,7 +55,9 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   }, [homeLoaded])
 
   return (
-    <section id='hero' className='flex h-[max(100svh,_512px)] flex-col'>
+    <section
+      id='hero'
+      className='relative flex h-[max(100svh,_512px)] flex-col'>
       <div
         className={twMerge(
           "mt-28 flex grow flex-col items-center overflow-hidden",
@@ -86,7 +88,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       </div>
       <StarsBackground
         onLoad={onParticleLoad}
-        className='absolute left-0 top-0 -z-30 h-full w-full'
+        className='absolute left-0 right-0 top-0 -z-30 h-full'
       />
       {/* <Cubes3D
         onLoad={onCubesLoad}
