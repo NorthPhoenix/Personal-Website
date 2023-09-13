@@ -1,7 +1,7 @@
 // My components
 import Footer from "./_localComponents/Footer"
 import Test from "./_localComponents/Test"
-import About from "./_localComponents/aboutSection/About"
+import AboutWith3D from "./_localComponents/aboutSection/AboutWith3D"
 import Projects from "./_localComponents/projectsSection/Projects"
 import ContactMe from "./_localComponents/contactMeSection/ContactMe"
 import Hero from "./_localComponents/heroSection/Hero"
@@ -10,6 +10,7 @@ import DiamondTransition from "app/_globalComponents/design/DiamondTransition"
 import LinesThroughCircleDesign from "app/_globalComponents/design/LinesThroughCircleDesign"
 import Skills from "./_localComponents/skillsSection/Skills"
 import Education from "./_localComponents/educationSection/Education"
+import AboutWithImage from "./_localComponents/aboutSection/AboutWithImage"
 const Home = () => {
   return (
     <>
@@ -39,7 +40,8 @@ const Home = () => {
           unitWidth={150}
           padding={"50px"}
         />
-        <About />
+        {/* <AboutWith3D /> */}
+        <AboutWithImage />
         <Skills />
         <Projects />
         <Education />

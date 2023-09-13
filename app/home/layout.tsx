@@ -10,12 +10,7 @@ import {
 } from "lib/state"
 
 import LoadingScreen from "app/_globalComponents/LoadingScreen"
-import {
-  aboutLoadedAtom,
-  heroLoadedAtom,
-  homeLoadedAtom,
-  skillsLoadedAtom,
-} from "lib/state"
+import { heroLoadedAtom, homeLoadedAtom, skillsLoadedAtom } from "lib/state"
 
 export const dynamic = "force-dynamic"
 
@@ -23,7 +18,6 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
   const ref = useRef<HTMLDivElement>(null)
   const [homeLoaded, setHomeLoaded] = useAtom(homeLoadedAtom)
   const heroLoaded = useAtomValue(heroLoadedAtom)
-  const aboutLoaded = useAtomValue(aboutLoadedAtom)
   const skillsLoaded = useAtomValue(skillsLoadedAtom)
 
   const [screenSize, setScreenSize] = useAtom(screenSizeAtom)
@@ -35,7 +29,7 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
   )
 
   useEffect(() => {
-    if (heroLoaded && aboutLoaded && skillsLoaded) {
+    if (heroLoaded && skillsLoaded) {
       setTimeout(() => {
         // console.log("Page loaded");
         setHomeLoaded(true)
@@ -43,7 +37,7 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
         ref.current!.style.overflow = "auto"
       }, 1000)
     }
-  }, [heroLoaded, aboutLoaded, skillsLoaded])
+  }, [heroLoaded, skillsLoaded])
 
   // Set screen size state
   useLayoutEffect(() => {
