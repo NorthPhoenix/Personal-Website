@@ -133,7 +133,7 @@ const SideOverMenu: React.FC<SideOverMenuProps> = ({
                           className='my-10 text-center font-exodus-regular text-xl text-nier-200 '
                           variants={menuItemVariants}>
                           {id === "resume" ? (
-                            <Link href={href} prefetch={false}>
+                            <Link href={href} prefetch={true} target='_blank'>
                               {label}
                             </Link>
                           ) : (
