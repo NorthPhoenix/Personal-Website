@@ -120,7 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
               className='group flex h-12 flex-row items-center gap-4 object-scale-down md:h-14'>
               <Logo className='h-full w-auto fill-nier-200 transition-transform group-hover:scale-105' />
               <div className='flex flex-col items-start'>
-                <span className='font-exodus-striped text-xl leading-6 text-nier-300'>
+                <span className='text-left font-exodus-striped text-xl leading-6 text-nier-300'>
                   Nikita Istomin
                 </span>
                 <span className='font-helvetica text-sm leading-3 text-nier-400'>
