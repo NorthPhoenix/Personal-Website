@@ -112,7 +112,8 @@ const Skills = () => {
         <motion.h2
           variants={titleVariants}
           className='text-shadow -translate-y-[2px] px-4 text-center font-exodus-striped text-5xl uppercase tracking-[0.5rem] lg:text-6xl'>
-          Skills
+          <span className='font-exodus-regular'>S</span>kill
+          <span className='font-exodus-regular'>s</span>
         </motion.h2>
         <motion.div
           variants={bottomTitleLineVariants}
