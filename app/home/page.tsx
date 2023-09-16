@@ -11,6 +11,9 @@ import LinesThroughCircleDesign from "app/_globalComponents/design/LinesThroughC
 import Skills from "./_localComponents/skillsSection/Skills"
 import Education from "./_localComponents/educationSection/Education"
 import AboutWithImage from "./_localComponents/aboutSection/AboutWithImage"
+
+export const dynamic = "force-dynamic"
+
 const Home = () => {
   return (
     <>
