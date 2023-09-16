@@ -131,7 +131,7 @@ const Skills = () => {
         <p className='mt-2 p-2 text-center'>
           <span className='inline-block'>
             I've had experience with many different technologies over the years
-          </span>
+          </span>{" "}
           <span className='inline-block'>
             and I'm always eager to learn more and gain new experiences.
           </span>{" "}
