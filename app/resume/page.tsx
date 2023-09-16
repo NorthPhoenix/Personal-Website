@@ -1,3 +1,10 @@
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Nikta Istomin | Resume",
+  description: "Take a look at my resume",
+}
+
 const resume = () => {
   return (
     <iframe
