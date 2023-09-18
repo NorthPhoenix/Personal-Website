@@ -1,11 +1,9 @@
 "use client"
 
-import Image, { StaticImageData } from "next/image"
-import blankImg from "public/images/blank.jpg"
 import { useEffect, useState } from "react"
 
 export const ProjectImage = ({ s3Path }: { s3Path: string }) => {
-  const [imageS3URL, setImageS3URL] = useState<string | StaticImageData>("")
+  const [imageS3URL, setImageS3URL] = useState<string>("")
 
   useEffect(() => {
     fetch(`/api/s3Photo?key=${s3Path}`, {
@@ -18,14 +16,13 @@ export const ProjectImage = ({ s3Path }: { s3Path: string }) => {
         setImageS3URL(url)
       })
       .catch((err) => {
-        setImageS3URL(blankImg)
+        setImageS3URL("public/images/blank.jpg")
         // console.log(err)
       })
   }, [])
 
   return imageS3URL ? (
-    <Image
-      loading='eager'
+    <img
       src={imageS3URL}
       width={512}
       height={512}
