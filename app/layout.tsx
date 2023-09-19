@@ -2,6 +2,7 @@ import "styles/globals.css"
 import JotaiProvider from "app/_globalComponents/JotaiProvider"
 import GlobalStateProvider from "app/_globalComponents/GlobalStateProvider"
 import { twMerge } from "tailwind-merge"
+import { Analytics } from "@vercel/analytics/react"
 
 // import Font Awesome CSS
 import "@fortawesome/fontawesome-svg-core/styles.css"
@@ -63,6 +64,7 @@ export default function RootLayout({
         <JotaiProvider>
           <GlobalStateProvider>{children}</GlobalStateProvider>
         </JotaiProvider>
+        <Analytics />
       </body>
     </html>
   )
