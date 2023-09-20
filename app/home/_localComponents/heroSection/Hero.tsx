@@ -64,7 +64,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
           className
         )}>
         <div className='flex w-full grow flex-col items-center justify-center space-y-5 text-center '>
-          <motion.h1
+          <motion.h2
             ref={animationScope}
             className='relative my-4 h-full w-full grow font-exodus-striped text-[17vw] mix-blend-difference md:text-8xl lg:text-9xl xl:text-[9rem]'>
             <span className='absolute left-1/2 top-0 w-full -translate-x-1/2 select-none bg-gradient-to-t from-neutral-600 to-nier-300 bg-clip-text text-transparent opacity-0 md:-translate-x-[67%]'>
@@ -76,7 +76,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             <span className='absolute bottom-0 left-1/2 w-full -translate-x-1/2 select-none bg-gradient-to-t from-neutral-600 to-nier-300 bg-clip-text text-transparent opacity-0 md:-translate-x-[33%]'>
               DELIVER
             </span>
-          </motion.h1>
+          </motion.h2>
         </div>
 
         <motion.a
