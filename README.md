@@ -1,7 +1,8 @@
 # Website Portfolio
 
+This is my first attempt at creating a personal website.
 I've decided to create a personal website to learn new web development skills and showcase my existing skills to potential employers.  
-It is my passion project, and I went into it with some backend and zero frontend experience.
+I went into it with some backend and zero frontend experience.
 
 ## Tech Stack
 
@@ -15,10 +16,19 @@ It is my passion project, and I went into it with some backend and zero frontend
 	<a href="https://tailwindcss.com/" >
 		<img alt="Tailwind CSS" title="Tailwind CSS" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1200px-Tailwind_CSS_Logo.svg.png" width=100 height=100>
 	</a>
-	<!-- <a href="https://threejs.org/" >
+	<a href="https://threejs.org/" >
 		<img alt="Three.js" title="Three.js" src="https://global.discourse-cdn.com/standard17/uploads/threejs/optimized/2X/e/e4f86d2200d2d35c30f7b1494e96b9595ebc2751_2_1016x1024.png" width=100 height=100>
-	</a> -->
-	<a href="https://www.sanity.io/" >
-		<img alt="Sanity CMS" title="Sanity CMS" src="https://s3.amazonaws.com/quiin/vendors/logos/000/021/971/original/sanity-logo-jamstack-conf_-_Knut_Melv%C3%A6r.png?1590006499" width=100 height=100>
 	</a>
+  <a href="https://www.prisma.io/" >
+    <img alt="Prisma" title="Prisma" src="https://cdn.svgporn.com/logos/prisma.svg" width=100 height=100>
+  </a>
+  <a href="https://www.mongodb.com/" >
+    <img alt="MongoDB" title="MongoDB" src="https://cdn.iconscout.com/icon/free/png-512/mongodb-3-1175138.png" width=100 height=100>
+  </a>
+  <a href="https://www.vercel.com/" >
+    <img alt="Vercel" title="Vercel" src="https://icon.icepanel.io/Technology/svg/Vercel.svg" width=100 height=100>
+  </a>
+  <a href="https://aws.amazon.com/s3/" >
+    <img alt="S3" title="S3" src="https://icon.icepanel.io/Technology/svg/AWS.svg" width=100 height=100>
+  </a>
 </div>
