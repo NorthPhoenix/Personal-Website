@@ -111,7 +111,7 @@ const AboutWithImage = () => {
             and useful things. I was introduced to programming in 2015 and since
             then I was dragged into the world of technology. I'm a recent
             computer science grad from the University of Texas at Dallas, and
-            I'm exited to start my career in the industry.
+            I'm excited to start my career in the industry.
           </motion.p>
         </motion.div>
         <div className='grid shrink grid-cols-1 grid-rows-1 gap-6 '>
@@ -215,7 +215,7 @@ const AboutWithImage = () => {
                 beautiful and useful things. I was introduced to programming in
                 2015 and since then I was dragged into the world of technology.
                 I'm a recent computer science grad from the University of Texas
-                at Dallas, and I'm exited to start my career in the industry.
+                at Dallas, and I'm excited to start my career in the industry.
               </p>
             </div>
             <motion.div
