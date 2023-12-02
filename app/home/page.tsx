@@ -1,7 +1,6 @@
 // My components
 import Footer from "./_localComponents/Footer"
 import Test from "./_localComponents/Test"
-import AboutWith3D from "./_localComponents/aboutSection/AboutWith3D"
 import Projects from "./_localComponents/projectsSection/Projects"
 import ContactMe from "./_localComponents/contactMeSection/ContactMe"
 import Hero from "./_localComponents/heroSection/Hero"
