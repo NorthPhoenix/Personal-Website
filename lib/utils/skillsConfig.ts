@@ -302,18 +302,6 @@ const skills: Skill[] = [
     link: "https://visualstudio.microsoft.com/",
   },
   {
-    uuid: "9024327b-1fee-46f0-bedb-00d19cce9750",
-    name: "Atom",
-    icon: {
-      devicon: "devicon-atom-plain colored",
-      svg: "/images/skills/atom.svg",
-    },
-    description:
-      "Atom is a hackable text editor developed by GitHub. It is highly customizable and offers a range of extensions and packages for various programming languages.",
-    tags: ["IDE/Editor"],
-    link: "https://github.com/atom",
-  },
-  {
     uuid: "82b67299-687f-469b-85fa-e01998fc8ba1",
     name: "Eclipse",
     icon: {
@@ -640,6 +628,33 @@ const skills: Skill[] = [
       "Prisma is an ORM for TypeScript, that allows to define a database schema and models, and then generate a type-safe client that can be used to interact with a database from the backend. It provides a type-safe API for building scalable and performant applications.",
     tags: ["Backend", "Web", "Database"],
     link: "https://www.prisma.io/",
+  },
+  {
+    uuid: "3376f2ba-7c00-4cbb-bb5c-58e7bc63b4b5",
+    name: "PlanetScale",
+    icon: { svg: "/images/skills/planetscale.svg" },
+    description:
+      "PlanetScale is a MySQL-compatible serverless database, that brings you scale, performance, and reliability — without sacrificing developer experience",
+    tags: ["Backend", "Web", "Database"],
+    link: "https://planetscale.com/",
+  },
+  {
+    uuid: "3376f2ba-7c00-4cbb-bb5c-58e7bc63b4b6",
+    name: "TRPC",
+    icon: { svg: "/images/skills/trpc.svg" },
+    description:
+      "TRPC is an end-to-end TypeScript API framework for building scalable and type-safe APIs. It provides an unmatched type-safety and developer experience, while being simple and flexible.",
+    tags: ["Backend", "Frontend", "Web"],
+    link: "https://trpc.io/",
+  },
+  {
+    uuid: "3376f2ba-7c00-4cbb-bb5c-58e7bc63b4b7",
+    name: "Clerk",
+    icon: { svg: "/images/skills/clerk.svg" },
+    description:
+      "Clerk is a developer-first authentication and user management service. It provides a simple and secure way to add authentication to your application.",
+    tags: ["Backend", "Frontend", "Web"],
+    link: "https://clerk.com/",
   },
 ]
 
