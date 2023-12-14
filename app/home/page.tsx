@@ -42,7 +42,6 @@ const Home = () => {
           unitWidth={150}
           padding={"50px"}
         />
-        {/* <AboutWith3D /> */}
         <AboutWithImage />
         <Skills />
         <Projects />
