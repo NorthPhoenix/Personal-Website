@@ -97,7 +97,7 @@ const Skills = () => {
     <motion.section
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, margin: "-40%" }}
+      viewport={{ once: true, margin: "-30%" }}
       id='skills'
       className='flex w-full flex-col items-center justify-start py-6 pt-24 md:pt-32'>
       {/* Title */}

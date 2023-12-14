@@ -76,7 +76,7 @@ const AboutWithImage = () => {
         <motion.div
           initial='hidden'
           whileInView='visible'
-          viewport={{ once: true, margin: "-40%" }}
+          viewport={{ once: true, margin: "-30%" }}
           variants={smallBlockVariants}
           className='mb-8 bg-nier-200 bg-opacity-80 p-4 shadow-md '>
           <motion.header
@@ -189,7 +189,7 @@ const AboutWithImage = () => {
     <motion.section
       initial='hidden'
       whileInView='visible'
-      viewport={{ once: true, margin: "-40%" }}
+      viewport={{ once: true, margin: "-30%" }}
       id='about'
       className='relative mb-20 flex w-full items-center justify-center overflow-y-visible p-6 py-12 pt-28 font-helvetica'>
       <div className='relative w-full max-w-7xl shrink 2xl:max-w-[80%]'>

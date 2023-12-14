@@ -32,7 +32,7 @@ const Education = () => {
       onViewportEnter={() => {
         setInView(true)
       }}
-      viewport={{ once: true, margin: "-40%" }}
+      viewport={{ once: true, margin: "-30%" }}
       id='education'
       className='mb-16 flex w-full flex-col items-center justify-start p-2 py-12 pt-24 font-helvetica md:mb-20 md:p-6 md:pt-32'>
       <SectionTitle title='Education' />
