@@ -36,7 +36,7 @@ const positions: TPosition[] = [
         "Developed and deployed Next.js web application as a solo engineer.",
         "Continuously communicated with my contractor to deliver quality work and specify deadlines.",
         "Worked flexibly to accommodate shifting design and functionality requirements.",
-        "Developed with technologies like: Typescript, React, TRPC, Prisma, Clerk, Planetscale, VimeoAPI, and more.",
+        "Developed with technologies like: Next.js, Typescript, TRPC, Prisma, Clerk, Planetscale, VimeoAPI, and more.",
       ],
     },
     location: "Remote",
