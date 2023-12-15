@@ -5,7 +5,7 @@ import ProjectEntry from "./ProjectEntry"
 import ProjectShowLimiter from "./ProjectShowLimiter"
 import ShowMoreButton from "./ShowMoreButton"
 import SectionTitle from "app/_globalComponents/SectionTitle"
-import InViewDetector from "./InViewDetector"
+import InViewDetector from "app/_globalComponents/InViewDetector"
 import ProjectsAnimator from "./ProjectsAnimator"
 
 const getProjects = async () => {

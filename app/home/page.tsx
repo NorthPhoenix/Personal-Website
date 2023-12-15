@@ -8,6 +8,7 @@ import Navbar from "./_localComponents/Navbar"
 import DiamondTransition from "app/_globalComponents/design/DiamondTransition"
 import LinesThroughCircleDesign from "app/_globalComponents/design/LinesThroughCircleDesign"
 import Skills from "./_localComponents/skillsSection/Skills"
+import Work from "./_localComponents/workSection/Work"
 import Education from "./_localComponents/educationSection/Education"
 import AboutWithImage from "./_localComponents/aboutSection/AboutWithImage"
 
@@ -44,6 +45,7 @@ const Home = () => {
         />
         <AboutWithImage />
         <Skills />
+        <Work />
         <Projects />
         <Education />
         <DiamondTransition
