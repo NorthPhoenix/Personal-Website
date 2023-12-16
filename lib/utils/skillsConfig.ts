@@ -1,18 +1,18 @@
 declare type Skill = {
-  uuid: string
-  name: string
+  uuid: string;
+  name: string;
   icon: {
-    devicon?: string
-    svg?: string
-  }
-  tags: AllKeys<SkillTag>[]
-  description?: string
-  link?: string
-}
+    devicon?: string;
+    svg?: string;
+  };
+  tags: AllKeys<SkillTag>[];
+  description?: string;
+  link?: string;
+};
 
-type AllKeys<T> = T extends any ? keyof T : never
+type AllKeys<T> = T extends any ? keyof T : never;
 
-declare type SkillTag = (typeof Tags)[number]
+declare type SkillTag = (typeof Tags)[number];
 
 const Tags = [
   { Frontend: { color: "#000" } },
@@ -32,7 +32,7 @@ const Tags = [
   { "UI/UX": { color: "#000" } },
   { "Game Development": { color: "#000" } },
   { Other: { color: "#000" } },
-] as const
+] as const;
 
 const skills: Skill[] = [
   {
@@ -226,7 +226,7 @@ const skills: Skill[] = [
     },
     description:
       "Java is a popular and versatile object-oriented programming language used for building cross-platform applications, including web, desktop, mobile, and enterprise solutions.",
-    tags: ["Programming Language", "Backend", "Web", "Mobile"],
+    tags: ["Programming Language", "Mobile"],
     link: "https://www.java.com/en/",
   },
   {
@@ -473,7 +473,7 @@ const skills: Skill[] = [
     },
     description:
       "Pandas is a Python library used for data analysis and manipulation. It provides data structures and functions to efficiently work with structured data.",
-    tags: ["AI/ML", "Backend"],
+    tags: ["AI/ML"],
     link: "https://pandas.pydata.org/",
   },
   {
@@ -485,7 +485,7 @@ const skills: Skill[] = [
     },
     description:
       "NumPy is a fundamental Python library for numerical computations. It provides support for arrays, matrices, and mathematical functions, essential for scientific computing.",
-    tags: ["AI/ML", "Backend"],
+    tags: ["AI/ML"],
     link: "https://numpy.org/",
   },
   {
@@ -656,7 +656,7 @@ const skills: Skill[] = [
     tags: ["Backend", "Frontend", "Web"],
     link: "https://clerk.com/",
   },
-]
+];
 
-export { skills, Tags }
-export type { Skill, SkillTag }
+export { skills, Tags };
+export type { Skill, SkillTag };
