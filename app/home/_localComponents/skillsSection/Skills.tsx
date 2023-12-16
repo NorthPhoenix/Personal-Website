@@ -128,21 +128,15 @@ const Skills = () => {
         variants={blockVariants}
         custom={0}
         className='relative mx-4 bg-nier-200 px-4 font-helvetica text-lg shadow-md'>
-        <p className='mt-2 p-2 text-center'>
-          <span className='inline-block'>
-            I've had experience with many different technologies over the years
-          </span>{" "}
-          <span className='inline-block'>
-            and I'm always eager to learn more and gain new experiences.
-          </span>{" "}
-          <br />
-          Here are some of the technologies I know:
+        <p className='mt-2 pt-2 text-center'>
+          I've had experience with many different technologies over the years
+          and I'm always eager to learn more and gain new experiences.
         </p>
+        <p className='text-center'>Here are some of the technologies I know:</p>
         <p className='my-2 p-2 text-center'>
-          I specialize in{" "}
-          <span className='font-semibold underline'>React.js</span>,{" "}
-          <span className='font-semibold underline'>Next.js</span>, and{" "}
-          <span className='font-semibold underline'>TypeScript</span>.
+          I specialize in <span className='font-semibold '>React.js</span>,{" "}
+          <span className='font-semibold '>Next.js</span>, and{" "}
+          <span className='font-semibold '>TypeScript</span>.
         </p>
       </motion.div>
       {/* Filters */}
