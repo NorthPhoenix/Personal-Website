@@ -1,9 +1,9 @@
 "use client"
 
 import { twMerge } from "tailwind-merge"
-import { useCallback } from "react"
-import type { Container, Engine, ParticlesOptions } from "tsparticles-engine"
-import Particles from "react-particles"
+import { useCallback, useEffect, useState } from "react"
+import type { Container, Engine } from "@tsparticles/engine"
+import Particles, { initParticlesEngine } from "@tsparticles/react"
 import { loadFull } from "tsparticles"
 import options from "lib/utils/particles-options"
 
@@ -16,13 +16,15 @@ const StarsBackground: React.FC<StarsBackgroundProps> = ({
   className,
   onLoad,
 }) => {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    // console.log(engine);
-    // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
-    await loadFull(engine)
-  }, [])
+  const [ init, setInit ] = useState(false);
+
+  useEffect(() => {
+      initParticlesEngine(async (engine) => {
+          await loadFull(engine);
+      }).then(() => {
+          setInit(true);
+      });
+  }, []);
 
   const particlesLoaded = useCallback(
     async (container: Container | undefined) => {
@@ -31,14 +33,16 @@ const StarsBackground: React.FC<StarsBackgroundProps> = ({
     },
     []
   )
+  if (!init) {
+      return null;
+  }
   return (
     <>
       <Particles
         className={twMerge("bg-black", className)}
         id='tsparticles'
-        init={particlesInit}
-        loaded={particlesLoaded}
-        options={options as unknown as ParticlesOptions}
+        particlesLoaded={particlesLoaded}
+        options={options}
       />
       <div className={twMerge("bg-radial-gradient", className)}></div>
     </>
