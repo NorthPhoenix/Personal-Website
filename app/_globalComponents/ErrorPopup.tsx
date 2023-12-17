@@ -1,11 +1,6 @@
 "use client"
 
-// font awesome cross icon
-import {
-  faTimes,
-  faTriangleExclamation,
-} from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { X, AlertTriangle } from "lucide-react"
 import { useAtomValue } from "jotai"
 import { screenSizeAtom } from "lib/state"
 import { useEffect, useState } from "react"
@@ -94,26 +89,29 @@ const ErrorPopup = ({
       onMouseLeave={handleStartTimer}
       className={twMerge(
         "relative m-2 flex  flex-row items-center justify-stretch gap-4 overflow-hidden rounded-lg bg-nier-700 px-4 py-2 shadow-lg sm:cursor-pointer",
-        className
-      )}>
-      <div className='aspect-square flex-none text-amber-500'>
-        <FontAwesomeIcon size='2xl' icon={faTriangleExclamation} />
+        className,
+      )}
+    >
+      <div className="aspect-square flex-none text-amber-500">
+        <AlertTriangle className="h-8 w-8 fill-none" />
       </div>
-      <div className='grow '>
-        <h3 className=' text-base font-bold text-amber-500'>{header}</h3>
-        <p className='text-sm text-nier-300 '>{message}</p>
+      <div className="grow ">
+        <h3 className=" text-base font-bold text-amber-500">{header}</h3>
+        <p className="text-sm text-nier-300 ">{message}</p>
       </div>
       <button
-        className='ml-1 grow-0 self-start text-nier-300 hover:text-nier-200 focus:outline-none active:text-nier-400 sm:hidden'
+        className="absolute right-3 top-2 text-nier-300 hover:text-nier-200 focus:outline-none active:text-nier-400 sm:hidden"
         onClick={() => {
           close()
-        }}>
-        <FontAwesomeIcon size='lg' icon={faTimes} />
+        }}
+      >
+        <X />
       </button>
-      <div className='absolute bottom-0 left-0 right-0 h-1'>
+      <div className="absolute bottom-0 left-0 right-0 h-1">
         <div
-          className='h-full bg-amber-500'
-          style={{ width: `${(time / closeAfter) * 100}%` }}></div>
+          className="h-full bg-amber-500"
+          style={{ width: `${(time / closeAfter) * 100}%` }}
+        ></div>
       </div>
     </motion.div>
   )

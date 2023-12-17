@@ -1,8 +1,7 @@
 "use client"
 
 import Logo from "app/_globalComponents/design/Logo"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars } from "@fortawesome/free-solid-svg-icons"
+import { Menu } from "lucide-react"
 import { twMerge } from "tailwind-merge"
 import { useState, useEffect, useRef } from "react"
 import SideOverMenu from "./SideOverMenu"
@@ -107,51 +106,50 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
         ref={navRef}
         className={twMerge(
           "fixed left-0 right-0 top-0 z-40 flex flex-col items-center mix-blend-difference transition-transform duration-500",
-          className
-        )}>
-        <div ref={animationScope} className='contents w-full'>
+          className,
+        )}
+      >
+        <div ref={animationScope} className="contents w-full">
           <motion.nav
-            className='flex h-20 w-[90%] max-w-7xl flex-row items-center justify-between bg-transparent p-6 md:h-24'
-            style={{ opacity }}>
+            className="flex h-20 w-[90%] max-w-7xl flex-row items-center justify-between bg-transparent p-6 md:h-24"
+            style={{ opacity }}
+          >
             <button
               onClick={() => {
                 window.scroll({ behavior: "smooth", top: 0 })
               }}
-              className='group flex h-12 flex-row items-center gap-4 object-scale-down md:h-14'>
-              <Logo className='h-full w-auto fill-nier-200 transition-transform group-hover:scale-105' />
-              <div className='flex flex-col items-start'>
-                <h1 className='text-left font-exodus-striped text-xl leading-6 text-nier-300'>
+              className="group flex h-12 flex-row items-center gap-4 object-scale-down md:h-14"
+            >
+              <Logo className="h-full w-auto fill-nier-200 transition-transform group-hover:scale-105" />
+              <div className="flex flex-col items-start">
+                <h1 className="text-left font-exodus-striped text-xl leading-6 text-nier-300">
                   Nikita Istomin
                 </h1>
-                <h2 className='font-helvetica text-sm leading-3 text-nier-400'>
+                <h2 className="font-helvetica text-sm leading-3 text-nier-400">
                   Frontend Developer
                 </h2>
               </div>
             </button>
-            <div className='relative'>
-              <button
-                type='button'
-                className='p-1 text-nier-400 md:p-2'
-                onClick={() => {
-                  hideNav()
-                  setSideMenuOpen((state: Boolean) => {
-                    return !state
-                  })
-                }}>
-                <FontAwesomeIcon
-                  icon={faBars}
-                  size='2xl'
-                  style={{ color: "inherit" }}
-                />
-              </button>
-            </div>
+            <button
+              type="button"
+              className="p-1 text-nier-400"
+              onClick={() => {
+                hideNav()
+                setSideMenuOpen((state: Boolean) => {
+                  return !state
+                })
+              }}
+            >
+              <Menu className="h-8 w-8 fill-none" />
+            </button>
           </motion.nav>
           <motion.div
-            className='flex flex-row items-center justify-center gap-2 overflow-hidden'
-            style={{ width: lineWidth }}>
-            <span className='h-[2px] w-[15px] grow-0 bg-nier-400' />
-            <span className='h-[2px] grow bg-nier-400' />
-            <span className='h-[2px] w-[15px] grow-0 bg-nier-400' />
+            className="flex flex-row items-center justify-center gap-2 overflow-hidden"
+            style={{ width: lineWidth }}
+          >
+            <span className="h-[2px] w-[15px] grow-0 bg-nier-400" />
+            <span className="h-[2px] grow bg-nier-400" />
+            <span className="h-[2px] w-[15px] grow-0 bg-nier-400" />
           </motion.div>
         </div>
       </header>

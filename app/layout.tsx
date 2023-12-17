@@ -4,11 +4,6 @@ import GlobalStateProvider from "app/_globalComponents/GlobalStateProvider"
 import { twMerge } from "tailwind-merge"
 import { Analytics } from "@vercel/analytics/react"
 
-// import Font Awesome CSS
-import "@fortawesome/fontawesome-svg-core/styles.css"
-import { config } from "@fortawesome/fontawesome-svg-core"
-config.autoAddCss = false
-
 // load fonts
 import localFont from "next/font/local"
 
@@ -54,13 +49,15 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang='en'
-      className={`${exodus_regular.variable} ${exodus_sharpen.variable} ${exodus_stencil.variable} ${exodus_striped.variable}`}>
+      lang="en"
+      className={`${exodus_regular.variable} ${exodus_sharpen.variable} ${exodus_stencil.variable} ${exodus_striped.variable}`}
+    >
       <body
         className={twMerge(
           "selection:bg-orange-700 selection:text-nier-200",
-          process.env.NODE_ENV === "development" ? "debug-screens" : ""
-        )}>
+          process.env.NODE_ENV === "development" ? "debug-screens" : "",
+        )}
+      >
         <JotaiProvider>
           <GlobalStateProvider>{children}</GlobalStateProvider>
         </JotaiProvider>
