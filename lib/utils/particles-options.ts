@@ -172,17 +172,9 @@ const particlesOptions: ISourceOptions = {
   particles: {
     bounce: {
       horizontal: {
-        random: {
-          enable: false,
-          minimumValue: 0.1,
-        },
         value: 1,
       },
       vertical: {
-        random: {
-          enable: false,
-          minimumValue: 0.1,
-        },
         value: 1,
       },
     },
@@ -193,17 +185,9 @@ const particlesOptions: ISourceOptions = {
       },
       bounce: {
         horizontal: {
-          random: {
-            enable: false,
-            minimumValue: 0.1,
-          },
           value: 1,
         },
         vertical: {
-          random: {
-            enable: false,
-            minimumValue: 0.1,
-          },
           value: 1,
         },
       },
@@ -284,10 +268,6 @@ const particlesOptions: ISourceOptions = {
       path: {
         clamp: true,
         delay: {
-          random: {
-            enable: false,
-            minimumValue: 0,
-          },
           value: 0,
         },
         enable: false,
@@ -323,15 +303,14 @@ const particlesOptions: ISourceOptions = {
         width: 1920,
         height: 1080,
       },
-      limit: 0,
+      limit: {
+        mode: "wait",
+        value: 0,
+      },
       value: 900,
     },
 
     opacity: {
-      random: {
-        enable: false,
-        minimumValue: 0.1,
-      },
       value: {
         min: 0.1,
         max: 1,
@@ -375,10 +354,6 @@ const particlesOptions: ISourceOptions = {
     },
 
     size: {
-      random: {
-        enable: false,
-        minimumValue: 1,
-      },
       value: {
         min: 0,
         max: 2,
@@ -401,10 +376,6 @@ const particlesOptions: ISourceOptions = {
     },
 
     zIndex: {
-      random: {
-        enable: false,
-        minimumValue: 0,
-      },
       value: 0,
       opacityRate: 1,
       sizeRate: 1,
