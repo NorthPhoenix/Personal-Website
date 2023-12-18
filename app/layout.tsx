@@ -28,9 +28,6 @@ const exodus_striped = localFont({
   variable: "--font-exodus-striped",
 })
 
-// import Devicon CSS
-import "devicon/devicon.min.css"
-
 import { Metadata } from "next"
 
 export const metadata: Metadata = {

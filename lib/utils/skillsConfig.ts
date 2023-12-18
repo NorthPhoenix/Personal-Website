@@ -1,18 +1,17 @@
 declare type Skill = {
-  uuid: string;
-  name: string;
+  uuid: string
+  name: string
   icon: {
-    devicon?: string;
-    svg?: string;
-  };
-  tags: AllKeys<SkillTag>[];
-  description?: string;
-  link?: string;
-};
+    svg?: string
+  }
+  tags: AllKeys<SkillTag>[]
+  description?: string
+  link?: string
+}
 
-type AllKeys<T> = T extends any ? keyof T : never;
+type AllKeys<T> = T extends any ? keyof T : never
 
-declare type SkillTag = (typeof Tags)[number];
+declare type SkillTag = (typeof Tags)[number]
 
 const Tags = [
   { Frontend: { color: "#000" } },
@@ -32,14 +31,13 @@ const Tags = [
   { "UI/UX": { color: "#000" } },
   { "Game Development": { color: "#000" } },
   { Other: { color: "#000" } },
-] as const;
+] as const
 
 const skills: Skill[] = [
   {
     uuid: "9d19b982-815a-417f-88f9-7166073ee96b",
     name: "HTML",
     icon: {
-      devicon: "devicon-html5-plain colored",
       svg: "/images/skills/html5.svg",
     },
     description:
@@ -51,7 +49,6 @@ const skills: Skill[] = [
     uuid: "f269e5a8-e81a-44a1-b9d6-d7aeeed09835",
     name: "CSS",
     icon: {
-      devicon: "devicon-css3-plain colored",
       svg: "/images/skills/css3.svg",
     },
     description:
@@ -63,7 +60,6 @@ const skills: Skill[] = [
     uuid: "b49b8f7e-f97a-469a-afa1-1d54e4c633c3",
     name: "JavaScript",
     icon: {
-      devicon: "devicon-javascript-plain colored",
       svg: "/images/skills/javascript.svg",
     },
     description:
@@ -75,7 +71,6 @@ const skills: Skill[] = [
     uuid: "3faf7bf6-4ffc-43b1-b79d-407a571a9dd3",
     name: "TypeScript",
     icon: {
-      devicon: "devicon-typescript-plain colored",
       svg: "/images/skills/typescript.svg",
     },
     description:
@@ -87,7 +82,6 @@ const skills: Skill[] = [
     uuid: "3b097b8d-eb3d-4a69-b440-b815b9817c27",
     name: "React",
     icon: {
-      devicon: "devicon-react-original colored",
       svg: "/images/skills/react.svg",
     },
     description:
@@ -99,7 +93,6 @@ const skills: Skill[] = [
     uuid: "904fc57a-9d51-401d-bbdc-285e63577f90",
     name: "Next.js",
     icon: {
-      devicon: "devicon-nextjs-original-wordmark colored",
       svg: "/images/skills/nextjs.svg",
     },
     description:
@@ -111,7 +104,6 @@ const skills: Skill[] = [
     uuid: "d67c1f65-5052-4929-9a91-d4db6600358d",
     name: "Node.js",
     icon: {
-      devicon: "devicon-nodejs-plain colored",
       svg: "/images/skills/nodejs.svg",
     },
     description:
@@ -123,7 +115,6 @@ const skills: Skill[] = [
     uuid: "631ffb1e-0cb0-4f55-81c2-b447fe2c1b50",
     name: "Express",
     icon: {
-      devicon: "devicon-express-original colored",
       svg: "/images/skills/express.svg",
     },
     description:
@@ -135,7 +126,6 @@ const skills: Skill[] = [
     uuid: "bfe9ac9d-97ae-4ba0-9b86-7721199e094e",
     name: "MongoDB",
     icon: {
-      devicon: "devicon-mongodb-plain colored",
       svg: "/images/skills/mongodb.svg",
     },
     description:
@@ -147,7 +137,6 @@ const skills: Skill[] = [
     uuid: "49e71951-a281-45ac-8fec-0550725b0c37",
     name: "MySQL",
     icon: {
-      devicon: "devicon-mysql-plain-wordmark colored",
       svg: "/images/skills/mysql.svg",
     },
     description:
@@ -170,7 +159,6 @@ const skills: Skill[] = [
     uuid: "fd0c238a-027f-4d58-acd6-5609cb587aff",
     name: "Python",
     icon: {
-      devicon: "devicon-python-plain colored",
       svg: "/images/skills/python.svg",
     },
     description:
@@ -188,7 +176,6 @@ const skills: Skill[] = [
     uuid: "b04f730e-a7b4-4767-a021-f471dc813e26",
     name: "C++",
     icon: {
-      devicon: "devicon-cplusplus-plain colored",
       svg: "/images/skills/cplusplus.svg",
     },
     description:
@@ -199,7 +186,7 @@ const skills: Skill[] = [
   {
     uuid: "8d341103-0380-4f4a-9db5-986b64d8fbd0",
     name: "C",
-    icon: { devicon: "devicon-c-plain colored", svg: "/images/skills/c.svg" },
+    icon: { svg: "/images/skills/c.svg" },
     description:
       "C is a foundational programming language known for its efficiency and close relationship with hardware. It is commonly used for operating systems, embedded systems, and low-level programming.",
     tags: ["Programming Language", "System Programming"],
@@ -209,7 +196,6 @@ const skills: Skill[] = [
     uuid: "9c68ae19-0623-4404-8380-291923ef56d5",
     name: "C#",
     icon: {
-      devicon: "devicon-csharp-plain colored",
       svg: "/images/skills/csharp.svg",
     },
     description:
@@ -221,7 +207,6 @@ const skills: Skill[] = [
     uuid: "ed502ee2-6431-4fc5-bdb6-048dd743c2b8",
     name: "Java",
     icon: {
-      devicon: "devicon-java-plain colored",
       svg: "/images/skills/java.svg",
     },
     description:
@@ -233,7 +218,6 @@ const skills: Skill[] = [
     uuid: "d2cfd646-fae7-4773-88fe-6974b9674d84",
     name: "Git",
     icon: {
-      devicon: "devicon-git-plain colored",
       svg: "/images/skills/git.svg",
     },
     description:
@@ -245,7 +229,6 @@ const skills: Skill[] = [
     uuid: "46ee90cd-dc54-4aed-8ef9-df74ce9b37d7",
     name: "GitHub",
     icon: {
-      devicon: "devicon-github-original colored",
       svg: "/images/skills/github.svg",
     },
     description:
@@ -257,7 +240,6 @@ const skills: Skill[] = [
     uuid: "58903781-b1ba-4f04-9ecd-03af03326834",
     name: "Linux",
     icon: {
-      devicon: "devicon-linux-plain colored",
       svg: "/images/skills/linux.svg",
     },
     description:
@@ -269,7 +251,6 @@ const skills: Skill[] = [
     uuid: "8aa8fc90-19ce-43ec-aa47-3ea47df2b9fc",
     name: "Windows",
     icon: {
-      devicon: "devicon-windows8-original colored",
       svg: "/images/skills/windows.svg",
     },
     description:
@@ -281,7 +262,6 @@ const skills: Skill[] = [
     uuid: "a89c7a2b-da9c-4b45-8d32-fbb64394eaa5",
     name: "Visual Studio Code",
     icon: {
-      devicon: "devicon-vscode-plain colored",
       svg: "/images/skills/vscode.svg",
     },
     description:
@@ -293,7 +273,6 @@ const skills: Skill[] = [
     uuid: "a2f72386-1127-4ab9-b760-4c17ad2b4521",
     name: "Visual Studio",
     icon: {
-      devicon: "devicon-visualstudio-plain colored",
       svg: "/images/skills/visualstudio.svg",
     },
     description:
@@ -316,7 +295,6 @@ const skills: Skill[] = [
     uuid: "33e382c3-b000-4ff1-895f-fc1f9cdbf2c8",
     name: "Firebase",
     icon: {
-      devicon: "devicon-firebase-plain colored",
       svg: "/images/skills/firebase.svg",
     },
     description:
@@ -328,7 +306,6 @@ const skills: Skill[] = [
     uuid: "f427de9c-28b7-46b1-a394-c0334d7bb35b",
     name: "NPM",
     icon: {
-      devicon: "devicon-npm-original-wordmark colored",
       svg: "/images/skills/npm.svg",
     },
     description:
@@ -340,7 +317,6 @@ const skills: Skill[] = [
     uuid: "e494a12a-d623-4dd7-86ab-555810447cd0",
     name: "Markdown",
     icon: {
-      devicon: "devicon-markdown-plain colored",
       svg: "/images/skills/markdown.svg",
     },
     description:
@@ -352,7 +328,6 @@ const skills: Skill[] = [
     uuid: "8998b067-c276-487a-82ad-64c88ae77806",
     name: "Tailwind CSS",
     icon: {
-      devicon: "devicon-tailwindcss-plain colored",
       svg: "/images/skills/tailwindcss.svg",
     },
     description:
@@ -364,7 +339,6 @@ const skills: Skill[] = [
     uuid: "9f7aae5d-3305-4070-85ea-ef2c1c5bc4a8",
     name: "Material UI",
     icon: {
-      devicon: "devicon-materialui-plain colored",
       svg: "/images/skills/materialui.svg",
     },
     description:
@@ -387,7 +361,6 @@ const skills: Skill[] = [
     uuid: "d5dc661d-1408-4d59-8986-7cf9a631e7ca",
     name: "Figma",
     icon: {
-      devicon: "devicon-figma-plain colored",
       svg: "/images/skills/figma.svg",
     },
     description:
@@ -408,7 +381,6 @@ const skills: Skill[] = [
     uuid: "6421499b-5753-42cc-b268-e460e16db88a",
     name: "Unity",
     icon: {
-      devicon: "devicon-unity-original colored",
       svg: "/images/skills/unity.svg",
     },
     description:
@@ -420,7 +392,6 @@ const skills: Skill[] = [
     uuid: "58be026a-4be8-4e60-9487-1dd97a5c03bd",
     name: "Blender",
     icon: {
-      devicon: "devicon-blender-original colored",
       svg: "/images/skills/blender.svg",
     },
     description:
@@ -432,7 +403,6 @@ const skills: Skill[] = [
     uuid: "29316501-87bd-4b32-8119-94e9d2052b82",
     name: "Maya",
     icon: {
-      devicon: "devicon-maya-plain colored",
       svg: "/images/skills/maya.svg",
     },
     description:
@@ -444,7 +414,6 @@ const skills: Skill[] = [
     uuid: "810abe14-ab47-4714-bb14-a34a7f26af45",
     name: "Android Studio",
     icon: {
-      devicon: "devicon-androidstudio-plain colored",
       svg: "/images/skills/androidstudio.svg",
     },
     description:
@@ -456,7 +425,6 @@ const skills: Skill[] = [
     uuid: "2be82d7b-5cdb-4a35-adba-43ea85a51dfe",
     name: "Android",
     icon: {
-      devicon: "devicon-android-plain colored",
       svg: "/images/skills/android.svg",
     },
     description:
@@ -468,7 +436,6 @@ const skills: Skill[] = [
     uuid: "976a1b57-bf3a-457b-b827-83227316df30",
     name: "Pandas",
     icon: {
-      devicon: "devicon-pandas-original colored",
       svg: "/images/skills/pandas.svg",
     },
     description:
@@ -480,7 +447,6 @@ const skills: Skill[] = [
     uuid: "3c29b95b-d12d-4290-81b4-c8d98aa317a3",
     name: "NumPy",
     icon: {
-      devicon: "devicon-numpy-original colored",
       svg: "/images/skills/numpy.svg",
     },
     description:
@@ -492,7 +458,6 @@ const skills: Skill[] = [
     uuid: "2725324c-cf89-435a-8c62-4f8fe67910c1",
     name: "Google Cloud",
     icon: {
-      devicon: "devicon-googlecloud-plain colored",
       svg: "/images/skills/googlecloud.svg",
     },
     description:
@@ -504,7 +469,6 @@ const skills: Skill[] = [
     uuid: "656f60e5-5500-4a21-a043-389c8b7301ca",
     name: "Jupyter",
     icon: {
-      devicon: "devicon-jupyter-plain colored",
       svg: "/images/skills/jupyter.svg",
     },
     description:
@@ -516,7 +480,6 @@ const skills: Skill[] = [
     uuid: "b5003fb2-bd00-4dc6-8461-a72182b2b763",
     name: "Three.js",
     icon: {
-      devicon: "devicon-threejs-original",
       svg: "/images/skills/threejs.svg",
     },
     description:
@@ -528,7 +491,6 @@ const skills: Skill[] = [
     uuid: "d280f614-7604-4330-9128-3057194d5455",
     name: "Trello",
     icon: {
-      devicon: "devicon-trello-plain colored",
       svg: "/images/skills/trello.svg",
     },
     description:
@@ -656,7 +618,7 @@ const skills: Skill[] = [
     tags: ["Backend", "Frontend", "Web"],
     link: "https://clerk.com/",
   },
-];
+]
 
-export { skills, Tags };
-export type { Skill, SkillTag };
+export { skills, Tags }
+export type { Skill, SkillTag }
