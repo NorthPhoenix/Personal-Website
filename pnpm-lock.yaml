@@ -6,25 +6,25 @@ settings:
 
 dependencies:
   '@aws-sdk/client-s3':
-    specifier: ^3.395.0
+    specifier: ^3.474.0
     version: 3.474.0
   '@aws-sdk/s3-request-presigner':
-    specifier: ^3.395.0
+    specifier: ^3.474.0
     version: 3.474.0
   '@headlessui/react':
-    specifier: ^1.7.15
+    specifier: ^1.7.17
     version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
   '@prisma/client':
-    specifier: ^5.2.0
+    specifier: ^5.7.0
     version: 5.7.0(prisma@5.7.0)
   '@react-three/drei':
-    specifier: ^9.78.1
-    version: 9.92.3(@react-three/fiber@8.15.12)(@types/three@0.153.0)(react-dom@18.2.0)(react@18.2.0)(three@0.154.0)
+    specifier: ^9.92.4
+    version: 9.92.4(@react-three/fiber@8.15.12)(@types/three@0.153.0)(react-dom@18.2.0)(react@18.2.0)(three@0.154.0)
   '@react-three/fiber':
-    specifier: ^8.13.4
+    specifier: ^8.15.12
     version: 8.15.12(react-dom@18.2.0)(react@18.2.0)(three@0.154.0)
   '@react-three/postprocessing':
-    specifier: ^2.15.0
+    specifier: ^2.15.11
     version: 2.15.11(@react-three/fiber@8.15.12)(@types/three@0.153.0)(react@18.2.0)(three@0.154.0)
   '@tsparticles/engine':
     specifier: ^3.0.2
@@ -33,7 +33,7 @@ dependencies:
     specifier: ^3.0.0
     version: 3.0.0(@tsparticles/engine@3.0.2)(react-dom@18.2.0)(react@18.2.0)
   '@vercel/analytics':
-    specifier: ^1.0.2
+    specifier: ^1.1.1
     version: 1.1.1
   bowser:
     specifier: ^2.11.0
@@ -42,22 +42,22 @@ dependencies:
     specifier: ^14.0.4
     version: 14.0.4(eslint@8.56.0)(typescript@5.3.3)
   formik:
-    specifier: ^2.4.3
+    specifier: ^2.4.5
     version: 2.4.5(react@18.2.0)
   framer-motion:
-    specifier: ^10.12.18
+    specifier: ^10.16.16
     version: 10.16.16(react-dom@18.2.0)(react@18.2.0)
   framer-motion-3d:
-    specifier: ^10.15.1
+    specifier: ^10.16.16
     version: 10.16.16(@react-three/fiber@8.15.12)(react-dom@18.2.0)(react@18.2.0)(three@0.154.0)
   jotai:
-    specifier: ^2.3.1
+    specifier: ^2.6.0
     version: 2.6.0(@types/react@18.2.45)(react@18.2.0)
   lucide-react:
     specifier: ^0.298.0
     version: 0.298.0(react@18.2.0)
   mongodb:
-    specifier: ^5.7.0
+    specifier: ^5.9.2
     version: 5.9.2
   next:
     specifier: ^14.0.4
@@ -72,10 +72,10 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   styled-components:
-    specifier: ^6.0.3
+    specifier: ^6.1.1
     version: 6.1.1(react-dom@18.2.0)(react@18.2.0)
   tailwind-merge:
-    specifier: ^1.13.2
+    specifier: ^1.14.0
     version: 1.14.0
   tailwindcss-animated:
     specifier: ^1.0.1
@@ -87,7 +87,7 @@ dependencies:
     specifier: ^3.0.2
     version: 3.0.2
   yup:
-    specifier: ^1.2.0
+    specifier: ^1.3.3
     version: 1.3.3
 
 devDependencies:
@@ -1157,8 +1157,8 @@ packages:
     resolution: {integrity: sha512-POu8Mk0hIU3lRXB3bGIGe4VHIwwDsQyoD1F394OK7STTiX9w4dG3cTLljjYswkQN+hDSHRrj4O36kuVa7KPU8Q==}
     dev: false
 
-  /@react-three/drei@9.92.3(@react-three/fiber@8.15.12)(@types/three@0.153.0)(react-dom@18.2.0)(react@18.2.0)(three@0.154.0):
-    resolution: {integrity: sha512-Ci4JeidQO12rqXm3GQjZmEXILVCxptqMssMa97qeVFJUdIY1AXrufWdRlIVePYoQ9dRDRsn6gn5F/wWfA5SJUQ==}
+  /@react-three/drei@9.92.4(@react-three/fiber@8.15.12)(@types/three@0.153.0)(react-dom@18.2.0)(react@18.2.0)(three@0.154.0):
+    resolution: {integrity: sha512-CbRd9lkdpY1T0NPVmkLwrZ39S67cDmkk8rGHtMQX6hb8GUb6Cx+GDck4L2K0umEpeQh9PC6ypUARxy+k8vpeIA==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'
@@ -1180,7 +1180,7 @@ packages:
       lodash.clamp: 4.0.3
       lodash.omit: 4.5.0
       lodash.pick: 4.4.0
-      maath: 0.9.0(@types/three@0.153.0)(three@0.154.0)
+      maath: 0.10.7(@types/three@0.153.0)(three@0.154.0)
       meshline: 3.1.7(three@0.154.0)
       react: 18.2.0
       react-composer: 5.0.3(react@18.2.0)
@@ -4080,8 +4080,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /maath@0.6.0(@types/three@0.153.0)(three@0.154.0):
-    resolution: {integrity: sha512-dSb2xQuP7vDnaYqfoKzlApeRcR2xtN8/f7WV/TMAkBC8552TwTLtOO0JTcSygkYMjNDPoo6V01jTw/aPi4JrMw==}
+  /maath@0.10.7(@types/three@0.153.0)(three@0.154.0):
+    resolution: {integrity: sha512-zQ2xd7dNOIVTjAS+hj22fyj1EFYmOJX6tzKjZ92r6WDoq8hyFxjuGA2q950tmR4iC/EKXoMQdSipkaJVuUHDTg==}
     peerDependencies:
       '@types/three': '>=0.144.0'
       three: '>=0.144.0'
@@ -4090,8 +4090,8 @@ packages:
       three: 0.154.0
     dev: false
 
-  /maath@0.9.0(@types/three@0.153.0)(three@0.154.0):
-    resolution: {integrity: sha512-aAR8hoUqPxlsU8VOxkS9y37jhUzdUxM017NpCuxFU1Gk+nMaZASZxymZrV8LRSHzRk/watlbfyNKu6XPUhCFrQ==}
+  /maath@0.6.0(@types/three@0.153.0)(three@0.154.0):
+    resolution: {integrity: sha512-dSb2xQuP7vDnaYqfoKzlApeRcR2xtN8/f7WV/TMAkBC8552TwTLtOO0JTcSygkYMjNDPoo6V01jTw/aPi4JrMw==}
     peerDependencies:
       '@types/three': '>=0.144.0'
       three: '>=0.144.0'
