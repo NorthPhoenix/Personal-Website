@@ -24,10 +24,11 @@ const ErrorPopup = ({
   close,
 }: ErrorPopupProps) => {
   const [time, setTime] = useState(0)
-  const [intervalID, setIntervalID] = useState<NodeJS.Timer | null>(null)
+  const [intervalID, setIntervalID] = useState<NodeJS.Timeout | null>(null)
+
   const screenSize = useAtomValue(screenSizeAtom)
 
-  const handleStartTimer = () => {
+  const startTimer = () => {
     // console.log("Starting timer")
     const intervalID = setInterval(() => {
       setTime((prev) => {
@@ -41,7 +42,7 @@ const ErrorPopup = ({
     return intervalID
   }
 
-  const handlePauseTimer = () => {
+  const pauseTimer = () => {
     // console.log("Pausing timer")
     if (intervalID) {
       clearInterval(intervalID)
@@ -53,7 +54,7 @@ const ErrorPopup = ({
   useEffect(() => {
     // console.log("Mounting timer")
     // console.log("closeAfter", closeAfter)
-    const id = handleStartTimer()
+    const id = startTimer()
     return () => {
       clearInterval(id)
     }
@@ -63,7 +64,7 @@ const ErrorPopup = ({
   useEffect(() => {
     if (time >= closeAfter) {
       // console.log("time >= closeAfter")
-      handlePauseTimer()
+      pauseTimer()
       close()
     }
   }, [time])
@@ -85,8 +86,8 @@ const ErrorPopup = ({
             animate: { opacity: 1, y: 0 },
             exit: { opacity: 0, y: 50, transition: { delay: 0.2 } },
           })}
-      onMouseEnter={handlePauseTimer}
-      onMouseLeave={handleStartTimer}
+      onMouseEnter={pauseTimer}
+      onMouseLeave={startTimer}
       className={twMerge(
         "relative m-2 flex  flex-row items-center justify-stretch gap-4 overflow-hidden rounded-lg bg-nier-700 px-4 py-2 shadow-lg sm:cursor-pointer",
         className,
