@@ -1,0 +1,19 @@
+"use client"
+
+import { type ReactNode } from "react"
+import { motion } from "framer-motion"
+
+const InViewDetector = ({ children }: { children: ReactNode }) => {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-30%" }}
+      className="h-full w-full"
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+export default InViewDetector
