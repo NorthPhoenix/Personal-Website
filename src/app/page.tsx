@@ -11,10 +11,11 @@ import Skills from "./_components/skillsSection/Skills"
 import Work from "./_components/workSection/Work"
 import Education from "./_components/educationSection/Education"
 import AboutWithImage from "./_components/aboutSection/AboutWithImage"
+import { type NextPage } from "next"
 
 export const dynamic = "force-dynamic"
 
-const Home = () => {
+const Home: NextPage = () => {
   return (
     <>
       {/* Home page of the website */}

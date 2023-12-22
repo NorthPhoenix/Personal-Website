@@ -20,7 +20,7 @@ import { heroLoadedAtom, homeLoadedAtom, skillsLoadedAtom } from "~/lib/state"
 
 export const dynamic = "force-dynamic"
 
-const HomeLayout = ({ children }: { children: ReactNode }) => {
+const RootClientLayout = ({ children }: { children: ReactNode }) => {
   const ref = useRef<HTMLDivElement>(null)
   const [homeLoaded, setHomeLoaded] = useAtom(homeLoadedAtom)
   const heroLoaded = useAtomValue(heroLoadedAtom)
@@ -81,4 +81,4 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
   )
 }
 
-export default HomeLayout
+export default RootClientLayout

@@ -6,7 +6,7 @@ import ShowMoreButton from "./ShowMoreButton"
 import SectionTitle from "~/app/_components/SectionTitle"
 import InViewDetector from "~/app/_components/InViewDetector"
 import ProjectsAnimator from "./ProjectsAnimator"
-import projects, { Project } from "~/lib/projectsConfig"
+import projects, { type Project } from "~/lib/projectsConfig"
 
 function sortProjectsByComplitionDataDesc(a: Project, b: Project) {
   if (!a.completeDate && !b.completeDate) {
