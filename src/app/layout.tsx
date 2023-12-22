@@ -3,6 +3,7 @@ import JotaiProvider from "~/app/_components/JotaiProvider"
 import GlobalStateProvider from "~/app/_components/GlobalStateProvider"
 import { twMerge } from "tailwind-merge"
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // load fonts
 import localFont from "next/font/local"
@@ -59,6 +60,7 @@ export default function RootLayout({
           <GlobalStateProvider>{children}</GlobalStateProvider>
         </JotaiProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
