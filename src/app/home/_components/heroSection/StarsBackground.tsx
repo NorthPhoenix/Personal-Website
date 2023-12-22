@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge"
 import { useCallback, useEffect, useState } from "react"
 import Particles, { initParticlesEngine } from "@tsparticles/react"
 import { loadFull } from "tsparticles"
-import options from "~/lib/utils/particles-options"
+import options from "~/lib/particles-options"
 
 type StarsBackgroundProps = {
   className?: string

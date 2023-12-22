@@ -1,22 +1,33 @@
 import React from "react"
 
-import { prismaClient } from "~/lib/prisma"
 import ProjectEntry from "./ProjectEntry"
 import ProjectShowLimiter from "./ProjectShowLimiter"
 import ShowMoreButton from "./ShowMoreButton"
 import SectionTitle from "~/app/_components/SectionTitle"
 import InViewDetector from "~/app/_components/InViewDetector"
 import ProjectsAnimator from "./ProjectsAnimator"
+import projects, { Project } from "~/lib/projectsConfig"
 
-const getProjects = async () => {
-  const projects = await prismaClient.project.findMany({
-    orderBy: { completeDate: "desc" },
-  })
-  return projects
+function sortProjectsByComplitionDataDesc(a: Project, b: Project) {
+  if (!a.completeDate && !b.completeDate) {
+    return 0
+  }
+  if (!a.completeDate) {
+    return -1
+  }
+  if (!b.completeDate) {
+    return 1
+  }
+  if (a.completeDate > b.completeDate) {
+    return -1
+  }
+  if (a.completeDate < b.completeDate) {
+    return 1
+  }
+  return 0
 }
 
 const Projects = async () => {
-  const projects = await getProjects()
   return (
     <InViewDetector>
       <section
@@ -31,9 +42,11 @@ const Projects = async () => {
             className="grid max-w-7xl auto-cols-auto auto-rows-auto grid-cols-1 gap-8 p-6 md:grid-cols-2 md:pt-10 xl:grid-cols-3"
           >
             <ProjectShowLimiter>
-              {projects.map((project) => {
-                return <ProjectEntry key={project.id} project={project} />
-              })}
+              {projects
+                .sort(sortProjectsByComplitionDataDesc)
+                .map((project) => {
+                  return <ProjectEntry key={project.title} project={project} />
+                })}
             </ProjectShowLimiter>
           </div>
         </ProjectsAnimator>

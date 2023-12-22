@@ -1,8 +1,8 @@
 import { Suspense } from "react"
-import { ProjectImage } from "./ProjectImage"
 import Link from "next/link"
-import type { Project } from "@prisma/client"
+import type { Project } from "~/lib/projectsConfig"
 import NierButton from "~/app/_components/NierButton"
+import Image from "next/image"
 
 const processDate = (date: Date) => {
   // formate date as follows: "Jan 2021", "Feb 2019", etc.
@@ -17,7 +17,13 @@ const ProjectEntry = ({ project }: { project: Project }) => {
       <div className="flex h-full flex-col items-center justify-start overflow-hidden bg-nier-200 shadow-xl">
         <Suspense fallback={null}>
           <div className="relative w-full">
-            <ProjectImage s3Path={project.thumbnailS3Image.path} />
+            <Image
+              src={`/images/projects/${project.thumbnail}`}
+              alt={`${project.title}'s thumbnail`}
+              height={512}
+              width={512}
+              className="h-auto w-full object-cover"
+            />
           </div>
           <div className="flex w-full grow flex-col items-center justify-between p-4">
             <div className="flex w-full flex-col items-center justify-start">

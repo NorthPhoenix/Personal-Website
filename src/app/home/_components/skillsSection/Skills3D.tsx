@@ -18,7 +18,7 @@ import {
 } from "@react-three/drei"
 import { useState, Suspense, useEffect, useMemo } from "react"
 import Image from "next/image"
-import { skills as skillList, type Skill } from "~/lib/utils/skillsConfig"
+import { skills as skillList, type Skill } from "~/lib/skillsConfig"
 import { selectedTagsAtom, activeSkillAtom } from "./Skills"
 import { useAtomValue, useSetAtom } from "jotai"
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js"

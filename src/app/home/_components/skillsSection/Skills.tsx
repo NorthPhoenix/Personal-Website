@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Fragment } from "react"
-import { type Skill, type SkillTag, Tags } from "~/lib/utils/skillsConfig"
+import { type Skill, type SkillTag, Tags } from "~/lib/skillsConfig"
 import { motion, AnimatePresence } from "framer-motion"
 import { Listbox, Transition } from "@headlessui/react"
 import { Check, ChevronsUpDown } from "lucide-react"
