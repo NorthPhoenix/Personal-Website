@@ -1,7 +1,7 @@
 // My components
 import Footer from "./_components/Footer"
 import Test from "./_components/Test"
-import Projects from "./_components/projectsSection/Projects"
+import Projects from "./_components/Projects"
 import ContactMe from "./_components/contactMeSection/ContactMe"
 import Hero from "./_components/heroSection/Hero"
 import Navbar from "./_components/Navbar"

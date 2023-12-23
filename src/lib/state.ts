@@ -30,4 +30,3 @@ export const initialProjectDisplayedCountAtom = atom<number>((get) => {
       return 0
   }
 })
-export const currentProjectDisplayedCountAtom = atom<number | null>(null)

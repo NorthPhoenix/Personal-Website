@@ -9,11 +9,7 @@ import {
 } from "react"
 import { AnimatePresence } from "framer-motion"
 import { useAtom, useAtomValue, useSetAtom } from "jotai"
-import {
-  currentProjectDisplayedCountAtom,
-  initialProjectDisplayedCountAtom,
-  screenSizeAtom,
-} from "~/lib/state"
+import { screenSizeAtom } from "~/lib/state"
 
 import LoadingScreen from "~/app/_components/LoadingScreen"
 import { heroLoadedAtom, homeLoadedAtom, skillsLoadedAtom } from "~/lib/state"
@@ -26,13 +22,7 @@ const RootClientLayout = ({ children }: { children: ReactNode }) => {
   const heroLoaded = useAtomValue(heroLoadedAtom)
   const skillsLoaded = useAtomValue(skillsLoadedAtom)
 
-  const [screenSize, setScreenSize] = useAtom(screenSizeAtom)
-  const setCurrentProjectDisplayedCount = useSetAtom(
-    currentProjectDisplayedCountAtom,
-  )
-  const initialProjectDisplayedCount = useAtomValue(
-    initialProjectDisplayedCountAtom,
-  )
+  const setScreenSize = useSetAtom(screenSizeAtom)
 
   useEffect(() => {
     if (heroLoaded && skillsLoaded) {
@@ -67,11 +57,6 @@ const RootClientLayout = ({ children }: { children: ReactNode }) => {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
-
-  // set initial project count on reload or resize
-  useEffect(() => {
-    setCurrentProjectDisplayedCount(initialProjectDisplayedCount)
-  }, [screenSize])
 
   return (
     <div className="overflow-hidden" ref={ref}>
