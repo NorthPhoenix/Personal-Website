@@ -3,7 +3,7 @@
 import React from "react"
 import { type ForwardRefComponent, motion, type Variants } from "framer-motion"
 
-const WorkEntryAnimator: ForwardRefComponent<
+const WorkEntryAnimatedContainer: ForwardRefComponent<
   React.ElementRef<typeof motion.li>,
   React.ComponentPropsWithoutRef<typeof motion.li>
 > = React.forwardRef(({ children, ...props }, ref) => {
@@ -28,4 +28,4 @@ const WorkEntryAnimator: ForwardRefComponent<
   )
 })
 
-export default WorkEntryAnimator
+export default WorkEntryAnimatedContainer

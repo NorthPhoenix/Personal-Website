@@ -2,7 +2,7 @@ import React from "react"
 
 import SectionTitle from "~/app/_components/SectionTitle"
 import InViewDetector from "~/app/_components/InViewDetector"
-import WorkEntryAnimator from "./WorkEntryAnimator"
+import WorkEntryAnimatedContainer from "./WorkEntryAnimatedContainer"
 import WorkList from "./WorkList"
 import Image from "next/image"
 import capitalize from "~/lib/utils/capitalize"
@@ -64,7 +64,7 @@ const Work = async () => {
 
 const WorkEntry: React.FC<{ position: TPosition }> = ({ position }) => {
   return (
-    <WorkEntryAnimator className="w-full font-helvetica">
+    <WorkEntryAnimatedContainer className="w-full font-helvetica">
       <div className="nier-block-left-sm md:nier-block-left relative w-full px-0 py-4 md:px-2 md:pl-6">
         <div className="flex w-full flex-col gap-3 bg-nier-200 p-6 shadow-md">
           <div className="flex flex-col items-center gap-2 md:flex-row md:gap-8">
@@ -119,7 +119,7 @@ const WorkEntry: React.FC<{ position: TPosition }> = ({ position }) => {
           )}
         </div>
       </div>
-    </WorkEntryAnimator>
+    </WorkEntryAnimatedContainer>
   )
 }
 
