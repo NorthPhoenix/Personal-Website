@@ -10,7 +10,7 @@ import LinesThroughCircleDesign from "~/app/_components/design/LinesThroughCircl
 import Skills from "./_components/skillsSection/Skills"
 import Work from "./_components/workSection/Work"
 import Education from "./_components/educationSection/Education"
-import AboutWithImage from "./_components/aboutSection/AboutWithImage"
+import About from "./_components/aboutSection/About"
 import { type NextPage } from "next"
 
 export const dynamic = "force-dynamic"
@@ -44,7 +44,7 @@ const Home: NextPage = () => {
           unitWidth={150}
           padding={"50px"}
         />
-        <AboutWithImage />
+        <About />
         <Skills />
         <Work />
         <Projects />
