@@ -45,7 +45,7 @@ const ContactMe = ({ className = "" }: { className?: string }) => {
               Contact Me
             </h1>
             <p className="mx-auto text-base font-semibold leading-relaxed tracking-wide opacity-80 lg:w-2/3">
-              Let's build your user's next experience together.
+              Let's build your users' next experiences together.
             </p>
           </div>
           <Form setSubmitted={setSubmitted} setError={setError} />
