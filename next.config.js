@@ -5,4 +5,13 @@ module.exports = {
   // experimental: {
   //   swcPlugins: [['@swc-jotai/react-refresh', {}]],
   // },
+  redirects: async () => {
+    return [
+      {
+        source: '/home/:path',
+        destination: '/:path',
+        permanent: true,
+      },
+    ]
+  },
 }
