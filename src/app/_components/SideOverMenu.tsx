@@ -3,7 +3,7 @@
 import { type Dispatch, Fragment, type SetStateAction } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import { X } from "lucide-react"
-import { motion } from "framer-motion"
+import { LazyMotion, domAnimation, m } from "framer-motion"
 import Link from "next/link"
 
 type SideOverMenuProps = {
@@ -125,35 +125,37 @@ const SideOverMenu: React.FC<SideOverMenuProps> = ({
                     </div>
                   </Transition.Child>
                   {/* Content */}
-                  <motion.ul
-                    className="h-full w-full flex-col items-center justify-start bg-nier-700 py-14 shadow-xl"
-                    variants={menuContainerVariants}
-                    initial="hidden"
-                    animate="show"
-                  >
-                    {links.map(({ href, label, id }) => {
-                      return (
-                        <motion.li
-                          key={id}
-                          className="my-10 text-center font-exodus-regular text-xl text-nier-200 "
-                          variants={menuItemVariants}
-                        >
-                          {id === "resume" ?
-                            <Link href={href} prefetch={true} target="_blank">
-                              {label}
-                            </Link>
-                          : <button
-                              onClick={() => {
-                                handleAnchorClick(href.slice(1))
-                              }}
-                            >
-                              {label}
-                            </button>
-                          }
-                        </motion.li>
-                      )
-                    })}
-                  </motion.ul>
+                  <LazyMotion strict features={domAnimation}>
+                    <m.ul
+                      className="h-full w-full flex-col items-center justify-start bg-nier-700 py-14 shadow-xl"
+                      variants={menuContainerVariants}
+                      initial="hidden"
+                      animate="show"
+                    >
+                      {links.map(({ href, label, id }) => {
+                        return (
+                          <m.li
+                            key={id}
+                            className="my-10 text-center font-exodus-regular text-xl text-nier-200 "
+                            variants={menuItemVariants}
+                          >
+                            {id === "resume" ?
+                              <Link href={href} prefetch={true} target="_blank">
+                                {label}
+                              </Link>
+                            : <button
+                                onClick={() => {
+                                  handleAnchorClick(href.slice(1))
+                                }}
+                              >
+                                {label}
+                              </button>
+                            }
+                          </m.li>
+                        )
+                      })}
+                    </m.ul>
+                  </LazyMotion>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
