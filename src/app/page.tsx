@@ -1,6 +1,5 @@
 // My components
 import Footer from "./_components/Footer"
-import Test from "./_components/Test"
 import Projects from "./_components/Projects"
 import ContactMe from "./_components/ContactMe"
 import Hero from "./_components/heroSection/Hero"
@@ -12,8 +11,6 @@ import Work from "./_components/workSection/Work"
 import Education from "./_components/educationSection/Education"
 import About from "./_components/aboutSection/About"
 import { type NextPage } from "next"
-
-export const dynamic = "force-dynamic"
 
 const Home: NextPage = () => {
   return (
@@ -61,7 +58,6 @@ const Home: NextPage = () => {
         <ContactMe className="" />
         <Footer />
       </div>
-      {process.env.NODE_ENV === "development" && <Test />}
     </>
   )
 }
