@@ -77,7 +77,7 @@ const WorkEntry: React.FC<{ position: TPosition }> = ({ position }) => {
             />
             <div className="flex flex-1 flex-col">
               <div className="contents md:flex md:flex-row md:flex-nowrap md:items-center md:justify-between md:gap-4">
-                <h3 className="order-first text-center text-2xl font-bold md:text-left lg:text-3xl">
+                <h3 className="text-shadow order-first text-center text-2xl font-bold md:text-left lg:text-3xl">
                   {position.position}
                 </h3>
                 <p className="text-center text-lg font-semibold md:text-left">
