@@ -136,7 +136,7 @@ const ProjectEntry: ForwardRefComponent<
     <motion.div {...props} ref={ref}>
       <div className="flex h-full flex-col items-center justify-start overflow-hidden bg-nier-200 shadow-xl">
         <Suspense fallback={null}>
-          <div className="relative w-full">
+          <div className="flex aspect-square w-full items-center justify-center bg-nier-400">
             <Image
               src={`/images/projects/${project.thumbnail}`}
               alt={`${project.title}'s thumbnail`}
