@@ -11,10 +11,11 @@ import Work from "./_components/workSection/Work"
 import Education from "./_components/educationSection/Education"
 import About from "./_components/aboutSection/About"
 import { type NextPage } from "next"
+import RootClientLayout from "./_components/RootClientLayout"
 
 const Home: NextPage = () => {
   return (
-    <>
+    <RootClientLayout>
       {/* Home page of the website */}
       <Navbar />
       <Hero />
@@ -58,7 +59,7 @@ const Home: NextPage = () => {
         <ContactMe className="" />
         <Footer />
       </div>
-    </>
+    </RootClientLayout>
   )
 }
 

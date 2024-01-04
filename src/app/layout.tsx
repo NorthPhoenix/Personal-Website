@@ -58,9 +58,7 @@ export default function RootLayout({
         )}
       >
         <JotaiProvider>
-          <GlobalStateProvider>
-            <RootClientLayout>{children}</RootClientLayout>
-          </GlobalStateProvider>
+          <GlobalStateProvider>{children}</GlobalStateProvider>
         </JotaiProvider>
         <Analytics />
         <SpeedInsights />
