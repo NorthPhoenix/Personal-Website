@@ -8,6 +8,10 @@ const particlesOptions = {
     },
     opacity: 1,
   },
+  fullScreen: {
+    enable: false,
+    zIndex: -1,
+  },
   delay: 0,
   detectRetina: true,
   duration: 0,
