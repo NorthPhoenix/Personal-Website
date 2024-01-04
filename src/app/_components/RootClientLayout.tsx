@@ -14,8 +14,6 @@ import { screenSizeAtom } from "~/lib/state"
 import LoadingScreen from "~/app/_components/LoadingScreen"
 import { heroLoadedAtom, homeLoadedAtom, skillsLoadedAtom } from "~/lib/state"
 
-export const dynamic = "force-dynamic"
-
 const RootClientLayout = ({ children }: { children: ReactNode }) => {
   const ref = useRef<HTMLDivElement>(null)
   const [homeLoaded, setHomeLoaded] = useAtom(homeLoadedAtom)
