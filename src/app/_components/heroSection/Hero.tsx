@@ -1,13 +1,15 @@
 "use client"
 
 import { twMerge } from "tailwind-merge"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, stagger, useAnimate } from "framer-motion"
 
 import DownArrow from "~/app/_components/design/DownArrow"
 import StarsBackground from "./StarsBackground"
 import { useSetAtom, useAtomValue } from "jotai"
-import { heroLoadedAtom, homeLoadedAtom } from "~/lib/state"
+import { heroLoadedAtom, homeLoadedAtom, isNavBlurredAtom } from "~/lib/state"
+
+const NAV_STATE_CHANGE_Y_OFFSET = -30
 
 type HeroProps = {
   className?: string
@@ -17,18 +19,36 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   const setHeroLoaded = useSetAtom(heroLoadedAtom)
   const homeLoaded = useAtomValue(homeLoadedAtom)
 
+  const [animationScope, animate] = useAnimate()
+
+  const setIsNavBlurred = useSetAtom(isNavBlurredAtom)
+  const ref = useRef<HTMLElement>(null)
+
   const [particlesLoaded, setParticlesLoaded] = useState(false)
-  // const [cubesLoaded, setcubesLoaded] = useState(false)
 
   const onParticleLoad = () => {
     console.log("onParticleLoad")
     setParticlesLoaded(true)
   }
 
-  // const onCubesLoad = () => {
-  //   // console.log("onCubesLoad");
-  //   setcubesLoaded(true)
-  // }
+  const handleNavState = () => {
+    if (!ref.current) {
+      return
+    }
+    const heroHeight = ref.current.getBoundingClientRect().height
+    if (window.scrollY > heroHeight + NAV_STATE_CHANGE_Y_OFFSET) {
+      setIsNavBlurred(true)
+    } else if (window.scrollY <= heroHeight + NAV_STATE_CHANGE_Y_OFFSET) {
+      setIsNavBlurred(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleNavState)
+    return () => {
+      window.removeEventListener("scroll", handleNavState)
+    }
+  }, [])
 
   useEffect(() => {
     if (particlesLoaded) {
@@ -37,7 +57,6 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
     }
   }, [particlesLoaded])
 
-  const [animationScope, animate] = useAnimate()
   useEffect(() => {
     if (homeLoaded) {
       void animate(
@@ -55,6 +74,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
 
   return (
     <section
+      ref={ref}
       id="hero"
       className="relative flex h-[max(100svh,_512px)] flex-col"
     >
