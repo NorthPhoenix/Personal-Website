@@ -15,6 +15,7 @@ import NierButton from "~/app/_components/NierButton"
 import Image from "next/image"
 import { useAtomValue } from "jotai"
 import { initialProjectDisplayedCountAtom } from "~/lib/state"
+import dayjs from "dayjs"
 
 function sortProjectsByComplitionDateDesc(a: Project, b: Project) {
   if (!a.completeDate && !b.completeDate) {
@@ -33,13 +34,6 @@ function sortProjectsByComplitionDateDesc(a: Project, b: Project) {
     return 1
   }
   return 0
-}
-
-function processDate(date: Date) {
-  // formate date as follows: "Jan 2021", "Feb 2019", etc.
-  return `${date.toLocaleString("en-US", {
-    month: "short",
-  })} ${date.getFullYear()}`
 }
 
 const initialAnimationDelay = 0.3
@@ -158,7 +152,7 @@ const ProjectEntry: ForwardRefComponent<
                 )}
                 {!!project.completeDate && (
                   <span className=" w-full text-base leading-5 opacity-70">
-                    {processDate(project.completeDate)}
+                    {dayjs(project.completeDate).format("MMM YYYY")}
                   </span>
                 )}
               </h3>

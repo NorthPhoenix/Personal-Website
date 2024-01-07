@@ -7,6 +7,7 @@ import WorkList from "./WorkList"
 import Image from "next/image"
 import capitalize from "~/lib/utils/capitalize"
 import WorkDropdown from "./WorkDropdown"
+import dayjs from "dayjs"
 
 type TPosition = {
   id: string
@@ -30,7 +31,7 @@ const positions: TPosition[] = [
     position: "Full-stack Developer",
     company: "Framed",
     startDate: new Date("2023-09-26"),
-    endDate: null,
+    endDate: new Date("2023-12-25"),
     description: {
       bulletPoints: [
         "Developed and deployed Next.js web application as a solo engineer.",
@@ -81,16 +82,9 @@ const WorkEntry: React.FC<{ position: TPosition }> = ({ position }) => {
                   {position.position}
                 </h3>
                 <p className="text-center text-lg font-semibold md:text-left">
-                  {position.startDate.toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                  })}{" "}
-                  -{" "}
+                  {dayjs(position.startDate).format("MMM YYYY")} -{" "}
                   {position.endDate ?
-                    position.endDate.toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                    })
+                    dayjs(position.endDate).format("MMM YYYY")
                   : "Present"}
                 </p>
               </div>
