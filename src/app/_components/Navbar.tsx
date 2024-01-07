@@ -135,7 +135,7 @@ const Navbar: React.FC<NavbarProps> = ({ className = "" }) => {
                     Nikita Istomin
                   </h1>
                   <h2 className="font-helvetica text-sm leading-3 text-nier-400">
-                    Frontend Developer
+                    Full-stack Developer
                   </h2>
                 </div>
               </button>

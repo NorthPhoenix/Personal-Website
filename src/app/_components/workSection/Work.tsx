@@ -27,7 +27,7 @@ type TPositionDescription = {
 const positions: TPosition[] = [
   {
     id: "framed-fullstack",
-    position: "Full Stack Developer",
+    position: "Full-stack Developer",
     company: "Framed",
     startDate: new Date("2023-09-26"),
     endDate: null,
