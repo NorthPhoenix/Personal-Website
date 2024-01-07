@@ -8,6 +8,7 @@ import DownArrow from "~/app/_components/design/DownArrow"
 import StarsBackground from "./StarsBackground"
 import { useSetAtom, useAtomValue } from "jotai"
 import { heroLoadedAtom, homeLoadedAtom, isNavBlurredAtom } from "~/lib/state"
+import HeroOverlay from "./HeroOverlay"
 
 const NAV_STATE_CHANGE_Y_OFFSET = -30
 
@@ -113,10 +114,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         onLoad={onParticleLoad}
         className="absolute left-0 right-0 top-0 -z-30 h-full"
       />
-      {/* <Cubes3D
-        onLoad={onCubesLoad}
-        className='absolute left-0 top-0 -z-40 h-full w-full'
-      /> */}
+      <HeroOverlay className="absolute bottom-[20%] left-3 translate-y-1/2 max-md:hidden" />
     </section>
   )
 }

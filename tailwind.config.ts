@@ -10,14 +10,31 @@ export default {
     { pattern: /^bg-.*-(50|100|200|300|400|500|600|700|800|900)/ },
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       animation: {
         wave: "wave 5s ease-in-out infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       keyframes: {
         wave: {
           "0%": { transform: "translate(-50px, 50px) rotate(-45deg)" },
           "100%": { transform: "translate(105vw, -105vh) rotate(-45deg)" },
+        },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       backgroundImage: {
@@ -73,5 +90,6 @@ export default {
   plugins: [
     require("tailwindcss-debug-screens"),
     require("tailwindcss-animated"),
+    require("tailwindcss-animate"),
   ],
 } satisfies Config

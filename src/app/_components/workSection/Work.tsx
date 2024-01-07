@@ -5,7 +5,7 @@ import InViewDetector from "~/app/_components/InViewDetector"
 import WorkEntryAnimatedContainer from "./WorkEntryAnimatedContainer"
 import WorkList from "./WorkList"
 import Image from "next/image"
-import capitalize from "~/lib/utils/capitalize"
+import { capitalize } from "~/lib/utils"
 import WorkDropdown from "./WorkDropdown"
 import dayjs from "dayjs"
 
