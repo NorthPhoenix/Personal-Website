@@ -127,7 +127,7 @@ const SkillsGroup = () => {
     }
     const filteredSkills = skillList.filter((skill) => {
       return skill.tags.some((tag) =>
-        selectedTags.some((selectedTag) => Object.keys(selectedTag)[0] === tag),
+        selectedTags.some((selectedTag) => selectedTag === tag),
       )
     })
     setSkills({
