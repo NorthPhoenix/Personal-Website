@@ -1,5 +1,5 @@
 import Image from "next/image"
-import portrait from "/public/images/portrait.png"
+import portrait from "/public/images/portrait.jpg"
 import content from "./content"
 import { type Variants } from "framer-motion"
 import Motion from "./Motion"
@@ -97,8 +97,11 @@ const About = () => {
                 ))}
               </h3>
             </Motion>
-            <Motion variants={blockContentVariants} className="px-2 py-4">
-              <div className="w-fit border-4 border-double border-nier-400 p-2 ">
+            <Motion
+              variants={blockContentVariants}
+              className="flex justify-center px-2 py-4"
+            >
+              <div className="w-3/4 border-4 border-double border-nier-400 p-2 sm:w-2/3 ">
                 <Image
                   src={portrait}
                   alt="portrait"

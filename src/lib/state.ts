@@ -3,7 +3,6 @@ import { atom } from "jotai"
 // loading states
 export const homeLoadedAtom = atom<boolean>(false)
 export const heroLoadedAtom = atom<boolean>(false)
-export const aboutLoadedAtom = atom<boolean>(false)
 export const skillsLoadedAtom = atom<boolean>(false)
 
 type ScreenSizeType = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | null
@@ -30,3 +29,5 @@ export const initialProjectDisplayedCountAtom = atom<number>((get) => {
       return 0
   }
 })
+
+export const isNavBlurredAtom = atom<boolean>(false)

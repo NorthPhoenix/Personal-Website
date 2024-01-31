@@ -17,6 +17,7 @@ export const selectedTagsAtom = atom<SkillTag[]>([])
 const Skills = () => {
   const activeSkill = useAtomValue(activeSkillAtom)
   const [selectedTags, setSelectedTags] = useAtom(selectedTagsAtom)
+  console.log("selectedTags", selectedTags)
 
   const topTitleLineVariants = {
     hidden: {
@@ -159,10 +160,7 @@ const Skills = () => {
             <Listbox.Button className="relative w-full cursor-default bg-nier-200 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-nier-400 focus-visible:ring-2 focus-visible:ring-nier-700 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-nier-200 sm:text-sm">
               {selectedTags.length === 0 ?
                 <span className="block truncate">Filter</span>
-              : <span className="block">
-                  {selectedTags.map((tag) => Object.keys(tag)[0]).join(", ")}
-                </span>
-              }
+              : <span className="block">{selectedTags.join(", ")}</span>}
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <ChevronsUpDown
                   className="h-5 w-5 fill-none text-nier-700"
@@ -197,7 +195,7 @@ const Skills = () => {
                             selected ? "font-medium" : "font-normal"
                           }`}
                         >
-                          {Object.keys(tag)[0]}
+                          {tag}
                         </span>
                         {selected ?
                           <span className="absolute inset-y-0 left-0 flex items-center pl-3">

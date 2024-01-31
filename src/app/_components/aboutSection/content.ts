@@ -2,7 +2,7 @@ const content = {
   name: "Nikita Istomin",
   subtitles: ["Software developer", "Deep thinker", "Life enjoyer"],
   description:
-    "I'm a frontend web developer with a passion for creating beautiful and useful things. I was introduced to programming in 2015 and since then I was dragged into the world of technology. I'm a recent computer science grad from the University of Texas at Dallas, and I'm excited to start my career in the industry.",
+    "I'm a full-stack web developer with a passion for creating beautiful and useful things. I was introduced to programming in 2015 and since then I was dragged into the world of technology. I'm a recent computer science grad from the University of Texas at Dallas, and I'm excited to start my career in the industry.",
   qualities: [
     {
       title: "Motivated",
