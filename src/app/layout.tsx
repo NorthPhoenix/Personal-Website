@@ -4,7 +4,6 @@ import GlobalStateProvider from "~/app/_components/GlobalStateProvider"
 import { twMerge } from "tailwind-merge"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import RootClientLayout from "./_components/RootClientLayout"
 
 // load fonts
 import localFont from "next/font/local"
