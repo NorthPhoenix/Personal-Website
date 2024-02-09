@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth antialiased;
+  }
+  body {
+    @apply nier-grate styled-scrollbar bg-nier-300 text-nier-700 selection:bg-orange-700 selection:text-nier-200;
+  }
+}
+
+@layer utilities {
+  .nav-blur {
+    background: linear-gradient(
+      to bottom,
+      hsla(0, 0%, 0%, 0.8) 0%,
+      hsla(0, 0%, 0%, 0.79) 18.5%,
+      hsla(0, 0%, 0%, 0.761) 34.2%,
+      hsla(0, 0%, 0%, 0.717) 47.4%,
+      hsla(0, 0%, 0%, 0.66) 58.2%,
+      hsla(0, 0%, 0%, 0.593) 67%,
+      hsla(0, 0%, 0%, 0.518) 74.1%,
+      hsla(0, 0%, 0%, 0.44) 79.6%,
+      hsla(0, 0%, 0%, 0.36) 83.9%,
+      hsla(0, 0%, 0%, 0.282) 87.1%,
+      hsla(0, 0%, 0%, 0.207) 89.6%,
+      hsla(0, 0%, 0%, 0.14) 91.7%,
+      hsla(0, 0%, 0%, 0.083) 93.4%,
+      hsla(0, 0%, 0%, 0.039) 95.3%,
+      hsla(0, 0%, 0%, 0.01) 97.4%,
+      hsla(0, 0%, 0%, 0) 100%
+    );
+    backdrop-filter: blur(20px);
+    /*   https://larsenwork.com/easing-gradients/#editor */
+    -webkit-mask: linear-gradient(
+      to bottom,
+      hsl(0, 0%, 0%) 0%,
+      hsla(0, 0%, 0%, 0.987) 18.5%,
+      hsla(0, 0%, 0%, 0.951) 34.2%,
+      hsla(0, 0%, 0%, 0.896) 47.4%,
+      hsla(0, 0%, 0%, 0.825) 58.2%,
+      hsla(0, 0%, 0%, 0.741) 67%,
+      hsla(0, 0%, 0%, 0.648) 74.1%,
+      hsla(0, 0%, 0%, 0.55) 79.6%,
+      hsla(0, 0%, 0%, 0.45) 83.9%,
+      hsla(0, 0%, 0%, 0.352) 87.1%,
+      hsla(0, 0%, 0%, 0.259) 89.6%,
+      hsla(0, 0%, 0%, 0.175) 91.7%,
+      hsla(0, 0%, 0%, 0.104) 93.4%,
+      hsla(0, 0%, 0%, 0.049) 95.3%,
+      hsla(0, 0%, 0%, 0.013) 97.4%,
+      hsla(0, 0%, 0%, 0) 100%
+    );
+    mask: linear-gradient(
+      to bottom,
+      hsl(0, 0%, 0%) 0%,
+      hsla(0, 0%, 0%, 0.987) 18.5%,
+      hsla(0, 0%, 0%, 0.951) 34.2%,
+      hsla(0, 0%, 0%, 0.896) 47.4%,
+      hsla(0, 0%, 0%, 0.825) 58.2%,
+      hsla(0, 0%, 0%, 0.741) 67%,
+      hsla(0, 0%, 0%, 0.648) 74.1%,
+      hsla(0, 0%, 0%, 0.55) 79.6%,
+      hsla(0, 0%, 0%, 0.45) 83.9%,
+      hsla(0, 0%, 0%, 0.352) 87.1%,
+      hsla(0, 0%, 0%, 0.259) 89.6%,
+      hsla(0, 0%, 0%, 0.175) 91.7%,
+      hsla(0, 0%, 0%, 0.104) 93.4%,
+      hsla(0, 0%, 0%, 0.049) 95.3%,
+      hsla(0, 0%, 0%, 0.013) 97.4%,
+      hsla(0, 0%, 0%, 0) 100%
+    );
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .styled-scrollbar::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  .styled-scrollbar::-webkit-scrollbar-track {
+    background: #d1cdb7;
+  }
+  .styled-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #454138;
+    border-radius: 2px;
+    border: 0rem solid #d1cdb7;
+  }
+  .nier-grate {
+    background-size: 0.3rem 0.3rem;
+    background-image: linear-gradient(
+        to right,
+        theme(textColor.nier.350) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, theme(textColor.nier.350) 1px, transparent 1px);
+  }
+  .text-shadow {
+    text-shadow: 0.3rem 0.3rem 0 theme(textColor.nier.400);
+  }
+  .nier-block-left {
+    @apply before:absolute before:-left-6 before:top-0 before:box-content before:h-full before:w-[0.3rem] before:border before:border-y-0 before:border-l-[0.6rem] before:border-r-[0.2rem] before:border-solid before:border-nier-400 before:content-[""];
+  }
+  .nier-block-left-sm {
+    @apply before:absolute before:-left-4 before:top-0 before:box-content before:h-full before:w-[0.15rem] before:border before:border-y-0 before:border-l-[0.3rem] before:border-r-[0.1rem] before:border-solid before:border-nier-400 before:content-[""];
+  }
+  .nier-block-right {
+    @apply after:absolute after:-right-6 after:top-0 after:box-content after:h-full after:w-[0.3rem] after:border after:border-y-0 after:border-l-[0.2rem] after:border-r-[0.6rem] after:border-solid after:border-nier-400 after:content-[""];
+  }
+  .nier-block-right-sm {
+    @apply after:absolute after:-right-4 after:top-0 after:box-content after:h-full after:w-[0.15rem] after:border after:border-y-0 after:border-l-[0.1rem] after:border-r-[0.3rem] after:border-solid after:border-nier-400 after:content-[""];
+  }
+}

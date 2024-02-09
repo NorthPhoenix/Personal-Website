@@ -1,5 +1,8 @@
+import createMDX from '@next/mdx'
+
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
   transpilePackages: ['three'],
   // experimental: {
@@ -15,3 +18,13 @@ module.exports = {
     ]
   },
 }
+
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+})
+
+export default withMDX(nextConfig)

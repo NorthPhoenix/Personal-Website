@@ -1,17 +1,17 @@
 // My components
-import Footer from "./_components/Footer"
-import Projects from "./_components/Projects"
-import ContactMe from "./_components/ContactMe"
-import Hero from "./_components/heroSection/Hero"
-import Navbar from "./_components/Navbar"
+import Footer from "../_components/Footer"
+import Projects from "../_components/Projects"
+import ContactMe from "../_components/ContactMe"
+import Hero from "../_components/heroSection/Hero"
+import Navbar from "../_components/Navbar"
 import DiamondTransition from "~/app/_components/design/DiamondTransition"
 import LinesThroughCircleDesign from "~/app/_components/design/LinesThroughCircleDesign"
-import Skills from "./_components/skillsSection/Skills"
-import Work from "./_components/workSection/Work"
-import Education from "./_components/educationSection/Education"
-import About from "./_components/aboutSection/About"
+import Skills from "../_components/skillsSection/Skills"
+import Work from "../_components/workSection/Work"
+import Education from "../_components/educationSection/Education"
+import About from "../_components/aboutSection/About"
 import { type NextPage } from "next"
-import RootClientLayout from "./_components/RootClientLayout"
+import RootClientLayout from "../_components/RootClientLayout"
 
 const Home: NextPage = () => {
   return (

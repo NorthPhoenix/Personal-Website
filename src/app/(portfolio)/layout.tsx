@@ -1,7 +1,7 @@
 import "~/styles/globals.css"
+import "~/styles/portfolio.css"
 import JotaiProvider from "~/app/_components/JotaiProvider"
 import GlobalStateProvider from "~/app/_components/GlobalStateProvider"
-import { twMerge } from "tailwind-merge"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -9,22 +9,22 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import localFont from "next/font/local"
 
 const exodus_regular = localFont({
-  src: "../../public/fonts/ExodusDemo-Regular.otf",
+  src: "../../../public/fonts/ExodusDemo-Regular.otf",
   display: "swap",
   variable: "--font-exodus-regular",
 })
 const exodus_sharpen = localFont({
-  src: "../../public/fonts/ExodusDemo-Sharpen.otf",
+  src: "../../../public/fonts/ExodusDemo-Sharpen.otf",
   display: "swap",
   variable: "--font-exodus-sharpen",
 })
 const exodus_stencil = localFont({
-  src: "../../public/fonts/ExodusDemo-Stencil.otf",
+  src: "../../../public/fonts/ExodusDemo-Stencil.otf",
   display: "swap",
   variable: "--font-exodus-stencil",
 })
 const exodus_striped = localFont({
-  src: "../../public/fonts/ExodusDemo-Striped.otf",
+  src: "../../../public/fonts/ExodusDemo-Striped.otf",
   display: "swap",
   variable: "--font-exodus-striped",
 })
@@ -51,10 +51,9 @@ export default function RootLayout({
       className={`${exodus_regular.variable} ${exodus_sharpen.variable} ${exodus_stencil.variable} ${exodus_striped.variable}`}
     >
       <body
-        className={twMerge(
-          "selection:bg-orange-700 selection:text-nier-200",
-          process.env.NODE_ENV === "development" ? "debug-screens" : "",
-        )}
+        className={
+          process.env.NODE_ENV === "development" ? "debug-screens" : ""
+        }
       >
         <JotaiProvider>
           <GlobalStateProvider>{children}</GlobalStateProvider>
