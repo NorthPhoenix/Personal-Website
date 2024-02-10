@@ -12,7 +12,7 @@ publishedAt: '2024-02-09T23:25:59.609Z'
 
 Test text
 
-```
+```javascript
 const foo = () => {
     console.log("Hello Blog")
 }
