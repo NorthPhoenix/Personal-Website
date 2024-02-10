@@ -1,6 +1,6 @@
 ---
 title: 'Test Blog Entree'
-status: 'draft'
+status: 'published'
 author:
   name: 'Nikita Istomin'
   picture: 'https://avatars.githubusercontent.com/u/23215805?v=4'
