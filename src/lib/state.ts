@@ -30,4 +30,5 @@ export const initialProjectDisplayedCountAtom = atom<number>((get) => {
   }
 })
 
+// does the navbar blur things behind it
 export const isNavBlurredAtom = atom<boolean>(false)
