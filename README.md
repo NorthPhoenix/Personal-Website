@@ -19,16 +19,10 @@ I went into it with some backend and zero frontend experience.
 	<a href="https://threejs.org/" >
 		<img alt="Three.js" title="Three.js" src="https://global.discourse-cdn.com/standard17/uploads/threejs/optimized/2X/e/e4f86d2200d2d35c30f7b1494e96b9595ebc2751_2_1016x1024.png" width=100 height=100>
 	</a>
-  <a href="https://www.prisma.io/" >
-    <img alt="Prisma" title="Prisma" src="https://cdn.svgporn.com/logos/prisma.svg" width=100 height=100>
-  </a>
-  <a href="https://www.mongodb.com/" >
-    <img alt="MongoDB" title="MongoDB" src="https://cdn.iconscout.com/icon/free/png-512/mongodb-3-1175138.png" width=100 height=100>
-  </a>
   <a href="https://www.vercel.com/" >
     <img alt="Vercel" title="Vercel" src="https://icon.icepanel.io/Technology/svg/Vercel.svg" width=100 height=100>
   </a>
-  <a href="https://aws.amazon.com/s3/" >
-    <img alt="S3" title="S3" src="https://icon.icepanel.io/Technology/svg/AWS.svg" width=100 height=100>
+  <a href="https://www.outstatic.com/" >
+    <img alt="Outstatic" title="Outstatic" src="https://outstatic.com/favicon/favicon-32x32.png" width=100 height=100>
   </a>
 </div>
