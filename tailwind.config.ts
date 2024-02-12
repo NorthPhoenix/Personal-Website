@@ -18,6 +18,10 @@ export default {
       },
     },
     extend: {
+      fontSize: {
+        xxs: ["0.5rem", "0.75rem"],
+      },
+
       animation: {
         wave: "wave 5s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -91,5 +95,6 @@ export default {
     require("tailwindcss-debug-screens"),
     require("tailwindcss-animated"),
     require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
   ],
 } satisfies Config

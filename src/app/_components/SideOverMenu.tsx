@@ -10,7 +10,7 @@ type SideOverMenuProps = {
   open: boolean
   setOpen: Dispatch<SetStateAction<boolean>>
   links: { href: string; label: string; id: string }[]
-  showNav: () => void
+  showNav?: () => void
 }
 
 const SideOverMenu: React.FC<SideOverMenuProps> = ({
@@ -21,7 +21,7 @@ const SideOverMenu: React.FC<SideOverMenuProps> = ({
 }) => {
   function closeModal() {
     setOpen(false)
-    showNav()
+    showNav?.()
   }
 
   /**
@@ -29,7 +29,7 @@ const SideOverMenu: React.FC<SideOverMenuProps> = ({
    * @param anchor - HTMLElement to scroll to
    * @param callback - callback function to call after scrolling is done
    */
-  function scrollToAnchor(anchor: HTMLElement, callback: () => void) {
+  function scrollToAnchor(anchor: HTMLElement, callback?: () => void) {
     const fixedOffset = (
       anchor.getBoundingClientRect().top + window.scrollY
     ).toFixed()
@@ -39,7 +39,7 @@ const SideOverMenu: React.FC<SideOverMenuProps> = ({
         window.removeEventListener("scroll", onScroll)
         // Set a small timeout to allow the scroll to finish completely
         setTimeout(() => {
-          callback()
+          callback?.()
         }, 100)
       }
     }

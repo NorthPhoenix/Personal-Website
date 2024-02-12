@@ -8,3 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function capitalize(str: string) {
   return str.replaceAll(/(^\w)|(\s\w)/g, (match) => match.toUpperCase())
 }
+
+export function absoluteUrl(path: string) {
+  return `${process.env?.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"}${path}`
+}
