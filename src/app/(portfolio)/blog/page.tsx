@@ -1,21 +1,3 @@
-// import React from "react"
-
-// const page = () => {
-//   return (
-//     <>
-//       <section className="mx-auto flex w-full flex-col pt-8">
-//         <h1 className="py-4 text-center text-5xl font-bold">My Blog</h1>
-//         <hr className="mx-auto w-[20%]" />
-//         <div className="grow p-10 text-center text-xl">
-//           Stay tuned for the first post :D
-//         </div>
-//       </section>
-//     </>
-//   )
-// }
-
-// export default page
-
 import { load } from "outstatic/server"
 import type { OstDocument } from "outstatic"
 import Link from "next/link"

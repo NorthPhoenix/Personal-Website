@@ -1,6 +1,5 @@
 import React from "react"
 import { type Metadata } from "next"
-import { absoluteUrl } from "~/lib/utils"
 import Footer from "~/app/_components/blog//Footer"
 import Header from "~/app/_components/blog/Header"
 
@@ -14,14 +13,6 @@ export const metadata: Metadata = {
     title: "Nikita's Blog",
     description:
       "A blog for random cool stuff built with Next.js and Outstatic.",
-    url: absoluteUrl("/"),
-    images: [
-      {
-        url: absoluteUrl("/images/og-image.png"),
-        width: 1800,
-        height: 1600,
-      },
-    ],
     locale: "en_US",
     type: "website",
   },

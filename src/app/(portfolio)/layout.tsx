@@ -38,6 +38,13 @@ export const metadata: Metadata = {
   authors: { name: "Nikita Istomin" },
   applicationName: "Nikita Istomin Portfolio Website",
   creator: "Nikita Istomin",
+  openGraph: {
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 }
 
 export default function RootLayout({
