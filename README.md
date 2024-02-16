@@ -23,6 +23,6 @@ I went into it with some backend and zero frontend experience.
     <img alt="Vercel" title="Vercel" src="https://icon.icepanel.io/Technology/svg/Vercel.svg" width=100 height=100>
   </a>
   <a href="https://www.outstatic.com/" >
-    <img alt="Outstatic" title="Outstatic" src="https://outstatic.com/favicon/favicon-32x32.png" width=100 height=100>
+    <img alt="Outstatic" title="Outstatic" src="https://github.com/avitorio/outstatic/blob/3b2eb5db1770b75b640a37cbafdaf4a3eeac5e16/apps/docs/public/favicon/android-chrome-512x512.png?raw=true" width=100 height=100>
   </a>
 </div>
