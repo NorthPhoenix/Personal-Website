@@ -8,7 +8,7 @@ export default async function Index() {
 
   return (
     <div className="mx-auto max-w-6xl px-5">
-      <h1 className="py-10 text-5xl font-bold leading-tight tracking-tighter md:text-6xl">
+      <h1 className="animate-fade-right py-10 text-5xl font-bold leading-tight tracking-tighter animate-delay-300 animate-duration-[1500ms] animate-ease-in-out md:text-6xl">
         My Blog
       </h1>
       {allPosts.length > 0 && <ContentGrid items={allPosts} priority />}
@@ -47,12 +47,13 @@ type ContentGridProps = {
 const ContentGrid = ({ items, priority = false }: ContentGridProps) => {
   return (
     <section>
-      <div className="mb-8 grid grid-cols-1 gap-y-5 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-8">
+      <div className="stagger-delta-100 animate-delay-stagger mb-8 grid grid-cols-1 gap-y-5 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-8">
         {items.map((item, id) => (
           <Link
             key={item.slug}
             href={`/blog/${item.slug}`}
-            className="scale-100 cursor-pointer overflow-hidden rounded-md border border-nier-700 transition duration-100 hover:scale-[1.02] hover:shadow active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 md:w-full"
+            style={{ "--animation-order": id } as React.CSSProperties} // for staggered animation
+            className="scale-100 animate-fade-right cursor-pointer overflow-hidden rounded-md border border-nier-700 transition duration-100 !animate-duration-700 hover:scale-[1.02] hover:shadow active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 md:w-full"
           >
             <div className="sm:mx-0">
               <Image

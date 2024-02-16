@@ -115,4 +115,33 @@
   .nier-block-right-sm {
     @apply after:absolute after:-right-4 after:top-0 after:box-content after:h-full after:w-[0.15rem] after:border after:border-y-0 after:border-l-[0.1rem] after:border-r-[0.3rem] after:border-solid after:border-nier-400 after:content-[""];
   }
+  .animate-delay-stagger > * {
+    animation-delay: calc(
+      var(--animation-order, 0) * var(--stagger-delta, 100ms)
+    );
+  }
+  .stagger-delta-50 {
+    --stagger-delta: 50ms;
+  }
+  .stagger-delta-100 {
+    --stagger-delta: 100ms;
+  }
+  .stagger-delta-150 {
+    --stagger-delta: 150ms;
+  }
+  .stagger-delta-200 {
+    --stagger-delta: 200ms;
+  }
+  .stagger-delta-300 {
+    --stagger-delta: 300ms;
+  }
+  .stagger-delta-500 {
+    --stagger-delta: 500ms;
+  }
+  .stagger-delta-700 {
+    --stagger-delta: 700ms;
+  }
+  .stagger-delta-1000 {
+    --stagger-delta: 1000ms;
+  }
 }

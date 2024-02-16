@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const Footer = () => {
   return (
-    <footer className=" text-nier-400">
+    <footer className=" animate-fade-up text-nier-400 animate-delay-300 animate-duration-[1500ms] animate-ease-in-out">
       <div className="container mx-auto flex flex-col items-center px-5 py-8 sm:flex-row">
         <a className=" flex items-center justify-center font-medium text-nier-200 md:justify-start">
           <Logo className="h-8 w-8 fill-nier-200" />
