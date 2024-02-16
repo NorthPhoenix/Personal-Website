@@ -75,17 +75,17 @@ export default async function Post(params: PostParams) {
             </span>
           ))
         : null}
-        <h1 className="font-primary mb-2 text-2xl font-bold md:text-4xl">
+        <h1 className="font-primary text-2xl font-bold md:mb-2 md:text-4xl">
           {post.title}
         </h1>
-        <div className="hidden text-nier-400 md:mb-4 md:block">
+        <div className=" mb-2 text-xs text-nier-400 md:mb-4 md:text-base">
           Written on <DateFormatter dateTime={post.publishedAt} /> by{" "}
           {post?.author?.name ?? ""}.
         </div>
         <hr className="mb-10 mt-4 border-nier-700" />
         <div className="mx-auto max-w-4xl">
           <div
-            className="prose lg:prose-xl w-full max-w-none text-nier-200"
+            className="prose w-full max-w-none text-nier-200 lg:prose-xl"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </div>
