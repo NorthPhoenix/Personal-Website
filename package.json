@@ -9,6 +9,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@libsql/client": "^0.5.0",
+    "@lucia-auth/adapter-sqlite": "^3.0.0",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@react-three/drei": "^9.92.4",
     "@react-three/fiber": "^8.15.12",
@@ -27,8 +28,10 @@
     "framer-motion-3d": "^10.16.16",
     "highlight.js": "^11.9.0",
     "jotai": "^2.6.0",
+    "lucia": "^3.0.1",
     "lucide-react": "^0.298.0",
     "next": "^14.0.4",
+    "oslo": "^1.1.2",
     "outstatic": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
