@@ -1,8 +1,9 @@
 import { Resend } from "resend"
 import { NextResponse, type NextRequest } from "next/server"
 import { type ContactMeData } from "~/app/_components/ContactMe"
+import { env } from "~/env.mjs"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend(env.RESEND_API_KEY)
 
 export async function POST(request: NextRequest) {
   const message = (await request.json()) as ContactMeData
