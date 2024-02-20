@@ -1,7 +1,28 @@
-import { Lucia } from "lucia"
+import { type Session, type User, Lucia } from "lucia"
+import { cookies } from "next/headers"
+import { cache } from "react"
 import { LibSQLAdapter } from "@lucia-auth/adapter-sqlite"
 import { webcrypto } from "node:crypto"
 import db from "./db"
+
+declare module "lucia" {
+  interface Register {
+    Lucia: typeof lucia
+    DatabaseUserAttributes: DatabaseUserAttributes
+    DatabaseSessionAttributes: DatabaseSessionAttributes
+  }
+}
+
+interface DatabaseUserAttributes {
+  github_id: number
+  username: string
+}
+
+interface DatabaseSessionAttributes {}
+
+if (!globalThis.crypto) {
+  globalThis.crypto = webcrypto as Crypto
+}
 
 const adapter = new LibSQLAdapter(db, {
   user: "user",
@@ -19,13 +40,52 @@ export const lucia = new Lucia(adapter, {
       secure: process.env.NODE_ENV === "production",
     },
   },
+  getUserAttributes: (attributes) => {
+    return {
+      // attributes has the type of DatabaseUserAttributes
+      github_id: attributes.github_id,
+      username: attributes.username,
+    }
+  },
+  getSessionAttributes: (_) => {
+    return {
+      // attributes has the type of DatabaseSessionAttributes
+    }
+  },
 })
 
-// IMPORTANT!
-declare module "lucia" {
-  interface Register {
-    Lucia: typeof lucia
-  }
-}
+export const validateRequest = cache(
+  async (): Promise<
+    { user: User; session: Session } | { user: null; session: null }
+  > => {
+    const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null
+    if (!sessionId) {
+      return {
+        user: null,
+        session: null,
+      }
+    }
 
-globalThis.crypto = webcrypto as Crypto
+    const result = await lucia.validateSession(sessionId)
+    // next.js throws when you attempt to set cookie when rendering page
+    try {
+      if (result.session && result.session.fresh) {
+        const sessionCookie = lucia.createSessionCookie(result.session.id)
+        cookies().set(
+          sessionCookie.name,
+          sessionCookie.value,
+          sessionCookie.attributes,
+        )
+      }
+      if (!result.session) {
+        const sessionCookie = lucia.createBlankSessionCookie()
+        cookies().set(
+          sessionCookie.name,
+          sessionCookie.value,
+          sessionCookie.attributes,
+        )
+      }
+    } catch {}
+    return result
+  },
+)
