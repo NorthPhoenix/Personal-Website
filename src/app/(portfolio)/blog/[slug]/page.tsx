@@ -95,9 +95,9 @@ export default async function Post(params: PostParams) {
 }
 
 async function getData({ params }: PostParams) {
-  const db = await load()
+  const blogDB = await load()
 
-  const post = await db
+  const post = await blogDB
     .find<Post>({ collection: "blog", slug: params.slug }, [
       "title",
       "publishedAt",

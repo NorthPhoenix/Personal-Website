@@ -17,9 +17,9 @@ export default async function Index() {
 }
 
 async function getData() {
-  const db = await load()
+  const blogDB = await load()
 
-  const allPosts = await db
+  const allPosts = await blogDB
     .find({ collection: "blog" }, [
       "title",
       "publishedAt",
