@@ -1,12 +1,16 @@
 import Logo from "~/app/_components/design/Logo"
 import { twMerge } from "tailwind-merge"
 import Link from "next/link"
+import { validateRequest } from "~/server/auth"
+import SignInButton from "../SignInButton"
+import UserIcon from "./UserIcon"
 
 type HeaderProps = {
   className?: string
 }
 
-const Header: React.FC<HeaderProps> = ({ className = "" }) => {
+const Header: React.FC<HeaderProps> = async ({ className = "" }) => {
+  const { user } = await validateRequest()
   return (
     <>
       <header>
@@ -15,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
         >
           <nav className="flex h-16 w-[90%] max-w-7xl animate-fade flex-row items-center justify-between bg-transparent p-3 ease-in-out animate-delay-1000 sm:h-20 sm:p-4 md:h-24 md:p-6">
             <Link
-              href="/blog"
+              href="/"
               className="group flex flex-row items-center gap-4 object-scale-down md:h-14"
             >
               <Logo className="h-8 w-auto fill-nier-200 transition-transform group-hover:scale-105 sm:h-12 md:h-14" />
@@ -28,22 +32,9 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
                 </h2>
               </div>
             </Link>
-            <Link
-              href="/"
-              className="font-helvetica transition-transform hover:scale-105"
-            >
-              <div className="relative">
-                <span className="absolute -left-2 -top-2 text-xxs opacity-50 sm:-top-3 sm:text-xs sm:tracking-widest ">
-                  My
-                </span>
-                <span className="text-sm uppercase sm:text-xl sm:tracking-wide">
-                  Portfolio
-                </span>
-                <span className="absolute -bottom-2 -right-4 text-xxs opacity-50 sm:text-xs sm:tracking-widest ">
-                  website
-                </span>
-              </div>
-            </Link>
+            {user ?
+              <UserIcon user={user} />
+            : <SignInButton>Sign In</SignInButton>}
           </nav>
           <div className="animate-nav-line-expand flex w-[90%] flex-row items-center justify-center gap-2 overflow-hidden">
             <span className="h-[2px] w-[15px] grow-0 bg-nier-400" />

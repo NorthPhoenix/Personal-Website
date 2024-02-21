@@ -2,28 +2,26 @@
 
 import { login } from "~/server/actions"
 import { usePathname } from "next/navigation"
-import type { ComponentPropsWithoutRef } from "react"
+import type { ComponentPropsWithRef } from "react"
 import { cn } from "~/lib/utils"
+import { Button } from "./ui/button"
 
-const SignInButton: React.FC<ComponentPropsWithoutRef<"button">> = ({
-  children,
-  className,
-  ...props
-}) => {
-  const redirectURI = usePathname()
+const SignInButton: React.FC<
+  ComponentPropsWithRef<typeof Button> & { redirectURI?: string }
+> = ({ children, redirectURI, ...props }) => {
+  const localPathname = usePathname()
+  const redirectPathmname = redirectURI ?? localPathname
   return (
-    <button
+    <Button
       {...props}
-      className={cn(
-        "rounded-md bg-sky-300 px-4 py-2 font-semibold text-black transition-colors duration-300 ease-in-out hover:bg-sky-400",
-        className,
-      )}
+      size={"lg"}
+      variant={"outline"}
       onClick={async () => {
-        await login(redirectURI)
+        await login(redirectPathmname)
       }}
     >
       {children}
-    </button>
+    </Button>
   )
 }
 

@@ -74,8 +74,14 @@ export async function GET(
     const userId = generateId(15)
     // console.log("Creating user in the database...")
     await db.execute({
-      sql: "INSERT INTO user (id, github_id, username) VALUES (?, ?, ?)",
-      args: [userId, githubUser.id, githubUser.login],
+      sql: "INSERT INTO user (id, github_id, username, name, avatar_url) VALUES (?, ?, ?, ?, ?)",
+      args: [
+        userId,
+        githubUser.id,
+        githubUser.login,
+        githubUser.name,
+        githubUser.avatar_url,
+      ],
     })
 
     const session = await lucia.createSession(userId, {})
@@ -113,4 +119,6 @@ export async function GET(
 interface GitHubUser {
   id: string
   login: string
+  name: string
+  avatar_url: string
 }
