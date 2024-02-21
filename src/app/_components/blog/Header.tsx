@@ -1,8 +1,5 @@
-"use client"
-
 import Logo from "~/app/_components/design/Logo"
 import { twMerge } from "tailwind-merge"
-import { motion, type Variants } from "framer-motion"
 import Link from "next/link"
 
 type HeaderProps = {
@@ -10,44 +7,13 @@ type HeaderProps = {
 }
 
 const Header: React.FC<HeaderProps> = ({ className = "" }) => {
-  const lineAnimationVariants: Variants = {
-    hidden: {
-      width: "0%",
-    },
-    show: {
-      width: "90%",
-      transition: {
-        duration: 1.3,
-        ease: "easeInOut",
-      },
-    },
-  }
-  const navAnimationVariants: Variants = {
-    hidden: {
-      opacity: 0,
-    },
-    show: {
-      opacity: 1,
-      transition: {
-        duration: 1,
-        delay: 1,
-        ease: "easeInOut",
-      },
-    },
-  }
-
   return (
     <>
       <header>
         <div
           className={twMerge("flex w-full flex-col items-center", className)}
         >
-          <motion.nav
-            className="flex h-16 w-[90%] max-w-7xl flex-row items-center justify-between bg-transparent p-3 sm:h-20 sm:p-4 md:h-24 md:p-6"
-            initial="hidden"
-            animate="show"
-            variants={navAnimationVariants}
-          >
+          <nav className="flex h-16 w-[90%] max-w-7xl animate-fade flex-row items-center justify-between bg-transparent p-3 ease-in-out animate-delay-1000 sm:h-20 sm:p-4 md:h-24 md:p-6">
             <Link
               href="/blog"
               className="group flex flex-row items-center gap-4 object-scale-down md:h-14"
@@ -78,17 +44,12 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
                 </span>
               </div>
             </Link>
-          </motion.nav>
-          <motion.div
-            className="flex flex-row items-center justify-center gap-2 overflow-hidden"
-            initial="hidden"
-            animate="show"
-            variants={lineAnimationVariants}
-          >
+          </nav>
+          <div className="animate-nav-line-expand flex w-[90%] flex-row items-center justify-center gap-2 overflow-hidden">
             <span className="h-[2px] w-[15px] grow-0 bg-nier-400" />
             <span className="h-[2px] grow bg-nier-400" />
             <span className="h-[2px] w-[15px] grow-0 bg-nier-400" />
-          </motion.div>
+          </div>
         </div>
       </header>
     </>

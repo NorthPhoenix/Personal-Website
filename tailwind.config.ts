@@ -26,6 +26,7 @@ export default {
         wave: "wave 5s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "nav-line-expand": "nav-line-expand 1.3s ease-in-out",
       },
       keyframes: {
         wave: {
@@ -39,6 +40,10 @@ export default {
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
+        },
+        "nav-line-expand": {
+          "0%": { transform: "scaleX(0)" },
+          "100%": { transform: "scaleX(100%)" },
         },
       },
       backgroundImage: {
