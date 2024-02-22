@@ -26,7 +26,7 @@ type LayoutProps = {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-[100dvh] overscroll-none bg-neutral-900 text-nier-200">
-      <Header />
+      {/* <Header /> */}
       <main className="min-h-[80vh]">{children}</main>
       <Footer />
     </div>
