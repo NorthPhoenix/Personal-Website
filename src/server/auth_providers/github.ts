@@ -3,7 +3,7 @@ import { env } from "~/env.mjs"
 
 export function createGitHubOAuthProvider(redirect_uri?: string) {
   const redirectURL =
-    (process.env.NODE_ENV === "production" ?
+    (process.env.NODE_ENV === "production" && !!process.env.VERCEL ?
       "https://www.nikitaistomin.com"
     : "http://localhost:3000") +
     "/api/login_callback/github" +

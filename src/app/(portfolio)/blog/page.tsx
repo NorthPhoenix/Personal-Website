@@ -3,7 +3,7 @@ import type { OstDocument } from "outstatic"
 import Link from "next/link"
 import Image from "next/image"
 
-export default async function Index() {
+export default async function Page() {
   const { allPosts } = await getData()
 
   return (

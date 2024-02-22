@@ -1,23 +1,22 @@
 import Logo from "~/app/_components/design/Logo"
 import { twMerge } from "tailwind-merge"
 import Link from "next/link"
-import { validateRequest } from "~/server/auth"
-import SignInButton from "../SignInButton"
-import UserIcon from "./UserIcon"
+import { Suspense } from "react"
+import AuthIndicator from "./AuthIndicator"
+import { Skeleton } from "../ui/skeleton"
 
 type HeaderProps = {
   className?: string
 }
 
-const Header: React.FC<HeaderProps> = async ({ className = "" }) => {
-  const { user } = await validateRequest()
+const Header: React.FC<HeaderProps> = ({ className = "" }) => {
   return (
     <>
       <header>
         <div
           className={twMerge("flex w-full flex-col items-center", className)}
         >
-          <nav className="flex h-16 w-[90%] max-w-7xl animate-fade flex-row items-center justify-between bg-transparent p-3 ease-in-out animate-delay-1000 sm:h-20 sm:p-4 md:h-24 md:p-6">
+          <nav className="flex h-16 w-[90%] max-w-7xl  flex-row items-center justify-between bg-transparent p-3 ease-in-out animate-delay-1000 sm:h-20 sm:p-4 md:h-24 md:p-6">
             <Link
               href="/"
               className="group flex flex-row items-center gap-4 object-scale-down md:h-14"
@@ -32,11 +31,16 @@ const Header: React.FC<HeaderProps> = async ({ className = "" }) => {
                 </h2>
               </div>
             </Link>
-            {user ?
+            <Suspense
+              fallback={<Skeleton className="h-10 w-10 rounded-full" />}
+            >
+              <AuthIndicator />
+            </Suspense>
+            {/* {user ?
               <UserIcon user={user} />
-            : <SignInButton>Sign In</SignInButton>}
+            : <SignInButton>Sign In</SignInButton>} */}
           </nav>
-          <div className="animate-nav-line-expand flex w-[90%] flex-row items-center justify-center gap-2 overflow-hidden">
+          <div className="flex w-[90%] animate-nav-line-expand flex-row items-center justify-center gap-2 overflow-hidden">
             <span className="h-[2px] w-[15px] grow-0 bg-nier-400" />
             <span className="h-[2px] grow bg-nier-400" />
             <span className="h-[2px] w-[15px] grow-0 bg-nier-400" />
