@@ -16,14 +16,17 @@ const SignOutButton = forwardRef<
     <Button
       {...props}
       onClick={async () => {
-        logout(currentRoute)
-          .then(() =>
-            queryClient.invalidateQueries({
+        logout()
+          .then((res) => {
+            if (res.error) {
+              throw new Error(res.error)
+            }
+            return queryClient.invalidateQueries({
               queryKey: ["login"],
               exact: true,
               refetchType: "none",
-            }),
-          )
+            })
+          })
           .then(() => {
             queryClient.setQueryData(["validateAuth"], {
               user: null,

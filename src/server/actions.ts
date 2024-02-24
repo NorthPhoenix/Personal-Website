@@ -27,9 +27,7 @@ export async function login(redirect_uri?: string) {
   return redirect(url.toString())
 }
 
-export async function logout(
-  currentRoute: string,
-): Promise<LogoutActionResult> {
+export async function logout(): Promise<LogoutActionResult> {
   const { session } = await validateRequest()
   if (!session) {
     return {
@@ -45,7 +43,6 @@ export async function logout(
     sessionCookie.value,
     sessionCookie.attributes,
   )
-  revalidatePath(currentRoute)
   return {
     error: null,
   }
