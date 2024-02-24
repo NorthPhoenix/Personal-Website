@@ -3,7 +3,6 @@ import { generateState } from "arctic"
 import { createGitHubOAuthProvider } from "~/server/auth_providers/github"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
-import { revalidatePath } from "next/cache"
 import { lucia, validateRequest } from "src/server/auth"
 
 interface LogoutActionResult {

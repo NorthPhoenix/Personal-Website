@@ -1,7 +1,6 @@
 "use client"
 
 import { logout } from "~/server/actions"
-import { usePathname } from "next/navigation"
 import { forwardRef, type ComponentPropsWithoutRef } from "react"
 import { Button } from "./ui/button"
 import { useQueryClient } from "@tanstack/react-query"
@@ -10,7 +9,6 @@ const SignOutButton = forwardRef<
   typeof Button,
   ComponentPropsWithoutRef<typeof Button>
 >(({ children, ...props }, _) => {
-  const currentRoute = usePathname()
   const queryClient = useQueryClient()
   return (
     <Button
