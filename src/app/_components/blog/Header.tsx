@@ -1,9 +1,7 @@
 import Logo from "~/app/_components/design/Logo"
 import { twMerge } from "tailwind-merge"
 import Link from "next/link"
-import { Suspense } from "react"
 import AuthIndicator from "./AuthIndicator"
-import { Skeleton } from "../ui/skeleton"
 
 type HeaderProps = {
   className?: string
@@ -31,14 +29,7 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
                 </h2>
               </div>
             </Link>
-            <Suspense
-              fallback={<Skeleton className="h-10 w-10 rounded-full" />}
-            >
-              <AuthIndicator />
-            </Suspense>
-            {/* {user ?
-              <UserIcon user={user} />
-            : <SignInButton>Sign In</SignInButton>} */}
+            <AuthIndicator />
           </nav>
           <div className="flex w-[90%] animate-nav-line-expand flex-row items-center justify-center gap-2 overflow-hidden">
             <span className="h-[2px] w-[15px] grow-0 bg-nier-400" />

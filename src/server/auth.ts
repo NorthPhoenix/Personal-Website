@@ -5,6 +5,11 @@ import { LibSQLAdapter } from "@lucia-auth/adapter-sqlite"
 import { webcrypto } from "node:crypto"
 import db from "./db"
 
+export type AuthData = {
+  user: User
+  session: Session
+}
+
 declare module "lucia" {
   interface Register {
     Lucia: typeof lucia

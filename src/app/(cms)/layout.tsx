@@ -6,6 +6,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { type Metadata } from "next"
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV === "production" ?
+      "https://www.nikitaistomin.com"
+    : "http://localhost:3000",
+  ),
   title: "Nikta Istomin",
   description: "Come see what I do!",
   generator: "Next.js",

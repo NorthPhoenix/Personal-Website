@@ -50,3 +50,7 @@ export async function logout(
     error: null,
   }
 }
+
+export async function validateAuth() {
+  return await validateRequest()
+}

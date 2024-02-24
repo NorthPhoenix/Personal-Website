@@ -30,8 +30,14 @@ const exodus_striped = localFont({
 })
 
 import { type Metadata } from "next"
+import ReactQueryProvider from "../_components/ReactQueryProvider"
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV === "production" ?
+      "https://www.nikitaistomin.com"
+    : "http://localhost:3000",
+  ),
   title: "Nikta Istomin | Portfolio",
   description: "Come see what I do!",
   generator: "Next.js",
@@ -62,9 +68,11 @@ export default function RootLayout({
           process.env.NODE_ENV === "development" ? "debug-screens" : ""
         }
       >
-        <JotaiProvider>
-          <GlobalStateProvider>{children}</GlobalStateProvider>
-        </JotaiProvider>
+        <ReactQueryProvider>
+          <JotaiProvider>
+            <GlobalStateProvider>{children}</GlobalStateProvider>
+          </JotaiProvider>
+        </ReactQueryProvider>
         <Analytics />
         <SpeedInsights />
       </body>

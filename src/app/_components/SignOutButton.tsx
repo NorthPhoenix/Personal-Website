@@ -2,24 +2,42 @@
 
 import { logout } from "~/server/actions"
 import { usePathname } from "next/navigation"
-import type { ComponentPropsWithRef } from "react"
+import { forwardRef, type ComponentPropsWithoutRef } from "react"
 import { Button } from "./ui/button"
+import { useQueryClient } from "@tanstack/react-query"
 
-const SignOutButton: React.FC<ComponentPropsWithRef<typeof Button>> = ({
-  children,
-  ...props
-}) => {
+const SignOutButton = forwardRef<
+  typeof Button,
+  ComponentPropsWithoutRef<typeof Button>
+>(({ children, ...props }, _) => {
   const currentRoute = usePathname()
+  const queryClient = useQueryClient()
   return (
     <Button
       {...props}
       onClick={async () => {
-        await logout(currentRoute)
+        logout(currentRoute)
+          .then(() =>
+            queryClient.invalidateQueries({
+              queryKey: ["login"],
+              exact: true,
+              refetchType: "none",
+            }),
+          )
+          .then(() => {
+            queryClient.setQueryData(["validateAuth"], {
+              user: null,
+              session: null,
+            })
+          })
+          .catch((error) => {
+            console.error("Error logging out", error)
+          })
       }}
     >
       {children}
     </Button>
   )
-}
+})
 
 export default SignOutButton
