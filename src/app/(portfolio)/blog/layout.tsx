@@ -2,6 +2,7 @@ import React from "react"
 import { type Metadata } from "next"
 import Footer from "~/app/_components/blog//Footer"
 import Header from "~/app/_components/blog/Header"
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 
 export const metadata: Metadata = {
   title: {
@@ -25,11 +26,14 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-[100dvh] overscroll-none bg-neutral-900 text-nier-200">
-      <Header />
-      <main className="min-h-[80vh]">{children}</main>
-      <Footer />
-    </div>
+    <>
+      <div className="min-h-[100dvh] overscroll-none bg-neutral-900 text-nier-200">
+        <Header />
+        <main className="min-h-[80vh]">{children}</main>
+        <Footer />
+      </div>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </>
   )
 }
 
