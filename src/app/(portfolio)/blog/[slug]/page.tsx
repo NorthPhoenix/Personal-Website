@@ -95,7 +95,8 @@ export default async function Post(params: PostParams) {
 }
 
 async function getData({ params }: PostParams) {
-  console.log("loading outstatic blog data...")
+  console.log("Loading outstatic blog data:")
+  console.log(`\tSlug: ${params.slug}`)
   const blogDB = await load()
 
   const post = await blogDB
