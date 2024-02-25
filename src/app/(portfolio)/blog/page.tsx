@@ -17,6 +17,7 @@ export default async function Page() {
 }
 
 async function getData() {
+  console.log("loading outstatic blog data...")
   const blogDB = await load()
 
   const allPosts = await blogDB
