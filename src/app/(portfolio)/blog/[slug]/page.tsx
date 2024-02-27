@@ -56,15 +56,6 @@ export default async function Post(params: PostParams) {
   return (
     <div className="mx-auto max-w-6xl px-5">
       <article className="mb-32">
-        <div className="relative mb-2 h-52 w-full sm:mx-0 md:mb-4 md:h-96">
-          <Image
-            alt={post.title}
-            src={post?.coverImage ?? ""}
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        </div>
         {Array.isArray(post?.tags) ?
           post.tags.map(({ label }) => (
             <span
@@ -75,12 +66,25 @@ export default async function Post(params: PostParams) {
             </span>
           ))
         : null}
-        <h1 className="font-primary text-2xl font-bold md:mb-2 md:text-4xl">
+        <h1 className="w-full pb-3 text-center text-2xl font-bold sm:text-4xl md:pb-6 md:text-6xl">
           {post.title}
         </h1>
-        <div className=" mb-2 text-xs text-nier-400 md:mb-4 md:text-base">
-          Written on <DateFormatter dateTime={post.publishedAt} /> by{" "}
-          {post?.author?.name ?? ""}.
+        <div className="relative mb-2 h-52 w-full sm:mx-0 md:mb-4 md:h-96">
+          <Image
+            alt={post.title}
+            src={post?.coverImage ?? ""}
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
+        <div className="mb-2 flex w-full flex-wrap items-start justify-between gap-x-2 md:mb-4">
+          <div className="text-xs text-nier-400 md:text-base">
+            Written on <DateFormatter dateTime={post.publishedAt} />
+          </div>
+          <div className="text-xs text-nier-400 md:text-base">
+            by {post?.author?.name ?? ""}.
+          </div>
         </div>
         <hr className="mb-10 mt-4 border-nier-700" />
         <div className="mx-auto max-w-4xl">

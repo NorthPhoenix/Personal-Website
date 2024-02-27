@@ -9,7 +9,7 @@ type LayoutProps = {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <div className="mx-auto my-6 max-w-6xl pl-2">
+      <div className="mx-auto mt-2 max-w-6xl pl-2 md:mb-2 md:mt-4">
         <Link
           href="/blog"
           className=" group flex w-fit flex-row items-center gap-2 p-2"
