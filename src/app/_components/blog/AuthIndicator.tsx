@@ -3,10 +3,10 @@
 import UserIcon from "./UserIcon"
 import { useAuth } from "~/lib/hooks/useAuth"
 import { Skeleton } from "../ui/skeleton"
-import { Button } from "../ui/button"
+import SignInButton from "../SignInButton"
 
 const AuthIndicator = () => {
-  const { data, isLoading, isError, error, login, isRedirecting } = useAuth()
+  const { data, isLoading, isError, error, isRedirecting } = useAuth()
   if (isLoading || isRedirecting) {
     return <Skeleton className="h-10 w-10 rounded-full" />
   }
@@ -21,15 +21,9 @@ const AuthIndicator = () => {
     <>
       {!!data ?
         <UserIcon user={data.user} />
-      : <Button
-          size={"lg"}
-          variant={"outline"}
-          onClick={() => {
-            void login()
-          }}
-        >
+      : <SignInButton size={"lg"} variant={"outline"}>
           Sign In
-        </Button>
+        </SignInButton>
       }
     </>
   )

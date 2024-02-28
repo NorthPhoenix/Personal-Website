@@ -31,6 +31,7 @@ const exodus_striped = localFont({
 
 import { type Metadata } from "next"
 import ReactQueryProvider from "../_components/ReactQueryProvider"
+import ScreenBreakpointController from "../_components/ScreenBreakpointController"
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -70,7 +71,10 @@ export default function RootLayout({
       >
         <ReactQueryProvider>
           <JotaiProvider>
-            <GlobalStateProvider>{children}</GlobalStateProvider>
+            <GlobalStateProvider>
+              {children}
+              <ScreenBreakpointController />
+            </GlobalStateProvider>
           </JotaiProvider>
         </ReactQueryProvider>
         <Analytics />
