@@ -10,7 +10,6 @@ const ScreenBreakpointController = () => {
   // Set screen size state
   useLayoutEffect(() => {
     const handleResize = () => {
-      console.log("Resizing")
       const windowWidth = window.innerWidth
       if (windowWidth < 640) {
         setScreenSize("xs")
