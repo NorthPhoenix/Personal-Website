@@ -99,8 +99,10 @@ export async function GET(
       status: 302,
       headers: {
         Location:
-          params.redirect_uri?.reduce((prev, cur) => prev.concat(cur), "/") ??
-          "/",
+          params.redirect_uri?.reduce(
+            (prev, cur) => prev.concat(`${cur}/`),
+            "/",
+          ) ?? "/",
       },
     })
   } catch (e) {
