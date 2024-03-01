@@ -2,6 +2,8 @@ import { load } from "outstatic/server"
 import type { OstDocument } from "outstatic"
 import Link from "next/link"
 import Image from "next/image"
+import { EyeIcon } from "lucide-react"
+import BlogViewCount from "~/app/_components/blog/BlogViewCount"
 
 export default async function Page() {
   const { allPosts } = await getData()
@@ -57,7 +59,11 @@ const ContentGrid = ({ items, priority = false }: ContentGridProps) => {
             style={{ "--animation-order": id } as React.CSSProperties} // for staggered animation
             className="scale-100 animate-fade-right cursor-pointer overflow-hidden rounded-md border border-nier-700 transition duration-100 !animate-duration-700 hover:scale-[1.02] hover:shadow active:scale-[0.97] motion-safe:transform-gpu motion-reduce:hover:scale-100 md:w-full"
           >
-            <div className="sm:mx-0">
+            <div className="relative select-none sm:mx-0">
+              <BlogViewCount
+                slug={item.slug}
+                className="absolute right-0 top-0 px-3 py-2"
+              />
               <Image
                 src={item.coverImage ?? ""}
                 alt={`Cover Image for ${item.title}`}
@@ -69,16 +75,6 @@ const ContentGrid = ({ items, priority = false }: ContentGridProps) => {
               />
             </div>
             <div className="p-4">
-              {Array.isArray(item?.tags) ?
-                item.tags.map(({ label }) => (
-                  <span
-                    key={label}
-                    className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
-                  >
-                    {label}
-                  </span>
-                ))
-              : null}
               <h3 className="mb-2 text-xl font-bold leading-snug hover:underline">
                 {item.title}
               </h3>

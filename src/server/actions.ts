@@ -10,7 +10,25 @@ interface LogoutActionResult {
   error: string | null
 }
 
-export async function trackBlogView(slug: string) {
+export async function getBlogViewCount(slug: string): Promise<number> {
+  const result = await db.execute({
+    sql: "SELECT view_count FROM blog WHERE slug = ?",
+    args: [slug],
+  })
+  const value = result.rows[0]?.view_count
+
+  if (value === undefined || value === null) {
+    return 0
+  }
+
+  return (
+    typeof value === "number" ? value
+    : typeof value === "string" ? parseInt(value)
+    : Number(value)
+  )
+}
+
+export async function incrementBlogViewCount(slug: string) {
   const updateResult = await db.execute({
     sql: "UPDATE blog SET view_count = view_count + 1 WHERE slug = ?",
     args: [slug],
