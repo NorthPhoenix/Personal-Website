@@ -1,14 +1,17 @@
 import Link from "next/link"
 import React from "react"
 import { ArrowLeft } from "lucide-react"
+import BlogViewTracker from "~/app/_components/blog/BlogViewTracker"
 
 type LayoutProps = {
   children: React.ReactNode
+  params: { slug: string }
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, params }) => {
   return (
     <>
+      <BlogViewTracker slug={params.slug} />
       <div className="mx-auto mt-2 max-w-6xl pl-2 md:mb-2 md:mt-4">
         <Link
           href="/blog"

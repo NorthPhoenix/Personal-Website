@@ -4,9 +4,29 @@ import { createGitHubOAuthProvider } from "~/server/auth_providers/github"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import { lucia, validateRequest } from "src/server/auth"
+import db from "./db"
 
 interface LogoutActionResult {
   error: string | null
+}
+
+export async function trackBlogView(slug: string) {
+  const updateResult = await db.execute({
+    sql: "UPDATE blog SET view_count = view_count + 1 WHERE slug = ?",
+    args: [slug],
+  })
+  if (updateResult.rowsAffected === 0) {
+    // Blog post not found
+    // Create a new blog post with the slug and view count of 1
+    const blogCreationResult = await db.execute({
+      sql: "INSERT INTO blog (slug, view_count) VALUES (?, 1)",
+      args: [slug],
+    })
+    if (blogCreationResult.rowsAffected === 0) {
+      throw new Error("Failed to create blog post")
+    }
+  }
+  return { success: true }
 }
 
 export async function login(redirect_uri?: string) {
