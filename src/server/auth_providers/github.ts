@@ -8,7 +8,7 @@ export function createGitHubOAuthProvider(redirect_uri?: string) {
     : "http://localhost:3000") +
     "/api/login_callback/github" +
     (redirect_uri ?? "")
-  console.log("redirectURL", redirectURL)
+  // console.log("redirectURL", redirectURL)
   return new GitHub(env.AUTH_GITHUB_CLIENT_ID, env.AUTH_GITHUB_CLIENT_SECRET, {
     redirectURI: redirectURL,
   })

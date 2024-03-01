@@ -57,7 +57,7 @@ const Skills3D = ({ className }: { className: string }) => {
       />
       <Canvas
         onCreated={() => {
-          console.log("Canvas OnCreated")
+          // console.log("Canvas OnCreated")
           setSkillsLoaded(true)
         }}
         shadows={false}

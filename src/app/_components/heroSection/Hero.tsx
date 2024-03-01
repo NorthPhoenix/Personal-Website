@@ -28,7 +28,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   const [particlesLoaded, setParticlesLoaded] = useState(false)
 
   const onParticleLoad = () => {
-    console.log("onParticleLoad")
+    // console.log("onParticleLoad")
     setParticlesLoaded(true)
   }
 
@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
 
   useEffect(() => {
     if (particlesLoaded) {
-      console.log("Hero loaded")
+      // console.log("Hero loaded")
       setHeroLoaded(true)
     }
   }, [particlesLoaded])

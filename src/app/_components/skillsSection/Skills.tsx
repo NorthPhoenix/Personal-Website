@@ -17,7 +17,7 @@ export const selectedTagsAtom = atom<SkillTag[]>([])
 const Skills = () => {
   const activeSkill = useAtomValue(activeSkillAtom)
   const [selectedTags, setSelectedTags] = useAtom(selectedTagsAtom)
-  console.log("selectedTags", selectedTags)
+  // console.log("selectedTags", selectedTags)
 
   const topTitleLineVariants = {
     hidden: {
