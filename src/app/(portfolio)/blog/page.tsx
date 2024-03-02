@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { EyeIcon } from "lucide-react"
 import BlogViewCount from "~/app/_components/blog/BlogViewCount"
+import BlogLikeCount from "~/app/_components/blog/BlogLikeCount"
 
 export default async function Page() {
   const { allPosts } = await getData()
@@ -61,6 +62,10 @@ const ContentGrid = ({ items, priority = false }: ContentGridProps) => {
           >
             <div className="relative select-none sm:mx-0">
               <BlogViewCount
+                slug={item.slug}
+                className="absolute left-0 top-0 px-3 py-2"
+              />
+              <BlogLikeCount
                 slug={item.slug}
                 className="absolute right-0 top-0 px-3 py-2"
               />

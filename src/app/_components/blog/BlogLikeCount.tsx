@@ -1,22 +1,24 @@
 "use client"
 import { useQuery } from "@tanstack/react-query"
-import { EyeIcon } from "lucide-react"
-import { getBlogViewCount } from "~/server/actions"
+import { HeartIcon } from "lucide-react"
+import { getBlogLikeCount } from "~/server/actions"
 import { cn } from "~/lib/utils"
 import { Skeleton } from "../ui/skeleton"
+import { useAuth } from "~/lib/hooks/useAuth"
 
-type BlogViewCountProps = {
+type BlogLikeCountProps = {
   slug: string
 } & React.HTMLAttributes<HTMLDivElement>
 
-const BlogViewCount: React.FC<BlogViewCountProps> = ({
+const BlogLikeCount: React.FC<BlogLikeCountProps> = ({
   slug,
   className,
   ...props
 }) => {
+  const { data: authData } = useAuth()
   const { data, isPending, isError } = useQuery({
-    queryKey: ["blogViewCount", slug],
-    queryFn: () => getBlogViewCount(slug),
+    queryKey: ["blogLikeCount", slug, authData?.user.id],
+    queryFn: () => getBlogLikeCount(slug, authData?.user.id),
   })
   if (isError) {
     return null
@@ -40,10 +42,10 @@ const BlogViewCount: React.FC<BlogViewCountProps> = ({
         className,
       )}
     >
-      <EyeIcon />
-      <span>{data}</span>
+      <HeartIcon className={data.likedByUser ? "fill-current" : ""} />
+      <span>{data.likeCount}</span>
     </div>
   )
 }
 
-export default BlogViewCount
+export default BlogLikeCount

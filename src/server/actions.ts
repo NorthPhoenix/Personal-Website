@@ -5,9 +5,38 @@ import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import { lucia, validateRequest } from "src/server/auth"
 import db from "./db"
+import type { InStatement } from "@libsql/client"
 
 interface LogoutActionResult {
   error: string | null
+}
+
+export async function getBlogLikeCount(
+  slug: string,
+  useId?: string,
+): Promise<{ likeCount: number; likedByUser: boolean }> {
+  const sqlQueries: InStatement[] = [
+    {
+      sql: 'SELECT COUNT(*) AS count FROM "like" INNER JOIN blog ON "like".blog_id = blog.id WHERE slug = ?',
+      args: [slug],
+    },
+  ]
+  if (useId) {
+    sqlQueries.push({
+      sql: 'SELECT * FROM "like" WHERE blog_id = (SELECT id FROM blog WHERE slug = ?) AND user_id = ?',
+      args: [slug, useId],
+    })
+  }
+  const queryResults = await db.batch(sqlQueries, "read")
+  let likeCount = Number(queryResults[0]?.rows[0]?.count)
+  if (isNaN(likeCount)) {
+    likeCount = 0
+  }
+  const likedByUser =
+    queryResults[1]?.rows.length !== undefined &&
+    queryResults[1]?.rows.length > 0
+
+  return { likeCount, likedByUser }
 }
 
 export async function getBlogViewCount(slug: string): Promise<number> {
