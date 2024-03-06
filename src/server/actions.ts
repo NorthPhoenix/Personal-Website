@@ -11,6 +11,32 @@ interface LogoutActionResult {
   error: string | null
 }
 
+export async function likePost(
+  slug: string,
+  userId: string,
+  action: "like" | "dislike",
+): Promise<{ success: boolean }> {
+  if (action !== "like" && action !== "dislike") {
+    throw new Error("Invalid action")
+  }
+  let result
+  if (action === "like") {
+    result = await db.execute({
+      sql: "INSERT INTO like (blog_id, user_id) VALUES ((SELECT id FROM blog WHERE slug = ?), ?)",
+      args: [slug, userId],
+    })
+  } else {
+    result = await db.execute({
+      sql: "DELETE FROM like WHERE blog_id = (SELECT id FROM blog WHERE slug = ?) AND user_id = ?",
+      args: [slug, userId],
+    })
+  }
+  if (result.rowsAffected === 0) {
+    throw new Error(`Failed to ${action} post`)
+  }
+  return { success: true }
+}
+
 export async function getBlogLikeCount(
   slug: string,
   useId?: string,

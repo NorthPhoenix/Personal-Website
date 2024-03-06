@@ -55,7 +55,7 @@ export default async function Post(params: PostParams) {
   const post = await getData(params)
   return (
     <div className="mx-auto max-w-6xl px-5">
-      <article className="mb-32">
+      <article className="pb-10">
         {Array.isArray(post?.tags) ?
           post.tags.map(({ label }) => (
             <span

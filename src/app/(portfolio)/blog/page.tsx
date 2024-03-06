@@ -2,7 +2,6 @@ import { load } from "outstatic/server"
 import type { OstDocument } from "outstatic"
 import Link from "next/link"
 import Image from "next/image"
-import { EyeIcon } from "lucide-react"
 import BlogViewCount from "~/app/_components/blog/BlogViewCount"
 import BlogLikeCount from "~/app/_components/blog/BlogLikeCount"
 
