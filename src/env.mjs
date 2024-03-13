@@ -16,6 +16,9 @@ export const env = createEnv({
     DB_AUTH_TOKEN: z.string().min(1),
     AUTH_GITHUB_CLIENT_SECRET: z.string().min(1),
     AUTH_GITHUB_CLIENT_ID: z.string().min(1),
+    AWS_PALWORLD_EC2_ACCESS_KEY: z.string().min(1),
+    AWS_PALWORLD_EC2_SECRET: z.string().min(1),
+    AWS_EC2_INSTANCE_ID: z.string().min(1),
   },
   /*
    * Environment variables available on the client (and server).
@@ -40,5 +43,8 @@ export const env = createEnv({
     DB_AUTH_TOKEN: process.env.DB_AUTH_TOKEN,
     AUTH_GITHUB_CLIENT_SECRET: process.env.AUTH_GITHUB_CLIENT_SECRET,
     AUTH_GITHUB_CLIENT_ID: process.env.AUTH_GITHUB_CLIENT_ID,
+    AWS_PALWORLD_EC2_ACCESS_KEY: process.env.AWS_PALWORLD_EC2_ACCESS_KEY,
+    AWS_PALWORLD_EC2_SECRET: process.env.AWS_PALWORLD_EC2_SECRET,
+    AWS_EC2_INSTANCE_ID: process.env.AWS_EC2_INSTANCE_ID,
   },
 });

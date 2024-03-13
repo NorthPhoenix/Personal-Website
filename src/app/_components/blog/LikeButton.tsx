@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { type ButtonProps, Button } from "../ui/button"
 import { HeartIcon } from "lucide-react"
 import { cn } from "~/lib/utils"

@@ -6,6 +6,13 @@ import { redirect } from "next/navigation"
 import { lucia, validateRequest } from "src/server/auth"
 import db from "./db"
 import type { InStatement } from "@libsql/client"
+import {
+  DescribeInstanceStatusCommand,
+  StartInstancesCommand,
+  StopInstancesCommand,
+} from "@aws-sdk/client-ec2"
+import { env } from "~/env.mjs"
+import { revalidatePath } from "next/cache"
 
 interface LogoutActionResult {
   error: string | null
@@ -103,7 +110,6 @@ export async function incrementBlogViewCount(slug: string) {
 }
 
 export async function login(redirect_uri?: string) {
-  // console.log("redirect_uri", redirect_uri)
   const github = createGitHubOAuthProvider(redirect_uri)
   const state = generateState()
   const url = await github.createAuthorizationURL(state)
@@ -142,4 +148,45 @@ export async function logout(): Promise<LogoutActionResult> {
 
 export async function validateAuth() {
   return await validateRequest()
+}
+
+export async function startEC2Instance() {
+  const { ec2Client } = await import("./aws")
+  const input = {
+    InstanceIds: [env.AWS_EC2_INSTANCE_ID],
+    // DryRun: process.env.NODE_ENV === "development",
+  }
+  const command = new StartInstancesCommand(input)
+  const response = await ec2Client.send(command)
+  revalidatePath("/palworld")
+  return response
+}
+
+export async function stopEC2Instance() {
+  const { ec2Client } = await import("./aws")
+  const input = {
+    InstanceIds: [env.AWS_EC2_INSTANCE_ID],
+    // DryRun: process.env.NODE_ENV === "development",
+  }
+  const command = new StopInstancesCommand(input)
+  const response = await ec2Client.send(command)
+  revalidatePath("/palworld")
+  return response
+}
+
+export async function getEC2InstanceStatus(instance_id: string) {
+  const { ec2Client } = await import("./aws")
+  const input = {
+    InstanceIds: [instance_id],
+    IncludeAllInstances: true,
+    // DryRun: process.env.NODE_ENV === "development",
+  }
+  const response = await ec2Client.send(
+    new DescribeInstanceStatusCommand(input),
+  )
+  return response
+}
+
+export async function revalidateEC2InstanceStatus() {
+  revalidatePath("/palworld")
 }

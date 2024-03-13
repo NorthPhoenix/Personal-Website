@@ -11,7 +11,7 @@ export default memo(function BlogViewTracker({ slug }: { slug: string }) {
     if (!blogViewsLS) {
       // console.log("No blog views found in local storage, tracking blog view.")
       incrementBlogViewCount(slug)
-        .then((res) => {
+        .then((_) => {
           // console.log("Tracked blog view response: ", res)
           localStorage.setItem("blog_views", JSON.stringify([slug]))
         })
@@ -23,7 +23,7 @@ export default memo(function BlogViewTracker({ slug }: { slug: string }) {
     if (!blogViews.includes(slug)) {
       // console.log("Blog view not tracked, tracking blog view.")
       incrementBlogViewCount(slug)
-        .then((res) => {
+        .then((_) => {
           // console.log("Tracked blog view response: ", res)
           blogViews.push(slug)
           localStorage.setItem("blog_views", JSON.stringify(blogViews))

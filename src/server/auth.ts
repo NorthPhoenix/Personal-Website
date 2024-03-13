@@ -23,6 +23,8 @@ interface DatabaseUserAttributes {
   username: string
   name: string
   avatar_url: string
+  admin: boolean
+  ec2_authorized: boolean
 }
 
 interface DatabaseSessionAttributes {}
@@ -54,6 +56,8 @@ export const lucia = new Lucia(adapter, {
       username: attributes.username,
       name: attributes.name,
       avatar_url: attributes.avatar_url,
+      admin: attributes.admin,
+      ec2_authorized: attributes.ec2_authorized,
     }
   },
   getSessionAttributes: (_) => {
