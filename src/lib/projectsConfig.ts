@@ -21,9 +21,7 @@ const projects: Project[] = [
     startDate: new Date("2023-09-15"),
     completeDate: new Date("2023-12-15"),
     thumbnail: "framed-live.png",
-    links: {
-      deployedProject: "https://framed.live/",
-    },
+    links: {},
     skills: [
       "React",
       "Next.js",
