@@ -14,6 +14,11 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/blog',
+        destination: 'https://blog.nikitaistomin.com',
+        permanent: true,
+      }
     ]
   },
   webpack: (config) => {
