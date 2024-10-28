@@ -7,7 +7,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@aws-sdk/client-ec2": "^3.529.1",
     "@headlessui/react": "^1.7.17",
     "@libsql/client": "^0.5.0",
     "@lucia-auth/adapter-sqlite": "^3.0.0",
