@@ -1,31 +1,25 @@
 /* eslint-disable */
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   reactStrictMode: true,
-  transpilePackages: ['three'],
+  transpilePackages: ["three"],
   // experimental: {
   //   swcPlugins: [['@swc-jotai/react-refresh', {}]],
   // },
   redirects: async () => {
     return [
       {
-        source: '/home',
-        destination: '/',
+        source: "/home",
+        destination: "/",
         permanent: true,
       },
-      {
-        source: '/blog',
-        destination: 'https://blog.nikitaistomin.com',
-        permanent: true,
-      }
     ]
   },
   webpack: (config) => {
-    config.externals.push("@node-rs/argon2", "@node-rs/bcrypt");
-    return config;
+    config.externals.push("@node-rs/argon2", "@node-rs/bcrypt")
+    return config
   },
 }
-
 
 export default nextConfig
