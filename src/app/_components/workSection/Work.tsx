@@ -6,7 +6,6 @@ import WorkEntryAnimatedContainer from "./WorkEntryAnimatedContainer"
 import WorkList from "./WorkList"
 import Image from "next/image"
 import { capitalize } from "~/lib/utils"
-import WorkDropdown from "./WorkDropdown"
 import dayjs from "dayjs"
 
 type TPosition = {
@@ -14,7 +13,7 @@ type TPosition = {
   position: string
   company: string
   startDate: Date
-  endDate: Date | null
+  endDate?: Date
   description: TPositionDescription
   location: string
   companyLogo?: string
@@ -22,7 +21,6 @@ type TPosition = {
 
 type TPositionDescription = {
   bulletPoints: string[]
-  extra?: string
 }
 
 const positions: TPosition[] = [
@@ -37,11 +35,26 @@ const positions: TPosition[] = [
         "Developed and deployed Next.js web application as a solo engineer.",
         "Continuously communicated with my contractor to deliver quality work and specify deadlines.",
         "Worked flexibly to accommodate shifting design and functionality requirements.",
-        "Developed with technologies like: Next.js, Typescript, TRPC, Prisma, Clerk, Planetscale, VimeoAPI, and more.",
+        "Developed with technologies like: Next.js, Typescript, tRPC, Prisma, Clerk, Planetscale, VimeoAPI, and more.",
       ],
     },
     location: "Remote",
     companyLogo: "/images/workLogos/Framed.png",
+  },
+  {
+    id: "ftlfinance",
+    position: "Junior Software Engineer",
+    company: "FTL Finance",
+    startDate: new Date("2024-04-10"),
+    location: "Remote",
+    companyLogo: "/images/workLogos/FTL.png",
+    description: {
+      bulletPoints: [
+        "Developed and maintained multiple React.js web applications used to connect financial companies with their clients.",
+        "Worked on a small and fast-paced team to deliver high-quality work.",
+        "Worked with cutting-edge technologies included in T3 stack like: Next.js, tRPC, TailwindCSS, Prisma ORM, and more.",
+      ],
+    },
   },
 ]
 
@@ -54,9 +67,11 @@ const Work = async () => {
       >
         <SectionTitle title="Work" />
         <WorkList className="flex w-full max-w-7xl flex-col items-stretch gap-8 p-4 pl-6 md:p-6 md:pl-10 md:pt-10 ">
-          {positions.map((position) => {
-            return <WorkEntry key={position.id} position={position} />
-          })}
+          {positions
+            .sort((a, b) => dayjs(b.startDate).diff(dayjs(a.startDate)))
+            .map((position) => {
+              return <WorkEntry key={position.id} position={position} />
+            })}
         </WorkList>
       </section>
     </InViewDetector>
@@ -103,14 +118,6 @@ const WorkEntry: React.FC<{ position: TPosition }> = ({ position }) => {
               </li>
             ))}
           </ul>
-          {!!position.description.extra && (
-            <WorkDropdown
-              btnContainerClassName="flex w-full items-center justify-center px-2 py-1"
-              btnClassName="px-12"
-            >
-              <p className="text-lg">{position.description.extra}</p>
-            </WorkDropdown>
-          )}
         </div>
       </div>
     </WorkEntryAnimatedContainer>
